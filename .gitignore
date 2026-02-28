@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+site/
+tmp/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude Code
+.claude/memory/
+.claude/teams/
+.claude/tasks/
+
+# Cursor / Windsurf
+.cursor/
+.windsurf/
+
+.gemini
+.codex
+tmp

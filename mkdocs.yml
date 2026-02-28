@@ -1,0 +1,65 @@
+site_name: Getting Started TDD
+site_description: テスト駆動開発（TDD）の実践を通じて、よいソフトウェアの作り方を学ぶ
+site_author: k2works
+repo_url: https://github.com/k2works/getting-started-tdd
+repo_name: getting-started-tdd
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - docs/mkdocs/assets/css/extra.css
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: plantuml
+          class: plantuml
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.emoji
+  - admonition
+  - toc:
+      permalink: true
+  - plantuml_markdown:
+      server: !!python/object/apply:os.getenv
+        - PLANTUML_SERVER_URL
+        - http://www.plantuml.com/plantuml
+      format: svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js
+  - docs/assets/js/extra.js
+
+extra:
+  plantuml_url: http://www.plantuml.com/plantuml
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/k2works/getting-started-tdd
+      name: GitHub Repository/getting-started-tdd
+
+plugins:
+  - search
+
+exclude_docs: |
+  wiki
+
+nav:
+  - Home: index.md
