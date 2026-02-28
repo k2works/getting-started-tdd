@@ -67,6 +67,14 @@ nav:
       - 概要: article/index.md
       - 執筆計画: article/outline.md
       - 執筆ワークフロー: article/workflow.md
+      - Java:
+          - 概要: article/java/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/java/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/java/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/java/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/java/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/java/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/java/06-task-runner-and-ci-cd.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
