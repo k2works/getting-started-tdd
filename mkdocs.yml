@@ -63,3 +63,35 @@ exclude_docs: |
 
 nav:
   - Home: index.md
+  - テスト駆動開発から始めるXX入門:
+      - 概要: article/index.md
+      - 執筆計画: article/outline.md
+      - 執筆ワークフロー: article/workflow.md
+  - 開発:
+      - リリース計画: development/release_plan.md
+      - イテレーション 1: development/iteration_plan-1.md
+  - リファレンス:
+      - 開発ガイド: reference/開発ガイド.md
+      - コーディングとテストガイド: reference/コーディングとテストガイド.md
+      - エクストリームプログラミング: reference/エクストリームプログラミング.md
+      - よいソフトウェアとは: reference/よいソフトウェアとは.md
+      - アーキテクチャ設計ガイド: reference/アーキテクチャ設計ガイド.md
+      - データモデル設計ガイド: reference/データモデル設計ガイド.md
+      - ドメインモデル設計ガイド: reference/ドメインモデル設計ガイド.md
+      - UI 設計ガイド: reference/UI設計ガイド.md
+      - テスト戦略ガイド: reference/テスト戦略ガイド.md
+      - 非機能要件定義ガイド: reference/非機能要件定義ガイド.md
+      - 運用要件定義ガイド: reference/運用要件定義ガイド.md
+      - 要件定義ガイド: reference/要件定義ガイド.md
+      - ユースケース作成ガイド: reference/ユースケース作成ガイド.md
+      - ビジネスアーキテクチャ分析ガイド: reference/ビジネスアーキテクチャ分析ガイド.md
+      - インフラ設計ガイド: reference/インフラ設計ガイド.md
+      - リリース・イテレーション計画ガイド: reference/リリース・イテレーション計画ガイド.md
+      - リリースガイド: reference/リリースガイド.md
+      - 環境変数管理ガイド: reference/環境変数管理ガイド.md
+      - 言語別開発ガイド: reference/言語別開発ガイド.md
+      - Java 環境構築ガイド: reference/Javaアプリケーション環境構築ガイド.md
+      - TypeScript 環境構築ガイド: reference/TypeScriptアプリケーション環境構築ガイド.md
+      - Codex CLI MCP サーバー設定手順: reference/CodexCLIMCPサーバー設定手順.md
+      - Codex CLI MCP 開発フロー: reference/CodexCLIMCPアプリケーション開発フロー.md
+      - Vim 操作マニュアル: reference/Vim操作マニュアル.md
