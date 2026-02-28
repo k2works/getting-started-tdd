@@ -99,12 +99,12 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 3.1 | 章 7: カプセル化とポリモーフィズム - 執筆 | 3h | - | [ ] |
-| 3.2 | 章 7: State/Strategy パターンの適用 - 実装 | 2h | - | [ ] |
-| 3.3 | 章 8: デザインパターンの適用 - 執筆 | 3h | - | [ ] |
-| 3.4 | 章 8: Command/Factory Method 等 - 実装 | 2h | - | [ ] |
-| 3.5 | 章 9: SOLID 原則とモジュール設計 - 執筆 | 3h | - | [ ] |
-| 3.6 | 章 9: モジュール分割とドメインモデル - 実装 | 2h | - | [ ] |
+| 3.1 | 章 7: カプセル化とポリモーフィズム - 執筆 | 3h | AI | [x] |
+| 3.2 | 章 7: State/Strategy パターンの適用 - 実装 | 2h | Codex | [x] |
+| 3.3 | 章 8: デザインパターンの適用 - 執筆 | 3h | AI | [x] |
+| 3.4 | 章 8: Command/Factory Method 等 - 実装 | 2h | Codex | [x] |
+| 3.5 | 章 9: SOLID 原則とモジュール設計 - 執筆 | 3h | AI | [x] |
+| 3.6 | 章 9: モジュール分割とドメインモデル - 実装 | 2h | Codex | [x] |
 
 **小計**: 15h（理想時間）
 
@@ -128,12 +128,12 @@
 | 環境構築 | 1 | 2.5h | [x] |
 | 第 1 部: TDD の基本サイクル | 3 | 9h | [x] |
 | 第 2 部: 開発環境と自動化 | 3 | 9h | [x] |
-| 第 3 部: オブジェクト指向設計 | 3 | 15h | [ ] |
+| 第 3 部: オブジェクト指向設計 | 3 | 15h | [x] |
 | 仕上げ（第 4 部 + 同期確認） | - | 8h | [ ] |
 | **合計** | **10** | **43.5h** | |
 
 **1 SP あたり**: 約 4.4h
-**進捗率**: 70% (7/10 SP)
+**進捗率**: 100% (10/10 SP)
 
 ---
 
@@ -200,12 +200,32 @@ apps/java/
 ├── src/
 │   ├── main/java/
 │   │   └── tdd/
+│   │       ├── App.java
 │   │       └── fizzbuzz/
-│   │           └── FizzBuzz.java
+│   │           ├── application/
+│   │           │   ├── FizzBuzzCommand.java
+│   │           │   ├── FizzBuzzListCommand.java
+│   │           │   └── FizzBuzzValueCommand.java
+│   │           └── domain/
+│   │               ├── model/
+│   │               │   ├── FizzBuzzList.java
+│   │               │   └── FizzBuzzValue.java
+│   │               └── type/
+│   │                   ├── FizzBuzzType.java
+│   │                   ├── FizzBuzzType01.java
+│   │                   ├── FizzBuzzType02.java
+│   │                   └── FizzBuzzType03.java
 │   └── test/java/
 │       └── tdd/
 │           └── fizzbuzz/
-│               └── FizzBuzzTest.java
+│               ├── application/
+│               │   └── FizzBuzzCommandTest.java
+│               └── domain/
+│                   ├── model/
+│                   │   ├── FizzBuzzListTest.java
+│                   │   └── FizzBuzzValueTest.java
+│                   └── type/
+│                       └── FizzBuzzTypeTest.java
 └── gradle/
 ```
 
