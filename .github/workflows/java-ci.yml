@@ -5,10 +5,16 @@ on:
     branches: [main, develop]
     paths:
       - 'apps/java/**'
+      - 'ops/nix/environments/java/**'
+      - 'flake.nix'
+      - 'flake.lock'
   pull_request:
     branches: [main]
     paths:
       - 'apps/java/**'
+      - 'ops/nix/environments/java/**'
+      - 'flake.nix'
+      - 'flake.lock'
 
 permissions:
   contents: read
@@ -16,41 +22,32 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/java
 
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Cache Gradle packages
+      - name: Cache Nix store
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('apps/java/**/*.gradle*', 'apps/java/gradle/wrapper/gradle-wrapper.properties') }}
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-java-${{ hashFiles('flake.lock', 'ops/nix/environments/java/shell.nix') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+            ${{ runner.os }}-nix-java-
 
       - name: Run tests
-        run: ./gradlew test
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew test"
 
       - name: Run quality checks
-        run: ./gradlew qualityCheck
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew qualityCheck"
 
       - name: Generate coverage report
-        run: ./gradlew jacocoTestReport
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew jacocoTestReport"
 
       - name: Upload test results
         if: always()

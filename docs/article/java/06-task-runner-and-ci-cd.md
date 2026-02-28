@@ -141,10 +141,16 @@ on:
     branches: [main, develop]
     paths:
       - 'apps/java/**'
+      - 'ops/nix/environments/java/**'
+      - 'flake.nix'
+      - 'flake.lock'
   pull_request:
     branches: [main]
     paths:
       - 'apps/java/**'
+      - 'ops/nix/environments/java/**'
+      - 'flake.nix'
+      - 'flake.lock'
 
 permissions:
   contents: read
@@ -152,41 +158,32 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/java
 
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Cache Gradle packages
+      - name: Cache Nix store
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('apps/java/**/*.gradle*', 'apps/java/gradle/wrapper/gradle-wrapper.properties') }}
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-java-${{ hashFiles('flake.lock', 'ops/nix/environments/java/shell.nix') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+            ${{ runner.os }}-nix-java-
 
       - name: Run tests
-        run: ./gradlew test
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew test"
 
       - name: Run quality checks
-        run: ./gradlew qualityCheck
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew qualityCheck"
 
       - name: Generate coverage report
-        run: ./gradlew jacocoTestReport
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew jacocoTestReport"
 
       - name: Upload test results
         if: always()
@@ -208,24 +205,27 @@ jobs:
 | 設定項目 | 内容 |
 |---------|------|
 | トリガー | `main`/`develop` ブランチへの push、`main` への PR |
-| パスフィルター | `apps/java/**` の変更時のみ実行 |
-| JDK | Temurin 21（ローカルの Nix 環境と同じバージョン） |
-| キャッシュ | Gradle パッケージをキャッシュして高速化 |
+| パスフィルター | `apps/java/**` および Nix 環境定義の変更時に実行 |
+| Nix | `cachix/install-nix-action` でインストール |
+| 環境 | `nix develop .#java` でローカルと同一の JDK・Gradle を使用 |
 | テスト | `./gradlew test` でユニットテスト実行 |
 | 品質チェック | `./gradlew qualityCheck` で静的解析実行 |
 | カバレッジ | `./gradlew jacocoTestReport` でレポート生成 |
 | アーティファクト | テスト結果とカバレッジレポートを保存 |
+
+Nix を使う最大のメリットは、**ローカル開発環境と CI 環境が完全に同一になる** ことです。JDK や Gradle のバージョン差異による「ローカルでは通るが CI では失敗する」問題を根本的に防げます。
 
 ### CI パイプラインの流れ
 
 ```
 git push
   → GitHub Actions トリガー
-    → JDK 21 セットアップ
-      → テスト実行
-        → 品質チェック（Checkstyle + PMD + SpotBugs）
-          → カバレッジレポート生成
-            → アーティファクトアップロード
+    → Nix インストール
+      → nix develop .#java（JDK 21 + Gradle 環境）
+        → テスト実行
+          → 品質チェック（Checkstyle + PMD + SpotBugs）
+            → カバレッジレポート生成
+              → アーティファクトアップロード
 ```
 
 これにより、ローカルでのテストを忘れた場合でも、プッシュ時に自動で品質チェックが実行されます。プルリクエストでは全チェックが通らないとマージできないようにすることも可能です。
