@@ -39,3 +39,4 @@ npm-debug.log*
 .gemini
 .codex
 tmp
+apps/java/.gradle
