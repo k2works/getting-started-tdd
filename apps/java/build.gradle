@@ -1,0 +1,76 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'checkstyle'
+    id 'pmd'
+    id 'com.github.spotbugs' version '6.0.7'
+}
+
+group = 'tdd.fizzbuzz'
+version = '0.1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
+
+jacoco {
+    toolVersion = '0.8.11'
+}
+
+pmd {
+    ruleSetFiles = files('config/pmd/ruleset.xml')
+    ruleSets = []
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+// カスタムタスク：TDD用の継続的テスト実行
+task tdd(type: Test) {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+    outputs.upToDateWhen { false }
+}
+
+// カスタムタスク：品質チェック全実行
+task qualityCheck {
+    dependsOn 'checkstyleMain', 'checkstyleTest', 'pmdMain', 'pmdTest', 'spotbugsMain', 'spotbugsTest'
+    description 'Run all quality checks'
+    group 'verification'
+}
+
+// カスタムタスク：すべてのチェックとテストを実行
+task fullCheck {
+    dependsOn 'test', 'qualityCheck', 'jacocoTestReport'
+    description 'Run all tests and quality checks'
+    group 'verification'
+}
