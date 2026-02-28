@@ -119,7 +119,118 @@ if (number % FIZZ_NUMBER == 0 && number % BUZZ_NUMBER == 0) {
 
 IntelliJ IDEA や VS Code 等の IDE の **Auto Test** 機能を使うことで、ファイル変更時に自動でテストが実行されるように設定することも可能です。
 
-## 6.4 ソフトウェア開発の三種の神器
+## 6.4 GitHub Actions による CI/CD
+
+### CI/CD とは
+
+ローカルでの自動化に加えて、リポジトリにプッシュするたびに自動でテストと品質チェックを実行する仕組みが **CI/CD（継続的インテグレーション / 継続的デリバリー）** です。
+
+> 継続的インテグレーション（CI）は、チームメンバーが頻繁にコードを統合するプラクティスです。各統合はビルドとテストの自動化によって検証されます。
+
+GitHub が提供する **GitHub Actions** を使って CI パイプラインを構築しましょう。
+
+### ワークフローファイルの作成
+
+`.github/workflows/java-ci.yml` を作成します。
+
+```yaml
+name: Java CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'apps/java/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/java/**'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/java
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('apps/java/**/*.gradle*', 'apps/java/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Run quality checks
+        run: ./gradlew qualityCheck
+
+      - name: Generate coverage report
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: apps/java/build/reports/tests/
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: apps/java/build/jacocoHtml/
+```
+
+### ワークフローの解説
+
+| 設定項目 | 内容 |
+|---------|------|
+| トリガー | `main`/`develop` ブランチへの push、`main` への PR |
+| パスフィルター | `apps/java/**` の変更時のみ実行 |
+| JDK | Temurin 21（ローカルの Nix 環境と同じバージョン） |
+| キャッシュ | Gradle パッケージをキャッシュして高速化 |
+| テスト | `./gradlew test` でユニットテスト実行 |
+| 品質チェック | `./gradlew qualityCheck` で静的解析実行 |
+| カバレッジ | `./gradlew jacocoTestReport` でレポート生成 |
+| アーティファクト | テスト結果とカバレッジレポートを保存 |
+
+### CI パイプラインの流れ
+
+```
+git push
+  → GitHub Actions トリガー
+    → JDK 21 セットアップ
+      → テスト実行
+        → 品質チェック（Checkstyle + PMD + SpotBugs）
+          → カバレッジレポート生成
+            → アーティファクトアップロード
+```
+
+これにより、ローカルでのテストを忘れた場合でも、プッシュ時に自動で品質チェックが実行されます。プルリクエストでは全チェックが通らないとマージできないようにすることも可能です。
+
+## 6.5 ソフトウェア開発の三種の神器と CI/CD
 
 ここまでで、ソフトウェア開発の三種の神器がすべて揃いました。
 
@@ -127,7 +238,7 @@ IntelliJ IDEA や VS Code 等の IDE の **Auto Test** 機能を使うことで�
 |------|--------|------|
 | バージョン管理 | Git + Conventional Commits | 変更履歴の管理 |
 | テスティング | JUnit 5 + JaCoCo | テスト駆動開発 + カバレッジ |
-| 自動化 | Gradle タスクランナー | 品質チェックの自動実行 |
+| 自動化 | Gradle タスクランナー + GitHub Actions | 品質チェックの自動実行 + CI/CD |
 
 これらのツールにより、**動作するきれいなコード** を継続的に書き続けることができる環境が整いました。
 
@@ -137,7 +248,7 @@ IntelliJ IDEA や VS Code 等の IDE の **Auto Test** 機能を使うことで�
 
 次の開発からはこのコマンドを最初に実行すれば、コードを書くことに集中できるようになります。
 
-## 6.5 まとめ
+## 6.6 まとめ
 
 第 2 部（第 4〜6 章）を通じて、ソフトウェア開発の三種の神器を整備しました。
 
@@ -145,7 +256,7 @@ IntelliJ IDEA や VS Code 等の IDE の **Auto Test** 機能を使うことで�
 |----|--------|-----------|
 | 4 | バージョン管理 | Conventional Commits、コミットタイプ |
 | 5 | パッケージ管理と静的解析 | Checkstyle、PMD、SpotBugs、JaCoCo |
-| 6 | タスクランナーと CI/CD | カスタムタスク、Continuous Build |
+| 6 | タスクランナーと CI/CD | カスタムタスク、Continuous Build、GitHub Actions |
 
 ### TDD 開発ワークフロー
 
