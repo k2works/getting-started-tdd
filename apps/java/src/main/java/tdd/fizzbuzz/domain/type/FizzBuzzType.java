@@ -1,5 +1,7 @@
 package tdd.fizzbuzz.domain.type;
 
+import java.util.Optional;
+
 import tdd.fizzbuzz.domain.model.FizzBuzzValue;
 
 public abstract class FizzBuzzType {
@@ -23,6 +25,23 @@ public abstract class FizzBuzzType {
             default:
                 throw new IllegalArgumentException("該当するタイプは存在しません");
         }
+    }
+
+    public static Optional<FizzBuzzType> createOptional(int type) {
+        switch (type) {
+            case TYPE_CODE_01:
+                return Optional.of(new FizzBuzzType01());
+            case TYPE_CODE_02:
+                return Optional.of(new FizzBuzzType02());
+            case TYPE_CODE_03:
+                return Optional.of(new FizzBuzzType03());
+            default:
+                return Optional.empty();
+        }
+    }
+
+    public static FizzBuzzType create(FizzBuzzTypeName name) {
+        return create(name.getCode());
     }
 
     protected boolean isFizz(int number) {

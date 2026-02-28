@@ -1,7 +1,8 @@
 package tdd.fizzbuzz.application;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import tdd.fizzbuzz.domain.model.FizzBuzzList;
 import tdd.fizzbuzz.domain.model.FizzBuzzValue;
@@ -21,10 +22,9 @@ public class FizzBuzzListCommand implements FizzBuzzCommand {
 
     @Override
     public FizzBuzzList executeList(int count) {
-        List<FizzBuzzValue> values = new ArrayList<>();
-        for (int i = 1; i <= count; i++) {
-            values.add(type.generate(i));
-        }
+        List<FizzBuzzValue> values = IntStream.rangeClosed(1, count)
+            .mapToObj(type::generate)
+            .collect(Collectors.toList());
         return new FizzBuzzList(values);
     }
 }

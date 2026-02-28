@@ -2,6 +2,7 @@ package tdd.fizzbuzz.domain.type;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzzTypeTest {
@@ -63,6 +64,38 @@ class FizzBuzzTypeTest {
         @Test
         void 例外をスローする() {
             assertThrows(IllegalArgumentException.class, () -> FizzBuzzType.create(4));
+        }
+    }
+
+    @Nested
+    class OptionalFactoryCase {
+        @Test
+        void createOptional1はOptionalofを返す() {
+            Optional<FizzBuzzType> type = FizzBuzzType.createOptional(1);
+            assertTrue(type.isPresent());
+            assertTrue(type.get() instanceof FizzBuzzType01);
+        }
+
+        @Test
+        void createOptional4はOptionalemptyを返す() {
+            assertEquals(Optional.empty(), FizzBuzzType.createOptional(4));
+        }
+    }
+
+    @Nested
+    class EnumFactoryCase {
+        @Test
+        void STANDARDでcreateできる() {
+            FizzBuzzType type = FizzBuzzType.create(FizzBuzzTypeName.STANDARD);
+            assertNotNull(type);
+            assertTrue(type instanceof FizzBuzzType01);
+        }
+
+        @Test
+        void enumのコード値が正しい() {
+            assertEquals(1, FizzBuzzTypeName.STANDARD.getCode());
+            assertEquals(2, FizzBuzzTypeName.NUMBER_ONLY.getCode());
+            assertEquals(3, FizzBuzzTypeName.FIZZBUZZ_ONLY.getCode());
         }
     }
 }

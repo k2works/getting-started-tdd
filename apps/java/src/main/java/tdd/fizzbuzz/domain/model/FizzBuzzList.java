@@ -2,7 +2,11 @@ package tdd.fizzbuzz.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class FizzBuzzList {
     private final List<FizzBuzzValue> values;
@@ -27,6 +31,33 @@ public class FizzBuzzList {
         List<FizzBuzzValue> combined = new ArrayList<>(values);
         combined.addAll(newValues);
         return new FizzBuzzList(combined);
+    }
+
+    public FizzBuzzList filter(Predicate<FizzBuzzValue> predicate) {
+        List<FizzBuzzValue> filtered = values.stream()
+            .filter(predicate)
+            .collect(Collectors.toList());
+        return new FizzBuzzList(filtered);
+    }
+
+    public List<String> toStringValues() {
+        return values.stream()
+            .map(FizzBuzzValue::getValue)
+            .collect(Collectors.toList());
+    }
+
+    public Map<String, Long> countByValue() {
+        return values.stream()
+            .collect(Collectors.groupingBy(
+                FizzBuzzValue::getValue,
+                Collectors.counting()
+            ));
+    }
+
+    public Optional<FizzBuzzValue> findFirst(Predicate<FizzBuzzValue> predicate) {
+        return values.stream()
+            .filter(predicate)
+            .findFirst();
     }
 
     @Override
