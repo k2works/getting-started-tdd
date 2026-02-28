@@ -106,4 +106,46 @@ class FizzBuzzListTest {
 
         assertTrue(list.findFirst(value -> "Fizz".equals(value.getValue())).isEmpty());
     }
+
+    @Test
+    void 文字列表現を返す() {
+        FizzBuzzList list = new FizzBuzzList(Arrays.asList(
+            new FizzBuzzValue(1, "1"),
+            new FizzBuzzValue(3, "Fizz")
+        ));
+        assertEquals("[1:1, 3:Fizz]", list.toString());
+    }
+
+    @Test
+    void 同じ内容のリストは等しい() {
+        FizzBuzzList list1 = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        FizzBuzzList list2 = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        assertEquals(list1, list2);
+        assertEquals(list1.hashCode(), list2.hashCode());
+    }
+
+    @Test
+    void 同一インスタンスは等しい() {
+        FizzBuzzList list = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        assertEquals(list, list);
+    }
+
+    @Test
+    void nullとは等しくない() {
+        FizzBuzzList list = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        assertNotEquals(null, list);
+    }
+
+    @Test
+    void 異なる型とは等しくない() {
+        FizzBuzzList list = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        assertNotEquals("not a list", list);
+    }
+
+    @Test
+    void 内容が異なるリストは等しくない() {
+        FizzBuzzList list1 = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(1, "1")));
+        FizzBuzzList list2 = new FizzBuzzList(Arrays.asList(new FizzBuzzValue(2, "2")));
+        assertNotEquals(list1, list2);
+    }
 }
