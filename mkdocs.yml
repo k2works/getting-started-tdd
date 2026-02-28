@@ -63,7 +63,7 @@ exclude_docs: |
 
 nav:
   - Home: index.md
-  - テスト駆動開発から始めるXX入門:
+  - 記事:
       - 概要: article/index.md
       - 執筆計画: article/outline.md
       - 執筆ワークフロー: article/workflow.md
