@@ -68,8 +68,17 @@ nav:
       - 執筆計画: article/outline.md
       - 執筆ワークフロー: article/workflow.md
   - 開発:
+      - 概要: development/index.md
       - リリース計画: development/release_plan.md
       - イテレーション 1: development/iteration_plan-1.md
+  - 分析:
+      - 概要: analysis/index.md
+  - 設計:
+      - 概要: design/index.md
+  - ADR:
+      - 概要: adr/index.md
+  - 運用:
+      - 概要: operation/index.md
   - リファレンス:
       - 開発ガイド: reference/開発ガイド.md
       - コーディングとテストガイド: reference/コーディングとテストガイド.md
