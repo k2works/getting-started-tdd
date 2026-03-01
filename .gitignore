@@ -40,3 +40,18 @@ npm-debug.log*
 .codex
 tmp
 apps/java/.gradle
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.coverage
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.venv/
+uv.lock
+
+# IntelliJ module files
+*.iml
