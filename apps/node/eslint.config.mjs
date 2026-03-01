@@ -19,6 +19,7 @@ export default [
       ...tseslint.configs.recommended.rules,
       "no-console": "off",
       "@typescript-eslint/no-unused-vars": "warn",
+      complexity: ["error", { max: 7 }],
     },
   },
   eslintConfigPrettier,

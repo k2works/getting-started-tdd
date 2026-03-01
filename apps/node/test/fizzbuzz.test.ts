@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, test } from "vitest";
 import { FizzBuzz } from "../src/fizzbuzz";
 
 describe("FizzBuzz", () => {
