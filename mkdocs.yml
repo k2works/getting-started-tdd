@@ -81,6 +81,11 @@ nav:
           - 第 10 章 高階関数と関数合成: article/java/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/java/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと型安全性: article/java/12-error-handling-and-type-safety.md
+      - Python:
+          - 概要: article/python/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/python/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/python/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/python/03-obvious-implementation-and-refactoring.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
