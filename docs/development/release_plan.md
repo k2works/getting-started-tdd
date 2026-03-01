@@ -266,9 +266,11 @@ gantt
 
 **主なタスク**:
 
-- [ ] apps/node/ プロジェクト初期化
-- [ ] JavaScript と TypeScript の両方の記事執筆
-- [ ] 第 1〜4 部の執筆と実装
+- [ ] apps/node/ に npm プロジェクト初期化（Jest + ESLint + Prettier + TypeScript）
+- [ ] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
+- [ ] 第 2 部（章 4-6）: 開発環境と自動化の執筆と実装
+- [ ] 第 3 部（章 7-9）: OOP 設計の執筆と実装
+- [ ] 第 4 部（章 10-12）: 関数型プログラミング（Arrow Functions、Generics、Union Types）
 
 **目標 SP**: 13
 
@@ -360,9 +362,9 @@ xychart-beta
 
 ## 次のステップ
 
-1. IT3（Node/JS/TS）のイテレーション計画を作成
-2. apps/node/ プロジェクトを初期化
-3. Node 第 1 章の執筆・実装を開始
+1. apps/node/ プロジェクトを初期化（npm + Jest + ESLint + Prettier + TypeScript）
+2. Node 第 1 章の執筆・実装を開始
+3. IT3 完了後にベロシティトレンド分析（3 イテレーション実績）
 
 ---
 

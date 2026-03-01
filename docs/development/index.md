@@ -15,3 +15,7 @@
 - [イテレーション 2 計画](./iteration_plan-2.md) - Python の執筆・実装計画
 - [ふりかえり 2](./retrospective-2.md) - IT2 の KPT 分析
 - [完了報告書 2](./iteration_report-2.md) - IT2 の実績と評価
+
+## イテレーション 3（Node/JS/TS）
+
+- [イテレーション 3 計画](./iteration_plan-3.md) - Node（JS/TS）の執筆・実装計画
