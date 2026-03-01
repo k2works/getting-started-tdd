@@ -15,6 +15,8 @@
 - [ふりかえり 1](./development/retrospective-1.md) - IT1 の KPT 分析
 - [完了報告書 1](./development/iteration_report-1.md) - IT1 の実績と評価
 - [イテレーション 2 計画](./development/iteration_plan-2.md) - Python の執筆・実装計画
+- [ふりかえり 2](./development/retrospective-2.md) - IT2 の KPT 分析
+- [完了報告書 2](./development/iteration_report-2.md) - IT2 の実績と評価
 
 ## リファレンス
 
