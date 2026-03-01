@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 
 from lib.domain.model.fizz_buzz_value import FizzBuzzValue
+
+if TYPE_CHECKING:
+    from lib.domain.type.fizz_buzz_type_name import FizzBuzzTypeName
 
 
 class FizzBuzzType(ABC):
@@ -36,3 +40,17 @@ class FizzBuzzType(ABC):
             3: FizzBuzzType03,
         }
         return types.get(type_, FizzBuzzTypeNotDefined)()
+
+    @staticmethod
+    def create_from_name(name: FizzBuzzTypeName) -> FizzBuzzType:
+        from lib.domain.type.fizz_buzz_type_01 import FizzBuzzType01
+        from lib.domain.type.fizz_buzz_type_02 import FizzBuzzType02
+        from lib.domain.type.fizz_buzz_type_03 import FizzBuzzType03
+        from lib.domain.type.fizz_buzz_type_name import FizzBuzzTypeName
+
+        mapping: dict[FizzBuzzTypeName, type[FizzBuzzType]] = {
+            FizzBuzzTypeName.STANDARD: FizzBuzzType01,
+            FizzBuzzTypeName.NUMBER_ONLY: FizzBuzzType02,
+            FizzBuzzTypeName.FIZZ_BUZZ_ONLY: FizzBuzzType03,
+        }
+        return mapping[name]()

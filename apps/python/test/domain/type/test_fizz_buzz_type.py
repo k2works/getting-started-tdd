@@ -1,5 +1,8 @@
+import pytest
+
 from lib.domain.model.fizz_buzz_value import FizzBuzzValue
 from lib.domain.type.fizz_buzz_type import FizzBuzzType
+from lib.domain.type.fizz_buzz_type_name import FizzBuzzTypeName
 
 
 class TestFizzBuzzType:
@@ -45,3 +48,22 @@ class TestFizzBuzzType:
 
         def test_空文字を返す(self) -> None:
             assert self.type.generate(1) == FizzBuzzValue(1, "")
+
+    # 章 12: 列挙型によるファクトリ
+    class TestCreateFromName:
+        def test_STANDARDでタイプ1を生成する(self) -> None:
+            type_ = FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+            assert type_.generate(15) == FizzBuzzValue(15, "FizzBuzz")
+
+        def test_NUMBER_ONLYでタイプ2を生成する(self) -> None:
+            type_ = FizzBuzzType.create_from_name(FizzBuzzTypeName.NUMBER_ONLY)
+            assert type_.generate(3) == FizzBuzzValue(3, "3")
+
+        def test_FIZZ_BUZZ_ONLYでタイプ3を生成する(self) -> None:
+            type_ = FizzBuzzType.create_from_name(FizzBuzzTypeName.FIZZ_BUZZ_ONLY)
+            assert type_.generate(15) == FizzBuzzValue(15, "FizzBuzz")
+            assert type_.generate(3) == FizzBuzzValue(3, "3")
+
+        def test_不正な値はValueErrorになる(self) -> None:
+            with pytest.raises(ValueError):
+                FizzBuzzTypeName("invalid")

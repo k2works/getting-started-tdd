@@ -21,6 +21,7 @@ exclude_lines = [
     "if __name__ == .__main__.",
     "^\\s*pass$",
     "@abstractmethod",
+    "if TYPE_CHECKING:",
 ]
 
 [tool.mypy]

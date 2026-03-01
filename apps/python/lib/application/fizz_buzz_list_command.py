@@ -12,7 +12,5 @@ class FizzBuzzListCommand(FizzBuzzCommand):
         self._type = type_
 
     def execute(self) -> FizzBuzzList:
-        result = FizzBuzzList()
-        for i in range(1, self.MAX_NUMBER + 1):
-            result.add(self._type.generate(i))
-        return result
+        values = [self._type.generate(i) for i in range(1, self.MAX_NUMBER + 1)]
+        return FizzBuzzList(values)
