@@ -1,0 +1,1 @@
+export { FizzBuzz } from "./fizzbuzz";
