@@ -10,6 +10,7 @@ select = [
     "B",
     "C4",
     "UP",
+    "C90",
 ]
 ignore = []
 
