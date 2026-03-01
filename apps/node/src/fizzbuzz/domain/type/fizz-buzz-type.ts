@@ -2,6 +2,7 @@ import { FizzBuzzValue } from "../model/fizz-buzz-value.js";
 import { FizzBuzzType01 } from "./fizz-buzz-type-01.js";
 import { FizzBuzzType02 } from "./fizz-buzz-type-02.js";
 import { FizzBuzzType03 } from "./fizz-buzz-type-03.js";
+import { FizzBuzzTypeName } from "./fizz-buzz-type-name.js";
 
 export abstract class FizzBuzzType {
   static readonly TYPE_01 = 1;
@@ -21,5 +22,15 @@ export abstract class FizzBuzzType {
       default:
         throw new Error(`未定義のタイプ: ${type}`);
     }
+  }
+
+  static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
+    const typeMap: Record<FizzBuzzTypeName, () => FizzBuzzType> = {
+      [FizzBuzzTypeName.TYPE_01]: () => new FizzBuzzType01(),
+      [FizzBuzzTypeName.TYPE_02]: () => new FizzBuzzType02(),
+      [FizzBuzzTypeName.TYPE_03]: () => new FizzBuzzType03(),
+    };
+
+    return typeMap[typeName]?.();
   }
 }

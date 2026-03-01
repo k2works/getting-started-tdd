@@ -12,11 +12,9 @@ export class FizzBuzzListCommand implements FizzBuzzCommand {
   }
 
   execute(): FizzBuzzList {
-    let list = new FizzBuzzList();
-    for (let i = 1; i <= this._count; i++) {
-      list = list.add(this._type.generate(i));
-    }
-
-    return list;
+    return Array.from({ length: this._count }, (_, i) => i + 1).reduce(
+      (list, num) => list.add(this._type.generate(num)),
+      new FizzBuzzList(),
+    );
   }
 }

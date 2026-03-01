@@ -4,6 +4,7 @@ import {
   FizzBuzzType01,
   FizzBuzzType02,
   FizzBuzzType03,
+  FizzBuzzTypeName,
 } from "../../../../src/fizzbuzz/index";
 
 describe("FizzBuzzType", () => {
@@ -91,6 +92,23 @@ describe("FizzBuzzType", () => {
       expect(type.generate(3).toString()).toBe("Fizz");
       expect(type.generate(5).toString()).toBe("Buzz");
       expect(type.generate(15).toString()).toBe("FizzBuzz");
+    });
+  });
+
+  describe("型安全なファクトリメソッド", () => {
+    test("FizzBuzzTypeName.TYPE_01 を指定すると FizzBuzzType01 が返る", () => {
+      const type = FizzBuzzType.tryCreate(FizzBuzzTypeName.TYPE_01);
+      expect(type).toBeInstanceOf(FizzBuzzType01);
+    });
+
+    test("FizzBuzzTypeName.TYPE_02 を指定すると FizzBuzzType02 が返る", () => {
+      const type = FizzBuzzType.tryCreate(FizzBuzzTypeName.TYPE_02);
+      expect(type).toBeInstanceOf(FizzBuzzType02);
+    });
+
+    test("FizzBuzzTypeName.TYPE_03 を指定すると FizzBuzzType03 が返る", () => {
+      const type = FizzBuzzType.tryCreate(FizzBuzzTypeName.TYPE_03);
+      expect(type).toBeInstanceOf(FizzBuzzType03);
     });
   });
 });
