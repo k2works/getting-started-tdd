@@ -19,3 +19,5 @@
 ## イテレーション 3（Node/JS/TS）
 
 - [イテレーション 3 計画](./iteration_plan-3.md) - Node（JS/TS）の執筆・実装計画
+- [ふりかえり 3](./retrospective-3.md) - IT3 KPT 分析
+- [完了報告書 3](./iteration_report-3.md) - IT3 実績・品質メトリクス
