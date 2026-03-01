@@ -35,10 +35,9 @@ test("1から100までのFizzBuzzを生成する", () => {
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
-  FizzBuzz
-    ✕ 1から100までのFizzBuzzを生成する
-      TypeError: fizzbuzz.generateList is not a function
+ FAIL  test/fizzbuzz.test.ts > FizzBuzz
+  ✕ 1から100までのFizzBuzzを生成する
+    TypeError: fizzbuzz.generateList is not a function
 ```
 
 ### Green: 明白な実装
@@ -70,14 +69,10 @@ export class FizzBuzz {
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✓ 2を渡したら文字列2を返す
-    ✓ 3を渡したらFizzを返す
-    ✓ 5を渡したらBuzzを返す
-    ✓ 15を渡したらFizzBuzzを返す
-    ✓ 1から100までのFizzBuzzを生成する
+ ✓ test/fizzbuzz.test.ts (6 tests) 5ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
 ```
 
 Java では `for` ループと `ArrayList` を使いましたが、TypeScript では `Array.from` を使うことで、より宣言的にリストを生成できます。

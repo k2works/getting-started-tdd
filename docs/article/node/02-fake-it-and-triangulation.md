@@ -30,17 +30,14 @@ test("2を渡したら文字列2を返す", () => {
 テストを実行します。
 
 ```bash
-$ npx jest
+$ npx vitest run
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✕ 2を渡したら文字列2を返す
-      expect(received).toBe(expected)
-      Expected: "2"
-      Received: "1"
+ FAIL  test/fizzbuzz.test.ts > FizzBuzz
+  ✕ 2を渡したら文字列2を返す
+    Expected: "2"
+    Received: "1"
 ```
 
 テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。
@@ -61,14 +58,14 @@ export class FizzBuzz {
 テストを実行します。
 
 ```bash
-$ npx jest
+$ npx vitest run
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✓ 2を渡したら文字列2を返す
+ ✓ test/fizzbuzz.test.ts (2 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
 ```
 
 テストが通りました！2 つ目のテストによって `generate` メソッドの一般化を実現できました。このようなアプローチを **三角測量** と言います。
@@ -103,11 +100,10 @@ test("3を渡したらFizzを返す", () => {
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
-  FizzBuzz
-    ✕ 3を渡したらFizzを返す
-      Expected: "Fizz"
-      Received: "3"
+ FAIL  test/fizzbuzz.test.ts > FizzBuzz
+  ✕ 3を渡したらFizzを返す
+    Expected: "Fizz"
+    Received: "3"
 ```
 
 ### Green: 明白な実装
@@ -133,11 +129,10 @@ export class FizzBuzz {
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✓ 2を渡したら文字列2を返す
-    ✓ 3を渡したらFizzを返す
+ ✓ test/fizzbuzz.test.ts (3 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
 ```
 
 **TODO リスト**:
@@ -160,11 +155,10 @@ test("5を渡したらBuzzを返す", () => {
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
-  FizzBuzz
-    ✕ 5を渡したらBuzzを返す
-      Expected: "Buzz"
-      Received: "5"
+ FAIL  test/fizzbuzz.test.ts > FizzBuzz
+  ✕ 5を渡したらBuzzを返す
+    Expected: "Buzz"
+    Received: "5"
 ```
 
 ### Green
@@ -185,12 +179,10 @@ export class FizzBuzz {
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✓ 2を渡したら文字列2を返す
-    ✓ 3を渡したらFizzを返す
-    ✓ 5を渡したらBuzzを返す
+ ✓ test/fizzbuzz.test.ts (4 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
 ```
 
 **TODO リスト**:
@@ -213,11 +205,10 @@ test("15を渡したらFizzBuzzを返す", () => {
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
-  FizzBuzz
-    ✕ 15を渡したらFizzBuzzを返す
-      Expected: "FizzBuzz"
-      Received: "Fizz"
+ FAIL  test/fizzbuzz.test.ts > FizzBuzz
+  ✕ 15を渡したらFizzBuzzを返す
+    Expected: "FizzBuzz"
+    Received: "Fizz"
 ```
 
 現在の実装では 3 の倍数の条件が先に評価されるため、15 を渡すと "Fizz" が返ってきています。
@@ -245,13 +236,10 @@ export class FizzBuzz {
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す
-    ✓ 2を渡したら文字列2を返す
-    ✓ 3を渡したらFizzを返す
-    ✓ 5を渡したらBuzzを返す
-    ✓ 15を渡したらFizzBuzzを返す
+ ✓ test/fizzbuzz.test.ts (5 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
 ```
 
 **TODO リスト**:

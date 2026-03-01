@@ -90,12 +90,12 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 2.1 | 章 4: バージョン管理と Conventional Commits - 執筆 | 2h | AI | [ ] |
-| 2.2 | 章 4: Git 設定と Conventional Commits の適用 - 実装 | 1h | - | [ ] |
-| 2.3 | 章 5: パッケージ管理と静的解析 - 執筆 | 2h | AI | [ ] |
-| 2.4 | 章 5: ESLint/Prettier/tsc の導入 - 実装 | 1h | Codex | [ ] |
-| 2.5 | 章 6: タスクランナーと CI/CD - 執筆 | 2h | AI | [ ] |
-| 2.6 | 章 6: npm scripts と CI 設定 - 実装 | 1h | Codex | [ ] |
+| 2.1 | 章 4: バージョン管理と Conventional Commits - 執筆 | 2h | AI | [x] |
+| 2.2 | 章 4: Git 設定と Conventional Commits の適用 - 実装 | 1h | - | [x] |
+| 2.3 | 章 5: パッケージ管理と静的解析 - 執筆 | 2h | AI | [x] |
+| 2.4 | 章 5: ESLint/Prettier/Vitest の導入 - 実装 | 1h | Codex | [x] |
+| 2.5 | 章 6: タスクランナーと CI/CD - 執筆 | 2h | AI | [x] |
+| 2.6 | 章 6: Gulp + GitHub Actions CI 設定 - 実装 | 1h | AI | [x] |
 
 **小計**: 9h（理想時間）
 

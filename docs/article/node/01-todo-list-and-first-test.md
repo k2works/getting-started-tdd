@@ -50,11 +50,11 @@
 >
 > — テスト駆動開発
 
-今回 TypeScript のテスティングフレームワークには [Jest](https://jestjs.io/) を利用します。TypeScript のコンパイルには [ts-jest](https://kulshekhar.github.io/ts-jest/) を使い、テスト実行時に自動的に TypeScript をトランスパイルします。
+今回 TypeScript のテスティングフレームワークには [Vitest](https://vitest.dev/) を利用します。Vitest は Vite をベースにした高速なテストフレームワークで、TypeScript を追加設定なしでサポートします。
 
 ### 開発環境のセットアップ
 
-npm プロジェクトに Jest と TypeScript を追加して、テスト環境をセットアップします。
+npm プロジェクトに Vitest と TypeScript を追加して、テスト環境をセットアップします。
 
 ```json
 // package.json
@@ -63,19 +63,20 @@ npm プロジェクトに Jest と TypeScript を追加して、テスト環境�
   "version": "0.1.0",
   "description": "FizzBuzz TDD project for Node (JS/TS)",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "typescript": "^5.7",
-    "@types/jest": "^29.5",
-    "jest": "^29.7",
-    "ts-jest": "^29.2"
+    "vitest": "^3.2"
   }
 }
 ```
+
+`"type": "module"` を指定することで、ES Modules を使用します。
 
 TypeScript の設定ファイルを作成します。
 
@@ -84,7 +85,8 @@ TypeScript の設定ファイルを作成します。
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
     "lib": ["ES2022"],
     "strict": true,
     "esModuleInterop": true,
@@ -94,17 +96,6 @@ TypeScript の設定ファイルを作成します。
   "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
-```
-
-Jest の設定ファイルを作成します。
-
-```javascript
-// jest.config.js
-module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "node",
-  roots: ["<rootDir>/test"],
-};
 ```
 
 依存パッケージをインストールします。
@@ -119,6 +110,8 @@ $ npm install
 
 ```typescript
 // test/hello.test.ts
+import { describe, test, expect } from "vitest";
+
 describe("Hello", () => {
   test("greeting", () => {
     const greeting = (): string => "hello world";
@@ -127,19 +120,19 @@ describe("Hello", () => {
 });
 ```
 
+Vitest では `describe`、`test`、`expect` を `vitest` から明示的にインポートします。
+
 テストを実行します。
 
 ```bash
-$ npx jest
+$ npx vitest run
 ```
 
 ```
-PASS test/hello.test.ts
-  Hello
-    ✓ greeting (1 ms)
+ ✓ test/hello.test.ts (1 test) 1ms
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
 ```
 
 テストが成功すれば、開発環境のセットアップは完了です。
@@ -156,10 +149,11 @@ TODO リストの最初の項目「1 を渡したら文字列 "1" を返す」�
 >
 > — テスト駆動開発
 
-テストコードを日本語で記述します。Jest では `test` 関数の第 1 引数にテスト名を自由に書けるため、日本語のテスト名を使うことでドキュメントとしての可読性が上がります。
+テストコードを日本語で記述します。Vitest では `test` 関数の第 1 引数にテスト名を自由に書けるため、日本語のテスト名を使うことでドキュメントとしての可読性が上がります。
 
 ```typescript
 // test/fizzbuzz.test.ts
+import { describe, test, expect, beforeEach } from "vitest";
 import { FizzBuzz } from "../src/fizzbuzz";
 
 describe("FizzBuzz", () => {
@@ -180,14 +174,14 @@ describe("FizzBuzz", () => {
 テストを実行します。
 
 ```bash
-$ npx jest
+$ npx vitest run
 ```
 
 ```
-FAIL test/fizzbuzz.test.ts
+ FAIL  test/fizzbuzz.test.ts
   FizzBuzz
     ✕ 1を渡したら文字列1を返す
-      Cannot find module '../src/fizzbuzz' from 'test/fizzbuzz.test.ts'
+      Error: Failed to resolve import "../src/fizzbuzz"
 ```
 
 `FizzBuzz` クラスが定義されていないというエラーが出ました。まだ作っていないのですから当然です。
@@ -216,16 +210,14 @@ export class FizzBuzz {
 テストを実行します。
 
 ```bash
-$ npx jest
+$ npx vitest run
 ```
 
 ```
-PASS test/fizzbuzz.test.ts
-  FizzBuzz
-    ✓ 1を渡したら文字列1を返す (2 ms)
+ ✓ test/fizzbuzz.test.ts (1 test) 2ms
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
 ```
 
 テストが通りました！「え？こんなベタ書きのプログラムでいいの？」と思われるかもしれませんが、この細かいステップに今しばらくお付き合いください。

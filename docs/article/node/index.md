@@ -13,12 +13,13 @@ TypeScript は JavaScript に静的型付けを加えた言語で、大規模ア
 
 | ツール | 用途 |
 |--------|------|
-| [Jest](https://jestjs.io/) | テスティングフレームワーク |
+| [Vitest](https://vitest.dev/) | テスティングフレームワーク |
 | [npm](https://www.npmjs.com/) | パッケージマネージャ |
 | [ESLint](https://eslint.org/) | リンター |
 | [Prettier](https://prettier.io/) | フォーマッター |
 | [TypeScript](https://www.typescriptlang.org/) | 静的型チェック（tsc） |
-| [ts-jest](https://kulshekhar.github.io/ts-jest/) | Jest の TypeScript サポート |
+| [Gulp](https://gulpjs.com/) | タスクランナー |
+| [@vitest/coverage-v8](https://vitest.dev/guide/coverage.html) | コードカバレッジ |
 
 ## 章構成
 
