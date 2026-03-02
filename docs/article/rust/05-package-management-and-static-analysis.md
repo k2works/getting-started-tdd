@@ -107,7 +107,78 @@ fn generate(number: i32) -> String {
 }
 ```
 
-## 5.5 コードカバレッジ
+## 5.5 Clippy によるコード複雑度チェック
+
+### 認知的複雑度（Cognitive Complexity）
+
+Clippy には `cognitive_complexity` lint が内蔵されており、関数の複雑度を計測できます。
+
+> 認知的複雑度とは、コードがどれだけ理解しにくいかを数値化した指標です。循環的複雑度（Cyclomatic Complexity）と異なり、ネストの深さやフロー制御の読みにくさも考慮します。
+
+| 複雑度の範囲 | 意味 |
+|-------------|------|
+| 1〜7 | 低複雑度: 管理しやすく、問題なし |
+| 8〜15 | 中程度の複雑度: リファクタリングを検討 |
+| 16〜25 | 高複雑度: リファクタリングが強く推奨される |
+| 26 以上 | 非常に高い複雑度: 関数を分割する必要がある |
+
+### clippy.toml による閾値設定
+
+プロジェクトルートに `clippy.toml` を作成し、閾値を設定します。
+
+```toml
+cognitive-complexity-threshold = 7
+```
+
+他言語の複雑度チェック（PHP の PHPMD `reportLevel: 7`、Python の Ruff `max-complexity = 7`、TypeScript の ESLint `complexity: ["error", { max: 7 }]`）と同じ基準値 **7** を設定します。
+
+### lib.rs での有効化
+
+`lib.rs` にアトリビュートを追加して、プロジェクト全体で複雑度チェックを有効化します。
+
+```rust
+#![warn(clippy::cognitive_complexity)]
+
+pub mod application;
+pub mod domain;
+pub mod fizz_buzz;
+```
+
+### 実行してみる
+
+```bash
+# 複雑度チェック（警告をエラーとして扱う）
+$ cargo clippy -- -D clippy::cognitive_complexity
+```
+
+現在の FizzBuzz 実装では、各メソッドが短く単純なため、閾値 7 を超える関数はありません。
+
+### Makefile への追加
+
+```makefile
+complexity:
+	cargo clippy -- -D clippy::cognitive_complexity
+
+check: fmt-check lint complexity test
+```
+
+`make complexity` で複雑度チェックを単独実行、`make check` で全品質チェックをまとめて実行できます。
+
+### 他言語との比較
+
+| 言語 | 複雑度チェックツール | 設定 |
+|------|---------------------|------|
+| Rust | Clippy（cognitive_complexity） | `clippy.toml: cognitive-complexity-threshold = 7` |
+| PHP | PHPMD | `reportLevel: 7` |
+| Java | PMD | `CyclomaticComplexity` |
+| Python | Ruff（McCabe） | `max-complexity = 7` |
+| TypeScript | ESLint | `complexity: ["error", { max: 7 }]` |
+| Ruby | RuboCop | `Metrics/CyclomaticComplexity` |
+| Go | golangci-lint（gocyclo） | デフォルト設定 |
+
+Rust の Clippy は PHP の PHPMD や Go の golangci-lint と異なり、**標準ツールチェーンに内蔵**されているため、追加インストールが不要です。
+
+## 5.6 コードカバレッジ
 
 ### cargo-tarpaulin
 
@@ -124,7 +195,7 @@ $ cargo tarpaulin --out stdout
 !!! note "カバレッジの代替手段"
     cargo-tarpaulin は Linux 環境向けです。macOS では `cargo llvm-cov` が利用できます。Nix 環境ではインストールが必要な場合があるため、テスト網羅率で代替することも可能です。
 
-## 5.6 まとめ
+## 5.7 まとめ
 
 この章では以下を導入しました。
 
@@ -132,6 +203,7 @@ $ cargo tarpaulin --out stdout
 |--------|------|-------------------|
 | Cargo | パッケージ管理・ビルド | npm, Bundler, Go Modules, Gradle |
 | Clippy | 静的解析（リンター） | ESLint, RuboCop, golangci-lint, Ruff |
+| Clippy（cognitive_complexity） | コード複雑度チェック | PHPMD, PMD, Ruff McCabe, ESLint complexity |
 | rustfmt | コードフォーマット | Prettier, gofmt, RuboCop --auto-correct |
 | cargo-tarpaulin | カバレッジ計測 | c8, SimpleCov, go test -cover |
 
