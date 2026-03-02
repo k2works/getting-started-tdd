@@ -43,3 +43,20 @@ func TestFizzBuzzValue_String_文字列表現を返す(t *testing.T) {
 		t.Fatalf("String() = %q, want %q", v.String(), "Fizz")
 	}
 }
+
+func TestTryNewFizzBuzzValue_正の値で生成できる(t *testing.T) {
+	v, err := TryNewFizzBuzzValue(1, "1")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if v.Number() != 1 {
+		t.Fatalf("Number() = %d, want 1", v.Number())
+	}
+}
+
+func TestTryNewFizzBuzzValue_負の値でエラーを返す(t *testing.T) {
+	_, err := TryNewFizzBuzzValue(-1, "-1")
+	if err == nil {
+		t.Fatal("expected error for negative number")
+	}
+}

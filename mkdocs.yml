@@ -134,6 +134,9 @@ nav:
           - 第 7 章 カプセル化とポリモーフィズム: article/go/07-encapsulation-and-polymorphism.md
           - 第 8 章 デザインパターンの適用: article/go/08-design-patterns.md
           - 第 9 章 SOLID 原則とモジュール設計: article/go/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/go/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/go/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/go/12-error-handling-and-type-safety.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md

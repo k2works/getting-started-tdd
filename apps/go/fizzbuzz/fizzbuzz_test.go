@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+
+	"github.com/k2works/getting-started-tdd/apps/go/domain/functional"
 )
 
 // TODO リスト（章 1-3）
@@ -317,5 +319,309 @@ func TestFizzBuzzListCommand_Execute_リストを生成する(t *testing.T) {
 	}
 	if list.Count() != 100 {
 		t.Fatalf("Count() = %d, want %d", list.Count(), 100)
+	}
+}
+
+func TestPredicate_Fizzを判定する(t *testing.T) {
+	isFizz := func(v FizzBuzzValue) bool { return v.Value() == "Fizz" }
+
+	v := NewFizzBuzzValue(3, "Fizz")
+	if !isFizz(v) {
+		t.Fatal("isFizz should return true for Fizz")
+	}
+}
+
+func TestFizzBuzzList_Filter_Fizzだけを抽出する(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	isFizz := func(v FizzBuzzValue) bool { return v.Value() == "Fizz" }
+	filtered := list.Filter(isFizz)
+
+	for _, v := range filtered.Value() {
+		if v.Value() != "Fizz" {
+			t.Fatalf("expected Fizz, got %q", v.Value())
+		}
+	}
+}
+
+func TestMakeValuePredicate_指定した値と一致する述語を返す(t *testing.T) {
+	isFizz := MakeValuePredicate("Fizz")
+	isBuzz := MakeValuePredicate("Buzz")
+	v := NewFizzBuzzValue(3, "Fizz")
+	if !isFizz(v) {
+		t.Fatal("isFizz should return true")
+	}
+	if isBuzz(v) {
+		t.Fatal("isBuzz should return false for Fizz")
+	}
+}
+
+func TestFizzBuzzList_Map_値を変換する(t *testing.T) {
+	list := NewFizzBuzzList([]FizzBuzzValue{
+		NewFizzBuzzValue(1, "1"),
+		NewFizzBuzzValue(3, "Fizz"),
+	})
+	got := list.Map(func(v FizzBuzzValue) string {
+		return strings.ToUpper(v.Value())
+	})
+
+	if got[0] != "1" || got[1] != "FIZZ" {
+		t.Fatalf("Map result = %v", got)
+	}
+}
+
+func TestCompose_2つの関数を合成する(t *testing.T) {
+	double := func(n int) int { return n * 2 }
+	addOne := func(n int) int { return n + 1 }
+	if got := Compose(double, addOne)(5); got != 11 {
+		t.Fatalf("Compose(double, addOne)(5) = %d, want 11", got)
+	}
+}
+
+func TestFizzBuzzList_FilterとMapを組み合わせる(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	result := list.Filter(MakeValuePredicate("Fizz")).Map(func(v FizzBuzzValue) string {
+		return v.Value()
+	})
+	for _, s := range result {
+		if s != "Fizz" {
+			t.Fatalf("expected Fizz, got %q", s)
+		}
+	}
+}
+
+func TestFizzBuzzList_Filterは元のリストを変更しない(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	original := cmd.Execute().(*FizzBuzzList)
+	originalCount := original.Count()
+
+	_ = original.Filter(MakeValuePredicate("Fizz"))
+
+	if original.Count() != originalCount {
+		t.Fatal("original list should not be modified")
+	}
+}
+
+func TestFizzBuzzList_GroupByValue_値でグルーピングする(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	grouped := list.GroupByValue()
+
+	if _, ok := grouped["Fizz"]; !ok {
+		t.Fatal("grouped should contain 'Fizz' key")
+	}
+	if _, ok := grouped["Buzz"]; !ok {
+		t.Fatal("grouped should contain 'Buzz' key")
+	}
+	if _, ok := grouped["FizzBuzz"]; !ok {
+		t.Fatal("grouped should contain 'FizzBuzz' key")
+	}
+}
+
+func TestFizzBuzzList_CountByValue_値ごとの出現回数を数える(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	counts := list.CountByValue()
+	if counts["FizzBuzz"] != 1 {
+		t.Fatalf("FizzBuzz count = %d, want 1", counts["FizzBuzz"])
+	}
+}
+
+func TestFizzBuzzList_Take_先頭N件を取得する(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	taken := list.Take(5)
+	if taken.Count() != 5 {
+		t.Fatalf("Take(5).Count() = %d, want 5", taken.Count())
+	}
+}
+
+func TestFizzBuzzList_Join_要素を文字列で結合する(t *testing.T) {
+	values := []FizzBuzzValue{
+		NewFizzBuzzValue(1, "1"),
+		NewFizzBuzzValue(2, "2"),
+		NewFizzBuzzValue(3, "Fizz"),
+	}
+	list := NewFizzBuzzList(values)
+
+	got := list.Join(", ")
+	if got != "1, 2, Fizz" {
+		t.Fatalf("Join(', ') = %q, want %q", got, "1, 2, Fizz")
+	}
+}
+
+func TestFizzBuzzList_メソッドチェーンでパイプラインを構築する(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 100)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	result := list.Filter(MakeValuePredicate("Fizz")).Take(3).Join(", ")
+	if result != "Fizz, Fizz, Fizz" {
+		t.Fatalf("pipeline result = %q, want %q", result, "Fizz, Fizz, Fizz")
+	}
+}
+
+func TestFizzBuzzList_Reduce_数値の合計を計算する(t *testing.T) {
+	values := []FizzBuzzValue{
+		NewFizzBuzzValue(1, "1"),
+		NewFizzBuzzValue(2, "2"),
+		NewFizzBuzzValue(3, "Fizz"),
+	}
+	list := NewFizzBuzzList(values)
+
+	sum := list.Reduce(0, func(acc int, v FizzBuzzValue) int {
+		return acc + v.Number()
+	})
+	if sum != 6 {
+		t.Fatalf("Reduce sum = %d, want 6", sum)
+	}
+}
+
+func TestTryNewFizzBuzzType_正常なタイプを生成できる(t *testing.T) {
+	fbt, err := TryNewFizzBuzzType(1)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	got := fbt.Generate(3)
+	if got.Value() != "Fizz" {
+		t.Fatalf("got.Value() = %q, want %q", got.Value(), "Fizz")
+	}
+}
+
+func TestTryNewFizzBuzzType_不正なタイプでエラーを返す(t *testing.T) {
+	_, err := TryNewFizzBuzzType(99)
+	if err == nil {
+		t.Fatal("expected error for invalid type")
+	}
+}
+
+func TestDescribeFizzBuzzType_タイプ名を返す(t *testing.T) {
+	tests := []struct {
+		input int
+		want  string
+	}{
+		{1, "Standard"},
+		{2, "NumberOnly"},
+		{3, "FizzBuzzOnly"},
+	}
+	for _, tt := range tests {
+		fbt := NewFizzBuzzType(tt.input)
+		got := DescribeFizzBuzzType(fbt)
+		if got != tt.want {
+			t.Errorf("DescribeFizzBuzzType(%d) = %q, want %q", tt.input, got, tt.want)
+		}
+	}
+}
+
+func TestFizzBuzzTypeName_型安全にタイプを生成する(t *testing.T) {
+	fbt := CreateFizzBuzzType(FizzBuzzTypeStandard)
+	if got := fbt.Generate(3).Value(); got != "Fizz" {
+		t.Fatalf("got = %q, want %q", got, "Fizz")
+	}
+}
+
+func TestFizzBuzzTypeName_全てのタイプを生成できる(t *testing.T) {
+	types := []FizzBuzzTypeName{
+		FizzBuzzTypeStandard,
+		FizzBuzzTypeNumberOnly,
+		FizzBuzzTypeFizzBuzzOnly,
+	}
+	for _, tn := range types {
+		fbt := CreateFizzBuzzType(tn)
+		if fbt == nil {
+			t.Fatalf("CreateFizzBuzzType(%v) should not return nil", tn)
+		}
+	}
+}
+
+func TestTryNewFizzBuzzValue_正の値で生成できる(t *testing.T) {
+	v, err := TryNewFizzBuzzValue(1, "1")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if v.Number() != 1 {
+		t.Fatalf("Number() = %d, want 1", v.Number())
+	}
+}
+
+func TestTryNewFizzBuzzValue_負の値でエラーを返す(t *testing.T) {
+	_, err := TryNewFizzBuzzValue(-1, "-1")
+	if err == nil {
+		t.Fatal("expected error for negative number")
+	}
+}
+
+func TestFizzBuzzList_FindFirst_最初のFizzBuzzを見つける(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 100)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	v, found := list.FindFirst(MakeValuePredicate("FizzBuzz"))
+	if !found {
+		t.Fatal("should find FizzBuzz")
+	}
+	if v.Number() != 15 {
+		t.Fatalf("Number() = %d, want 15", v.Number())
+	}
+}
+
+func TestFizzBuzzList_FindFirst_見つからない場合(t *testing.T) {
+	list := NewFizzBuzzList([]FizzBuzzValue{NewFizzBuzzValue(1, "1")})
+	_, found := list.FindFirst(MakeValuePredicate("FizzBuzz"))
+	if found {
+		t.Fatal("should not find FizzBuzz")
+	}
+}
+
+func TestFizzBuzzList_AnyMatch_Fizzが存在する(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+
+	if !list.AnyMatch(MakeValuePredicate("Fizz")) {
+		t.Fatal("should contain Fizz")
+	}
+}
+
+func TestFizzBuzzList_AllMatch_全て数値ではない(t *testing.T) {
+	cmd := NewFizzBuzzListCommand(FizzBuzzType01{}, 15)
+	list := cmd.Execute().(*FizzBuzzList)
+	isNumber := func(v FizzBuzzValue) bool {
+		return v.Value() != "Fizz" && v.Value() != "Buzz" && v.Value() != "FizzBuzz"
+	}
+	if list.AllMatch(isNumber) {
+		t.Fatal("not all values should be numbers")
+	}
+}
+
+func TestGenericMap_FizzBuzzValueを文字列に変換する(t *testing.T) {
+	values := []FizzBuzzValue{
+		NewFizzBuzzValue(1, "1"),
+		NewFizzBuzzValue(3, "Fizz"),
+	}
+	result := functional.MapSlice(values, func(v FizzBuzzValue) string {
+		return v.Value()
+	})
+	if result[0] != "1" || result[1] != "Fizz" {
+		t.Fatalf("MapSlice result = %v", result)
+	}
+}
+
+func TestGenericFilter_正の値だけを抽出する(t *testing.T) {
+	numbers := []int{-2, -1, 0, 1, 2, 3}
+	positives := functional.FilterSlice(numbers, func(n int) bool { return n > 0 })
+	if len(positives) != 3 {
+		t.Fatalf("len(positives) = %d, want 3", len(positives))
+	}
+}
+
+func TestGenericReduce_合計を計算する(t *testing.T) {
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := functional.ReduceSlice(numbers, 0, func(acc, n int) int { return acc + n })
+	if sum != 15 {
+		t.Fatalf("ReduceSlice sum = %d, want 15", sum)
 	}
 }

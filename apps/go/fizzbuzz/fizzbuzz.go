@@ -87,6 +87,16 @@ var NewFizzBuzzList = model.NewFizzBuzzList
 // MaxCount はリストの上限件数です。
 const MaxCount = model.MaxCount
 
+// 章 10 の再エクスポート
+type Predicate = model.Predicate
+type Mapper = model.Mapper
+
+var MakeValuePredicate = model.MakeValuePredicate
+var Compose = model.Compose
+
+// 章 11 の再エクスポート
+type Reducer = model.Reducer
+
 // FizzBuzzType は type_.FizzBuzzType の型エイリアスです。
 type FizzBuzzType = type_.FizzBuzzType
 
@@ -101,6 +111,21 @@ type FizzBuzzType03 = type_.FizzBuzzType03
 
 // NewFizzBuzzType は type_.NewFizzBuzzType を呼び出します。
 var NewFizzBuzzType = type_.NewFizzBuzzType
+
+// 章 12 の再エクスポート
+var TryNewFizzBuzzValue = model.TryNewFizzBuzzValue
+var TryNewFizzBuzzType = type_.TryNewFizzBuzzType
+var DescribeFizzBuzzType = type_.DescribeFizzBuzzType
+
+type FizzBuzzTypeName = type_.FizzBuzzTypeName
+
+const (
+	FizzBuzzTypeStandard     = type_.FizzBuzzTypeStandard
+	FizzBuzzTypeNumberOnly   = type_.FizzBuzzTypeNumberOnly
+	FizzBuzzTypeFizzBuzzOnly = type_.FizzBuzzTypeFizzBuzzOnly
+)
+
+var CreateFizzBuzzType = type_.CreateFizzBuzzType
 
 // FizzBuzzCommand は application.FizzBuzzCommand の型エイリアスです。
 type FizzBuzzCommand = application.FizzBuzzCommand
