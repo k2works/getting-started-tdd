@@ -31,3 +31,5 @@
 ## イテレーション 5（Go）
 
 - [イテレーション 5 計画](./iteration_plan-5.md) - Go の執筆・実装計画
+- [ふりかえり 5](./retrospective-5.md) - IT5 KPT 分析
+- [完了報告書 5](./iteration_report-5.md) - IT5 実績・品質メトリクス
