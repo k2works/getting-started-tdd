@@ -1,4 +1,4 @@
-use fizzbuzz::print_fizzbuzz;
+use fizzbuzz::fizz_buzz::print_fizzbuzz;
 use std::io;
 
 fn main() {
