@@ -4,6 +4,54 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-03-02
+
+Phase 2 完了 — Go / PHP / Rust / C#・F# の 4 言語 × 12 章 + F# 12 章 = 60 章の TDD 入門記事と実装。
+
+### Features
+
+- feat(dotnet): FSharpLint による F# コード複雑度チェックを追加 (c5d1005)
+- feat(dotnet): SonarAnalyzer によるコード複雑度チェックを追加 (43c8e38)
+- feat(dotnet): IT8 C#/F# の TDD 入門記事執筆と実装を完了 (0a5db5d)
+- feat(rust): Clippy によるコード複雑度チェックを追加 (cdc089c)
+- feat(rust): fizz_buzz 公開 API モジュールを追加 (34246ac)
+- feat(rust): IT7 第 3-4 部（章 7-12）の記事執筆と OOP/FP 実装を完了 (05afe55)
+- feat(rust): IT7 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了 (723327a)
+- feat(rust): IT7 第 1 部（章 1-3）の記事執筆と TDD 実装を完了 (86e99d4)
+- feat(php): PHPMD によるコード複雑性チェックを追加 (2fa57b9)
+- feat(php): IT6 第 3-4 部（章 7-12）の記事執筆と OOP/FP 実装を完了 (8ff0f0b)
+- feat(php): IT6 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了 (23bbc74)
+- feat(php): IT6 第 1 部（章 1-3）の記事執筆と TDD 実装を完了 (d81bbcb)
+- feat(go): IT5 第 4 部（章 10-12）の記事執筆・実装 (4ffca69)
+- feat(go): IT5 第 3 部（章 7-9）の記事執筆・実装 (21000dd)
+- feat(go): IT5 第 2 部（章 4-6）の記事執筆・実装 (a716000)
+- feat(go): IT5 環境構築と第 1 部（章 1-3）の記事執筆・実装 (9fb25ec)
+
+### Bug Fixes
+
+- fix(rust): OOP/FP 実装のコード品質を改善 (e88b9ab)
+- fix(go): golangci-lint の revive/unused 警告を全て解消 (7fd1e3c)
+
+### Documentation
+
+- docs: IT8 完了に伴うドキュメント同期と GitHub Milestone クローズ (ec90ac0)
+- docs: IT7 完了ドキュメント同期と IT8 計画書を追加 (028fea1)
+- docs: IT7 完了に伴うドキュメント同期と GitHub Issue クローズ (0529af8)
+- docs: IT6 ふりかえり・完了報告書を作成しドキュメント同期 (77c82a4)
+- docs: IT6 完了に伴うドキュメント同期と GitHub Issue クローズ (a3e3145)
+- docs: IT5 ふりかえり・完了報告書を作成し進捗を最終更新 (0f55ec9)
+- docs: IT5 完了報告書をテンプレート準拠に修正しインデックスを更新 (389947d)
+- docs: リリース計画を Phase 1 完了状態に同期 (1e2acb8)
+- docs(development): IT7（Rust）イテレーション計画を作成 (1b50c25)
+- docs(development): IT6（PHP）イテレーション計画を作成 (c157892)
+- docs(development): IT5（Go）イテレーション計画を作成 (adff1d2)
+- docs(development): IT5 進捗を更新（環境構築 + 第 1 部完了） (8f8c647)
+
+### Chores
+
+- chore(rust): target/ を .gitignore に追加し追跡から除外 (92cf3b6)
+- chore(php): vendor/ を .gitignore に追加し追跡から除外 (4d3a56b)
+
 ## [1.0.0] - 2026-03-02
 
 Phase 1 完了 — Java / Python / TypeScript / Ruby の全 4 言語 × 12 章 = 48 章の TDD 入門記事と実装。
