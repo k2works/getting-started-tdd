@@ -21,12 +21,12 @@
 
 ### 成功基準
 
-- [ ] docs/article/php/index.md と 12 章の記事ファイルが作成済み
-- [ ] apps/php/ の PHPUnit テストがすべてパス
-- [ ] mkdocs.yml に PHP セクションが追加され、プレビュー確認済み
+- [x] docs/article/php/index.md と 12 章の記事ファイルが作成済み
+- [x] apps/php/ の PHPUnit テストがすべてパス（50 tests, 69 assertions）
+- [x] mkdocs.yml に PHP セクションが追加され、プレビュー確認済み
 - [ ] テストカバレッジ 80% 以上
-- [ ] PHP_CodeSniffer / PHPStan 違反ゼロ
-- [ ] 記事内コード例と apps/php/ の実コードが同期
+- [x] PHP_CodeSniffer / PHPStan 違反ゼロ
+- [x] 記事内コード例と apps/php/ の実コードが同期
 
 ---
 
@@ -136,12 +136,12 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 3.1 | 章 7: カプセル化とポリモーフィズム - 執筆 | 3h | AI | [ ] |
-| 3.2 | 章 7: readonly プロパティ / インターフェースによるポリモーフィズム - 実装 | 2h | Codex | [ ] |
-| 3.3 | 章 8: デザインパターンの適用 - 執筆 | 3h | AI | [ ] |
-| 3.4 | 章 8: Value Object / First-Class Collection / Command - 実装 | 2h | Codex | [ ] |
-| 3.5 | 章 9: SOLID 原則とモジュール設計 - 執筆 | 3h | AI | [ ] |
-| 3.6 | 章 9: 名前空間分割（Domain/Type, Domain/Model, Application） - 実装 | 2h | Codex | [ ] |
+| 3.1 | 章 7: カプセル化とポリモーフィズム - 執筆 | 3h | AI | [x] |
+| 3.2 | 章 7: readonly プロパティ / インターフェースによるポリモーフィズム - 実装 | 2h | Codex | [x] |
+| 3.3 | 章 8: デザインパターンの適用 - 執筆 | 3h | AI | [x] |
+| 3.4 | 章 8: Value Object / First-Class Collection / Command - 実装 | 2h | Codex | [x] |
+| 3.5 | 章 9: SOLID 原則とモジュール設計 - 執筆 | 3h | AI | [x] |
+| 3.6 | 章 9: 名前空間分割（Domain/Type, Domain/Model, Application） - 実装 | 2h | Codex | [x] |
 
 **小計**: 15h（理想時間）
 
@@ -155,14 +155,14 @@ PHP は 3 エピソード言語のため、第 4 部は PHP で利用可能な�
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 4.1 | 章 10: 高階関数と関数合成 - 執筆 | 2h | AI | [ ] |
-| 4.2 | 章 10: アロー関数 / クロージャ / array_map - 実装 | 1h | Codex | [ ] |
-| 4.3 | 章 11: 不変データとパイプライン処理 - 執筆 | 2h | AI | [ ] |
-| 4.4 | 章 11: array_filter / array_reduce / パイプライン - 実装 | 1h | Codex | [ ] |
-| 4.5 | 章 12: エラーハンドリングと型安全性 - 執筆 | 2h | AI | [ ] |
-| 4.6 | 章 12: 例外 / 列挙型（PHP 8.1+）/ match 式 - 実装 | 1h | Codex | [ ] |
-| 4.7 | 記事と実装の同期確認 | 1h | AI | [ ] |
-| 4.8 | mkdocs.yml 更新とプレビュー確認 | 0.5h | AI | [ ] |
+| 4.1 | 章 10: 高階関数と関数合成 - 執筆 | 2h | AI | [x] |
+| 4.2 | 章 10: アロー関数 / クロージャ / array_map - 実装 | 1h | Codex | [x] |
+| 4.3 | 章 11: 不変データとパイプライン処理 - 執筆 | 2h | AI | [x] |
+| 4.4 | 章 11: array_filter / array_reduce / パイプライン - 実装 | 1h | Codex | [x] |
+| 4.5 | 章 12: エラーハンドリングと型安全性 - 執筆 | 2h | AI | [x] |
+| 4.6 | 章 12: 例外 / 列挙型（PHP 8.1+）/ match 式 - 実装 | 1h | Codex | [x] |
+| 4.7 | 記事と実装の同期確認 | 1h | AI | [x] |
+| 4.8 | mkdocs.yml 更新とプレビュー確認 | 0.5h | AI | [x] |
 
 **小計**: 10.5h（理想時間）
 
@@ -363,13 +363,13 @@ nix develop .#php
 
 ### Definition of Done
 
-- [ ] 12 章の記事ファイルが docs/article/php/ に存在
-- [ ] apps/php/ の全テストがパス
+- [x] 12 章の記事ファイルが docs/article/php/ に存在
+- [x] apps/php/ の全テストがパス（50 tests, 69 assertions）
 - [ ] テストカバレッジ 80% 以上
-- [ ] PHP_CodeSniffer / PHPStan 違反ゼロ
-- [ ] mkdocs.yml に PHP セクションが追加済み
-- [ ] ローカルプレビューで表示確認済み
-- [ ] 記事内コード例と apps/php/ の実コードが同期
+- [x] PHP_CodeSniffer / PHPStan 違反ゼロ
+- [x] mkdocs.yml に PHP セクションが追加済み
+- [x] ローカルプレビューで表示確認済み
+- [x] 記事内コード例と apps/php/ の実コードが同期
 
 ### デモ項目
 
@@ -386,6 +386,7 @@ nix develop .#php
 | 日付 | 更新内容 | 更新者 |
 |------|---------|--------|
 | 2026-03-02 | 初版作成 | AI |
+| 2026-03-02 | 全 12 章の記事執筆・実装完了、Nix 環境修正、CI 追加 | AI |
 
 ---
 
