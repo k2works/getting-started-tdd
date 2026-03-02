@@ -45,3 +45,9 @@
 - [イテレーション 7 計画](./iteration_plan-7.md) - Rust の執筆・実装計画
 - [ふりかえり 7](./retrospective-7.md) - IT7 KPT 分析
 - [完了報告書 7](./iteration_report-7.md) - IT7 実績・品質メトリクス
+
+## イテレーション 8（C#/F#）
+
+- [イテレーション 8 計画](./iteration_plan-8.md) - C#/F# の執筆・実装計画
+- [ふりかえり 8](./retrospective-8.md) - IT8 KPT 分析
+- [完了報告書 8](./iteration_report-8.md) - IT8 実績・品質メトリクス
