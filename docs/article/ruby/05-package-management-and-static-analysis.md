@@ -81,6 +81,12 @@ Style/FrozenStringLiteralComment:
 Metrics/MethodLength:
   Max: 20
 
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
 Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
@@ -102,6 +108,8 @@ Naming/AsciiIdentifiers:
 | `NewCops: enable` | - | 新しいルールを自動有効化 |
 | `Style/FrozenStringLiteralComment` | true | `frozen_string_literal: true` を必須に |
 | `Metrics/MethodLength` | Max: 20 | メソッドの最大行数 |
+| `Metrics/CyclomaticComplexity` | Max: 7 | 循環的複雑度の上限 |
+| `Metrics/PerceivedComplexity` | Max: 7 | 認知的複雑度の上限 |
 | `Naming/MethodName` | false | 日本語テストメソッド名を許可 |
 | `Naming/AsciiIdentifiers` | 除外 | テストファイルで日本語識別子を許可 |
 
@@ -184,7 +192,67 @@ Branch Coverage: 100.0% (6 / 6)
 
 HTML レポートは `coverage/index.html` で確認できます。
 
-## 5.6 品質チェックの一括実行
+## 5.6 コード複雑度のチェック
+
+静的コード解析では、コーディング規約だけでなく、**コードの複雑度** もチェックできます。RuboCop の Metrics 系ルールを使って、メソッドの複雑度を制限しましょう。
+
+### 循環的複雑度（Cyclomatic Complexity）
+
+> 循環的複雑度（サイクロマティック複雑度）とは、ソフトウェア測定法の一つであり、コードがどれぐらい複雑であるかをメソッド単位で数値にして表す指標。
+
+本プロジェクトでは、循環的複雑度を **7 以下** に制限しています。
+
+| 複雑度の範囲 | 意味 |
+|-------------|------|
+| 1〜10 | 低複雑度：管理しやすく、問題なし |
+| 11〜20 | 中程度の複雑度：リファクタリングを検討 |
+| 21〜50 | 高複雑度：リファクタリングが強く推奨される |
+| 51 以上 | 非常に高い複雑度：コードを分割する必要がある |
+
+### 認知的複雑度（Perceived Complexity）
+
+RuboCop では `Metrics/PerceivedComplexity` が認知的複雑度に相当します。コードの構造が「どれだけ頭を使う必要があるか」を定量的に評価します。Java の PMD における `CognitiveComplexity` や TypeScript の ESLint における `complexity` ルールに相当します。
+
+本プロジェクトでは、認知的複雑度を **7 以下** に制限しています。
+
+### .rubocop.yml への設定
+
+```yaml
+# .rubocop.yml（複雑度関連の抜粋）
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Metrics/MethodLength:
+  Max: 20
+```
+
+### 複雑度チェックの実行
+
+RuboCop の通常実行で複雑度もチェックされます。
+
+```bash
+$ bundle exec rubocop
+Inspecting 6 files
+......
+
+6 files inspected, no offenses detected
+```
+
+### 複雑度チェックの効果
+
+コード複雑度の制限により、以下の効果が得られます。
+
+- **可読性向上** — 小さなメソッドは理解しやすい
+- **保守性向上** — 変更の影響範囲が限定される
+- **テスト容易性** — 個別機能のテストが簡単
+- **自動品質管理** — 複雑なコードの混入を自動防止
+
+現在の FizzBuzz の `generate` メソッドは循環的複雑度が 4 で、制限値 7 以内に収まっています。第 3 部でオブジェクト指向設計を進める際も、この制限を意識してコードを書いていきます。
+
+## 5.7 品質チェックの一括実行
 
 すべての品質チェックを一括で実行する `check` タスクを Rakefile に定義しています。
 
@@ -206,8 +274,9 @@ $ bundle exec rake check
 | 静的解析 | RuboCop | Checkstyle + PMD | ESLint | Ruff |
 | フォーマッター | RuboCop | Checkstyle | Prettier | Ruff |
 | カバレッジ | SimpleCov | JaCoCo | @vitest/coverage-v8 | pytest-cov |
+| 複雑度チェック | RuboCop Metrics | PMD | ESLint complexity | Ruff McCabe |
 
-## 5.7 まとめ
+## 5.8 まとめ
 
 この章では、以下の品質管理ツールを導入しました。
 
