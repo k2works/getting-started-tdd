@@ -29,7 +29,7 @@
 | テスト（go test） | ✅ 109 テスト PASS（6 パッケージ） |
 | フォーマット（gofmt） | ✅ クリーン |
 | 静的解析（go vet） | ✅ エラーなし |
-| golangci-lint | ⚠️ 未実行（Nix 環境外） |
+| golangci-lint | ✅ 0 issues（revive/unused 全解消済み） |
 
 ### リリースバーンダウン
 
@@ -192,7 +192,7 @@ apps/go/
 
 | メトリクス | 目標 | 実績 | 判定 |
 |-----------|------|------|------|
-| テストカバレッジ | 80%+ | ⚠️ 未検証（Nix 環境外） | - |
+| テストカバレッジ | 80%+ | ⚠️ 未検証 | - |
 
 ### テスト数
 
@@ -214,7 +214,7 @@ apps/go/
 | go test | 109 テスト PASS |
 | gofmt | クリーン |
 | go vet | エラーなし |
-| golangci-lint | ⚠️ 未実行（Nix 環境外） |
+| golangci-lint | ✅ 0 issues |
 
 ### コミット統計
 
@@ -247,7 +247,7 @@ apps/go/
 
 | 課題 | 状態 | 解決策 |
 |------|------|--------|
-| golangci-lint 未実行 | ⚠️ 未解決 | Nix 環境内（`nix develop .#go`）での検証が必要 |
+| golangci-lint 違反 38 件 | ✅ 解決 | revive（exported/package-comments/var-naming）と unused 全 38 件を修正。nolint ディレクティブで意図的な stuttering を許容 |
 | テスト重複 | ⚠️ 許容 | fizzbuzz パッケージと各ドメインパッケージのテストが重複（統合 vs 単体の役割分担で許容） |
 | Go の FP 制約 | ✅ 解決 | 組み込みの高階関数がなく手動 for ループで実装。ジェネリクスで汎用化 |
 
@@ -268,8 +268,8 @@ apps/go/
 
 | # | アクション | 担当 | 期限 | 状態 |
 |---|-----------|------|------|------|
-| 1 | Nix 環境内で golangci-lint + カバレッジ検証 | 手動 | - | 未着手 |
-| 2 | Release 2.0 計画の策定 | AI | IT6 開始前 | 未着手 |
+| 1 | ~~Nix 環境内で golangci-lint 検証~~ | AI | - | ✅ 完了 |
+| 2 | Release 2.0 計画の策定 | AI | IT8 完了後 | 未着手 |
 
 ---
 

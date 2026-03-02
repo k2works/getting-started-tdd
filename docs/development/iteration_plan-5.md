@@ -25,7 +25,7 @@
 - [x] apps/go/ の Go テストがすべてパス（109 テスト PASS）
 - [x] mkdocs.yml に Go セクションが追加され、プレビュー確認済み
 - [ ] テストカバレッジ 80% 以上
-- [ ] golangci-lint 違反ゼロ
+- [x] golangci-lint 違反ゼロ
 - [x] 記事内コード例と apps/go/ の実コードが同期
 
 ---
