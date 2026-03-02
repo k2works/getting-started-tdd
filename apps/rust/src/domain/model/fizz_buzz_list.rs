@@ -52,7 +52,10 @@ impl FizzBuzzList {
     pub fn group_by_value(&self) -> HashMap<String, Vec<&FizzBuzzValue>> {
         let mut groups: HashMap<String, Vec<&FizzBuzzValue>> = HashMap::new();
         for item in &self.list {
-            groups.entry(item.value().to_string()).or_default().push(item);
+            groups
+                .entry(item.value().to_string())
+                .or_default()
+                .push(item);
         }
         groups
     }
@@ -157,7 +160,14 @@ mod tests {
     #[test]
     fn test_join_区切り文字で連結する() {
         let list = FizzBuzzList::new(&FizzBuzzType01);
-        assert_eq!("1,2,Fizz", list.take(3).iter().map(|v| v.value()).collect::<Vec<_>>().join(","));
+        assert_eq!(
+            "1,2,Fizz",
+            list.take(3)
+                .iter()
+                .map(|v| v.value())
+                .collect::<Vec<_>>()
+                .join(",")
+        );
         assert!(list.join("\n").starts_with("1\n2\nFizz"));
     }
 }

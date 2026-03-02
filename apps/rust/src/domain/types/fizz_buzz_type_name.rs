@@ -43,7 +43,10 @@ mod tests {
 
     #[test]
     fn test_from_number_有効値を変換できる() {
-        assert_eq!(Ok(FizzBuzzTypeName::Standard), FizzBuzzTypeName::from_number(1));
+        assert_eq!(
+            Ok(FizzBuzzTypeName::Standard),
+            FizzBuzzTypeName::from_number(1)
+        );
     }
 
     #[test]

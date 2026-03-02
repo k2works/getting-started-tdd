@@ -20,7 +20,7 @@ impl FizzBuzzValue {
 
 impl std::fmt::Display for FizzBuzzValue {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, {}, self.value)
+        write!(f, "{}", self.value)
     }
 }
 
@@ -30,33 +30,33 @@ mod tests {
 
     #[test]
     fn test_new_値を生成できる() {
-        let actual = FizzBuzzValue::new(3, Fizz.to_string());
+        let actual = FizzBuzzValue::new(3, "Fizz".to_string());
         assert_eq!(3, actual.number());
-        assert_eq!(Fizz, actual.value());
+        assert_eq!("Fizz", actual.value());
     }
 
     #[test]
     fn test_number_数値を取得できる() {
-        let actual = FizzBuzzValue::new(10, Buzz.to_string());
+        let actual = FizzBuzzValue::new(10, "Buzz".to_string());
         assert_eq!(10, actual.number());
     }
 
     #[test]
     fn test_value_文字列を取得できる() {
-        let actual = FizzBuzzValue::new(15, FizzBuzz.to_string());
-        assert_eq!(FizzBuzz, actual.value());
+        let actual = FizzBuzzValue::new(15, "FizzBuzz".to_string());
+        assert_eq!("FizzBuzz", actual.value());
     }
 
     #[test]
     fn test_display_値を文字列で表示できる() {
-        let actual = FizzBuzzValue::new(1, 1.to_string());
-        assert_eq!(1, actual.to_string());
+        let actual = FizzBuzzValue::new(1, "1".to_string());
+        assert_eq!("1", actual.to_string());
     }
 
     #[test]
     fn test_partial_eq_同値比較できる() {
-        let left = FizzBuzzValue::new(5, Buzz.to_string());
-        let right = FizzBuzzValue::new(5, Buzz.to_string());
+        let left = FizzBuzzValue::new(5, "Buzz".to_string());
+        let right = FizzBuzzValue::new(5, "Buzz".to_string());
         assert_eq!(left, right);
     }
 }
