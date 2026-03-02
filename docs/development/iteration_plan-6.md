@@ -90,11 +90,11 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 0.1 | apps/php/ に Composer プロジェクトを初期化（composer init） | 0.5h | AI | [ ] |
-| 0.2 | PHPUnit のセットアップ（phpunit.xml 作成） | 0.5h | AI | [ ] |
-| 0.3 | PHP_CodeSniffer / PHPStan 設定ファイルの作成 | 0.5h | AI | [ ] |
-| 0.4 | Composer scripts（テスト・lint・カバレッジタスク）の設定 | 0.5h | AI | [ ] |
-| 0.5 | docs/article/php/index.md を作成 | 0.5h | AI | [ ] |
+| 0.1 | apps/php/ に Composer プロジェクトを初期化（composer init） | 0.5h | AI | [x] |
+| 0.2 | PHPUnit のセットアップ（phpunit.xml 作成） | 0.5h | AI | [x] |
+| 0.3 | PHP_CodeSniffer / PHPStan 設定ファイルの作成 | 0.5h | AI | [x] |
+| 0.4 | Composer scripts（テスト・lint・カバレッジタスク）の設定 | 0.5h | AI | [x] |
+| 0.5 | docs/article/php/index.md を作成 | 0.5h | AI | [x] |
 
 **小計**: 2.5h（理想時間）
 
@@ -102,12 +102,12 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 1.1 | 章 1: TODO リストと最初のテスト - 執筆 | 2h | AI | [ ] |
-| 1.2 | 章 1: TODO リストと最初のテスト - 実装 | 1h | AI | [ ] |
-| 1.3 | 章 2: 仮実装と三角測量 - 執筆 | 2h | AI | [ ] |
-| 1.4 | 章 2: 仮実装と三角測量 - 実装 | 1h | AI | [ ] |
-| 1.5 | 章 3: 明白な実装とリファクタリング - 執筆 | 2h | AI | [ ] |
-| 1.6 | 章 3: 明白な実装とリファクタリング - 実装 | 1h | AI | [ ] |
+| 1.1 | 章 1: TODO リストと最初のテスト - 執筆 | 2h | AI | [x] |
+| 1.2 | 章 1: TODO リストと最初のテスト - 実装 | 1h | Codex | [x] |
+| 1.3 | 章 2: 仮実装と三角測量 - 執筆 | 2h | AI | [x] |
+| 1.4 | 章 2: 仮実装と三角測量 - 実装 | 1h | Codex | [x] |
+| 1.5 | 章 3: 明白な実装とリファクタリング - 執筆 | 2h | AI | [x] |
+| 1.6 | 章 3: 明白な実装とリファクタリング - 実装 | 1h | Codex | [x] |
 
 **小計**: 9h（理想時間）
 
@@ -119,12 +119,12 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 2.1 | 章 4: バージョン管理と Conventional Commits - 執筆 | 2h | AI | [ ] |
-| 2.2 | 章 4: Git 設定と Conventional Commits の適用 - 実装 | 1h | - | [ ] |
-| 2.3 | 章 5: パッケージ管理と静的解析 - 執筆 | 2h | AI | [ ] |
-| 2.4 | 章 5: Composer / PHP_CodeSniffer / PHPStan の導入と設定 - 実装 | 1h | Codex | [ ] |
-| 2.5 | 章 6: タスクランナーと CI/CD - 執筆 | 2h | AI | [ ] |
-| 2.6 | 章 6: Composer scripts + GitHub Actions CI 設定 - 実装 | 1h | Codex | [ ] |
+| 2.1 | 章 4: バージョン管理と Conventional Commits - 執筆 | 2h | AI | [x] |
+| 2.2 | 章 4: Git 設定と Conventional Commits の適用 - 実装 | 1h | - | [x] |
+| 2.3 | 章 5: パッケージ管理と静的解析 - 執筆 | 2h | AI | [x] |
+| 2.4 | 章 5: Composer / PHP_CodeSniffer / PHPStan の導入と設定 - 実装 | 1h | Codex | [x] |
+| 2.5 | 章 6: タスクランナーと CI/CD - 執筆 | 2h | AI | [x] |
+| 2.6 | 章 6: Composer scripts + GitHub Actions CI 設定 - 実装 | 1h | Codex | [x] |
 
 **小計**: 9h（理想時間）
 
