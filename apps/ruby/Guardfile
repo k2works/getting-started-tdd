@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 guard :minitest, all_on_start: false do
-  watch(%r{^lib/(.+)\.rb$}) { |m| "test/#{m[1]}_test.rb" }
+  watch(%r{^lib/fizz_buzz/fizz_buzz\.rb$}) { 'test/fizz_buzz' }
+  watch(%r{^lib/fizz_buzz/(.+)\.rb$}) { |m| "test/fizz_buzz/#{m[1]}_test.rb" }
   watch(%r{^test/.+_test\.rb$})
   watch(%r{^test/test_helper\.rb$}) { 'test' }
 end

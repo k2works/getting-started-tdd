@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+class FizzBuzzType
+  TYPE_01 = 1
+  TYPE_02 = 2
+  TYPE_03 = 3
+
+  def self.create(type)
+    case type
+    when TYPE_01 then FizzBuzzType01.new
+    when TYPE_02 then FizzBuzzType02.new
+    when TYPE_03 then FizzBuzzType03.new
+    else raise "未定義のタイプ: #{type}"
+    end
+  end
+
+  def fizz?(number)
+    (number % 3).zero?
+  end
+
+  def buzz?(number)
+    (number % 5).zero?
+  end
+
+  def generate(_number)
+    raise NotImplementedError
+  end
+end
