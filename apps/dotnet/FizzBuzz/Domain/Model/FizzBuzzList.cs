@@ -1,6 +1,6 @@
 namespace FizzBuzz.Domain.Model;
 
-public class FizzBuzzList : IEquatable<FizzBuzzList>
+public sealed class FizzBuzzList : IEquatable<FizzBuzzList>
 {
     private readonly List<FizzBuzzValue> _values;
 

@@ -140,7 +140,108 @@ $ dotnet tool install -g dotnet-reportgenerator-globaltool
 $ reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coverage" -reporttypes:Html
 ```
 
-## 5.6 まとめ
+## 5.6 SonarAnalyzer によるコード複雑度チェック
+
+### 認知的複雑度（Cognitive Complexity）
+
+SonarAnalyzer.CSharp には **S3776** ルールが内蔵されており、メソッドの認知的複雑度を計測できます。
+
+> 認知的複雑度とは、コードがどれだけ理解しにくいかを数値化した指標です。循環的複雑度（Cyclomatic Complexity）と異なり、ネストの深さやフロー制御の読みにくさも考慮します。
+
+| 複雑度の範囲 | 意味 |
+|-------------|------|
+| 1〜7 | 低複雑度: 管理しやすく、問題なし |
+| 8〜15 | 中程度の複雑度: リファクタリングを検討 |
+| 16〜25 | 高複雑度: リファクタリングが強く推奨される |
+| 26 以上 | 非常に高い複雑度: メソッドを分割する必要がある |
+
+### SonarAnalyzer.CSharp の導入
+
+NuGet パッケージとしてインストールします。
+
+```bash
+$ dotnet add package SonarAnalyzer.CSharp
+```
+
+`.csproj` にパッケージ参照が追加されます。
+
+```xml
+<ItemGroup>
+  <PackageReference Include="SonarAnalyzer.CSharp" Version="10.20.0.135146">
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    <PrivateAssets>all</PrivateAssets>
+  </PackageReference>
+</ItemGroup>
+```
+
+### .editorconfig による設定
+
+`.editorconfig` に S3776 ルールの重大度を設定します。
+
+```ini
+[*.cs]
+# SonarAnalyzer: 認知的複雑度チェック
+# S3776 - Cognitive Complexity of methods should not be too high
+dotnet_diagnostic.S3776.severity = warning
+```
+
+他言語の複雑度チェック（Rust の Clippy `cognitive-complexity-threshold = 7`、PHP の PHPMD `reportLevel: 7`、Python の Ruff `max-complexity = 7`、TypeScript の ESLint `complexity: ["error", { max: 7 }]`）と同じ基準で、複雑度が高いメソッドを検出できます。
+
+### 実行してみる
+
+ビルド時に自動的にチェックが実行されます。
+
+```bash
+# 通常ビルド（警告として表示）
+$ dotnet build
+
+# 複雑度違反をエラーとして扱う（CI 向け）
+$ dotnet build -warnaserror:S3776
+```
+
+現在の FizzBuzz 実装では、各メソッドが短く単純なため、閾値を超えるメソッドはありません。
+
+### Cake への追加
+
+`build.cake` に Complexity タスクを追加します。
+
+```csharp
+Task("Complexity")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    var exitCode = StartProcess("dotnet", new ProcessSettings
+    {
+        Arguments = "build FizzBuzz.sln --no-restore -warnaserror:S3776"
+    });
+    if (exitCode != 0)
+    {
+        throw new Exception("認知的複雑度チェックに失敗しました。メソッドの複雑度を下げてください。");
+    }
+    Information("認知的複雑度チェック: OK（全メソッドが閾値以下）");
+});
+
+Task("Check")
+    .IsDependentOn("Test")
+    .IsDependentOn("Complexity");
+```
+
+`dotnet dotnet-cake --target=Complexity` で複雑度チェックを単独実行、`dotnet dotnet-cake --target=Check` で全品質チェックをまとめて実行できます。
+
+### 他言語との比較
+
+| 言語 | 複雑度チェックツール | 設定 |
+|------|---------------------|------|
+| C# | SonarAnalyzer（S3776） | `.editorconfig: dotnet_diagnostic.S3776.severity = warning` |
+| Rust | Clippy（cognitive_complexity） | `clippy.toml: cognitive-complexity-threshold = 7` |
+| PHP | PHPMD | `reportLevel: 7` |
+| Java | PMD | `CyclomaticComplexity` |
+| Python | Ruff（McCabe） | `max-complexity = 7` |
+| TypeScript | ESLint | `complexity: ["error", { max: 7 }]` |
+| Ruby | RuboCop | `Metrics/CyclomaticComplexity` |
+| Go | golangci-lint（gocognit） | `.golangci.yml: gocognit.min-complexity: 7` |
+
+## 5.7 まとめ
 
 この章では以下を導入しました。
 
@@ -149,6 +250,7 @@ $ reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coverage" -re
 | NuGet | パッケージ管理 | npm, Bundler, Cargo, pip |
 | dotnet format | コードフォーマット | rustfmt, gofmt, Prettier |
 | Roslyn アナライザ | 静的解析（リンター） | Clippy, ESLint, Ruff |
+| SonarAnalyzer（S3776） | コード複雑度チェック | Clippy cognitive_complexity, PHPMD, Ruff McCabe |
 | coverlet | カバレッジ計測 | cargo-tarpaulin, c8, SimpleCov |
 
 次章では、これらのツールを **タスクランナー**（Cake）でまとめて実行できるようにし、**CI/CD** パイプラインを構築します。

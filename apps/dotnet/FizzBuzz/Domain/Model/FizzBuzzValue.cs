@@ -1,6 +1,6 @@
 namespace FizzBuzz.Domain.Model;
 
-public class FizzBuzzValue : IEquatable<FizzBuzzValue>
+public sealed class FizzBuzzValue : IEquatable<FizzBuzzValue>
 {
     public int Number { get; }
     public string Value { get; }
