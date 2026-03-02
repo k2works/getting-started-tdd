@@ -1,0 +1,10 @@
+# Build
+bin/
+dist/
+*.test
+
+# Coverage
+coverage.out
+
+# Linter cache
+.golangci-lint.cache/
