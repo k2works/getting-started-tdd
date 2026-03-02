@@ -109,6 +109,11 @@ nav:
           - 第 10 章 高階関数と関数合成: article/node/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/node/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと型安全性: article/node/12-error-handling-and-type-safety.md
+      - Ruby:
+          - 概要: article/ruby/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/ruby/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/ruby/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/ruby/03-obvious-implementation-and-refactoring.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
