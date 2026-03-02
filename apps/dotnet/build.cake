@@ -41,21 +41,36 @@ Task("Complexity")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    // S3776 (認知的複雑度) を警告→エラーに昇格してビルド
-    // 閾値はデフォルト 15 だが、.editorconfig で warning に設定済み
+    // C#: S3776 (認知的複雑度) を警告→エラーに昇格してビルド
     var exitCode = StartProcess("dotnet", new ProcessSettings
     {
         Arguments = "build FizzBuzz.sln --no-restore -warnaserror:S3776"
     });
     if (exitCode != 0)
     {
-        throw new Exception("認知的複雑度チェックに失敗しました。メソッドの複雑度を下げてください。");
+        throw new Exception("C# 認知的複雑度チェックに失敗しました。メソッドの複雑度を下げてください。");
     }
-    Information("認知的複雑度チェック: OK（全メソッドが閾値以下）");
+    Information("C# 認知的複雑度チェック: OK（全メソッドが閾値以下）");
+});
+
+Task("FSharpLint")
+    .Does(() =>
+{
+    // F#: FSharpLint による循環的複雑度チェック（閾値 7）
+    var exitCode = StartProcess("dotnet", new ProcessSettings
+    {
+        Arguments = "dotnet-fsharplint lint --lint-config fsharplint.json FizzBuzzFSharp/Library.fs"
+    });
+    if (exitCode != 0)
+    {
+        throw new Exception("FSharpLint チェックに失敗しました。F# コードの複雑度を下げてください。");
+    }
+    Information("FSharpLint チェック: OK（全関数が閾値以下）");
 });
 
 Task("Check")
     .IsDependentOn("Test")
-    .IsDependentOn("Complexity");
+    .IsDependentOn("Complexity")
+    .IsDependentOn("FSharpLint");
 
 RunTarget(target);
