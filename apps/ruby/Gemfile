@@ -3,6 +3,10 @@
 source 'https://rubygems.org'
 
 group :development, :test do
+  gem 'guard', '~> 2.18'
+  gem 'guard-minitest', '~> 2.4'
+  gem 'guard-rubocop', '~> 1.5'
+  gem 'guard-shell', '~> 0.7'
   gem 'minitest', '~> 5.25'
   gem 'minitest-reporters', '~> 1.7'
   gem 'rake', '~> 13.2'
