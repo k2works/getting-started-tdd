@@ -1,4 +1,6 @@
-package type_
+// Package type_ は FizzBuzz のタイプバリエーションを提供します。
+// type は Go 予約語のためアンダースコア付きパッケージ名を使用しています。
+package type_ //nolint:revive
 
 import (
 	"fmt"
@@ -33,6 +35,7 @@ func NewFizzBuzzType(fizzBuzzType int) FizzBuzzType {
 // FizzBuzzTypeName は FizzBuzz タイプの型安全な識別子です。
 type FizzBuzzTypeName int
 
+// FizzBuzzTypeStandard, FizzBuzzTypeNumberOnly, FizzBuzzTypeFizzBuzzOnly は FizzBuzz タイプの識別定数です。
 const (
 	FizzBuzzTypeStandard     FizzBuzzTypeName = iota + 1 // 1
 	FizzBuzzTypeNumberOnly                               // 2

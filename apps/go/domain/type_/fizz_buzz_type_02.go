@@ -1,4 +1,4 @@
-package type_
+package type_ //nolint:revive
 
 import (
 	"strconv"
@@ -7,8 +7,9 @@ import (
 )
 
 // FizzBuzzType02 は数値のみを返します。
-type FizzBuzzType02 struct{ fizzBuzzTypeBase }
+type FizzBuzzType02 struct{}
 
+// Generate は数値のみを返します。
 func (f FizzBuzzType02) Generate(number int) model.FizzBuzzValue {
 	return model.NewFizzBuzzValue(number, strconv.Itoa(number))
 }

@@ -1,3 +1,4 @@
+// Package functional は汎用的な関数型ユーティリティを提供します。
 package functional
 
 // MapSlice は任意の型のスライスに関数を適用し、変換結果のスライスを返します。

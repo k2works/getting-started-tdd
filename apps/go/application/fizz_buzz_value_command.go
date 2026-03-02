@@ -15,6 +15,7 @@ func NewFizzBuzzValueCommand(number int, fizzBuzzType type_.FizzBuzzType) *FizzB
 	return &FizzBuzzValueCommand{number: number, fizzBuzzType: fizzBuzzType}
 }
 
+// Execute は値生成コマンドを実行し FizzBuzzValue を返します。
 func (c *FizzBuzzValueCommand) Execute() interface{} {
 	return c.fizzBuzzType.Generate(c.number)
 }

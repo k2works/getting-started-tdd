@@ -72,72 +72,84 @@ func BasicGenerate(number, fizzBuzzType int) string {
 
 // --- 以下、新パッケージの型を再エクスポート ---
 
-// FizzBuzzValue は model.FizzBuzzValue の型エイリアスです。
-type FizzBuzzValue = model.FizzBuzzValue
+// FizzBuzzValue は FizzBuzz の結果を表す値オブジェクトです。
+type FizzBuzzValue = model.FizzBuzzValue //nolint:revive
 
-// NewFizzBuzzValue は model.NewFizzBuzzValue を呼び出します。
+// NewFizzBuzzValue は FizzBuzzValue を生成します。
 var NewFizzBuzzValue = model.NewFizzBuzzValue
 
-// FizzBuzzList は model.FizzBuzzList の型エイリアスです。
-type FizzBuzzList = model.FizzBuzzList
+// FizzBuzzList は FizzBuzzValue のコレクションです。
+type FizzBuzzList = model.FizzBuzzList //nolint:revive
 
-// NewFizzBuzzList は model.NewFizzBuzzList を呼び出します。
+// NewFizzBuzzList は FizzBuzzList を生成します。
 var NewFizzBuzzList = model.NewFizzBuzzList
 
 // MaxCount はリストの上限件数です。
 const MaxCount = model.MaxCount
 
-// 章 10 の再エクスポート
+// Predicate は FizzBuzzValue を受け取り bool を返す関数型です。
 type Predicate = model.Predicate
+
+// Mapper は FizzBuzzValue を受け取り string を返す関数型です。
 type Mapper = model.Mapper
 
+// MakeValuePredicate は指定した値と一致するかを判定する述語関数を返します。
 var MakeValuePredicate = model.MakeValuePredicate
+
+// Compose は f を適用した後に g を適用する合成関数を返します。
 var Compose = model.Compose
 
-// 章 11 の再エクスポート
+// Reducer は累積値と要素を受け取り新しい累積値を返す関数型です。
 type Reducer = model.Reducer
 
-// FizzBuzzType は type_.FizzBuzzType の型エイリアスです。
-type FizzBuzzType = type_.FizzBuzzType
+// FizzBuzzType はタイプごとの FizzBuzz 生成を抽象化するインターフェースです。
+type FizzBuzzType = type_.FizzBuzzType //nolint:revive
 
-// FizzBuzzType01 は type_.FizzBuzzType01 の型エイリアスです。
-type FizzBuzzType01 = type_.FizzBuzzType01
+// FizzBuzzType01 は通常の FizzBuzz を生成します。
+type FizzBuzzType01 = type_.FizzBuzzType01 //nolint:revive
 
-// FizzBuzzType02 は type_.FizzBuzzType02 の型エイリアスです。
-type FizzBuzzType02 = type_.FizzBuzzType02
+// FizzBuzzType02 は数値のみを返します。
+type FizzBuzzType02 = type_.FizzBuzzType02 //nolint:revive
 
-// FizzBuzzType03 は type_.FizzBuzzType03 の型エイリアスです。
-type FizzBuzzType03 = type_.FizzBuzzType03
+// FizzBuzzType03 は FizzBuzz のみ返し、それ以外は数値を返します。
+type FizzBuzzType03 = type_.FizzBuzzType03 //nolint:revive
 
-// NewFizzBuzzType は type_.NewFizzBuzzType を呼び出します。
+// NewFizzBuzzType は指定されたタイプの FizzBuzzType を生成します。
 var NewFizzBuzzType = type_.NewFizzBuzzType
 
-// 章 12 の再エクスポート
+// TryNewFizzBuzzValue は安全なファクトリです。負の値では error を返します。
 var TryNewFizzBuzzValue = model.TryNewFizzBuzzValue
+
+// TryNewFizzBuzzType は安全なファクトリです。不正なタイプでは error を返します。
 var TryNewFizzBuzzType = type_.TryNewFizzBuzzType
+
+// DescribeFizzBuzzType は FizzBuzzType の種類を文字列で返します。
 var DescribeFizzBuzzType = type_.DescribeFizzBuzzType
 
-type FizzBuzzTypeName = type_.FizzBuzzTypeName
+// FizzBuzzTypeName は FizzBuzz タイプの型安全な識別子です。
+type FizzBuzzTypeName = type_.FizzBuzzTypeName //nolint:revive
 
+// FizzBuzzTypeStandard, FizzBuzzTypeNumberOnly, FizzBuzzTypeFizzBuzzOnly は FizzBuzz タイプ定数です。
 const (
 	FizzBuzzTypeStandard     = type_.FizzBuzzTypeStandard
 	FizzBuzzTypeNumberOnly   = type_.FizzBuzzTypeNumberOnly
 	FizzBuzzTypeFizzBuzzOnly = type_.FizzBuzzTypeFizzBuzzOnly
 )
 
+// CreateFizzBuzzType は FizzBuzzTypeName から FizzBuzzType を生成します。
 var CreateFizzBuzzType = type_.CreateFizzBuzzType
 
-// FizzBuzzCommand は application.FizzBuzzCommand の型エイリアスです。
-type FizzBuzzCommand = application.FizzBuzzCommand
+// FizzBuzzCommand は FizzBuzz 操作を抽象化するインターフェースです。
+type FizzBuzzCommand = application.FizzBuzzCommand //nolint:revive
 
-// FizzBuzzValueCommand は application.FizzBuzzValueCommand の型エイリアスです。
-type FizzBuzzValueCommand = application.FizzBuzzValueCommand
+// FizzBuzzValueCommand は単一の FizzBuzzValue を生成するコマンドです。
+type FizzBuzzValueCommand = application.FizzBuzzValueCommand //nolint:revive
 
-// NewFizzBuzzValueCommand は application.NewFizzBuzzValueCommand を呼び出します。
+// NewFizzBuzzValueCommand は FizzBuzzValueCommand を生成します。
 var NewFizzBuzzValueCommand = application.NewFizzBuzzValueCommand
 
-// FizzBuzzListCommand は application.FizzBuzzListCommand の型エイリアスです。
-type FizzBuzzListCommand = application.FizzBuzzListCommand
+// FizzBuzzListCommand は FizzBuzzList を生成するコマンドです。
+type FizzBuzzListCommand = application.FizzBuzzListCommand //nolint:revive
 
-// NewFizzBuzzListCommand は application.NewFizzBuzzListCommand を呼び出します。
+// NewFizzBuzzListCommand は FizzBuzzListCommand を生成します。
 var NewFizzBuzzListCommand = application.NewFizzBuzzListCommand

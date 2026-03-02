@@ -16,6 +16,7 @@ func NewFizzBuzzListCommand(fizzBuzzType type_.FizzBuzzType, count int) *FizzBuz
 	return &FizzBuzzListCommand{count: count, fizzBuzzType: fizzBuzzType}
 }
 
+// Execute はリスト生成コマンドを実行し FizzBuzzList を返します。
 func (c *FizzBuzzListCommand) Execute() interface{} {
 	values := make([]model.FizzBuzzValue, c.count)
 	for i := 0; i < c.count; i++ {

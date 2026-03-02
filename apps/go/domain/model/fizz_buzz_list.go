@@ -1,3 +1,4 @@
+// Package model は FizzBuzz のドメインモデルを提供します。
 package model
 
 import (
@@ -32,14 +33,17 @@ func NewFizzBuzzList(values []FizzBuzzValue) *FizzBuzzList {
 	return &FizzBuzzList{value: newValues}
 }
 
+// Value はリスト内の全要素のコピーを返します。
 func (l *FizzBuzzList) Value() []FizzBuzzValue {
 	result := make([]FizzBuzzValue, len(l.value))
 	copy(result, l.value)
 	return result
 }
 
+// Count はリスト内の要素数を返します。
 func (l *FizzBuzzList) Count() int { return len(l.value) }
 
+// ToStringSlice は各要素の文字列表現のスライスを返します。
 func (l *FizzBuzzList) ToStringSlice() []string {
 	result := make([]string, len(l.value))
 	for i, v := range l.value {

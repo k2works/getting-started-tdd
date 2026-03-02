@@ -24,9 +24,16 @@ func TryNewFizzBuzzValue(number int, value string) (FizzBuzzValue, error) {
 	return FizzBuzzValue{number: number, value: value}, nil
 }
 
-func (v FizzBuzzValue) Number() int    { return v.number }
-func (v FizzBuzzValue) Value() string  { return v.value }
+// Number は数値を返します。
+func (v FizzBuzzValue) Number() int { return v.number }
+
+// Value は FizzBuzz の変換結果を返します。
+func (v FizzBuzzValue) Value() string { return v.value }
+
+// String は fmt.Stringer を実装します。
 func (v FizzBuzzValue) String() string { return v.value }
+
+// Equal は 2 つの FizzBuzzValue が等しいかを判定します。
 func (v FizzBuzzValue) Equal(other FizzBuzzValue) bool {
 	return v.number == other.number && v.value == other.value
 }

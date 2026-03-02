@@ -1,4 +1,4 @@
-package type_
+package type_ //nolint:revive
 
 import (
 	"strconv"
@@ -9,6 +9,7 @@ import (
 // FizzBuzzType01 は通常の FizzBuzz を生成します。
 type FizzBuzzType01 struct{ fizzBuzzTypeBase }
 
+// Generate は通常の FizzBuzz ルールで値を生成します。
 func (f FizzBuzzType01) Generate(number int) model.FizzBuzzValue {
 	if f.isFizz(number) && f.isBuzz(number) {
 		return model.NewFizzBuzzValue(number, "FizzBuzz")
