@@ -18,6 +18,11 @@
 - [ふりかえり 2](./development/retrospective-2.md) - IT2 の KPT 分析
 - [完了報告書 2](./development/iteration_report-2.md) - IT2 の実績と評価
 - [イテレーション 3 計画](./development/iteration_plan-3.md) - Node（JS/TS）の執筆・実装計画
+- [ふりかえり 3](./development/retrospective-3.md) - IT3 の KPT 分析
+- [完了報告書 3](./development/iteration_report-3.md) - IT3 の実績と評価
+- [イテレーション 4 計画](./development/iteration_plan-4.md) - Ruby の執筆・実装計画
+- [ふりかえり 4](./development/retrospective-4.md) - IT4 の KPT 分析
+- [完了報告書 4](./development/iteration_report-4.md) - IT4 の実績と評価
 
 ## リファレンス
 
