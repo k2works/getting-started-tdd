@@ -1,0 +1,291 @@
+# イテレーション 1 完了報告書
+
+## プロジェクト概要
+
+| 項目 | 内容 |
+|------|------|
+| **プロジェクト名** | テスト駆動開発から始めるXX入門 |
+| **イテレーション** | 1 |
+| **対象言語** | Java |
+| **開始日** | 2026-02-28 |
+| **終了日** | 2026-02-28 |
+| **作業日数** | 1 日（AI 並列作業による短縮） |
+
+### 要員
+
+| 項目 | 予定 | 実績 |
+|------|------|------|
+| **開発者** | 1 名 + AI | 1 名 + AI（Claude + Codex） |
+| **計画理想時間** | 43.5h | - |
+
+---
+
+## 指標
+
+### ビルド結果
+
+| 日付 | テスト | Checkstyle | PMD | SpotBugs | fullCheck |
+|------|--------|-----------|-----|----------|-----------|
+| 2026-02-28 | PASS（24 件） | PASS | PASS | PASS | BUILD SUCCESSFUL |
+
+### リリースバーンダウン
+
+```mermaid
+xychart-beta
+    title "リリースバーンダウン"
+    x-axis ["開始", "IT1", "IT2", "IT3", "IT4"]
+    y-axis "残 SP" 0 --> 50
+    line "計画" [46, 36, 26, 13, 0]
+    line "実績" [46, 36]
+```
+
+### イテレーションバーンダウン
+
+```mermaid
+xychart-beta
+    title "IT1 バーンダウン"
+    x-axis ["開始", "環境構築", "第1部", "第2部", "第3部", "第4部"]
+    y-axis "残 SP" 0 --> 10
+    line "計画" [10, 9, 6, 3, 0, 0]
+    line "実績" [10, 9, 6, 3, 0, 0]
+```
+
+### ベロシティ
+
+```mermaid
+xychart-beta
+    title "ベロシティ推移"
+    x-axis ["IT1"]
+    y-axis "SP" 0 --> 15
+    bar "実績" [10]
+    line "平均" [10]
+```
+
+| イテレーション | 計画 SP | 実績 SP | 備考 |
+|---------------|---------|---------|------|
+| IT1 | 10 | 10 | 初回イテレーション |
+| **平均** | **10** | **10** | |
+
+---
+
+## 実施内容と評価
+
+### 完了ストーリー一覧
+
+| ID | ストーリー | 結果 | 計画 SP | 完了 SP |
+|----|-----------|------|---------|---------|
+| US-001 | Java の TDD 入門記事の執筆と実装 | 完了 | 10 | 10 |
+| **合計** | | | **10** | **10** |
+
+### 達成率
+
+| 項目 | 計画 | 実績 | 達成率 |
+|------|------|------|--------|
+| ストーリーポイント | 10 SP | 10 SP | 100% |
+| ストーリー数 | 1 | 1 | 100% |
+| 記事数 | 12 章 | 12 章 | 100% |
+| タスク数 | 22 タスク | 22 タスク | 100% |
+
+---
+
+## 成果物詳細
+
+### US-001: Java の TDD 入門記事の執筆と実装
+
+#### 記事（docs/article/java/）
+
+| ファイル | 章タイトル | 行数 |
+|---------|-----------|------|
+| `index.md` | Java 概要ページ | 61 |
+| `01-todo-list-and-first-test.md` | 第 1 章 TODO リストと最初のテスト | 234 |
+| `02-fake-it-and-triangulation.md` | 第 2 章 仮実装と三角測量 | 261 |
+| `03-obvious-implementation-and-refactoring.md` | 第 3 章 明白な実装とリファクタリング | 185 |
+| `04-version-control-and-conventional-commits.md` | 第 4 章 バージョン管理と Conventional Commits | 115 |
+| `05-package-management-and-static-analysis.md` | 第 5 章 パッケージ管理と静的解析 | 382 |
+| `06-task-runner-and-ci-cd.md` | 第 6 章 タスクランナーと CI/CD | 272 |
+| `07-encapsulation-and-polymorphism.md` | 第 7 章 カプセル化とポリモーフィズム | 626 |
+| `08-design-patterns.md` | 第 8 章 デザインパターンの適用 | 393 |
+| `09-solid-principles-and-module-design.md` | 第 9 章 SOLID 原則とモジュール設計 | 310 |
+| `10-higher-order-functions-and-composition.md` | 第 10 章 高階関数と関数合成 | 188 |
+| `11-immutable-data-and-pipeline.md` | 第 11 章 不変データとパイプライン処理 | 167 |
+| `12-error-handling-and-type-safety.md` | 第 12 章 エラーハンドリングと型安全性 | 205 |
+| **合計** | **13 ファイル** | **3,399 行** |
+
+#### 実装（apps/java/）
+
+##### パッケージ構成
+
+```
+apps/java/src/main/java/tdd/
+├── App.java
+└── fizzbuzz/
+    ├── application/
+    │   ├── FizzBuzzCommand.java        # Command インターフェース
+    │   ├── FizzBuzzListCommand.java     # リスト生成コマンド（Stream API）
+    │   └── FizzBuzzValueCommand.java    # 単一値コマンド
+    └── domain/
+        ├── model/
+        │   ├── FizzBuzzList.java         # 値オブジェクト（filter/map/reduce）
+        │   └── FizzBuzzValue.java        # 値オブジェクト
+        └── type/
+            ├── FizzBuzzType.java         # 抽象型（Strategy + Optional factory）
+            ├── FizzBuzzType01.java       # 標準型
+            ├── FizzBuzzType02.java       # 数値のみ型
+            ├── FizzBuzzType03.java       # FizzBuzz のみ型
+            └── FizzBuzzTypeName.java     # 型安全 enum
+```
+
+##### コード規模
+
+| カテゴリ | ファイル数 | 行数 |
+|---------|-----------|------|
+| プロダクションコード | 11 | 333 |
+| テストコード | 4 | 277 |
+| **合計** | **15** | **610** |
+
+##### 主要な設計パターン
+
+| パターン | 適用箇所 |
+|---------|---------|
+| Strategy | `FizzBuzzType`（型ごとの生成ロジック切り替え） |
+| Command | `FizzBuzzCommand`（単一値/リスト生成の統一インターフェース） |
+| Factory Method | `FizzBuzzType.create()`（int / FizzBuzzTypeName / Optional） |
+| Value Object | `FizzBuzzValue`、`FizzBuzzList`（不変オブジェクト） |
+
+---
+
+## 品質メトリクス
+
+### テストカバレッジ
+
+| パッケージ | 命令カバレッジ | 分岐カバレッジ | 判定 |
+|-----------|--------------|--------------|------|
+| `tdd.fizzbuzz.domain.type` | 94% | 91% | 達成 |
+| `tdd.fizzbuzz.domain.model` | 74% | 31% | 未達 |
+| `tdd`（App.java） | 0% | 0% | 未達 |
+| **全体** | **75%** | **64%** | **未達（目標 80%）** |
+
+### テスト数
+
+| テストクラス | テスト数 |
+|------------|---------|
+| `FizzBuzzTypeTest` | 11 |
+| `FizzBuzzListTest` | 8 |
+| `FizzBuzzValueTest` | 3 |
+| `FizzBuzzCommandTest` | 2 |
+| **合計** | **24** |
+
+### コード品質
+
+| メトリクス | 結果 |
+|-----------|------|
+| Checkstyle 違反 | 0 |
+| PMD 違反 | 0 |
+| SpotBugs 検出 | 0 |
+| fullCheck | BUILD SUCCESSFUL |
+
+### コミット統計
+
+| 種別 | 件数 |
+|------|------|
+| feat（機能追加） | 2 |
+| docs（ドキュメント） | 11 |
+| refactor（リファクタリング） | 2 |
+| ci（CI/CD） | 1 |
+| chore（その他） | 1 |
+| **合計** | **17** |
+
+### コード変更量
+
+| 対象 | ファイル数 | 追加行 | 削除行 |
+|------|-----------|--------|--------|
+| apps/java/ | 25 | 1,139 | 0 |
+| docs/article/java/ | 13 | 3,399 | 0 |
+| docs/development/ + mkdocs.yml | 4 | 117 | 33 |
+| **合計** | **42** | **4,655** | **33** |
+
+---
+
+## イテレーションレビュー
+
+### 成功した点
+
+1. **全 12 章の記事と実装が完了**: 計画通り US-001 を 10 SP で完了し、Java TDD 入門の全コンテンツを作成した
+2. **Claude + Codex 分業体制の確立**: 記事執筆は Claude、TDD 実装は Codex という分業が効率的に機能し、テンプレートとして他言語にも適用可能になった
+3. **段階的リファクタリングの実現**: 手続き型 → OOP → FP の進化パスが、教育コンテンツとして有効に機能した
+4. **静的解析クリーン**: Checkstyle、PMD、SpotBugs のすべてで違反ゼロを達成し、コード品質を維持した
+
+### 技術的課題と解決策
+
+| 課題 | 状態 | 解決策 / 対応 |
+|------|------|-------------|
+| テストカバレッジ 75%（目標 80% 未達） | 未解決 | IT2 開始前に App.java 除外 or テスト追加で対応 |
+| domain.model の分岐カバレッジ 31% | 未解決 | equals/hashCode/toString のテスト追加 |
+| 第 4 部を 0 SP バッファ扱いとした見積もり | 解決済み | ふりかえりで記録。IT2 以降は正規 SP として計上 |
+
+### アクションアイテム
+
+| # | アクション | 担当 | 期限 | 状態 |
+|---|-----------|------|------|------|
+| 1 | カバレッジ 80% 達成（App.java 除外 or テスト追加） | IT2 | IT2 開始前 | 未着手 |
+| 2 | FizzBuzzList/Value の分岐テスト追加 | IT2 | IT2 開始前 | 未着手 |
+| 3 | AI 活用前提の見積もり手法見直し | IT2 | IT2 計画時 | 未着手 |
+| 4 | GitHub Project 同期自動化の検討 | IT3 | IT3 | 未着手 |
+
+---
+
+## リリース状況
+
+### Release 1.0 達成条件の充足状態
+
+| 条件 | 状態 | 備考 |
+|------|------|------|
+| Java 記事のレビュー完了 | 完了 | 12 章すべて執筆・同期確認済み |
+| Java テストがパス | 完了 | 24 テスト全パス |
+| MkDocs プレビュー確認 | 完了 | mkdocs.yml 更新済み |
+| Python 記事・実装 | 未着手 | IT2 で対応 |
+| Node(JS/TS) 記事・実装 | 未着手 | IT3 で対応 |
+| Ruby 記事・実装 | 未着手 | IT4 で対応 |
+
+### 全体リリース進捗
+
+```mermaid
+xychart-beta
+    title "Phase 1 進捗（SP）"
+    x-axis ["Java(IT1)", "Python(IT2)", "Node(IT3)", "Ruby(IT4)"]
+    y-axis "SP" 0 --> 15
+    bar "計画" [10, 10, 13, 13]
+    bar "実績" [10, 0, 0, 0]
+```
+
+| フェーズ | 計画 SP | 完了 SP | 達成率 |
+|---------|---------|---------|--------|
+| Phase 1（主流 OOP） | 46 | 10 | 22% |
+| Phase 2（多パラダイム） | 43 | 0 | 0% |
+| Phase 3（関数型 + 統合） | 60 | 0 | 0% |
+| **全体** | **149** | **10** | **7%** |
+
+---
+
+## 総括
+
+IT1 は計画通り 10 SP を達成し、Java TDD 入門記事（全 12 章）の執筆と実装を完了した。Claude + Codex の分業体制が効率的に機能し、今後の言語展開におけるテンプレートが確立された。
+
+テストカバレッジが目標 80% に対し 75% と未達であり、IT2 開始前に対応が必要である。ベロシティ実績は 10 SP/イテレーションとなり、リリース計画の想定（10-12 SP）の範囲内であることが確認された。
+
+---
+
+## 更新履歴
+
+| 日付 | 更新内容 | 更新者 |
+|------|---------|--------|
+| 2026-02-28 | 初版作成（IT1 完了報告書） | - |
+
+---
+
+## 関連ドキュメント
+
+- [イテレーション 1 計画](./iteration_plan-1.md)
+- [イテレーション 1 ふりかえり](./retrospective-1.md)
+- [リリース計画](./release_plan.md)
+- [執筆ワークフロー](../article/workflow.md)

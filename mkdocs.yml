@@ -63,3 +63,111 @@ exclude_docs: |
 
 nav:
   - Home: index.md
+  - 記事:
+      - 概要: article/index.md
+      - 執筆計画: article/outline.md
+      - 執筆ワークフロー: article/workflow.md
+      - Java:
+          - 概要: article/java/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/java/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/java/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/java/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/java/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/java/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/java/06-task-runner-and-ci-cd.md
+          - 第 7 章 カプセル化とポリモーフィズム: article/java/07-encapsulation-and-polymorphism.md
+          - 第 8 章 デザインパターンの適用: article/java/08-design-patterns.md
+          - 第 9 章 SOLID 原則とモジュール設計: article/java/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/java/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/java/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/java/12-error-handling-and-type-safety.md
+      - Python:
+          - 概要: article/python/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/python/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/python/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/python/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/python/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/python/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/python/06-task-runner-and-ci-cd.md
+          - 第 7 章 カプセル化とポリモーフィズム: article/python/07-encapsulation-and-polymorphism.md
+          - 第 8 章 デザインパターンの適用: article/python/08-design-patterns.md
+          - 第 9 章 SOLID 原則とモジュール設計: article/python/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/python/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/python/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/python/12-error-handling-and-type-safety.md
+      - TypeScript:
+          - 概要: article/node/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/node/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/node/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/node/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/node/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/node/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/node/06-task-runner-and-ci-cd.md
+          - 第 7 章 カプセル化とポリモーフィズム: article/node/07-encapsulation-and-polymorphism.md
+          - 第 8 章 デザインパターンの適用: article/node/08-design-patterns.md
+          - 第 9 章 SOLID 原則とモジュール設計: article/node/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/node/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/node/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/node/12-error-handling-and-type-safety.md
+      - Ruby:
+          - 概要: article/ruby/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/ruby/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/ruby/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/ruby/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/ruby/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/ruby/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/ruby/06-task-runner-and-ci-cd.md
+          - 第 7 章 カプセル化とポリモーフィズム: article/ruby/07-encapsulation-and-polymorphism.md
+          - 第 8 章 デザインパターンの適用: article/ruby/08-design-patterns.md
+          - 第 9 章 SOLID 原則とモジュール設計: article/ruby/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/ruby/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/ruby/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/ruby/12-error-handling-and-type-safety.md
+  - 開発:
+      - 概要: development/index.md
+      - リリース計画: development/release_plan.md
+      - イテレーション 1: development/iteration_plan-1.md
+      - ふりかえり 1: development/retrospective-1.md
+      - 完了報告書 1: development/iteration_report-1.md
+      - イテレーション 2: development/iteration_plan-2.md
+      - ふりかえり 2: development/retrospective-2.md
+      - 完了報告書 2: development/iteration_report-2.md
+      - イテレーション 3: development/iteration_plan-3.md
+      - ふりかえり 3: development/retrospective-3.md
+      - 完了報告書 3: development/iteration_report-3.md
+      - イテレーション 4: development/iteration_plan-4.md
+      - ふりかえり 4: development/retrospective-4.md
+      - 完了報告書 4: development/iteration_report-4.md
+  - 分析:
+      - 概要: analysis/index.md
+  - 設計:
+      - 概要: design/index.md
+  - ADR:
+      - 概要: adr/index.md
+  - 運用:
+      - 概要: operation/index.md
+  - リファレンス:
+      - 開発ガイド: reference/開発ガイド.md
+      - コーディングとテストガイド: reference/コーディングとテストガイド.md
+      - エクストリームプログラミング: reference/エクストリームプログラミング.md
+      - よいソフトウェアとは: reference/よいソフトウェアとは.md
+      - アーキテクチャ設計ガイド: reference/アーキテクチャ設計ガイド.md
+      - データモデル設計ガイド: reference/データモデル設計ガイド.md
+      - ドメインモデル設計ガイド: reference/ドメインモデル設計ガイド.md
+      - UI 設計ガイド: reference/UI設計ガイド.md
+      - テスト戦略ガイド: reference/テスト戦略ガイド.md
+      - 非機能要件定義ガイド: reference/非機能要件定義ガイド.md
+      - 運用要件定義ガイド: reference/運用要件定義ガイド.md
+      - 要件定義ガイド: reference/要件定義ガイド.md
+      - ユースケース作成ガイド: reference/ユースケース作成ガイド.md
+      - ビジネスアーキテクチャ分析ガイド: reference/ビジネスアーキテクチャ分析ガイド.md
+      - インフラ設計ガイド: reference/インフラ設計ガイド.md
+      - リリース・イテレーション計画ガイド: reference/リリース・イテレーション計画ガイド.md
+      - リリースガイド: reference/リリースガイド.md
+      - 環境変数管理ガイド: reference/環境変数管理ガイド.md
+      - 言語別開発ガイド: reference/言語別開発ガイド.md
+      - Java 環境構築ガイド: reference/Javaアプリケーション環境構築ガイド.md
+      - TypeScript 環境構築ガイド: reference/TypeScriptアプリケーション環境構築ガイド.md
+      - Codex CLI MCP サーバー設定手順: reference/CodexCLIMCPサーバー設定手順.md
+      - Codex CLI MCP 開発フロー: reference/CodexCLIMCPアプリケーション開発フロー.md
+      - Vim 操作マニュアル: reference/Vim操作マニュアル.md

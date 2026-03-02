@@ -490,6 +490,7 @@ start build/jacocoHtml/index.html # Windows
 ### VS Code
 
 必要な拡張機能：
+
 - Extension Pack for Java
 - Gradle for Java
 - Test Runner for Java
