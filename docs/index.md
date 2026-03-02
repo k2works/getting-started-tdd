@@ -26,6 +26,7 @@
 - [イテレーション 5 計画](./development/iteration_plan-5.md) - Go の執筆・実装計画
 - [ふりかえり 5](./development/retrospective-5.md) - IT5 の KPT 分析
 - [完了報告書 5](./development/iteration_report-5.md) - IT5 の実績と評価
+- [イテレーション 6 計画](./development/iteration_plan-6.md) - PHP の執筆・実装計画
 
 ## リファレンス
 

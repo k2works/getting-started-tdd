@@ -314,11 +314,11 @@ gantt
 
 **主なタスク**:
 
-- [ ] apps/php/ プロジェクト初期化（Composer + PHPUnit + PHP_CodeSniffer + PHPStan）
-- [ ] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
-- [ ] 第 2 部（章 4-6）: 開発環境と自動化の執筆と実装
-- [ ] 第 3 部（章 7-9）: OOP 設計の執筆と実装
-- [ ] 第 4 部（章 10-12）: 関数型プログラミング（アロー関数、array_map/filter/reduce、クロージャ）
+- [x] apps/php/ プロジェクト初期化（Composer + PHPUnit + PHP_CodeSniffer + PHPStan + PHPMD）
+- [x] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
+- [x] 第 2 部（章 4-6）: 開発環境と自動化の執筆と実装
+- [x] 第 3 部（章 7-9）: OOP 設計の執筆と実装
+- [x] 第 4 部（章 10-12）: 関数型プログラミング（アロー関数、array_map/filter/reduce、クロージャ）
 
 **目標 SP**: 10
 
@@ -373,7 +373,7 @@ Phase 3: Clojure、Scala、Elixir、Haskell を各イテレーションで執筆
 | 3 | Node（JS/TS） | 13 | 13 | 100% | 完了 |
 | 4 | Ruby | 13 | 13 | 100% | ✅ 完了 |
 | 5 | Go | 10 | 10 | 100% | ✅ 完了 |
-| 6 | PHP | 10 | - | - | 計画済み |
+| 6 | PHP | 10 | 10 | 100% | ✅ 完了 |
 | 7 | Rust | 10 | - | - | 未着手 |
 | 8 | C#/F# | 13 | - | - | 未着手 |
 | 9 | Clojure | 13 | - | - | 未着手 |
@@ -389,7 +389,7 @@ xychart-beta
     x-axis ["開始", "IT1", "IT2", "IT3", "IT4", "IT5", "IT6", "IT7", "IT8", "IT9", "IT10", "IT11", "IT12"]
     y-axis "残 SP" 0 --> 149
     line "計画" [149, 139, 129, 116, 103, 93, 83, 73, 60, 47, 34, 21, 0]
-    line "実績" [149, 139, 129, 116, 103, 93]
+    line "実績" [149, 139, 129, 116, 103, 93, 83]
 ```
 
 ---
@@ -405,8 +405,8 @@ xychart-beta
 7. ~~apps/go/ プロジェクト初期化（Go Modules + golangci-lint）~~ ✅
 8. ~~Go 第 1〜12 章の執筆・実装を完了~~ ✅
 9. ~~IT6（PHP）イテレーション計画を作成~~ ✅
-10. apps/php/ プロジェクト初期化（Composer + PHPUnit）
-11. PHP 第 1〜12 章の執筆・実装を完了
+10. ~~apps/php/ プロジェクト初期化（Composer + PHPUnit + PHP_CodeSniffer + PHPStan + PHPMD）~~ ✅
+11. ~~PHP 第 1〜12 章の執筆・実装を完了~~ ✅
 12. IT7（Rust）イテレーション計画を作成
 
 ---
@@ -423,3 +423,4 @@ xychart-beta
 | 2026-03-02 | IT5（Go）開始、計画作成完了 | AI |
 | 2026-03-02 | IT5 完了（Go 10 SP）、バーンダウン更新 | AI |
 | 2026-03-02 | IT6（PHP）開始、計画作成完了 | AI |
+| 2026-03-02 | IT6 完了（PHP 10 SP）、バーンダウン更新、Issue #6 クローズ | AI |
