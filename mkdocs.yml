@@ -137,6 +137,20 @@ nav:
           - 第 10 章 高階関数と関数合成: article/php/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/php/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと型安全性: article/php/12-error-handling-and-type-safety.md
+      - Rust:
+          - 概要: article/rust/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/rust/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/rust/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/rust/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/rust/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/rust/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/rust/06-task-runner-and-ci-cd.md
+          - 第 7 章 カプセル化とポリモーフィズム: article/rust/07-encapsulation-and-polymorphism.md
+          - 第 8 章 デザインパターンの適用: article/rust/08-design-patterns.md
+          - 第 9 章 SOLID 原則とモジュール設計: article/rust/09-solid-principles-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/rust/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/rust/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/rust/12-error-handling-and-type-safety.md
       - Go:
           - 概要: article/go/index.md
           - 第 1 章 TODO リストと最初のテスト: article/go/01-todo-list-and-first-test.md
@@ -170,6 +184,8 @@ nav:
       - ふりかえり 5: development/retrospective-5.md
       - 完了報告書 5: development/iteration_report-5.md
       - イテレーション 6: development/iteration_plan-6.md
+      - ふりかえり 6: development/retrospective-6.md
+      - 完了報告書 6: development/iteration_report-6.md
       - イテレーション 7: development/iteration_plan-7.md
   - 分析:
       - 概要: analysis/index.md

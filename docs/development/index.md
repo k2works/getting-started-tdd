@@ -37,6 +37,8 @@
 ## イテレーション 6（PHP）
 
 - [イテレーション 6 計画](./iteration_plan-6.md) - PHP の執筆・実装計画
+- [ふりかえり 6](./retrospective-6.md) - IT6 KPT 分析
+- [完了報告書 6](./iteration_report-6.md) - IT6 実績・品質メトリクス
 
 ## イテレーション 7（Rust）
 
