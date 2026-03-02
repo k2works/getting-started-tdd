@@ -23,6 +23,18 @@
 - [イテレーション 4 計画](./development/iteration_plan-4.md) - Ruby の執筆・実装計画
 - [ふりかえり 4](./development/retrospective-4.md) - IT4 の KPT 分析
 - [完了報告書 4](./development/iteration_report-4.md) - IT4 の実績と評価
+- [イテレーション 5 計画](./development/iteration_plan-5.md) - Go の執筆・実装計画
+- [ふりかえり 5](./development/retrospective-5.md) - IT5 の KPT 分析
+- [完了報告書 5](./development/iteration_report-5.md) - IT5 の実績と評価
+- [イテレーション 6 計画](./development/iteration_plan-6.md) - PHP の執筆・実装計画
+- [ふりかえり 6](./development/retrospective-6.md) - IT6 の KPT 分析
+- [完了報告書 6](./development/iteration_report-6.md) - IT6 の実績と評価
+- [イテレーション 7 計画](./development/iteration_plan-7.md) - Rust の執筆・実装計画
+- [ふりかえり 7](./development/retrospective-7.md) - IT7 の KPT 分析
+- [完了報告書 7](./development/iteration_report-7.md) - IT7 の実績と評価
+- [イテレーション 8 計画](./development/iteration_plan-8.md) - C#/F# の執筆・実装計画
+- [ふりかえり 8](./development/retrospective-8.md) - IT8 の KPT 分析
+- [完了報告書 8](./development/iteration_report-8.md) - IT8 の実績と評価
 
 ## リファレンス
 

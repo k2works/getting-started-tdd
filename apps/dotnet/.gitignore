@@ -1,0 +1,24 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstats
+
+## Visual Studio
+.vs/
+*.DotSettings.user
+
+## NuGet
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+
+## OS
+.DS_Store
+Thumbs.db

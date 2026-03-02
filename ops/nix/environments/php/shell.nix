@@ -6,7 +6,7 @@ packages.mkShell {
   inherit (baseShell) pure;
   buildInputs = baseShell.buildInputs ++ (with packages; [
     php
-    php83Packages.composer
+    php.packages.composer
     phpactor
   ]);
   shellHook = ''

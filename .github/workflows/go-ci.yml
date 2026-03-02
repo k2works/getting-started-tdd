@@ -1,0 +1,51 @@
+name: Go CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/go/**"
+      - ".github/workflows/go-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/go/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-go-${{ hashFiles('flake.lock', 'ops/nix/environments/go/shell.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-go-
+
+      - name: Run gofmt check
+        run: nix develop .#go --command bash -c "cd apps/go && test -z \$(gofmt -l .)"
+
+      - name: Run go vet
+        run: nix develop .#go --command bash -c "cd apps/go && go vet ./..."
+
+      - name: Run golangci-lint
+        run: nix develop .#go --command bash -c "cd apps/go && golangci-lint run"
+
+      - name: Run tests
+        run: nix develop .#go --command bash -c "cd apps/go && go test -v ./..."
+
+      - name: Run coverage
+        run: nix develop .#go --command bash -c "cd apps/go && go test -coverprofile=coverage.out ./... && go tool cover -func=coverage.out"
