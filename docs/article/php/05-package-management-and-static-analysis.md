@@ -248,7 +248,119 @@ final class FizzBuzz
 
 `declare(strict_types=1)` を宣言することで、PHP の型チェックが厳密モードになります。例えば `generate('3')` のように文字列を渡すと、暗黙の型変換ではなく `TypeError` が発生します。
 
-## 5.5 コードカバレッジ
+## 5.5 PHPMD によるコード複雑性チェック
+
+### PHPMD とは
+
+> PHPMD（PHP Mess Detector）は PHP コードの潜在的な問題を検出するツールです。循環的複雑度、メソッドの長さ、パラメータ数などのメトリクスに基づいて、リファクタリングが必要な箇所を指摘します。
+
+Java の PMD、Python の Ruff（McCabe 複雑度）、TypeScript の ESLint（`complexity` ルール）、Ruby の RuboCop（`Metrics/CyclomaticComplexity`）に相当するツールです。
+
+### インストール
+
+```bash
+$ composer require --dev phpmd/phpmd
+```
+
+### 循環的複雑度
+
+> 循環的複雑度（サイクロマティック複雑度）とは、コードがどれぐらい複雑であるかをメソッド単位で数値にして表す指標です。
+
+| 複雑度の範囲 | 意味 |
+|-------------|------|
+| 1〜10 | 低複雑度: 管理しやすく、問題なし |
+| 11〜20 | 中程度の複雑度: リファクタリングを検討 |
+| 21〜50 | 高複雑度: リファクタリングが強く推奨される |
+| 51 以上 | 非常に高い複雑度: コードを分割する必要がある |
+
+### 設定ファイル（phpmd.xml）
+
+プロジェクトルートに `phpmd.xml` を作成します。
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="FizzBuzz PHPMD Rules"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0
+                             http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>FizzBuzz project PHPMD rules</description>
+
+    <!-- 循環的複雑度: 7 以下に制限 -->
+    <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="7" />
+        </properties>
+    </rule>
+
+    <!-- NPath 複雑度 -->
+    <rule ref="rulesets/codesize.xml/NPathComplexity" />
+
+    <!-- メソッドの行数: 30 行以下 -->
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="maximum" value="30" />
+        </properties>
+    </rule>
+
+    <!-- パラメータ数: 5 以下 -->
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+        <properties>
+            <property name="maximum" value="5" />
+        </properties>
+    </rule>
+
+    <!-- 未使用のプライベートフィールド -->
+    <rule ref="rulesets/unusedcode.xml" />
+</ruleset>
+```
+
+`reportLevel: 7` は他言語（Python の `max-complexity = 7`、TypeScript の `complexity: ["error", { max: 7 }]`）と同じ基準です。
+
+### PHPMD のルールセット
+
+| ルールセット | チェック内容 |
+|-------------|------------|
+| `codesize.xml` | 循環的複雑度、NPath 複雑度、メソッド長、パラメータ数 |
+| `unusedcode.xml` | 未使用の変数、パラメータ、プライベートフィールド |
+| `naming.xml` | 変数名・メソッド名の長さ |
+| `design.xml` | 結合度、深いネスト、goto 文の使用 |
+| `cleancode.xml` | 静的アクセス、else 式、boolean 引数 |
+
+### 実行してみる
+
+```bash
+$ vendor/bin/phpmd src text phpmd.xml
+```
+
+エラーが報告されなければ、すべてのメソッドの複雑度が基準値以下です。現在の `FizzBuzzType01::generate()` メソッドの循環的複雑度は **4** で、基準値 7 を十分に下回っています。
+
+### Composer scripts への追加
+
+```json
+{
+    "scripts": {
+        "complexity": "vendor/bin/phpmd src text phpmd.xml",
+        "check": ["@lint", "@analyse", "@complexity", "@test"]
+    }
+}
+```
+
+`composer check` で lint、静的解析、複雑度チェック、テストをまとめて実行できます。
+
+### 他言語との比較
+
+| 言語 | 複雑度チェックツール | 設定 |
+|------|---------------------|------|
+| PHP | PHPMD | `reportLevel: 7` |
+| Java | PMD | `CyclomaticComplexity` |
+| Python | Ruff（McCabe） | `max-complexity = 7` |
+| TypeScript | ESLint | `complexity: ["error", { max: 7 }]` |
+| Ruby | RuboCop | `Metrics/CyclomaticComplexity` |
+| Go | golangci-lint（gocyclo） | デフォルト設定 |
+
+## 5.6 コードカバレッジ
 
 ### PHPUnit のカバレッジ機能
 
@@ -282,7 +394,7 @@ Code Coverage Report:
 
 第 1 部で TDD を実践しているため、テストカバレッジは 100% を達成しています。TDD で開発するとテストが先に書かれるため、自然と高いカバレッジが得られます。
 
-## 5.6 まとめ
+## 5.7 まとめ
 
 この章では以下を導入しました。
 
@@ -292,6 +404,7 @@ Code Coverage Report:
 | PHP_CodeSniffer（phpcs） | コーディング規約チェック | ESLint, RuboCop, golangci-lint |
 | PHP_CodeSniffer（phpcbf） | コード自動修正 | Prettier, RuboCop --auto-correct, gofmt |
 | PHPStan | 静的型解析 | tsc, mypy, go vet |
+| PHPMD | コード複雑性チェック | PMD, Ruff McCabe, ESLint complexity |
 | PHPUnit --coverage | カバレッジ計測 | c8, SimpleCov, go test -cover |
 
 次章では、これらのツールを **タスクランナー**（Composer scripts）でまとめて実行できるようにし、**CI/CD** パイプラインを構築します。
