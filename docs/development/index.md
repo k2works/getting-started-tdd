@@ -43,3 +43,5 @@
 ## イテレーション 7（Rust）
 
 - [イテレーション 7 計画](./iteration_plan-7.md) - Rust の執筆・実装計画
+- [ふりかえり 7](./retrospective-7.md) - IT7 KPT 分析
+- [完了報告書 7](./iteration_report-7.md) - IT7 実績・品質メトリクス
