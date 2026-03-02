@@ -23,6 +23,7 @@
 - [イテレーション 4 計画](./development/iteration_plan-4.md) - Ruby の執筆・実装計画
 - [ふりかえり 4](./development/retrospective-4.md) - IT4 の KPT 分析
 - [完了報告書 4](./development/iteration_report-4.md) - IT4 の実績と評価
+- [イテレーション 5 計画](./development/iteration_plan-5.md) - Go の執筆・実装計画
 
 ## リファレンス
 
