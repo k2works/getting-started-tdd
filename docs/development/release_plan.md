@@ -324,9 +324,25 @@ gantt
 
 詳細は [iteration_plan-6.md](./iteration_plan-6.md) を参照。
 
-### イテレーション 7-8（Week 13-16）
+### イテレーション 7（Week 13-14）
 
-Phase 2 残: Rust、C#/F# を各イテレーションで執筆・実装。
+**ゴール**: Rust の全 12 章の記事執筆と実装を完了する
+
+**主なタスク**:
+
+- [ ] apps/rust/ プロジェクト初期化（Cargo + Clippy + rustfmt）
+- [ ] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
+- [ ] 第 2 部（章 4-6）: 開発環境と自動化の執筆と実装
+- [ ] 第 3 部（章 7-9）: OOP 設計の執筆と実装
+- [ ] 第 4 部（章 10-12）: 関数型プログラミング（クロージャ、イテレータ、Result/Option）
+
+**目標 SP**: 10
+
+詳細は [iteration_plan-7.md](./iteration_plan-7.md) を参照。
+
+### イテレーション 8（Week 15-16）
+
+Phase 2 残: C#/F# を執筆・実装。
 
 ### イテレーション 9-12（Week 17-24）
 
@@ -407,7 +423,9 @@ xychart-beta
 9. ~~IT6（PHP）イテレーション計画を作成~~ ✅
 10. ~~apps/php/ プロジェクト初期化（Composer + PHPUnit + PHP_CodeSniffer + PHPStan + PHPMD）~~ ✅
 11. ~~PHP 第 1〜12 章の執筆・実装を完了~~ ✅
-12. IT7（Rust）イテレーション計画を作成
+12. ~~IT7（Rust）イテレーション計画を作成~~ ✅
+13. apps/rust/ プロジェクト初期化（Cargo + Clippy + rustfmt）
+14. Rust 第 1〜12 章の執筆・実装を完了
 
 ---
 
@@ -424,3 +442,4 @@ xychart-beta
 | 2026-03-02 | IT5 完了（Go 10 SP）、バーンダウン更新 | AI |
 | 2026-03-02 | IT6（PHP）開始、計画作成完了 | AI |
 | 2026-03-02 | IT6 完了（PHP 10 SP）、バーンダウン更新、Issue #6 クローズ | AI |
+| 2026-03-02 | IT7（Rust）開始、計画作成完了 | AI |
