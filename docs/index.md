@@ -30,6 +30,8 @@
 - [ふりかえり 6](./development/retrospective-6.md) - IT6 の KPT 分析
 - [完了報告書 6](./development/iteration_report-6.md) - IT6 の実績と評価
 - [イテレーション 7 計画](./development/iteration_plan-7.md) - Rust の執筆・実装計画
+- [ふりかえり 7](./development/retrospective-7.md) - IT7 の KPT 分析
+- [完了報告書 7](./development/iteration_report-7.md) - IT7 の実績と評価
 
 ## リファレンス
 
