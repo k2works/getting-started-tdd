@@ -186,8 +186,10 @@ gantt
 
 **リリース条件**:
 
-- [ ] 全記事のレビュー完了
-- [ ] 全言語のテストがパス
+- [x] 全記事のレビュー完了
+- [x] 全言語のテストがパス（Go 21 + PHP 31 + Rust 47 + C# 38 + F# 29 = 166 テスト）
+- [x] MkDocs でプレビュー確認済み
+- [x] GitHub Milestone Release 2.0 クローズ済み（2026-03-02）
 
 #### Release 3.0（Phase 3 完了）: 関数型言語 + 統合解説
 
@@ -350,7 +352,7 @@ gantt
 - [x] C# 第 1〜12 章の執筆と実装（docs/article/csharp/）
 - [x] F# 第 1〜12 章の執筆と実装（docs/article/fsharp/）
 - [x] CI ワークフロー（.github/workflows/dotnet-ci.yml）
-- [ ] Release 2.0 準備
+- [x] Release 2.0 準備（Milestone クローズ済み）
 
 **目標 SP**: 13
 
