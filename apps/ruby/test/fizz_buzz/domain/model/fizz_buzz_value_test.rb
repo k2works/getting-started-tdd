@@ -32,4 +32,15 @@ class FizzBuzzValueTest < Minitest::Test
       FizzBuzzValue.new('Fizz', -1)
     end
   end
+
+  def test_パターンマッチングで値を取り出せる
+    value = FizzBuzzValue.new('Fizz', 3)
+    matched = case value
+              in { value: 'Fizz', number: 3 }
+                true
+              else
+                false
+              end
+    assert matched
+  end
 end

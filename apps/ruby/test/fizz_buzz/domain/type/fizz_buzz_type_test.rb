@@ -65,5 +65,20 @@ class FizzBuzzTypeTest < Minitest::Test
         FizzBuzzType.create(99)
       end
     end
+
+    def test_FizzBuzzTypeNameで型安全に生成できる
+      type = FizzBuzzType.create(FizzBuzzTypeName::STANDARD)
+      assert_instance_of FizzBuzzType01, type
+    end
+
+    def test_try_createで有効なタイプはインスタンスを返す
+      type = FizzBuzzType.try_create(FizzBuzzType::TYPE_01)
+      assert_instance_of FizzBuzzType01, type
+    end
+
+    def test_try_createで不明なタイプはnilを返す
+      type = FizzBuzzType.try_create(999)
+      assert_nil type
+    end
   end
 end

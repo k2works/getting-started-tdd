@@ -25,4 +25,8 @@ class FizzBuzzValue
   def to_s
     value
   end
+
+  def deconstruct_keys(_keys)
+    { value: @value, number: @number }
+  end
 end

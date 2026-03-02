@@ -28,4 +28,44 @@ class FizzBuzzList
   def each(&)
     @value.each(&)
   end
+
+  def select_type(&)
+    FizzBuzzList.new(@value.select(&))
+  end
+
+  def reject_type(&)
+    FizzBuzzList.new(@value.reject(&))
+  end
+
+  def map_type(&)
+    FizzBuzzList.new(@value.map(&))
+  end
+
+  def take_values(count)
+    FizzBuzzList.new(@value.take(count))
+  end
+
+  def group_by_value
+    @value.group_by(&:value)
+  end
+
+  def tally_by_value
+    @value.map(&:value).tally
+  end
+
+  def join_values(separator = ', ')
+    @value.join(separator)
+  end
+
+  def find_value(&)
+    @value.find(&)
+  end
+
+  def any_match?(&)
+    @value.any?(&)
+  end
+
+  def all_match?(&)
+    @value.all?(&)
+  end
 end

@@ -9,7 +9,8 @@ class FizzBuzzListCommand
   end
 
   def execute
-    list = (1..@count).map { |number| @type.generate(number) }
-    FizzBuzzList.new(list)
+    (1..@count)
+      .map { |number| @type.generate(number) }
+      .then { |list| FizzBuzzList.new(list) }
   end
 end
