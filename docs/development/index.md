@@ -69,3 +69,7 @@
 - [イテレーション 11 計画](./iteration_plan-11.md) - Elixir の執筆・実装計画
 - [ふりかえり 11](./retrospective-11.md) - IT11 KPT 分析
 - [完了報告書 11](./iteration_report-11.md) - IT11 実績・品質メトリクス
+
+## イテレーション 12（Haskell + 統合解説）
+
+- [イテレーション 12 計画](./iteration_plan-12.md) - Haskell + 多言語統合解説の執筆・実装計画
