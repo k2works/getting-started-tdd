@@ -249,6 +249,14 @@ nav:
           - 第 10 章 高階関数とカリー化: article/haskell/10-higher-order-functions-and-currying.md
           - 第 11 章 関数合成とポイントフリースタイル: article/haskell/11-function-composition-and-point-free.md
           - 第 12 章 モナドとエラーハンドリング: article/haskell/12-monad-and-error-handling.md
+      - 多言語統合解説:
+          - 概要: article/integration/index.md
+          - 12 言語の概要と分類: article/integration/01-language-overview.md
+          - テストフレームワーク比較: article/integration/02-test-framework-comparison.md
+          - パラダイム別 TDD パターン比較: article/integration/03-tdd-pattern-comparison.md
+          - 型システムとエラーハンドリング比較: article/integration/04-type-system-comparison.md
+          - 開発環境と CI/CD 比較: article/integration/05-dev-environment-comparison.md
+          - 学習ロードマップ: article/integration/06-learning-roadmap.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
