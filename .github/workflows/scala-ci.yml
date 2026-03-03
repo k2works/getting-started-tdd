@@ -2,31 +2,47 @@ name: Scala CI
 
 on:
   push:
+    branches: [main, develop]
     paths:
-      - 'apps/scala/**'
+      - "apps/scala/**"
+      - ".github/workflows/scala-ci.yml"
   pull_request:
+    branches: [main]
     paths:
-      - 'apps/scala/**'
+      - "apps/scala/**"
+
+permissions:
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/scala
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout the repository
+        uses: actions/checkout@v4
 
-      - name: Setup JDK
-        uses: actions/setup-java@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
         with:
-          distribution: 'temurin'
-          java-version: '21'
-          cache: 'sbt'
+          nix_path: nixpkgs=channel:nixos-unstable
 
-      - name: Run tests
-        run: sbt test
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-scala-${{ hashFiles('flake.lock', 'ops/nix/environments/scala/shell.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-scala-
 
       - name: Check formatting
-        run: sbt scalafmtCheck
+        run: nix develop .#scala --command bash -c "cd apps/scala && sbt scalafmtCheck"
+
+      - name: Compile (lint)
+        run: nix develop .#scala --command bash -c "cd apps/scala && sbt compile"
+
+      - name: Run complexity check
+        run: nix develop .#scala --command bash -c "cd apps/scala && bash scripts/complexity.sh --threshold 10 src"
+
+      - name: Run tests
+        run: nix develop .#scala --command bash -c "cd apps/scala && sbt test"
