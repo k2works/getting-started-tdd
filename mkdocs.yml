@@ -207,6 +207,20 @@ nav:
           - 第 10 章 高階関数と関数合成: article/clojure/10-higher-order-functions-and-composition.md
           - 第 11 章 永続データ構造とパイプライン処理: article/clojure/11-persistent-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと Spec: article/clojure/12-error-handling-and-spec.md
+      - Scala:
+          - 概要: article/scala/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/scala/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/scala/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/scala/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/scala/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/scala/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/scala/06-task-runner-and-ci-cd.md
+          - 第 7 章 ケースクラスとトレイトによるポリモーフィズム: article/scala/07-case-classes-and-traits.md
+          - 第 8 章 パターンマッチとシールドトレイト: article/scala/08-pattern-matching-and-sealed-traits.md
+          - 第 9 章 パッケージとモジュール設計: article/scala/09-packages-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/scala/10-higher-order-functions-and-composition.md
+          - 第 11 章 コレクション処理と遅延評価: article/scala/11-collections-and-lazy-evaluation.md
+          - 第 12 章 エラーハンドリングと型安全性: article/scala/12-error-handling-and-type-safety.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
