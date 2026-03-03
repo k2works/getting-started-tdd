@@ -1,4 +1,4 @@
-.PHONY: test fmt fmt-check lint check build run clean
+.PHONY: test fmt fmt-check lint complexity check build run clean
 
 test:
 	sbt test
@@ -12,7 +12,10 @@ fmt-check:
 lint:
 	sbt compile
 
-check: fmt-check lint test
+complexity:
+	bash scripts/complexity.sh --threshold 10 src
+
+check: fmt-check lint complexity test
 
 build:
 	sbt package
