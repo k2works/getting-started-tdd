@@ -1,0 +1,32 @@
+name: Scala CI
+
+on:
+  push:
+    paths:
+      - 'apps/scala/**'
+  pull_request:
+    paths:
+      - 'apps/scala/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/scala
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'sbt'
+
+      - name: Run tests
+        run: sbt test
+
+      - name: Check formatting
+        run: sbt scalafmtCheck
