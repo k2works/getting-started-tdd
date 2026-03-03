@@ -1,5 +1,6 @@
 module FizzBuzz.FizzBuzzSpec (spec) where
 
+import Data.Char (isAsciiLower)
 import Test.Hspec
 import FizzBuzz
 
@@ -39,3 +40,50 @@ spec = do
 
     it "15 番目の要素は 'FizzBuzz'" $
       generateList 100 !! 14 `shouldBe` "FizzBuzz"
+
+  describe "generateWith" $ do
+    it "カスタムルールで生成できる" $ do
+      let rule n = if even n then "Even" else "Odd"
+      generateWith rule 2 `shouldBe` "Even"
+      generateWith rule 3 `shouldBe` "Odd"
+
+  describe "transform" $ do
+    it "リストを変換できる" $ do
+      let result = transform (++ "!") ["Fizz", "Buzz"]
+      result `shouldBe` ["Fizz!", "Buzz!"]
+
+  describe "filterList" $ do
+    it "リストをフィルタリングできる" $ do
+      let result = filterList (/= "Fizz") (generateList 5)
+      result `shouldBe` ["1", "2", "4", "Buzz"]
+
+  describe "compose" $ do
+    it "2 つの関数を合成できる" $ do
+      let addExclaim = (++ "!")
+          toUpper' = map (\c -> if isAsciiLower c then toEnum (fromEnum c - 32) else c)
+          composed = compose addExclaim toUpper'
+      composed "fizz" `shouldBe` "FIZZ!"
+
+  describe "safeGenerate" $ do
+    it "正の整数で成功する" $
+      safeGenerate 3 `shouldBe` Right "Fizz"
+
+    it "0 以下でエラーを返す" $
+      safeGenerate 0 `shouldBe` Left "正の整数を指定してください"
+
+    it "負数でエラーを返す" $
+      safeGenerate (-1) `shouldBe` Left "正の整数を指定してください"
+
+  describe "lazyStream" $ do
+    it "遅延ストリームから要素を取得できる" $ do
+      take 3 lazyStream `shouldBe` ["1", "2", "Fizz"]
+
+    it "15 番目の要素は 'FizzBuzz'" $
+      lazyStream !! 14 `shouldBe` "FizzBuzz"
+
+  describe "safeGenerateList" $ do
+    it "正の整数で成功する" $
+      safeGenerateList 3 `shouldBe` Right ["1", "2", "Fizz"]
+
+    it "0 以下でエラーを返す" $
+      safeGenerateList 0 `shouldBe` Left "正の整数を指定してください"

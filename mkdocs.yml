@@ -235,6 +235,20 @@ nav:
           - 第 10 章 高階関数とパイプライン演算子: article/elixir/10-higher-order-functions-and-pipeline.md
           - 第 11 章 Stream と遅延評価: article/elixir/11-stream-and-lazy-evaluation.md
           - 第 12 章 エラーハンドリングと with 構文: article/elixir/12-error-handling-and-with.md
+      - Haskell:
+          - 概要: article/haskell/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/haskell/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/haskell/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/haskell/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/haskell/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/haskell/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/haskell/06-task-runner-and-ci-cd.md
+          - 第 7 章 代数的データ型と型クラスによるポリモーフィズム: article/haskell/07-algebraic-data-types-and-type-classes.md
+          - 第 8 章 パターンマッチとガード: article/haskell/08-pattern-matching-and-guards.md
+          - 第 9 章 モジュール設計とスマートコンストラクタ: article/haskell/09-module-design-and-smart-constructors.md
+          - 第 10 章 高階関数とカリー化: article/haskell/10-higher-order-functions-and-currying.md
+          - 第 11 章 関数合成とポイントフリースタイル: article/haskell/11-function-composition-and-point-free.md
+          - 第 12 章 モナドとエラーハンドリング: article/haskell/12-monad-and-error-handling.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
