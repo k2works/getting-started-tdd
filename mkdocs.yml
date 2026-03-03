@@ -221,6 +221,20 @@ nav:
           - 第 10 章 高階関数と関数合成: article/scala/10-higher-order-functions-and-composition.md
           - 第 11 章 コレクション処理と遅延評価: article/scala/11-collections-and-lazy-evaluation.md
           - 第 12 章 エラーハンドリングと型安全性: article/scala/12-error-handling-and-type-safety.md
+      - Elixir:
+          - 概要: article/elixir/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/elixir/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/elixir/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/elixir/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/elixir/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/elixir/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/elixir/06-task-runner-and-ci-cd.md
+          - 第 7 章 構造体とプロトコルによるポリモーフィズム: article/elixir/07-structs-and-protocols.md
+          - 第 8 章 パターンマッチとガード節: article/elixir/08-pattern-matching-and-guards.md
+          - 第 9 章 モジュール設計とビヘイビア: article/elixir/09-module-design-and-behaviours.md
+          - 第 10 章 高階関数とパイプライン演算子: article/elixir/10-higher-order-functions-and-pipeline.md
+          - 第 11 章 Stream と遅延評価: article/elixir/11-stream-and-lazy-evaluation.md
+          - 第 12 章 エラーハンドリングと with 構文: article/elixir/12-error-handling-and-with.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
