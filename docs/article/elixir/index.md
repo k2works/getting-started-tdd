@@ -24,7 +24,7 @@ FizzBuzz 問題を題材に、Elixir でテスト駆動開発を体験する。
 
 ### 第 3 部: オブジェクト指向設計
 
-1. [07: 構造体とプロトコルによるポリモーフィズム](./07-structs-and-protocol-polymorphism.md)
+1. [07: 構造体とプロトコルによるポリモーフィズム](./07-structs-and-protocols.md)
 2. [08: パターンマッチとガード節](./08-pattern-matching-and-guards.md)
 3. [09: モジュール設計とビヘイビア](./09-module-design-and-behaviours.md)
 
