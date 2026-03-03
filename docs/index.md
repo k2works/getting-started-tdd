@@ -35,6 +35,10 @@
 - [イテレーション 8 計画](./development/iteration_plan-8.md) - C#/F# の執筆・実装計画
 - [ふりかえり 8](./development/retrospective-8.md) - IT8 の KPT 分析
 - [完了報告書 8](./development/iteration_report-8.md) - IT8 の実績と評価
+- [イテレーション 9 計画](./development/iteration_plan-9.md) - Clojure の執筆・実装計画
+- [ふりかえり 9](./development/retrospective-9.md) - IT9 の KPT 分析
+- [完了報告書 9](./development/iteration_report-9.md) - IT9 の実績と評価
+- [イテレーション 10 計画](./development/iteration_plan-10.md) - Scala の執筆・実装計画
 
 ## リファレンス
 

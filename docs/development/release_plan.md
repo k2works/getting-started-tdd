@@ -374,9 +374,25 @@ gantt
 
 詳細は [iteration_plan-9.md](./iteration_plan-9.md) を参照。
 
-### イテレーション 10-12（Week 19-24）
+### イテレーション 10（Week 19-20）
 
-Phase 3 残り: Scala、Elixir、Haskell を各イテレーションで執筆・実装。IT12 で多言語統合解説を完成。
+**ゴール**: Scala の全 12 章の記事執筆と実装を完了し、JVM 上の OOP/FP ハイブリッド言語の TDD パターンを確立する
+
+**主なタスク**:
+
+- [ ] apps/scala/ プロジェクト初期化（sbt + ScalaTest + scalafmt + WartRemover）
+- [ ] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
+- [ ] 第 2 部（章 4-6）: 開発環境と自動化の執筆
+- [ ] 第 3 部（章 7-9）: ケースクラスとトレイトの執筆と実装
+- [ ] 第 4 部（章 10-12）: 関数型プログラミング（パターンマッチ、高階関数、Option/Either）
+
+**目標 SP**: 13
+
+詳細は [iteration_plan-10.md](./iteration_plan-10.md) を参照。
+
+### イテレーション 11-12（Week 21-24）
+
+Phase 3 残り: Elixir、Haskell を各イテレーションで執筆・実装。IT12 で多言語統合解説を完成。
 
 ---
 
