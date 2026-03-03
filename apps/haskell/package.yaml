@@ -24,6 +24,9 @@ library:
   source-dirs: src
   exposed-modules:
     - FizzBuzz
+    - FizzBuzz.Type
+    - FizzBuzz.Model
+    - FizzBuzz.Command
 
 executables:
   fizzbuzz:
