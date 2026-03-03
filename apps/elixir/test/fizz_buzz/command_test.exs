@@ -1,9 +1,9 @@
 defmodule FizzBuzz.CommandTest do
   use ExUnit.Case
 
-  alias FizzBuzz.Command.{ValueCommand, ListCommand}
-  alias FizzBuzz.Type.Type01
+  alias FizzBuzz.Command.{ListCommand, ValueCommand}
   alias FizzBuzz.Model
+  alias FizzBuzz.Type.Type01
 
   describe "ValueCommand" do
     test "デフォルトで実行できる" do

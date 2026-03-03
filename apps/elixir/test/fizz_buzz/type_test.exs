@@ -2,7 +2,7 @@ defmodule FizzBuzz.TypeTest do
   use ExUnit.Case
 
   alias FizzBuzz.Type
-  alias FizzBuzz.Type.{Type01, Type02, Type03, Generatable}
+  alias FizzBuzz.Type.{Generatable, Type01, Type02, Type03}
 
   describe "Type01" do
     test "1 を渡すと 1 を返す" do

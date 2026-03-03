@@ -17,6 +17,8 @@ defmodule FizzBuzz.Model do
     @enforce_keys [:values]
     defstruct [:values]
 
+    alias FizzBuzz.Type.Generatable
+
     @doc "値のリストを文字列リストに変換する"
     def to_string_list(%__MODULE__{values: values}) do
       Enum.map(values, &Value.to_string/1)
@@ -31,7 +33,7 @@ defmodule FizzBuzz.Model do
         Enum.map(1..count, fn n ->
           %Value{
             number: n,
-            value: FizzBuzz.Type.Generatable.generate(type, n)
+            value: Generatable.generate(type, n)
           }
         end)
 
