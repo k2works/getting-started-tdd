@@ -134,26 +134,52 @@
 
 ```mermaid
 gantt
-    title 計画スケジュール
+    title Release Schedule - Plan
     dateFormat  YYYY-MM-DD
-    section Phase 1: 主流 OOP
+    section Phase 1
     IT1 Java              :crit, p1-1, 2026-03-02, 14d
     IT2 Python             :crit, p1-2, after p1-1, 14d
-    IT3 Node(JS/TS)        :crit, p1-3, after p1-2, 14d
+    IT3 Node               :crit, p1-3, after p1-2, 14d
     IT4 Ruby               :crit, p1-4, after p1-3, 14d
     Release 1.0            :milestone, m1, after p1-4, 0d
-    section Phase 2: 多パラダイム
+    section Phase 2
     IT5 Go                 :p2-1, after p1-4, 14d
     IT6 PHP                :p2-2, after p2-1, 14d
     IT7 Rust               :p2-3, after p2-2, 14d
-    IT8 C#/F#              :p2-4, after p2-3, 14d
+    IT8 dotnet             :p2-4, after p2-3, 14d
     Release 2.0            :milestone, m2, after p2-4, 0d
-    section Phase 3: 関数型 + 統合
+    section Phase 3
     IT9 Clojure            :p3-1, after p2-4, 14d
     IT10 Scala             :p3-2, after p3-1, 14d
     IT11 Elixir            :p3-3, after p3-2, 14d
-    IT12 Haskell + 統合    :p3-4, after p3-3, 14d
+    IT12 Haskell           :p3-4, after p3-3, 14d
     Release 3.0            :milestone, m3, after p3-4, 0d
+```
+
+#### 実績スケジュール
+
+```mermaid
+gantt
+    title Release Schedule - Actual
+    dateFormat  YYYY-MM-DD
+    section Phase 1
+    IT1 Java              :done, crit, a1-1, 2026-02-28, 1d
+    IT2 Python             :done, crit, a1-2, 2026-03-01, 1d
+    IT3 Node               :done, crit, a1-3, 2026-03-01, 1d
+    IT4 Ruby               :done, crit, a1-4, 2026-03-02, 1d
+    Release 1.0            :milestone, am1, 2026-03-02, 0d
+    section Phase 2
+    IT5 Go                 :done, a2-1, 2026-03-02, 1d
+    IT6 PHP                :done, a2-2, 2026-03-02, 1d
+    IT7 Rust               :done, a2-3, 2026-03-02, 1d
+    IT8 dotnet             :done, a2-4, 2026-03-02, 1d
+    Release 2.0            :milestone, am2, 2026-03-02, 0d
+    section Phase 3
+    IT9 Clojure            :done, a3-1, 2026-03-03, 1d
+    IT10 Scala             :done, a3-2, 2026-03-03, 1d
+    IT11 Elixir            :done, a3-3, 2026-03-03, 1d
+    IT12 Haskell           :done, a3-4, 2026-03-03, 1d
+    Release 3.0            :milestone, am3, 2026-03-04, 0d
 ```
 
 ### リリース内容
@@ -477,14 +503,21 @@ gantt
 
 ### バーンダウンチャート
 
-```mermaid
-xychart-beta
-    title "リリースバーンダウン（計画 vs 実績）"
-    x-axis ["開始", "IT1", "IT2", "IT3", "IT4", "IT5", "IT6", "IT7", "IT8", "IT9", "IT10", "IT11", "IT12"]
-    y-axis "残 SP" 0 --> 149
-    line "計画" [149, 139, 129, 116, 103, 93, 83, 73, 60, 47, 34, 21, 0]
-    line "実績" [149, 139, 129, 116, 103, 93, 83, 73, 60, 47, 34, 21, 0]
-```
+| 時点 | 計画残 SP | 実績残 SP |
+|------|----------|----------|
+| 開始 | 149 | 149 |
+| IT1 | 139 | 139 |
+| IT2 | 129 | 129 |
+| IT3 | 116 | 116 |
+| IT4 | 103 | 103 |
+| IT5 | 93 | 93 |
+| IT6 | 83 | 83 |
+| IT7 | 73 | 73 |
+| IT8 | 60 | 60 |
+| IT9 | 47 | 47 |
+| IT10 | 34 | 34 |
+| IT11 | 21 | 21 |
+| IT12 | 0 | 0 |
 
 ---
 
