@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [3.0.0] - 2026-03-04
 
-Phase 3 完了 — Clojure / Scala / Elixir / Haskell の 4 言語 × 12 章 + 多言語統合解説 6 章 = 54 章の TDD 入門記事と実装。全 12 言語 + 統合解説でプロジェクト完了。
+Phase 3 完了 — Clojure / Scala / Elixir / Haskell の 4 言語 × 12 章 + 多言語統合解説 6 章 = 54 章の TDD 入門記事と実装。全 14 言語 + 統合解説でプロジェクト完了。
 
 ### Features
 

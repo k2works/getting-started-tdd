@@ -4,7 +4,7 @@
 
 ## 記事
 
-- [テスト駆動開発から始めるXX入門](./article/index.md) - 12 言語で TDD を体験する記事シリーズ
+- [テスト駆動開発から始めるXX入門](./article/index.md) - 14 言語で TDD を体験する記事シリーズ
 - [執筆計画アウトライン](./article/outline.md) - 記事の全体構成と執筆計画
 - [執筆ワークフロー](./article/workflow.md) - 執筆・実装の進め方
 
