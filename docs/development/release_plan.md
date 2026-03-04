@@ -134,7 +134,7 @@
 
 ```mermaid
 gantt
-    title Release Schedule
+    title Release Schedule - Plan
     dateFormat  YYYY-MM-DD
     section Phase 1
     IT1 Java              :crit, p1-1, 2026-03-02, 14d
@@ -154,6 +154,32 @@ gantt
     IT11 Elixir            :p3-3, after p3-2, 14d
     IT12 Haskell           :p3-4, after p3-3, 14d
     Release 3.0            :milestone, m3, after p3-4, 0d
+```
+
+#### 実績スケジュール
+
+```mermaid
+gantt
+    title Release Schedule - Actual
+    dateFormat  YYYY-MM-DD
+    section Phase 1
+    IT1 Java              :done, crit, a1-1, 2026-02-28, 1d
+    IT2 Python             :done, crit, a1-2, 2026-03-01, 1d
+    IT3 Node               :done, crit, a1-3, 2026-03-01, 1d
+    IT4 Ruby               :done, crit, a1-4, 2026-03-02, 1d
+    Release 1.0            :milestone, am1, 2026-03-02, 0d
+    section Phase 2
+    IT5 Go                 :done, a2-1, 2026-03-02, 1d
+    IT6 PHP                :done, a2-2, 2026-03-02, 1d
+    IT7 Rust               :done, a2-3, 2026-03-02, 1d
+    IT8 dotnet             :done, a2-4, 2026-03-02, 1d
+    Release 2.0            :milestone, am2, 2026-03-02, 0d
+    section Phase 3
+    IT9 Clojure            :done, a3-1, 2026-03-03, 1d
+    IT10 Scala             :done, a3-2, 2026-03-03, 1d
+    IT11 Elixir            :done, a3-3, 2026-03-03, 1d
+    IT12 Haskell           :done, a3-4, 2026-03-03, 1d
+    Release 3.0            :milestone, am3, 2026-03-04, 0d
 ```
 
 ### リリース内容
