@@ -35,14 +35,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nix-rust-
 
-      - name: Check formatting
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo fmt --check"
-
-      - name: Run Clippy
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo clippy -- -D warnings"
-
-      - name: Check complexity
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo clippy -- -D clippy::cognitive_complexity"
-
-      - name: Run tests
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo test"
+      - name: Run all checks
+        run: nix develop .#rust --command bash -c "cd apps/rust && just check"

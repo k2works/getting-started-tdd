@@ -34,7 +34,7 @@ FizzBuzz 問題を題材に、テスト駆動開発（TDD）の基本サイク�
 | [Cargo](https://doc.rust-lang.org/cargo/) | パッケージ管理・ビルドシステム |
 | [Clippy](https://github.com/rust-lang/rust-clippy) | Linter（コード品質チェック） |
 | [rustfmt](https://github.com/rust-lang/rustfmt) | 標準フォーマッター |
-| [Makefile](https://www.gnu.org/software/make/) | タスクランナー |
+| [just](https://github.com/casey/just) | タスクランナー |
 
 ## 目次
 

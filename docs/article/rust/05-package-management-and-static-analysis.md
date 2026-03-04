@@ -153,16 +153,18 @@ $ cargo clippy -- -D clippy::cognitive_complexity
 
 現在の FizzBuzz 実装では、各メソッドが短く単純なため、閾値 7 を超える関数はありません。
 
-### Makefile への追加
+### justfile への追加
 
-```makefile
+```just
+# 複雑度チェック
 complexity:
-	cargo clippy -- -D clippy::cognitive_complexity
+    cargo clippy -- -D clippy::cognitive_complexity
 
+# 全チェック実行（フォーマット → 静的解析 → 複雑度 → テスト）
 check: fmt-check lint complexity test
 ```
 
-`make complexity` で複雑度チェックを単独実行、`make check` で全品質チェックをまとめて実行できます。
+`just complexity` で複雑度チェックを単独実行、`just check` で全品質チェックをまとめて実行できます。
 
 ### 他言語との比較
 
@@ -207,4 +209,4 @@ $ cargo tarpaulin --out stdout
 | rustfmt | コードフォーマット | Prettier, gofmt, RuboCop --auto-correct |
 | cargo-tarpaulin | カバレッジ計測 | c8, SimpleCov, go test -cover |
 
-次章では、これらのツールを **タスクランナー**（Makefile）でまとめて実行できるようにし、**CI/CD** パイプラインを構築します。
+次章では、これらのツールを **タスクランナー**（just）でまとめて実行できるようにし、**CI/CD** パイプラインを構築します。

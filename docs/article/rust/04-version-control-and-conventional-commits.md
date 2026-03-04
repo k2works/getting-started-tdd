@@ -45,7 +45,7 @@
 | `refactor` | リファクタリング | `refactor: match 式でパターンマッチに変更` |
 | `test` | テストの追加・修正 | `test: 三角測量のテストケースを追加` |
 | `docs` | ドキュメントの変更 | `docs: README にセットアップ手順を追加` |
-| `chore` | ビルド・ツールの変更 | `chore: Makefile にカバレッジタスクを追加` |
+| `chore` | ビルド・ツールの変更 | `chore: justfile にカバレッジタスクを追加` |
 | `style` | コードスタイルの変更 | `style: rustfmt で自動フォーマット` |
 
 ### Rust プロジェクトでの例
