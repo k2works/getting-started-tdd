@@ -73,3 +73,5 @@
 ## イテレーション 12（Haskell + 統合解説）
 
 - [イテレーション 12 計画](./iteration_plan-12.md) - Haskell + 多言語統合解説の執筆・実装計画
+- [ふりかえり 12](./retrospective-12.md) - IT12 KPT 分析（プロジェクト全体ふりかえり含む）
+- [完了報告書 12](./iteration_report-12.md) - IT12 実績・品質メトリクス（最終報告書）
