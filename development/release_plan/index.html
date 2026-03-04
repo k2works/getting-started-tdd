@@ -6725,13 +6725,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実績スケジュール
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         リリース内容
@@ -6786,7 +6797,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         バッファ戦略
@@ -6798,7 +6809,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         フィーチャバッファ
@@ -6809,7 +6820,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         スケジュールバッファ
@@ -6820,7 +6831,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         バッファ消費ルール
@@ -6836,7 +6847,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         イテレーション計画概要
@@ -6985,7 +6996,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         リスク管理
@@ -6997,7 +7008,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       
         技術リスク
@@ -7008,7 +7019,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       
         スケジュールリスク
@@ -7024,7 +7035,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       
         進捗管理
@@ -7036,7 +7047,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       
         メトリクス
@@ -7047,7 +7058,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
       
         進捗状況
@@ -7058,7 +7069,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
       
         バーンダウンチャート
@@ -7074,7 +7085,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
       
         次のステップ
@@ -7085,7 +7096,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
       
         更新履歴
@@ -9633,27 +9644,49 @@
 <h3 id="_15">リリーススケジュール<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <h4 id="_16">計画スケジュール<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <pre class="mermaid"><code>gantt
-    title 計画スケジュール
+    title Release Schedule - Plan
     dateFormat  YYYY-MM-DD
-    section Phase 1: 主流 OOP
+    section Phase 1
     IT1 Java              :crit, p1-1, 2026-03-02, 14d
     IT2 Python             :crit, p1-2, after p1-1, 14d
-    IT3 Node(JS/TS)        :crit, p1-3, after p1-2, 14d
+    IT3 Node               :crit, p1-3, after p1-2, 14d
     IT4 Ruby               :crit, p1-4, after p1-3, 14d
     Release 1.0            :milestone, m1, after p1-4, 0d
-    section Phase 2: 多パラダイム
+    section Phase 2
     IT5 Go                 :p2-1, after p1-4, 14d
     IT6 PHP                :p2-2, after p2-1, 14d
     IT7 Rust               :p2-3, after p2-2, 14d
-    IT8 C#/F#              :p2-4, after p2-3, 14d
+    IT8 dotnet             :p2-4, after p2-3, 14d
     Release 2.0            :milestone, m2, after p2-4, 0d
-    section Phase 3: 関数型 + 統合
+    section Phase 3
     IT9 Clojure            :p3-1, after p2-4, 14d
     IT10 Scala             :p3-2, after p3-1, 14d
     IT11 Elixir            :p3-3, after p3-2, 14d
-    IT12 Haskell + 統合    :p3-4, after p3-3, 14d
+    IT12 Haskell           :p3-4, after p3-3, 14d
     Release 3.0            :milestone, m3, after p3-4, 0d</code></pre>
-<h3 id="_17">リリース内容<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h4 id="_17">実績スケジュール<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>gantt
+    title Release Schedule - Actual
+    dateFormat  YYYY-MM-DD
+    section Phase 1
+    IT1 Java              :done, crit, a1-1, 2026-02-28, 1d
+    IT2 Python             :done, crit, a1-2, 2026-03-01, 1d
+    IT3 Node               :done, crit, a1-3, 2026-03-01, 1d
+    IT4 Ruby               :done, crit, a1-4, 2026-03-02, 1d
+    Release 1.0            :milestone, am1, 2026-03-02, 0d
+    section Phase 2
+    IT5 Go                 :done, a2-1, 2026-03-02, 1d
+    IT6 PHP                :done, a2-2, 2026-03-02, 1d
+    IT7 Rust               :done, a2-3, 2026-03-02, 1d
+    IT8 dotnet             :done, a2-4, 2026-03-02, 1d
+    Release 2.0            :milestone, am2, 2026-03-02, 0d
+    section Phase 3
+    IT9 Clojure            :done, a3-1, 2026-03-03, 1d
+    IT10 Scala             :done, a3-2, 2026-03-03, 1d
+    IT11 Elixir            :done, a3-3, 2026-03-03, 1d
+    IT12 Haskell           :done, a3-4, 2026-03-03, 1d
+    Release 3.0            :milestone, am3, 2026-03-04, 0d</code></pre>
+<h3 id="_18">リリース内容<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <h4 id="release-10phase-1-oop">Release 1.0（Phase 1 完了）: 主流 OOP 言語<a class="headerlink" href="#release-10phase-1-oop" title="Permanent link">&para;</a></h4>
 <p><strong>目標</strong>: Java、Python、Node（JS/TS）、Ruby の記事と実装を公開</p>
 <p><strong>含まれる機能</strong>:</p>
@@ -9700,8 +9733,8 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>v3.0.0 リリース済み（2026-03-04）</strong></li>
 </ul>
 <hr />
-<h2 id="_18">バッファ戦略<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
-<h3 id="_19">フィーチャバッファ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h2 id="_19">バッファ戦略<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">フィーチャバッファ<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -9732,19 +9765,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_20">スケジュールバッファ<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_21">スケジュールバッファ<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>予備イテレーション</strong>: 各 Phase 終了後に 1 週間の予備期間</li>
 <li><strong>全体バッファ</strong>: 約 20%</li>
 </ul>
-<h3 id="_21">バッファ消費ルール<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_22">バッファ消費ルール<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <ol>
 <li>第 4 部（関数型）の章を簡略化（3 エピソード言語）</li>
 <li>統合解説を段階的に執筆</li>
 <li>スケジュールバッファは最後の手段</li>
 </ol>
 <hr />
-<h2 id="_22">イテレーション計画概要<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<h2 id="_23">イテレーション計画概要<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
 <h3 id="1week-1-2">イテレーション 1（Week 1-2）<a class="headerlink" href="#1week-1-2" title="Permanent link">&para;</a></h3>
 <p><strong>ゴール</strong>: Java の全 12 章の記事執筆と実装を完了し、テンプレートを確立する</p>
 <p><strong>主なタスク</strong>:</p>
@@ -9888,8 +9921,8 @@
 <p><strong>目標 SP</strong>: 21</p>
 <p>詳細は <a href="../iteration_plan-12/">iteration_plan-12.md</a> を参照。</p>
 <hr />
-<h2 id="_23">リスク管理<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
-<h3 id="_24">技術リスク<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h2 id="_24">リスク管理<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="_25">技術リスク<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -9920,7 +9953,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_25">スケジュールリスク<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<h3 id="_26">スケジュールリスク<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -9946,8 +9979,8 @@
 </tbody>
 </table>
 <hr />
-<h2 id="_26">進捗管理<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
-<h3 id="_27">メトリクス<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h2 id="_27">進捗管理<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<h3 id="_28">メトリクス<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -9974,7 +10007,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_28">進捗状況<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_29">進捗状況<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -10085,15 +10118,85 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_29">バーンダウンチャート<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>xychart-beta
-    title "リリースバーンダウン（計画 vs 実績）"
-    x-axis ["開始", "IT1", "IT2", "IT3", "IT4", "IT5", "IT6", "IT7", "IT8", "IT9", "IT10", "IT11", "IT12"]
-    y-axis "残 SP" 0 --&gt; 149
-    line "計画" [149, 139, 129, 116, 103, 93, 83, 73, 60, 47, 34, 21, 0]
-    line "実績" [149, 139, 129, 116, 103, 93, 83, 73, 60, 47, 34, 21, 0]</code></pre>
+<h3 id="_30">バーンダウンチャート<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>時点</th>
+<th>計画残 SP</th>
+<th>実績残 SP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開始</td>
+<td>149</td>
+<td>149</td>
+</tr>
+<tr>
+<td>IT1</td>
+<td>139</td>
+<td>139</td>
+</tr>
+<tr>
+<td>IT2</td>
+<td>129</td>
+<td>129</td>
+</tr>
+<tr>
+<td>IT3</td>
+<td>116</td>
+<td>116</td>
+</tr>
+<tr>
+<td>IT4</td>
+<td>103</td>
+<td>103</td>
+</tr>
+<tr>
+<td>IT5</td>
+<td>93</td>
+<td>93</td>
+</tr>
+<tr>
+<td>IT6</td>
+<td>83</td>
+<td>83</td>
+</tr>
+<tr>
+<td>IT7</td>
+<td>73</td>
+<td>73</td>
+</tr>
+<tr>
+<td>IT8</td>
+<td>60</td>
+<td>60</td>
+</tr>
+<tr>
+<td>IT9</td>
+<td>47</td>
+<td>47</td>
+</tr>
+<tr>
+<td>IT10</td>
+<td>34</td>
+<td>34</td>
+</tr>
+<tr>
+<td>IT11</td>
+<td>21</td>
+<td>21</td>
+</tr>
+<tr>
+<td>IT12</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="_30">次のステップ<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h2 id="_31">次のステップ<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
 <ol>
 <li>~~IT4（Ruby）イテレーション計画を作成~~ ✅</li>
 <li>~~ベロシティトレンド分析（3 イテレーション実績: 平均 11 SP）~~ ✅</li>
@@ -10128,7 +10231,7 @@
 <li>~~Release 3.0 準備（Milestone クローズ、タグ付け）~~ ✅</li>
 </ol>
 <hr />
-<h2 id="_31">更新履歴<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h2 id="_32">更新履歴<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
