@@ -4,6 +4,52 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [3.0.0] - 2026-03-04
+
+Phase 3 完了 — Clojure / Scala / Elixir / Haskell の 4 言語 × 12 章 + 多言語統合解説 6 章 = 54 章の TDD 入門記事と実装。全 12 言語 + 統合解説でプロジェクト完了。
+
+### Features
+
+- feat(integration): IT12 多言語統合解説の執筆を完了 (b94c191)
+- feat(haskell): IT12 第 4 部（章 10-12）の記事執筆と FP 実装を完了 (c4d96fa)
+- feat(haskell): IT12 第 3 部（章 7-9）の記事執筆と型クラス/ADT 実装を完了 (7c70d9b)
+- feat(haskell): IT12 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了 (bcda0dc)
+- feat(haskell): IT12 第 1 部（章 1-3）の記事執筆と TDD 実装を完了 (2aaf810)
+- feat(haskell): IT12 環境構築（Stack + HSpec + HLint） (0d698a6)
+- feat(elixir): IT11 第 4 部（章 10-12）の記事執筆と FP 実装を完了 (9750562)
+- feat(elixir): IT11 第 3 部（章 7-9）の記事執筆とプロトコル/パターンマッチ実装を完了 (686127c)
+- feat(elixir): IT11 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了 (7693873)
+- feat(elixir): IT11 環境構築と第 1 部（章 1-3）の記事執筆と TDD 実装を完了 (79975ed)
+- feat(scala): CI/CD を Nix ベースに移行し記事を更新 (1f18a3a)
+- feat(scala): コード複雑度チェッカーと記事セクションを追加 (3e0d031)
+- feat(scala): IT10 第 4 部（章 10-12）の記事執筆と FP 実装を完了 (7e32794)
+- feat(scala): IT10 第 3 部（章 7-9）の記事執筆と OOP/パターンマッチ実装を完了 (058dfb4)
+- feat(scala): IT10 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了 (18c0de3)
+- feat(scala): IT10 環境構築と第 1 部（章 1-3）の記事執筆と TDD 実装を完了 (0b950ad)
+- feat(clojure): IT9 Clojure の TDD 入門記事執筆と実装を完了 (e283220)
+
+### Bug Fixes
+
+- fix(elixir): Credo --strict の警告を修正 (c728f1b)
+
+### Documentation
+
+- docs: ドキュメントインデックスに IT10-12 のリンクを追加 (3444e9e)
+- docs: IT12 ふりかえりと完了報告書を追加 (b25cfcc)
+- docs: 記事インデックスに全言語のリンクを追加し言語数を更新 (eb86b54)
+- docs: IT12 完了に伴うドキュメント同期と GitHub 同期 (21fca40)
+- docs: IT12（Haskell + 統合解説）イテレーション計画を作成 (17a69bb)
+- docs: IT11 ふりかえりと完了報告書を追加 (937a692)
+- docs: IT11 完了に伴うドキュメント同期と GitHub Issue クローズ (cfe071f)
+- docs: IT11（Elixir）イテレーション計画を作成 (2440b11)
+- docs: IT10 ふりかえりと完了報告書を追加 (c2a1c38)
+- docs: IT10 完了に伴うドキュメント同期と GitHub Issue クローズ (f1380f6)
+- docs: IT9 完了ドキュメントと IT10 計画書を追加 (d63cca0)
+
+### Chores
+
+- chore(rust): タスクランナーを Makefile から just に移行 (262cbeb)
+
 ## [1.1.0] - 2026-03-02
 
 Phase 2 完了 — Go / PHP / Rust / C#・F# の 4 言語 × 12 章 + F# 12 章 = 60 章の TDD 入門記事と実装。

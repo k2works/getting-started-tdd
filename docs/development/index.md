@@ -51,3 +51,27 @@
 - [イテレーション 8 計画](./iteration_plan-8.md) - C#/F# の執筆・実装計画
 - [ふりかえり 8](./retrospective-8.md) - IT8 KPT 分析
 - [完了報告書 8](./iteration_report-8.md) - IT8 実績・品質メトリクス
+
+## イテレーション 9（Clojure）
+
+- [イテレーション 9 計画](./iteration_plan-9.md) - Clojure の執筆・実装計画
+- [ふりかえり 9](./retrospective-9.md) - IT9 KPT 分析
+- [完了報告書 9](./iteration_report-9.md) - IT9 実績・品質メトリクス
+
+## イテレーション 10（Scala）
+
+- [イテレーション 10 計画](./iteration_plan-10.md) - Scala の執筆・実装計画
+- [ふりかえり 10](./retrospective-10.md) - IT10 KPT 分析
+- [完了報告書 10](./iteration_report-10.md) - IT10 実績・品質メトリクス
+
+## イテレーション 11（Elixir）
+
+- [イテレーション 11 計画](./iteration_plan-11.md) - Elixir の執筆・実装計画
+- [ふりかえり 11](./retrospective-11.md) - IT11 KPT 分析
+- [完了報告書 11](./iteration_report-11.md) - IT11 実績・品質メトリクス
+
+## イテレーション 12（Haskell + 統合解説）
+
+- [イテレーション 12 計画](./iteration_plan-12.md) - Haskell + 多言語統合解説の執筆・実装計画
+- [ふりかえり 12](./retrospective-12.md) - IT12 KPT 分析（プロジェクト全体ふりかえり含む）
+- [完了報告書 12](./iteration_report-12.md) - IT12 実績・品質メトリクス（最終報告書）

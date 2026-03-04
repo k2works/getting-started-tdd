@@ -6,62 +6,76 @@
 
 この章では **タスクランナー** を使ってこれらのタスクをまとめて実行できるようにし、さらに **CI/CD** パイプラインを構築します。
 
-## 6.2 Makefile によるタスク管理
+## 6.2 just によるタスク管理
 
-### Makefile とは
+### just とは
 
-> Makefile は Unix 系の定番ビルド/タスク管理ツールである make の設定ファイルです。ターゲット（タスク名）と依存関係、実行コマンドを定義し、`make <ターゲット>` で実行できます。
+> [just](https://github.com/casey/just) は Rust 製のコマンドランナーです。Makefile に似た構文でタスク（レシピ）を定義し、`just <レシピ名>` で実行できます。Makefile と異なりファイルのビルドではなく **コマンド実行に特化** しており、タブ／スペースの混在を許容し、エラーメッセージもわかりやすいのが特徴です。
 
-Ruby の Rake、Java の Gradle、Node の npm scripts、Python の tox、Go プロジェクトでの Makefile に相当します。Rust のプロジェクトでも Makefile がタスクランナーとして広く使われています。
+Ruby の Rake、Java の Gradle、Node の npm scripts、Python の tox、Go プロジェクトでの Makefile に相当します。Rust エコシステムでは Rust 製ということもあり、just がタスクランナーとして広く採用されています。
 
-### Makefile の定義
+### justfile の定義
 
-```makefile
-.PHONY: test lint fmt check build run clean
+```just
+# Rust プロジェクトのタスクランナー
 
+# テスト実行
 test:
-	cargo test
+    cargo test
 
+# Clippy による静的解析
 lint:
-	cargo clippy -- -D warnings
+    cargo clippy -- -D warnings
 
+# 複雑度チェック
+complexity:
+    cargo clippy -- -D clippy::cognitive_complexity
+
+# コードフォーマット
 fmt:
-	cargo fmt
+    cargo fmt
 
+# フォーマットチェック
 fmt-check:
-	cargo fmt --check
+    cargo fmt --check
 
-check: fmt-check lint test
+# 全チェック実行（フォーマット → 静的解析 → 複雑度 → テスト）
+check: fmt-check lint complexity test
 
+# リリースビルド
 build:
-	cargo build --release
+    cargo build --release
 
+# 実行
 run:
-	cargo run
+    cargo run
 
+# ビルド成果物の削除
 clean:
-	cargo clean
+    cargo clean
 ```
 
 ### 主要なタスク
 
 | タスク | コマンド | 説明 |
 |--------|---------|------|
-| `make test` | `cargo test` | テスト実行 |
-| `make lint` | `cargo clippy -- -D warnings` | Clippy による静的解析 |
-| `make fmt` | `cargo fmt` | コードフォーマット |
-| `make fmt-check` | `cargo fmt --check` | フォーマットチェック |
-| `make check` | fmt-check → lint → test | 全チェック実行 |
-| `make build` | `cargo build --release` | リリースビルド |
-| `make clean` | `cargo clean` | ビルド成果物の削除 |
+| `just test` | `cargo test` | テスト実行 |
+| `just lint` | `cargo clippy -- -D warnings` | Clippy による静的解析 |
+| `just complexity` | `cargo clippy -- -D clippy::cognitive_complexity` | 複雑度チェック |
+| `just fmt` | `cargo fmt` | コードフォーマット |
+| `just fmt-check` | `cargo fmt --check` | フォーマットチェック |
+| `just check` | fmt-check → lint → complexity → test | 全チェック実行 |
+| `just build` | `cargo build --release` | リリースビルド |
+| `just clean` | `cargo clean` | ビルド成果物の削除 |
 
 ### 実行例
 
 ```bash
 # 全チェック実行
-$ make check
+$ just check
 cargo fmt --check
 cargo clippy -- -D warnings
+cargo clippy -- -D clippy::cognitive_complexity
 cargo test
 test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
@@ -114,27 +128,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nix-rust-
 
-      - name: Check formatting
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo fmt --check"
-
-      - name: Run Clippy
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo clippy -- -D warnings"
-
-      - name: Run tests
-        run: nix develop .#rust --command bash -c "cd apps/rust && cargo test"
+      - name: Run all checks
+        run: nix develop .#rust --command bash -c "cd apps/rust && just check"
 ```
 
 ### CI パイプラインの流れ
 
 ```
-Push / PR → fmt --check → clippy → cargo test → 結果通知
+Push / PR → just check（fmt-check → lint → complexity → test）→ 結果通知
 ```
 
 ## 6.4 他言語との比較
 
 | 言語 | タスクランナー | CI ツール | テスト | 静的解析 | フォーマット |
 |------|-------------|----------|--------|---------|------------|
-| Rust | Makefile | GitHub Actions | cargo test | Clippy | rustfmt |
+| Rust | just | GitHub Actions | cargo test | Clippy | rustfmt |
 | Go | Makefile | GitHub Actions | go test | golangci-lint | gofmt |
 | Java | Gradle | GitHub Actions | JUnit | Checkstyle + PMD | Checkstyle |
 | Python | tox | GitHub Actions | pytest | Ruff | Ruff |
@@ -148,9 +156,9 @@ Push / PR → fmt --check → clippy → cargo test → 結果通知
 
 | 項目 | 内容 |
 |------|------|
-| Makefile | test / lint / fmt / check タスクを定義 |
-| `make check` | フォーマットチェック → Clippy → テストを一括実行 |
-| GitHub Actions | push / PR 時に自動で CI を実行 |
+| justfile | test / lint / complexity / fmt / check タスクを定義 |
+| `just check` | フォーマットチェック → Clippy → 複雑度 → テストを一括実行 |
+| GitHub Actions | push / PR 時に `just check` で CI を実行 |
 | Nix 統合 | CI でも `nix develop .#rust` を使用し環境を統一 |
 
-第 2 部を通じて、ソフトウェア開発の三種の神器（バージョン管理、テスティング、自動化）を Rust の開発環境に整備しました。次の第 3 部では、オブジェクト指向設計（struct、trait、デザインパターン）に進みます。
+第 2 部を通じて、ソフトウェア開発の三種の神器（バージョン管理、テスティング、自動化）を Rust の開発環境に整備しました。just は Rust 製のコマンドランナーであり、Rust エコシステムとの親和性が高く、Makefile よりもシンプルにタスクを定義できます。次の第 3 部では、オブジェクト指向設計（struct、trait、デザインパターン）に進みます。

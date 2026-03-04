@@ -1,0 +1,10 @@
+target/
+.lein-*
+.nrepl-port
+.lein-repl-history
+*.jar
+*.class
+pom.xml
+pom.xml.asc
+.hg/
+.DS_Store

@@ -35,6 +35,18 @@
 - [イテレーション 8 計画](./development/iteration_plan-8.md) - C#/F# の執筆・実装計画
 - [ふりかえり 8](./development/retrospective-8.md) - IT8 の KPT 分析
 - [完了報告書 8](./development/iteration_report-8.md) - IT8 の実績と評価
+- [イテレーション 9 計画](./development/iteration_plan-9.md) - Clojure の執筆・実装計画
+- [ふりかえり 9](./development/retrospective-9.md) - IT9 の KPT 分析
+- [完了報告書 9](./development/iteration_report-9.md) - IT9 の実績と評価
+- [イテレーション 10 計画](./development/iteration_plan-10.md) - Scala の執筆・実装計画
+- [ふりかえり 10](./development/retrospective-10.md) - IT10 の KPT 分析
+- [完了報告書 10](./development/iteration_report-10.md) - IT10 の実績と評価
+- [イテレーション 11 計画](./development/iteration_plan-11.md) - Elixir の執筆・実装計画
+- [ふりかえり 11](./development/retrospective-11.md) - IT11 の KPT 分析
+- [完了報告書 11](./development/iteration_report-11.md) - IT11 の実績と評価
+- [イテレーション 12 計画](./development/iteration_plan-12.md) - Haskell + 統合解説の執筆・実装計画
+- [ふりかえり 12](./development/retrospective-12.md) - IT12 の KPT 分析（プロジェクト全体ふりかえり含む）
+- [完了報告書 12](./development/iteration_report-12.md) - IT12 の実績と評価（最終報告書）
 
 ## リファレンス
 

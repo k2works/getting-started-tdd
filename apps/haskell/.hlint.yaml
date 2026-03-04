@@ -1,0 +1,6 @@
+# HLint configuration
+# https://github.com/ndmitchell/hlint
+
+- ignore: {name: "Redundant bracket"}
+- ignore: {name: "Use head", within: ["FizzBuzz.FizzBuzzSpec"]}
+- ignore: {name: "Eta reduce", within: ["FizzBuzz"]}

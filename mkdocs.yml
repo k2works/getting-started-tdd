@@ -193,6 +193,70 @@ nav:
           - 第 10 章 高階関数と関数合成: article/go/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/go/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと型安全性: article/go/12-error-handling-and-type-safety.md
+      - Clojure:
+          - 概要: article/clojure/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/clojure/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/clojure/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/clojure/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/clojure/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/clojure/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/clojure/06-task-runner-and-ci-cd.md
+          - 第 7 章 プロトコルとレコードによるポリモーフィズム: article/clojure/07-protocols-and-records.md
+          - 第 8 章 マルチメソッドとデザインパターン: article/clojure/08-multimethods-and-design-patterns.md
+          - 第 9 章 名前空間とモジュール設計: article/clojure/09-namespaces-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/clojure/10-higher-order-functions-and-composition.md
+          - 第 11 章 永続データ構造とパイプライン処理: article/clojure/11-persistent-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと Spec: article/clojure/12-error-handling-and-spec.md
+      - Scala:
+          - 概要: article/scala/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/scala/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/scala/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/scala/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/scala/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/scala/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/scala/06-task-runner-and-ci-cd.md
+          - 第 7 章 ケースクラスとトレイトによるポリモーフィズム: article/scala/07-case-classes-and-traits.md
+          - 第 8 章 パターンマッチとシールドトレイト: article/scala/08-pattern-matching-and-sealed-traits.md
+          - 第 9 章 パッケージとモジュール設計: article/scala/09-packages-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/scala/10-higher-order-functions-and-composition.md
+          - 第 11 章 コレクション処理と遅延評価: article/scala/11-collections-and-lazy-evaluation.md
+          - 第 12 章 エラーハンドリングと型安全性: article/scala/12-error-handling-and-type-safety.md
+      - Elixir:
+          - 概要: article/elixir/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/elixir/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/elixir/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/elixir/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/elixir/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/elixir/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/elixir/06-task-runner-and-ci-cd.md
+          - 第 7 章 構造体とプロトコルによるポリモーフィズム: article/elixir/07-structs-and-protocols.md
+          - 第 8 章 パターンマッチとガード節: article/elixir/08-pattern-matching-and-guards.md
+          - 第 9 章 モジュール設計とビヘイビア: article/elixir/09-module-design-and-behaviours.md
+          - 第 10 章 高階関数とパイプライン演算子: article/elixir/10-higher-order-functions-and-pipeline.md
+          - 第 11 章 Stream と遅延評価: article/elixir/11-stream-and-lazy-evaluation.md
+          - 第 12 章 エラーハンドリングと with 構文: article/elixir/12-error-handling-and-with.md
+      - Haskell:
+          - 概要: article/haskell/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/haskell/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/haskell/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/haskell/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/haskell/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/haskell/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/haskell/06-task-runner-and-ci-cd.md
+          - 第 7 章 代数的データ型と型クラスによるポリモーフィズム: article/haskell/07-algebraic-data-types-and-type-classes.md
+          - 第 8 章 パターンマッチとガード: article/haskell/08-pattern-matching-and-guards.md
+          - 第 9 章 モジュール設計とスマートコンストラクタ: article/haskell/09-module-design-and-smart-constructors.md
+          - 第 10 章 高階関数とカリー化: article/haskell/10-higher-order-functions-and-currying.md
+          - 第 11 章 関数合成とポイントフリースタイル: article/haskell/11-function-composition-and-point-free.md
+          - 第 12 章 モナドとエラーハンドリング: article/haskell/12-monad-and-error-handling.md
+      - 多言語統合解説:
+          - 概要: article/integration/index.md
+          - 14 言語の概要と分類: article/integration/01-language-overview.md
+          - テストフレームワーク比較: article/integration/02-test-framework-comparison.md
+          - パラダイム別 TDD パターン比較: article/integration/03-tdd-pattern-comparison.md
+          - 型システムとエラーハンドリング比較: article/integration/04-type-system-comparison.md
+          - 開発環境と CI/CD 比較: article/integration/05-dev-environment-comparison.md
+          - 学習ロードマップ: article/integration/06-learning-roadmap.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
@@ -220,6 +284,18 @@ nav:
       - イテレーション 8: development/iteration_plan-8.md
       - ふりかえり 8: development/retrospective-8.md
       - 完了報告書 8: development/iteration_report-8.md
+      - イテレーション 9: development/iteration_plan-9.md
+      - ふりかえり 9: development/retrospective-9.md
+      - 完了報告書 9: development/iteration_report-9.md
+      - イテレーション 10: development/iteration_plan-10.md
+      - ふりかえり 10: development/retrospective-10.md
+      - 完了報告書 10: development/iteration_report-10.md
+      - イテレーション 11: development/iteration_plan-11.md
+      - ふりかえり 11: development/retrospective-11.md
+      - 完了報告書 11: development/iteration_report-11.md
+      - イテレーション 12: development/iteration_plan-12.md
+      - ふりかえり 12: development/retrospective-12.md
+      - 完了報告書 12: development/iteration_report-12.md
   - 分析:
       - 概要: analysis/index.md
   - 設計:
