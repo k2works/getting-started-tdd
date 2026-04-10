@@ -83,8 +83,8 @@
 
 **参照**:
 
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門1.md`
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門1.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるJavaScript入門1.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるTypeScript入門1.md`
 
 #### 2. 第 2 部: 開発環境と自動化（3 SP）
 
@@ -101,8 +101,8 @@
 
 **参照**:
 
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門2.md`
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門2.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるJavaScript入門2.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるTypeScript入門2.md`
 
 #### 3. 第 3 部: オブジェクト指向設計（3 SP）
 
@@ -119,8 +119,8 @@
 
 **参照**:
 
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門3.md`
-- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門3.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるJavaScript入門3.md`
+- `tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるTypeScript入門3.md`
 
 #### 4. 第 4 部: 関数型プログラミング（3 SP）
 
@@ -363,11 +363,3 @@ nix develop .#node
 - [イテレーション 2 完了報告書](./iteration_report-2.md)
 - [執筆計画アウトライン](../article/outline.md)
 - [執筆ワークフロー](../article/workflow.md)
-- [Wiki 参照: JavaScript エピソード 1](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門1.md)
-- [Wiki 参照: JavaScript エピソード 2](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門2.md)
-- [Wiki 参照: JavaScript エピソード 3](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるJavaScript入門3.md)
-- [Wiki 参照: TypeScript エピソード 1](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門1.md)
-- [Wiki 参照: TypeScript エピソード 2](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門2.md)
-- [Wiki 参照: TypeScript エピソード 3](../../tmp/k2works-wiki/記事/開発/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるTypeScript入門3.md)
-- [Wiki 参照: JavaScript FP](../../tmp/k2works-wiki/記事/関数型プログラミング/JavaScriptで学ぶ関数型プログラミング.md)
-- [Wiki 参照: JavaScript FP 実践](../../tmp/k2works-wiki/記事/関数型プログラミング/JavaScriptで学ぶ関数型プログラミング実践入門.md)
