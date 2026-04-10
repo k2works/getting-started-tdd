@@ -114,7 +114,7 @@
 | 1.5 | 章 3: 明白な実装とリファクタリング - 執筆 | 2h | AI | [x] |
 | 1.6 | 章 3: 明白な実装とリファクタリング - 実装 | 1h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門1.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるElixir入門1.md`
 
 **コミット**: `feat(elixir): IT11 第 1 部（章 1-3）の記事執筆と TDD 実装を完了`
 
@@ -126,7 +126,7 @@
 | 2.2 | 章 5: パッケージ管理と静的解析（Mix、Credo、Dialyxir）- 執筆 | 2h | AI | [x] |
 | 2.3 | 章 6: タスクランナーと CI/CD（Makefile、Nix、GitHub Actions）- 執筆 | 2h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門2.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるElixir入門2.md`
 
 **コミット**: `feat(elixir): IT11 第 2 部（章 4-6）の記事執筆と開発ツール導入を完了`
 
@@ -140,7 +140,7 @@ Elixir は関数型言語のため、プロトコル・構造体・ビヘイビ�
 | 3.2 | 章 8: パターンマッチとガード節 - 執筆・実装 | 3h | AI | [x] |
 | 3.3 | 章 9: モジュール設計とビヘイビア - 執筆・実装 | 3h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門3.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるElixir入門3.md`
 
 **コミット**: `feat(elixir): IT11 第 3 部（章 7-9）の記事執筆とプロトコル/パターンマッチ実装を完了`
 
@@ -154,7 +154,7 @@ Elixir は関数型言語のため、プロトコル・構造体・ビヘイビ�
 | 4.4 | 記事と実装の同期確認 | 1h | AI | [x] |
 | 4.5 | mkdocs.yml 更新とプレビュー確認 | 0.5h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門4.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるElixir入門4.md`
 
 **コミット**: `feat(elixir): IT11 第 4 部（章 10-12）の記事執筆と FP 実装を完了`
 
@@ -305,7 +305,3 @@ nix develop .#elixir
 - [リリース計画](./release_plan.md)
 - [イテレーション 10 計画](./iteration_plan-10.md)
 - [イテレーション 10 ふりかえり](./retrospective-10.md)
-- [Wiki 参照: Elixir エピソード 1](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門1.md)
-- [Wiki 参照: Elixir エピソード 2](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門2.md)
-- [Wiki 参照: Elixir エピソード 3](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門3.md)
-- [Wiki 参照: Elixir エピソード 4](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるElixir入門4.md)

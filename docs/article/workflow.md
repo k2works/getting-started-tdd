@@ -21,7 +21,7 @@ end note
 :参照記事の確認;
 note right
   tmp/k2works-wiki/記事/開発/
-  テスト駆動開発から始めるXX入門/
+  テスト駆動開発から始めるプログラミング入門/
   から該当記事を参照
 end note
 
@@ -92,7 +92,7 @@ start
 :参照記事を読み込み;
 note right
   tmp/k2works-wiki/記事/開発/
-  テスト駆動開発から始めるXX入門/
+  テスト駆動開発から始めるプログラミング入門/
   - エピソード 1: TDD 基本
   - エピソード 2: 開発基盤
   - エピソード 3: OOP 設計
@@ -214,7 +214,7 @@ stop
 
 ```yaml
 nav:
-  - テスト駆動開発から始めるXX入門:
+  - テスト駆動開発から始めるプログラミング入門:
       - 概要: article/index.md
       - Java:
           - 第1章 TODO リストと最初のテスト: article/java/01-todo-list-and-first-test.md
