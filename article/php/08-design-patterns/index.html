@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -8919,8 +8919,8 @@
 <span class="k">final</span> <span class="k">class</span> <span class="nc">FizzBuzzValue</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
-        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">int</span> <span class="nv">$number</span><span class="p">,</span>
-        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">string</span> <span class="nv">$value</span><span class="p">,</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="nx">int</span> <span class="nv">$number</span><span class="p">,</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="nx">string</span> <span class="nv">$value</span><span class="p">,</span>
     <span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="nx">\InvalidArgumentException</span><span class="p">(</span><span class="s1">&#39;値は正の値のみ許可します&#39;</span><span class="p">);</span>
@@ -9043,7 +9043,7 @@
     <span class="k">private</span> <span class="k">const</span> <span class="no">MAX_COUNT</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
     <span class="sd">/** @var FizzBuzzValue[] */</span>
-    <span class="k">private</span> <span class="nx">readonly</span> <span class="k">array</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="k">array</span> <span class="nv">$value</span><span class="p">;</span>
 
     <span class="sd">/**</span>
 <span class="sd">     * @param FizzBuzzValue[] $value</span>
@@ -9167,7 +9167,7 @@
 <span class="k">final</span> <span class="k">class</span> <span class="nc">FizzBuzzValueCommand</span> <span class="k">implements</span> <span class="nx">FizzBuzzCommand</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
-        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">FizzBuzzType</span> <span class="nv">$type</span><span class="p">,</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="nx">FizzBuzzType</span> <span class="nv">$type</span><span class="p">,</span>
     <span class="p">)</span> <span class="p">{</span>
     <span class="p">}</span>
 
@@ -9193,8 +9193,8 @@
     <span class="k">private</span> <span class="k">const</span> <span class="no">MAX_NUMBER</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
-        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">FizzBuzzType</span> <span class="nv">$type</span><span class="p">,</span>
-        <span class="k">private</span> <span class="nx">readonly</span> <span class="nx">int</span> <span class="nv">$maxNumber</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">MAX_NUMBER</span><span class="p">,</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="nx">FizzBuzzType</span> <span class="nv">$type</span><span class="p">,</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="nx">int</span> <span class="nv">$maxNumber</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">MAX_NUMBER</span><span class="p">,</span>
     <span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$maxNumber</span> <span class="o">&gt;</span> <span class="nx">self</span><span class="o">::</span><span class="na">MAX_NUMBER</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="nx">\InvalidArgumentException</span><span class="p">(</span>
