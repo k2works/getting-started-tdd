@@ -9,7 +9,6 @@ packages.mkShell {
     stack
     cabal-install
     haskell-language-server
-    hlint
   ];
 
   shellHook = baseShell.shellHook + ''
