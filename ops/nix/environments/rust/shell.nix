@@ -10,7 +10,6 @@ packages.mkShell {
     rustfmt
     clippy
     rust-analyzer
-    just
   ]);
   shellHook = ''
     ${baseShell.shellHook}
