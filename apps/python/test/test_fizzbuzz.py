@@ -1,7 +1,41 @@
 from pytest import CaptureFixture, raises
 
 from lib.fizzbuzz import FizzBuzz
-from lib.fizzbuzz_type import FizzBuzzType
+from lib.fizzbuzz_command import FizzBuzzListCommand, FizzBuzzValueCommand
+from lib.fizzbuzz_list import FizzBuzzList
+from lib.fizzbuzz_type import FizzBuzzType, FizzBuzzTypeNotDefined
+from lib.fizzbuzz_value import FizzBuzzValue
+
+
+class TestFizzBuzzValue:
+    def test_値を保持する(self) -> None:
+        value = FizzBuzzValue(1, "1")
+        assert value.number == 1
+        assert value.value == "1"
+
+    def test_同じ値は等しい(self) -> None:
+        assert FizzBuzzValue(1, "1") == FizzBuzzValue(1, "1")
+
+    def test_文字列表現(self) -> None:
+        assert repr(FizzBuzzValue(3, "Fizz")) == "3:Fizz"
+
+
+class TestFizzBuzzList:
+    def test_値を追加できる(self) -> None:
+        values = FizzBuzzList()
+        values.add(FizzBuzzValue(1, "1"))
+
+        assert values.size() == 1
+        assert values.get(0) == FizzBuzzValue(1, "1")
+
+    def test_同じ値は等しい(self) -> None:
+        assert FizzBuzzList([FizzBuzzValue(1, "1")]) == FizzBuzzList(
+            [FizzBuzzValue(1, "1")]
+        )
+
+    def test_文字列表現(self) -> None:
+        values = FizzBuzzList([FizzBuzzValue(3, "Fizz")])
+        assert repr(values) == "[3:Fizz]"
 
 
 class TestFizzBuzzType01:
@@ -73,10 +107,33 @@ class TestFizzBuzzWrapper:
 
     def test_typeは書き換えられない(self) -> None:
         with raises(AttributeError):
-            object.__setattr__(self.fizzbuzz, "type", 2)
+            del self.fizzbuzz.type
+
+
+class TestFizzBuzzValueCommand:
+    def test_値を返す(self) -> None:
+        command = FizzBuzzValueCommand(FizzBuzzType.create(1), 15)
+
+        assert command.execute() == FizzBuzzValue(15, "FizzBuzz")
+
+
+class TestFizzBuzzListCommand:
+    def test_100件の値を返す(self) -> None:
+        command = FizzBuzzListCommand(FizzBuzzType.create(1))
+
+        result = command.execute()
+
+        assert isinstance(result, FizzBuzzList)
+        assert result.size() == 100
+        assert result.get(0) == FizzBuzzValue(1, "1")
+        assert result.get(2) == FizzBuzzValue(3, "Fizz")
+        assert result.get(4) == FizzBuzzValue(5, "Buzz")
+        assert result.get(14) == FizzBuzzValue(15, "FizzBuzz")
 
 
 class TestFizzBuzzTypeFactory:
-    def test_未定義のタイプは例外を送出する(self) -> None:
-        with raises(ValueError):
-            FizzBuzzType.create(4)
+    def test_未定義のタイプはNullObjectを返す(self) -> None:
+        fizzbuzz_type = FizzBuzzType.create(4)
+
+        assert isinstance(fizzbuzz_type, FizzBuzzTypeNotDefined)
+        assert fizzbuzz_type.generate(1) == FizzBuzzValue(1, "")

@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from lib.fizzbuzz_value import FizzBuzzValue
+
 
 class FizzBuzzType(ABC):
     @staticmethod
@@ -10,10 +12,10 @@ class FizzBuzzType(ABC):
             return FizzBuzzType02()
         if type_ == 3:
             return FizzBuzzType03()
-        raise ValueError("未定義のタイプです")
+        return FizzBuzzTypeNotDefined()
 
     @abstractmethod
-    def generate(self, number: int) -> str:
+    def generate(self, number: int) -> FizzBuzzValue:
         raise NotImplementedError
 
     def _is_fizz(self, number: int) -> bool:
@@ -27,23 +29,28 @@ class FizzBuzzType(ABC):
 
 
 class FizzBuzzType01(FizzBuzzType):
-    def generate(self, number: int) -> str:
+    def generate(self, number: int) -> FizzBuzzValue:
         if self._is_fizz_buzz(number):
-            return "FizzBuzz"
+            return FizzBuzzValue(number, "FizzBuzz")
         if self._is_fizz(number):
-            return "Fizz"
+            return FizzBuzzValue(number, "Fizz")
         if self._is_buzz(number):
-            return "Buzz"
-        return str(number)
+            return FizzBuzzValue(number, "Buzz")
+        return FizzBuzzValue(number, str(number))
 
 
 class FizzBuzzType02(FizzBuzzType):
-    def generate(self, number: int) -> str:
-        return str(number)
+    def generate(self, number: int) -> FizzBuzzValue:
+        return FizzBuzzValue(number, str(number))
 
 
 class FizzBuzzType03(FizzBuzzType):
-    def generate(self, number: int) -> str:
+    def generate(self, number: int) -> FizzBuzzValue:
         if self._is_fizz_buzz(number):
-            return "FizzBuzz"
-        return str(number)
+            return FizzBuzzValue(number, "FizzBuzz")
+        return FizzBuzzValue(number, str(number))
+
+
+class FizzBuzzTypeNotDefined(FizzBuzzType):
+    def generate(self, number: int) -> FizzBuzzValue:
+        return FizzBuzzValue(number, "")
