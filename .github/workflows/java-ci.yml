@@ -40,14 +40,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nix-java-
 
-      - name: Run tests
-        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew test"
-
-      - name: Run quality checks
-        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew qualityCheck"
-
-      - name: Generate coverage report
-        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew jacocoTestReport"
+      - name: Run full check
+        run: nix develop .#java --command bash -c "cd apps/java && ./gradlew fullCheck"
 
       - name: Upload test results
         if: always()

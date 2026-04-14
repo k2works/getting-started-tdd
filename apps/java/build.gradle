@@ -1,9 +1,15 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'checkstyle'
+    id 'pmd'
+    id 'com.github.spotbugs' version '6.0.7'
 }
 
 import org.gradle.api.GradleException
+
+group = 'tdd.fizzbuzz'
+version = '0.1.0-SNAPSHOT'
 
 java {
     toolchain {
@@ -18,6 +24,8 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
 }
 
 test {
@@ -26,6 +34,50 @@ test {
     testLogging {
         events("passed", "skipped", "failed")
     }
+}
+
+jacoco {
+    toolVersion = '0.8.11'
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+pmd {
+    ruleSetFiles = files('config/pmd/ruleset.xml')
+    ruleSets = []
+}
+
+tasks.register('tdd', Test) {
+    description = 'Runs the unit tests.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    outputs.upToDateWhen { false }
+
+    testLogging {
+        events('passed', 'skipped', 'failed')
+        exceptionFormat 'full'
+    }
+}
+
+tasks.register('qualityCheck') {
+    description = 'Run all quality checks'
+    group = 'verification'
+    dependsOn 'checkstyleMain', 'checkstyleTest', 'pmdMain', 'pmdTest', 'spotbugsMain', 'spotbugsTest'
+}
+
+tasks.register('fullCheck') {
+    description = 'Run all tests and quality checks'
+    group = 'verification'
+    dependsOn 'test', 'qualityCheck', 'jacocoTestReport'
 }
 
 def debugPort = 5005

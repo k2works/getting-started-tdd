@@ -5,14 +5,18 @@ import java.util.List;
 
 public class FizzBuzz {
 
+    private static final int FIZZ_NUMBER = 3;
+    private static final int BUZZ_NUMBER = 5;
+    private static final int FIZZ_BUZZ_NUMBER = FIZZ_NUMBER * BUZZ_NUMBER;
+
     public String generate(int number) {
-        if (number % 15 == 0) {
+        if (number % FIZZ_BUZZ_NUMBER == 0) {
             return "FizzBuzz";
         }
-        if (number % 3 == 0) {
+        if (number % FIZZ_NUMBER == 0) {
             return "Fizz";
         }
-        if (number % 5 == 0) {
+        if (number % BUZZ_NUMBER == 0) {
             return "Buzz";
         }
         return Integer.toString(number);

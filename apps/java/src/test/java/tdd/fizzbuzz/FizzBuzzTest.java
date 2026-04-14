@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -62,7 +63,7 @@ class FizzBuzzTest {
     void test_プリントする() {
         PrintStream originalOut = System.out;
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(buffer));
+        System.setOut(new PrintStream(buffer, true, StandardCharsets.UTF_8));
 
         try {
             fizzbuzz.printFizzBuzz(5);
@@ -74,6 +75,6 @@ class FizzBuzzTest {
                 + "2" + System.lineSeparator()
                 + "Fizz" + System.lineSeparator()
                 + "4" + System.lineSeparator()
-                + "Buzz" + System.lineSeparator(), buffer.toString());
+                + "Buzz" + System.lineSeparator(), buffer.toString(StandardCharsets.UTF_8));
     }
 }
