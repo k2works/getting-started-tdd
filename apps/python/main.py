@@ -2,7 +2,7 @@ from lib.fizzbuzz import FizzBuzz
 
 
 def main() -> None:
-    fizzbuzz = FizzBuzz()
+    fizzbuzz = FizzBuzz(1)
     fizzbuzz.print_fizzbuzz(100)
 
 

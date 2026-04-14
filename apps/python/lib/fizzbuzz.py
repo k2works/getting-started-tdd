@@ -1,16 +1,16 @@
+from lib.fizzbuzz_type import FizzBuzzType
+
+
 class FizzBuzz:
-    FIZZ_NUMBER: int = 3
-    BUZZ_NUMBER: int = 5
-    FIZZ_BUZZ_NUMBER: int = 15
+    def __init__(self, type_: int) -> None:
+        self._type = FizzBuzzType.create(type_)
+
+    @property
+    def type(self) -> FizzBuzzType:
+        return self._type
 
     def generate(self, number: int) -> str:
-        if number % self.FIZZ_BUZZ_NUMBER == 0:
-            return "FizzBuzz"
-        if number % self.FIZZ_NUMBER == 0:
-            return "Fizz"
-        if number % self.BUZZ_NUMBER == 0:
-            return "Buzz"
-        return str(number)
+        return self._type.generate(number)
 
     def generate_list(self, count: int) -> list[str]:
         return [self.generate(i) for i in range(1, count + 1)]
