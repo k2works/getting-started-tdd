@@ -107,9 +107,23 @@ application {
 # テストの実行
 ./gradlew test
 
+# `nix develop .#java` に入った別の端末で `./gradlew debugTest` を起動する
+
 # 継続的テスト実行（ファイル変更監視）
 ./gradlew test --continuous
 ```
+
+Vim 側の設定は Zenn 記事に合わせた単純な `attach` 構成です。`apps/java/.vimspector.json` の `Java Attach` 設定で `127.0.0.1:5005` に attach します。
+
+最短手順は次のとおりです。
+
+1. `nix develop .#java`
+2. `cd apps/java && ./gradlew debugTest`
+3. Vim で `apps/java/src/test/java` 配下の Java ファイルを開く
+4. `,dt` でブレークポイントを置く
+5. `,dd` で `coc-java-debug` 経由の `vimspector` を起動する
+
+`apps/java/.vimspector.json` とリポジトリルートの `.vimspector.json` は同一内容です。Java デバッグは `launch` ではなく `attach` のみを使用します。
 
 ### 3. 自動化
 

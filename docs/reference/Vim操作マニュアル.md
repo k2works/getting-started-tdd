@@ -80,6 +80,15 @@
 | `<leader>dh` | ステップアウト |
 | `<leader>dk` | 再起動 |
 
+Java のデバッグは、記事どおりの単純な `attach` 構成に統一しています。手順は以下です。
+
+1. `nix develop .#java` で Java 用シェルに入ります。
+2. 別端末で `cd apps/java && ./gradlew debugTest` を実行し、`5005` 番ポートで待受させます。
+3. `apps/java/src/test/java` 配下のテストメソッド上で `,dt` でブレークポイントを置きます。
+4. `,dd` を押すと、`coc-java-debug` が `apps/java/.vimspector.json` の `Java Attach` 設定を使って `127.0.0.1:5005` に attach します。
+
+`apps/java/.vimspector.json` とリポジトリルートの `.vimspector.json` は同じ `attach` 設定にそろえてあります。`launch` 設定は使っていません。
+
 ### [vim-test](https://github.com/vim-test/vim-test) (テスト実行)
 | キー | 動作 |
 |---|---|
