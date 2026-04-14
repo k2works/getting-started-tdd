@@ -280,6 +280,7 @@ nnoremap <silent> <leader>ef :NERDTreeFind<CR>
 " gutentagsの設定
 let g:gutentags_enabled = 1
 let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
 set tags=./tags;,tags
 
 " CtrlPCommandLineの有効化
