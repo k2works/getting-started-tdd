@@ -5,6 +5,7 @@ packages.mkShell {
     curl
     wget
     vim-full
+    vimPlugins.vimspector
     python3
     tmux
     zip
@@ -29,6 +30,22 @@ packages.mkShell {
       # coc.nvim 'release' branch contains pre-built index.js
       echo "Linked $VIMRC_SRC to $VIMRC_DEST"
     fi
+
+    COC_SETTINGS_DIR="$HOME/.vim"
+    COC_SETTINGS_FILE="$COC_SETTINGS_DIR/coc-settings.json"
+    mkdir -p "$COC_SETTINGS_DIR"
+    cat > "$COC_SETTINGS_FILE" <<EOF
+{
+  "java.jdt.ls.java.home": "$JAVA_HOME"
+}
+EOF
+    echo "Wrote $COC_SETTINGS_FILE"
+
+    VIMSPECTOR_SRC="${packages.vimPlugins.vimspector}"
+    VIMSPECTOR_DEST="$HOME/.vim/pack/plugins/start/vimspector"
+    mkdir -p "$(dirname "$VIMSPECTOR_DEST")"
+    ln -sfn "$VIMSPECTOR_SRC" "$VIMSPECTOR_DEST"
+    echo "Linked $VIMSPECTOR_SRC to $VIMSPECTOR_DEST"
 
     # tmux 設定の反映
     TMUX_CONF_SRC="${./.tmux.conf}"

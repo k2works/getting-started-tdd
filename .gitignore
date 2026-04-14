@@ -22,6 +22,7 @@ dist/
 build/
 site/
 tmp/
+apps/java/bin/
 
 # Logs
 *.log
@@ -38,6 +39,7 @@ npm-debug.log*
 
 .gemini
 .codex
+tags
 tmp
 apps/java/.gradle
 

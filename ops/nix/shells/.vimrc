@@ -309,6 +309,7 @@ nnoremap <leader>gb :Git blame<CR>
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
+let g:coc_global_extensions = ['coc-java', 'coc-java-debug']
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
@@ -508,7 +509,9 @@ let g:go_debug_windows = {
 \ }
 
 "vimspector
-nnoremap <Leader>dd :call vimspector#Launch()<CR>
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_base_dir = expand('~/.vim/vimspector')
+let g:vimspector_java_hotcodereplace_mode = 'always'
 nnoremap <Leader>de :call vimspector#Reset()<CR>
 nnoremap <Leader>dc :call vimspector#Continue()<CR>
 
@@ -519,6 +522,8 @@ nmap <Leader>dk <Plug>VimspectorRestart
 nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
+
+autocmd FileType java nnoremap <buffer> <Leader>dd :CocCommand java.debug.vimspector.start<CR>
 
 "vim-test
 nmap <silent> <leader>t :TestNearest<CR>
