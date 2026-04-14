@@ -3,6 +3,7 @@ from pytest import CaptureFixture, raises
 from lib.application.fizz_buzz_list_command import FizzBuzzListCommand
 from lib.application.fizz_buzz_value_command import FizzBuzzValueCommand
 from lib.domain.model.fizz_buzz_list import FizzBuzzList
+from lib.domain.model.fizz_buzz_pipeline import fizzbuzz_pipeline
 from lib.domain.model.fizz_buzz_value import FizzBuzzValue
 from lib.domain.type.fizz_buzz_type import FizzBuzzType, FizzBuzzTypeNotDefined
 from lib.fizzbuzz import FizzBuzz
@@ -24,10 +25,11 @@ class TestFizzBuzzValue:
 class TestFizzBuzzList:
     def test_値を追加できる(self) -> None:
         values = FizzBuzzList()
-        values.add(FizzBuzzValue(1, "1"))
+        values2 = values.add(FizzBuzzValue(1, "1"))
 
-        assert values.size() == 1
-        assert values.get(0) == FizzBuzzValue(1, "1")
+        assert values.size() == 0
+        assert values2.size() == 1
+        assert values2.get(0) == FizzBuzzValue(1, "1")
 
     def test_同じ値は等しい(self) -> None:
         assert FizzBuzzList([FizzBuzzValue(1, "1")]) == FizzBuzzList(
@@ -37,6 +39,36 @@ class TestFizzBuzzList:
     def test_文字列表現(self) -> None:
         values = FizzBuzzList([FizzBuzzValue(3, "Fizz")])
         assert repr(values) == "[3:Fizz]"
+
+    def test_Fizzだけをフィルタリングする(self) -> None:
+        values = FizzBuzzListCommand(FizzBuzzType.create(1)).execute()
+        fizzes = values.filter(lambda value: value.value == "Fizz")
+
+        assert fizzes.size() > 0
+        assert all(fizzes.get(i).value == "Fizz" for i in range(fizzes.size()))
+
+    def test_整形文字列を返す(self) -> None:
+        values = FizzBuzzList([FizzBuzzValue(1, "1"), FizzBuzzValue(2, "2")])
+
+        assert values.to_formatted_string(",") == "1:1,2:2"
+
+    def test_統計情報を取得する(self) -> None:
+        values = FizzBuzzListCommand(FizzBuzzType.create(1)).execute()
+        stats = values.statistics()
+
+        assert stats["Fizz"] > 0
+        assert stats["Buzz"] > 0
+        assert stats["FizzBuzz"] > 0
+
+
+class TestFizzBuzzPipeline:
+    def test_先頭10件を取得できる(self) -> None:
+        values = list(fizzbuzz_pipeline(FizzBuzzType.create(1), 10))
+
+        assert len(values) == 10
+        assert values[0] == FizzBuzzValue(1, "1")
+        assert values[2] == FizzBuzzValue(3, "Fizz")
+        assert values[4] == FizzBuzzValue(5, "Buzz")
 
 
 class TestFizzBuzzType01:

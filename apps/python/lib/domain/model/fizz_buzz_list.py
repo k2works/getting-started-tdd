@@ -7,8 +7,8 @@ class FizzBuzzList:
     def __init__(self, values: list[FizzBuzzValue] | None = None) -> None:
         self._values: list[FizzBuzzValue] = list(values) if values else []
 
-    def add(self, value: FizzBuzzValue) -> None:
-        self._values.append(value)
+    def add(self, value: FizzBuzzValue) -> "FizzBuzzList":
+        return FizzBuzzList(self._values + [value])
 
     def get(self, index: int) -> FizzBuzzValue:
         return self._values[index]
@@ -21,6 +21,15 @@ class FizzBuzzList:
 
     def to_formatted_string(self, separator: str = "\n") -> str:
         return separator.join(repr(value) for value in self._values)
+
+    def group_by_value(self) -> dict[str, list[FizzBuzzValue]]:
+        groups: dict[str, list[FizzBuzzValue]] = {}
+        for value in self._values:
+            groups.setdefault(value.value, []).append(value)
+        return groups
+
+    def statistics(self) -> dict[str, int]:
+        return {key: len(values) for key, values in self.group_by_value().items()}
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, FizzBuzzList):
