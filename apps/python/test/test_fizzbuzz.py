@@ -1,0 +1,45 @@
+from lib.fizzbuzz import FizzBuzz
+
+
+class TestFizzBuzz:
+    def setup_method(self):
+        self.fizzbuzz = FizzBuzz()
+
+    def test_1を渡したら文字列1を返す(self):
+        assert self.fizzbuzz.generate(1) == "1"
+
+    def test_2を渡したら文字列2を返す(self):
+        assert self.fizzbuzz.generate(2) == "2"
+
+    def test_3を渡したら文字列Fizzを返す(self):
+        assert self.fizzbuzz.generate(3) == "Fizz"
+
+    def test_5を渡したら文字列Buzzを返す(self):
+        assert self.fizzbuzz.generate(5) == "Buzz"
+
+    def test_15を渡したら文字列FizzBuzzを返す(self):
+        assert self.fizzbuzz.generate(15) == "FizzBuzz"
+
+    def test_1から100までのFizzBuzzを生成する(self):
+        result = self.fizzbuzz.generate_list(100)
+
+        assert len(result) == 100
+        assert result[0] == "1"
+        assert result[1] == "2"
+        assert result[2] == "Fizz"
+        assert result[3] == "4"
+        assert result[4] == "Buzz"
+        assert result[5] == "Fizz"
+        assert result[14] == "FizzBuzz"
+        assert result[99] == "Buzz"
+
+    def test_プリントする(self, capsys):
+        self.fizzbuzz.print_fizzbuzz(15)
+        captured = capsys.readouterr()
+        lines = captured.out.strip().split("\n")
+
+        assert len(lines) == 15
+        assert lines[0] == "1"
+        assert lines[2] == "Fizz"
+        assert lines[4] == "Buzz"
+        assert lines[14] == "FizzBuzz"
