@@ -3,6 +3,8 @@ plugins {
     id 'jacoco'
 }
 
+import org.gradle.api.GradleException
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -26,16 +28,70 @@ test {
     }
 }
 
+def debugPort = 5005
+def debugAgentArg = "jdwp=transport=dt_socket,server=y,suspend=y,address=${debugPort}"
+
+tasks.register('cleanupDebugTest') {
+    description = "Stops stale Java debug workers that still hold port ${debugPort}."
+    group = 'verification'
+
+    doLast {
+        def currentPid = ProcessHandle.current().pid()
+        def staleProcesses = ProcessHandle.allProcesses()
+            .filter { handle ->
+                handle.pid() != currentPid &&
+                    handle.info().commandLine().orElse('').contains(debugAgentArg)
+            }
+            .toList()
+
+        if (staleProcesses.isEmpty()) {
+            println "No stale debug process found on port ${debugPort}."
+            return
+        }
+
+        staleProcesses.each { handle ->
+            def commandLine = handle.info().commandLine().orElse("pid=${handle.pid()}")
+            println "Stopping stale debug process ${handle.pid()}: ${commandLine}"
+            handle.destroy()
+        }
+
+        staleProcesses.each { handle ->
+            def attempts = 0
+            while (handle.isAlive() && attempts < 20) {
+                sleep(100)
+                attempts++
+            }
+
+            if (handle.isAlive()) {
+                println "Force killing stale debug process ${handle.pid()}."
+                handle.destroyForcibly()
+            }
+
+            attempts = 0
+            while (handle.isAlive() && attempts < 20) {
+                sleep(100)
+                attempts++
+            }
+
+            if (handle.isAlive()) {
+                throw new GradleException("Failed to stop stale debug process ${handle.pid()} on port ${debugPort}.")
+            }
+        }
+    }
+}
+
 tasks.register('debugTest', Test) {
     description = 'Runs the test suite suspended for debugger attach.'
     group = 'verification'
     testClassesDirs = sourceSets.test.output.classesDirs
     classpath = sourceSets.test.runtimeClasspath
     useJUnitPlatform()
+    dependsOn tasks.named('cleanupDebugTest')
+    outputs.upToDateWhen { false }
 
     debugOptions {
         enabled = true
-        port = 5005
+        port = debugPort
         server = true
         suspend = true
     }
