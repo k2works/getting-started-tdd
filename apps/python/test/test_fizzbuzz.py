@@ -1,26 +1,28 @@
+from pytest import CaptureFixture
+
 from lib.fizzbuzz import FizzBuzz
 
 
 class TestFizzBuzz:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.fizzbuzz = FizzBuzz()
 
-    def test_1を渡したら文字列1を返す(self):
+    def test_1を渡したら文字列1を返す(self) -> None:
         assert self.fizzbuzz.generate(1) == "1"
 
-    def test_2を渡したら文字列2を返す(self):
+    def test_2を渡したら文字列2を返す(self) -> None:
         assert self.fizzbuzz.generate(2) == "2"
 
-    def test_3を渡したら文字列Fizzを返す(self):
+    def test_3を渡したら文字列Fizzを返す(self) -> None:
         assert self.fizzbuzz.generate(3) == "Fizz"
 
-    def test_5を渡したら文字列Buzzを返す(self):
+    def test_5を渡したら文字列Buzzを返す(self) -> None:
         assert self.fizzbuzz.generate(5) == "Buzz"
 
-    def test_15を渡したら文字列FizzBuzzを返す(self):
+    def test_15を渡したら文字列FizzBuzzを返す(self) -> None:
         assert self.fizzbuzz.generate(15) == "FizzBuzz"
 
-    def test_1から100までのFizzBuzzを生成する(self):
+    def test_1から100までのFizzBuzzを生成する(self) -> None:
         result = self.fizzbuzz.generate_list(100)
 
         assert len(result) == 100
@@ -33,7 +35,7 @@ class TestFizzBuzz:
         assert result[14] == "FizzBuzz"
         assert result[99] == "Buzz"
 
-    def test_プリントする(self, capsys):
+    def test_プリントする(self, capsys: CaptureFixture[str]) -> None:
         self.fizzbuzz.print_fizzbuzz(15)
         captured = capsys.readouterr()
         lines = captured.out.strip().split("\n")

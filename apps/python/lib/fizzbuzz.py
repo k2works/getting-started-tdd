@@ -1,10 +1,14 @@
 class FizzBuzz:
+    FIZZ_NUMBER: int = 3
+    BUZZ_NUMBER: int = 5
+    FIZZ_BUZZ_NUMBER: int = 15
+
     def generate(self, number: int) -> str:
-        if number % 15 == 0:
+        if number % self.FIZZ_BUZZ_NUMBER == 0:
             return "FizzBuzz"
-        if number % 3 == 0:
+        if number % self.FIZZ_NUMBER == 0:
             return "Fizz"
-        if number % 5 == 0:
+        if number % self.BUZZ_NUMBER == 0:
             return "Buzz"
         return str(number)
 
