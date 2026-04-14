@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
+
+tasks.register('debugTest', Test) {
+    description = 'Runs the test suite suspended for debugger attach.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+
+    debugOptions {
+        enabled = true
+        port = 5005
+        server = true
+        suspend = true
+    }
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
