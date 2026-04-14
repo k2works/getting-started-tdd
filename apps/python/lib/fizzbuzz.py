@@ -1,5 +1,6 @@
-from lib.fizzbuzz_command import FizzBuzzValueCommand
-from lib.fizzbuzz_type import FizzBuzzType
+from lib.application.fizz_buzz_list_command import FizzBuzzListCommand
+from lib.application.fizz_buzz_value_command import FizzBuzzValueCommand
+from lib.domain.type.fizz_buzz_type import FizzBuzzType
 
 
 class FizzBuzz:
@@ -14,10 +15,8 @@ class FizzBuzz:
         return FizzBuzzValueCommand(self._type, number).execute().value
 
     def generate_list(self, count: int) -> list[str]:
-        return [
-            FizzBuzzValueCommand(self._type, i).execute().value
-            for i in range(1, count + 1)
-        ]
+        result = FizzBuzzListCommand(self._type).execute()
+        return [result.get(i).value for i in range(count)]
 
     def print_fizzbuzz(self, count: int) -> None:
         for item in self.generate_list(count):

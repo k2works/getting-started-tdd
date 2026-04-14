@@ -1,10 +1,11 @@
 from pytest import CaptureFixture, raises
 
+from lib.application.fizz_buzz_list_command import FizzBuzzListCommand
+from lib.application.fizz_buzz_value_command import FizzBuzzValueCommand
+from lib.domain.model.fizz_buzz_list import FizzBuzzList
+from lib.domain.model.fizz_buzz_value import FizzBuzzValue
+from lib.domain.type.fizz_buzz_type import FizzBuzzType, FizzBuzzTypeNotDefined
 from lib.fizzbuzz import FizzBuzz
-from lib.fizzbuzz_command import FizzBuzzListCommand, FizzBuzzValueCommand
-from lib.fizzbuzz_list import FizzBuzzList
-from lib.fizzbuzz_type import FizzBuzzType, FizzBuzzTypeNotDefined
-from lib.fizzbuzz_value import FizzBuzzValue
 
 
 class TestFizzBuzzValue:
