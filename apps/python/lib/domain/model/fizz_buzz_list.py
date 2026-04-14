@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 from lib.domain.model.fizz_buzz_value import FizzBuzzValue
 
 
@@ -13,6 +15,12 @@ class FizzBuzzList:
 
     def size(self) -> int:
         return len(self._values)
+
+    def filter(self, predicate: Callable[[FizzBuzzValue], bool]) -> "FizzBuzzList":
+        return FizzBuzzList([value for value in self._values if predicate(value)])
+
+    def to_formatted_string(self, separator: str = "\n") -> str:
+        return separator.join(repr(value) for value in self._values)
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, FizzBuzzList):
