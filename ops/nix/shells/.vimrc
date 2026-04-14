@@ -281,6 +281,8 @@ nnoremap <silent> <leader>ef :NERDTreeFind<CR>
 let g:gutentags_enabled = 1
 let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_write = 1
+" 除外ディレクトリ（プロジェクトルート配下でタグ生成から除外するパターン）
+let g:gutentags_exclude = ['node_modules', '.git', 'dist', 'build', 'vendor']
 set tags=./tags;,tags
 
 " CtrlPCommandLineの有効化
