@@ -66,6 +66,18 @@ Python 用には `.vimspector.json` を置いています。
 - `Python: pytest current file`
 - `Python: main.py`
 
+テストを止めて調べたい場合は `apps/python/test/test_fizzbuzz.py` を開き、`Python: pytest current file` を選びます。
+`pytest` は `apps/python/.venv/bin/python` で起動し、現在のファイルに対して実行します。
+
+### デバッグ設定の詳細
+
+- `adapters.python-debugpy` は `python3 -m debugpy.adapter` を起動します。
+- `Python: Current File` は今開いている `*.py` をそのまま起動します。
+- `Python: pytest current file` は `apps/python/.venv/bin/python -m pytest <current file>` を実行します。
+- `Python: main.py` は `apps/python/main.py` を直接起動します。
+- すべて `integratedTerminal` を使うので、標準入出力は Vim 内の端末に出ます。
+- ブレークポイントは `,dt` で切り替え、`<Leader>dd` で実行を開始します。
+
 ## 検索・移動
 
 - `ctrlp.vim` でファイル検索
