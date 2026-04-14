@@ -1,0 +1,9 @@
+package tdd.fizzbuzz;
+
+public class Main {
+
+    public static void main(String[] args) {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        fizzBuzz.printFizzBuzz(100);
+    }
+}
