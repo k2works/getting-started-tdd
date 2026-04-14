@@ -12,6 +12,7 @@ packages.mkShell {
     nodejs_22
     gh
     universal-ctags
+    python3Packages.debugpy
   ];
   # ホスト環境から完全に分離する
   pure = true;

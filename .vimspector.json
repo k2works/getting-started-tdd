@@ -1,0 +1,48 @@
+{
+  "adapters": {
+    "python-debugpy": {
+      "command": [
+        "python3",
+        "-m",
+        "debugpy.adapter"
+      ]
+    }
+  },
+  "configurations": {
+    "Python: Current File": {
+      "adapter": "python-debugpy",
+      "configuration": {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal"
+      }
+    },
+    "Python: pytest current file": {
+      "adapter": "python-debugpy",
+      "configuration": {
+        "name": "Python: pytest current file",
+        "type": "python",
+        "request": "launch",
+        "python": "${workspaceRoot}/apps/python/.venv/bin/python",
+        "module": "pytest",
+        "args": [
+          "${file}"
+        ],
+        "cwd": "${workspaceRoot}/apps/python",
+        "console": "integratedTerminal"
+      }
+    },
+    "Python: main.py": {
+      "adapter": "python-debugpy",
+      "configuration": {
+        "name": "Python: main.py",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceRoot}/apps/python/main.py",
+        "console": "integratedTerminal"
+      }
+    }
+  }
+}
