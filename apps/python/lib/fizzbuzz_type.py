@@ -3,7 +3,7 @@ from lib.domain.type.fizz_buzz_type import (
     FizzBuzzType01,
     FizzBuzzType02,
     FizzBuzzType03,
-    FizzBuzzTypeNotDefined,
+    FizzBuzzTypeName,
 )
 
 __all__ = [
@@ -11,5 +11,5 @@ __all__ = [
     "FizzBuzzType01",
     "FizzBuzzType02",
     "FizzBuzzType03",
-    "FizzBuzzTypeNotDefined",
+    "FizzBuzzTypeName",
 ]

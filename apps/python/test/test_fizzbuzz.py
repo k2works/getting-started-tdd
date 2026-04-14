@@ -2,10 +2,11 @@ from pytest import CaptureFixture, raises
 
 from lib.application.fizz_buzz_list_command import FizzBuzzListCommand
 from lib.application.fizz_buzz_value_command import FizzBuzzValueCommand
+from lib.domain.model.fizz_buzz_description import describe
 from lib.domain.model.fizz_buzz_list import FizzBuzzList
 from lib.domain.model.fizz_buzz_pipeline import fizzbuzz_pipeline
 from lib.domain.model.fizz_buzz_value import FizzBuzzValue
-from lib.domain.type.fizz_buzz_type import FizzBuzzType, FizzBuzzTypeNotDefined
+from lib.domain.type.fizz_buzz_type import FizzBuzzType, FizzBuzzTypeName
 from lib.fizzbuzz import FizzBuzz
 
 
@@ -41,7 +42,9 @@ class TestFizzBuzzList:
         assert repr(values) == "[3:Fizz]"
 
     def test_Fizzだけをフィルタリングする(self) -> None:
-        values = FizzBuzzListCommand(FizzBuzzType.create(1)).execute()
+        values = FizzBuzzListCommand(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+        ).execute()
         fizzes = values.filter(lambda value: value.value == "Fizz")
 
         assert fizzes.size() > 0
@@ -53,7 +56,9 @@ class TestFizzBuzzList:
         assert values.to_formatted_string(",") == "1:1,2:2"
 
     def test_統計情報を取得する(self) -> None:
-        values = FizzBuzzListCommand(FizzBuzzType.create(1)).execute()
+        values = FizzBuzzListCommand(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+        ).execute()
         stats = values.statistics()
 
         assert stats["Fizz"] > 0
@@ -63,7 +68,11 @@ class TestFizzBuzzList:
 
 class TestFizzBuzzPipeline:
     def test_先頭10件を取得できる(self) -> None:
-        values = list(fizzbuzz_pipeline(FizzBuzzType.create(1), 10))
+        values = list(
+            fizzbuzz_pipeline(
+                FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD), 10
+            )
+        )
 
         assert len(values) == 10
         assert values[0] == FizzBuzzValue(1, "1")
@@ -73,7 +82,9 @@ class TestFizzBuzzPipeline:
 
 class TestFizzBuzzType01:
     def setup_method(self) -> None:
-        self.fizzbuzz = FizzBuzz(1)
+        self.fizzbuzz = FizzBuzz(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+        )
 
     def test_FizzBuzzを返す(self) -> None:
         assert self.fizzbuzz.generate(15) == "FizzBuzz"
@@ -90,7 +101,9 @@ class TestFizzBuzzType01:
 
 class TestFizzBuzzType02:
     def setup_method(self) -> None:
-        self.fizzbuzz = FizzBuzz(2)
+        self.fizzbuzz = FizzBuzz(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.NUMBER_ONLY)
+        )
 
     def test_数をそのまま文字列で返す(self) -> None:
         assert self.fizzbuzz.generate(3) == "3"
@@ -98,7 +111,9 @@ class TestFizzBuzzType02:
 
 class TestFizzBuzzType03:
     def setup_method(self) -> None:
-        self.fizzbuzz = FizzBuzz(3)
+        self.fizzbuzz = FizzBuzz(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.FIZZ_BUZZ_ONLY)
+        )
 
     def test_FizzBuzzを返す(self) -> None:
         assert self.fizzbuzz.generate(15) == "FizzBuzz"
@@ -109,7 +124,9 @@ class TestFizzBuzzType03:
 
 class TestFizzBuzzWrapper:
     def setup_method(self) -> None:
-        self.fizzbuzz = FizzBuzz(1)
+        self.fizzbuzz = FizzBuzz(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+        )
 
     def test_1から100までのFizzBuzzを生成する(self) -> None:
         result = self.fizzbuzz.generate_list(100)
@@ -135,24 +152,21 @@ class TestFizzBuzzWrapper:
         assert lines[4] == "Buzz"
         assert lines[14] == "FizzBuzz"
 
-    def test_typeを読み取れる(self) -> None:
-        assert isinstance(self.fizzbuzz.type, FizzBuzzType)
-
-    def test_typeは書き換えられない(self) -> None:
-        with raises(AttributeError):
-            del self.fizzbuzz.type
-
 
 class TestFizzBuzzValueCommand:
     def test_値を返す(self) -> None:
-        command = FizzBuzzValueCommand(FizzBuzzType.create(1), 15)
+        command = FizzBuzzValueCommand(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD), 15
+        )
 
         assert command.execute() == FizzBuzzValue(15, "FizzBuzz")
 
 
 class TestFizzBuzzListCommand:
     def test_100件の値を返す(self) -> None:
-        command = FizzBuzzListCommand(FizzBuzzType.create(1))
+        command = FizzBuzzListCommand(
+            FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+        )
 
         result = command.execute()
 
@@ -165,8 +179,19 @@ class TestFizzBuzzListCommand:
 
 
 class TestFizzBuzzTypeFactory:
-    def test_未定義のタイプはNullObjectを返す(self) -> None:
-        fizzbuzz_type = FizzBuzzType.create(4)
+    def test_未定義のタイプはNoneになる(self) -> None:
+        assert FizzBuzzType.create(4) is None
 
-        assert isinstance(fizzbuzz_type, FizzBuzzTypeNotDefined)
-        assert fizzbuzz_type.generate(1) == FizzBuzzValue(1, "")
+    def test_列挙型でタイプを生成する(self) -> None:
+        type_ = FizzBuzzType.create_from_name(FizzBuzzTypeName.STANDARD)
+
+        assert type_.generate(15) == FizzBuzzValue(15, "FizzBuzz")
+
+    def test_存在しないタイプはValueErrorになる(self) -> None:
+        with raises(ValueError):
+            FizzBuzzTypeName("invalid")
+
+
+class TestFizzBuzzDescribe:
+    def test_matchで説明する(self) -> None:
+        assert describe(FizzBuzzValue(3, "Fizz")) == "3 は 3 の倍数"

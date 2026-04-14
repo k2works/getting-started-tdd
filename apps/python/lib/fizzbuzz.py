@@ -4,8 +4,8 @@ from lib.domain.type.fizz_buzz_type import FizzBuzzType
 
 
 class FizzBuzz:
-    def __init__(self, type_: int) -> None:
-        self._type = FizzBuzzType.create(type_)
+    def __init__(self, type_: FizzBuzzType) -> None:
+        self._type = type_
 
     @property
     def type(self) -> FizzBuzzType:
