@@ -3,23 +3,29 @@ package tdd.fizzbuzz;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FizzBuzz {
+public final class FizzBuzz {
 
-    private static final int FIZZ_NUMBER = 3;
-    private static final int BUZZ_NUMBER = 5;
-    private static final int FIZZ_BUZZ_NUMBER = FIZZ_NUMBER * BUZZ_NUMBER;
+    public static final int MAX_NUMBER = 100;
+    private static final int TYPE_1 = 1;
+    private static final int TYPE_2 = 2;
+    private static final int TYPE_3 = 3;
+
+    private final FizzBuzzType type;
+
+    public FizzBuzz() {
+        this(TYPE_1);
+    }
+
+    public FizzBuzz(int type) {
+        this.type = createType(type);
+    }
+
+    public FizzBuzz(FizzBuzzType type) {
+        this.type = type;
+    }
 
     public String generate(int number) {
-        if (number % FIZZ_BUZZ_NUMBER == 0) {
-            return "FizzBuzz";
-        }
-        if (number % FIZZ_NUMBER == 0) {
-            return "Fizz";
-        }
-        if (number % BUZZ_NUMBER == 0) {
-            return "Buzz";
-        }
-        return Integer.toString(number);
+        return type.generate(number);
     }
 
     public List<String> generateList(int count) {
@@ -34,6 +40,19 @@ public class FizzBuzz {
         List<String> result = generateList(count);
         for (String value : result) {
             System.out.println(value);
+        }
+    }
+
+    private static FizzBuzzType createType(int typeCode) {
+        switch (typeCode) {
+            case TYPE_1:
+                return new FizzBuzzType01();
+            case TYPE_2:
+                return new FizzBuzzType02();
+            case TYPE_3:
+                return new FizzBuzzType03();
+            default:
+                throw new IllegalArgumentException("該当するタイプは存在しません");
         }
     }
 }
