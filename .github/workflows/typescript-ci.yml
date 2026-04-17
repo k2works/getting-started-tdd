@@ -1,0 +1,54 @@
+name: TypeScript CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/typescript/**"
+      - ".github/workflows/typescript-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/typescript/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-node-${{ hashFiles('flake.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-node-
+
+      - name: Install dependencies
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm install"
+
+      - name: Run format check
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm run format:check"
+
+      - name: Run lint
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm run lint"
+
+      - name: Run type check
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm run typecheck"
+
+      - name: Run tests
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm test"
+
+      - name: Run coverage
+        run: nix develop .#node --command bash -c "cd apps/typescript && npm run test:coverage"
