@@ -1,0 +1,47 @@
+{
+  "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json#",
+  "configurations": {
+    "TypeScript: Current File": {
+      "default": true,
+      "adapter": "js-debug",
+      "filetypes": ["typescript", "javascript"],
+      "configuration": {
+        "request": "launch",
+        "type": "pwa-node",
+        "cwd": "${workspaceRoot}",
+        "runtimeArgs": ["--enable-source-maps"],
+        "program": "${workspaceRoot}/dist/${relativeFileDirname}/${fileBasenameNoExtension}.js",
+        "sourceMaps": true,
+        "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+        "stopOnEntry": false,
+        "console": "integratedTerminal",
+        "skipFiles": ["<node_internals>/**", "${workspaceRoot}/node_modules/**"]
+      },
+      "breakpoints": {
+        "exception": {
+          "all": "N",
+          "uncaught": "Y"
+        }
+      }
+    },
+    "TypeScript: Current Vitest File": {
+      "adapter": "js-debug",
+      "filetypes": ["typescript", "javascript"],
+      "configuration": {
+        "request": "launch",
+        "type": "pwa-node",
+        "cwd": "${workspaceRoot}",
+        "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+        "args": ["run", "${relativeFile}"],
+        "console": "integratedTerminal",
+        "skipFiles": ["<node_internals>/**", "${workspaceRoot}/node_modules/**"]
+      },
+      "breakpoints": {
+        "exception": {
+          "all": "N",
+          "uncaught": "Y"
+        }
+      }
+    }
+  }
+}
