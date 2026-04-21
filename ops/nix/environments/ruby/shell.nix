@@ -8,6 +8,8 @@ packages.mkShell {
     ruby
     rubyPackages_3_3.solargraph
     bundler
+    libyaml
+    pkg-config
   ]);
   shellHook = ''
     ${baseShell.shellHook}

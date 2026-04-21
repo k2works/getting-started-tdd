@@ -1,0 +1,68 @@
+{
+  "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json#",
+  "adapters": {
+    "ruby-rdbg": {
+      "host": "127.0.0.1",
+      "port": "${DebugPort}",
+      "cwd": "${workspaceRoot}/apps/ruby",
+      "launch": {
+        "remote": {
+          "runCommand": [
+            "bundle",
+            "exec",
+            "rdbg",
+            "--open",
+            "--nonstop",
+            "--port",
+            "${DebugPort}",
+            "-c",
+            "--",
+            "%CMD%"
+          ]
+        },
+        "delay": "500m"
+      }
+    }
+  },
+  "configurations": {
+    "Ruby: Debug current file": {
+      "adapter": "ruby-rdbg",
+      "filetypes": [ "ruby" ],
+      "default": true,
+      "variables": {
+        "DebugPort": "${unusedLocalPort}"
+      },
+      "remote-request": "launch",
+      "remote-cmdLine": [
+        "bundle",
+        "exec",
+        "ruby",
+        "${file}"
+      ],
+      "configuration": {
+        "request": "attach",
+        "localfs": true,
+        "cwd": "${workspaceRoot}/apps/ruby"
+      }
+    },
+    "Ruby: Debug test suite": {
+      "adapter": "ruby-rdbg",
+      "filetypes": [ "ruby" ],
+      "variables": {
+        "DebugPort": "${unusedLocalPort}"
+      },
+      "remote-request": "launch",
+      "remote-cmdLine": [
+        "bundle",
+        "exec",
+        "rake",
+        "test"
+      ],
+      "configuration": {
+        "request": "attach",
+        "localfs": true,
+        "cwd": "${workspaceRoot}/apps/ruby"
+      }
+    }
+  }
+}
