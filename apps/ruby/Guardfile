@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+guard :minitest, all_on_start: false do
+  watch(%r{^lib/(.+)\.rb$}) { |match| "test/#{match[1]}_test.rb" }
+  watch(%r{^test/.+_test\.rb$})
+  watch(%r{^test/test_helper\.rb$}) { 'test' }
+end
+
+guard :rubocop, all_on_start: false do
+  watch(/^.*\.rb$/)
+  watch(/^\.rubocop\.yml$/) { '.' }
+end
