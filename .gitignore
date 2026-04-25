@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+vendor/
 
 # Environment
 .env
@@ -39,6 +40,7 @@ npm-debug.log*
 .gemini
 .codex
 tmp
+tags
 apps/java/.gradle
 
 # Python
@@ -52,6 +54,9 @@ __pycache__/
 .tox/
 .venv/
 uv.lock
+
+# PHP
+.phpunit.result.cache
 
 # IntelliJ module files
 *.iml
