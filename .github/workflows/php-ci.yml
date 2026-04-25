@@ -38,14 +38,5 @@ jobs:
       - name: Install dependencies
         run: nix develop .#php --command bash -c "cd apps/php && composer install --no-interaction --prefer-dist"
 
-      - name: Run PHP_CodeSniffer
-        run: nix develop .#php --command bash -c "cd apps/php && vendor/bin/phpcs"
-
-      - name: Run PHPStan
-        run: nix develop .#php --command bash -c "cd apps/php && vendor/bin/phpstan analyse"
-
-      - name: Run PHPMD
-        run: nix develop .#php --command bash -c "cd apps/php && vendor/bin/phpmd src text phpmd.xml"
-
-      - name: Run tests
-        run: nix develop .#php --command bash -c "cd apps/php && vendor/bin/phpunit"
+      - name: Run quality checks
+        run: nix develop .#php --command bash -c "cd apps/php && composer check"

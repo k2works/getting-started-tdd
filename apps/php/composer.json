@@ -28,7 +28,9 @@
     },
     "scripts": {
         "test": "env -u PHP_INI_SCAN_DIR vendor/bin/phpunit",
+        "test:coverage": "env -u PHP_INI_SCAN_DIR vendor/bin/phpunit --coverage-text",
         "lint": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcs",
+        "lint:fix": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcbf",
         "format": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcbf",
         "analyse": "env -u PHP_INI_SCAN_DIR vendor/bin/phpstan analyse",
         "complexity": "env -u PHP_INI_SCAN_DIR php -d error_reporting=24575 vendor/bin/phpmd src text phpmd.xml",
