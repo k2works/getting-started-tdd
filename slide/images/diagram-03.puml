@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+
+rectangle "教材\n(記事)" as text
+rectangle "学習者" as learner
+rectangle "AI\n(ガイド役)" as ai
+rectangle "実装コード" as code
+rectangle "テスト" as test
+
+text --> ai : 教材を読み込む
+ai --> learner : 一歩ずつ提示
+learner --> code : 自分の手で書く
+learner --> test : 失敗→成功を確認
+test --> learner : フィードバック
+@enduml

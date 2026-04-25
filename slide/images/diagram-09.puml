@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+rectangle "フェーズ 1\nOOP の基盤" as p1 #lightyellow
+rectangle "フェーズ 2\nマルチパラダイム" as p2 #lightblue
+rectangle "フェーズ 3\nFP への展開" as p3 #lightgreen
+
+p1 --> p2
+p2 --> p3
+
+note bottom of p1 : Java → Python
+note bottom of p2 : TypeScript → Ruby → Go / Rust
+note bottom of p3 : F# → Scala → Elixir / Clojure → Haskell
+@enduml
