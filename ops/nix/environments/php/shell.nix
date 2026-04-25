@@ -1,11 +1,14 @@
 { packages ? import <nixpkgs> {} }:
 let
   baseShell = import ../../shells/shell.nix { inherit packages; };
+  phpWithXdebug = packages.php.withExtensions ({ enabled, all }: enabled ++ [
+    all.xdebug
+  ]);
 in
 packages.mkShell {
   inherit (baseShell) pure;
   buildInputs = baseShell.buildInputs ++ (with packages; [
-    php
+    phpWithXdebug
     php83Packages.composer
     phpactor
   ]);

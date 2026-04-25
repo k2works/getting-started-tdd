@@ -28,7 +28,7 @@
     },
     "scripts": {
         "test": "env -u PHP_INI_SCAN_DIR vendor/bin/phpunit",
-        "test:coverage": "env -u PHP_INI_SCAN_DIR vendor/bin/phpunit --coverage-text",
+        "test:coverage": "env -u PHP_INI_SCAN_DIR XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text",
         "lint": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcs",
         "lint:fix": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcbf",
         "format": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcbf",
