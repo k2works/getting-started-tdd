@@ -2,6 +2,11 @@
 
 namespace App;
 
+use App\Domain\Type\FizzBuzzType;
+use App\Domain\Type\FizzBuzzType01;
+use App\Domain\Type\FizzBuzzType02;
+use App\Domain\Type\FizzBuzzType03;
+
 class FizzBuzz
 {
     public static function create(int $type): FizzBuzzType

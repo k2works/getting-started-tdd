@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Domain\Type;
 
-class FizzBuzzType02 implements FizzBuzzType
+use App\Domain\Model\FizzBuzzValue;
+
+final class FizzBuzzType02 implements FizzBuzzType
 {
     public function generate(int $number): FizzBuzzValue
     {

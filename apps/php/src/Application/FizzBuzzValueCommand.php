@@ -1,6 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Application;
+
+use App\Domain\Model\FizzBuzzValue;
+use App\Domain\Type\FizzBuzzType;
 
 final class FizzBuzzValueCommand implements FizzBuzzCommand
 {

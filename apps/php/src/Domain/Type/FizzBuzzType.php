@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Domain\Type;
+
+use App\Domain\Model\FizzBuzzValue;
 
 interface FizzBuzzType
 {
