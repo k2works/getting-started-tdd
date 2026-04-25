@@ -11,7 +11,10 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "^12.5"
+        "phpunit/phpunit": "^12.5",
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpstan/phpstan": "^2.1",
+        "phpmd/phpmd": "^2.15"
     },
     "autoload": {
         "psr-4": {
@@ -22,5 +25,18 @@
         "psr-4": {
             "App\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "env -u PHP_INI_SCAN_DIR vendor/bin/phpunit",
+        "lint": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcs",
+        "format": "env -u PHP_INI_SCAN_DIR vendor/bin/phpcbf",
+        "analyse": "env -u PHP_INI_SCAN_DIR vendor/bin/phpstan analyse",
+        "complexity": "env -u PHP_INI_SCAN_DIR php -d error_reporting=24575 vendor/bin/phpmd src text phpmd.xml",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@complexity",
+            "@test"
+        ]
     }
 }
