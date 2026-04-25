@@ -3,6 +3,10 @@
 namespace App\Tests;
 
 use App\FizzBuzz;
+use App\FizzBuzzListCommand;
+use App\FizzBuzzList;
+use App\FizzBuzzValue;
+use App\FizzBuzzValueCommand;
 use App\FizzBuzzType01;
 use App\FizzBuzzType02;
 use App\FizzBuzzType03;
@@ -141,5 +145,108 @@ class FizzBuzzTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         FizzBuzz::create(4);
+    }
+
+    public function test_正の値で生成できる(): void
+    {
+        $value = new FizzBuzzValue(1, '1');
+
+        $this->assertSame(1, $value->getNumber());
+        $this->assertSame('1', $value->getValue());
+    }
+
+    public function test_負の値で例外を発生する(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        new FizzBuzzValue(-1, '-1');
+    }
+
+    public function test_同じ値は等しい(): void
+    {
+        $v1 = new FizzBuzzValue(1, '1');
+        $v2 = new FizzBuzzValue(1, '1');
+
+        $this->assertTrue($v1->equals($v2));
+    }
+
+    public function test_異なる値は等しくない(): void
+    {
+        $v1 = new FizzBuzzValue(1, '1');
+        $v2 = new FizzBuzzValue(2, '2');
+
+        $this->assertFalse($v1->equals($v2));
+    }
+
+    public function test_文字列表現を返す(): void
+    {
+        $value = new FizzBuzzValue(3, 'Fizz');
+
+        $this->assertSame('Fizz', (string) $value);
+    }
+
+    public function test_配列からリストを生成する(): void
+    {
+        $values = [
+            new FizzBuzzValue(1, '1'),
+            new FizzBuzzValue(2, '2'),
+        ];
+        $list = new FizzBuzzList($values);
+
+        $this->assertSame(2, $list->count());
+    }
+
+    public function test_上限を超えると例外を発生する(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $values = [];
+        for ($i = 0; $i <= 100; $i++) {
+            $values[] = new FizzBuzzValue($i, (string) $i);
+        }
+
+        new FizzBuzzList($values);
+    }
+
+    public function test_文字列配列を返す(): void
+    {
+        $values = [
+            new FizzBuzzValue(1, '1'),
+            new FizzBuzzValue(3, 'Fizz'),
+        ];
+        $list = new FizzBuzzList($values);
+
+        $this->assertSame(['1', 'Fizz'], $list->toStringArray());
+    }
+
+    public function test_リストの文字列表現を返す(): void
+    {
+        $values = [
+            new FizzBuzzValue(1, '1'),
+            new FizzBuzzValue(3, 'Fizz'),
+        ];
+        $list = new FizzBuzzList($values);
+
+        $this->assertSame('1,Fizz', (string) $list);
+    }
+
+    public function test_FizzBuzzValueCommandで値を生成する(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzValueCommand($type);
+        $result = $command->execute(3);
+
+        $this->assertInstanceOf(FizzBuzzValue::class, $result);
+        $this->assertSame('Fizz', $result->getValue());
+    }
+
+    public function test_FizzBuzzListCommandでリストを生成する(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type);
+        $result = $command->execute();
+
+        $this->assertInstanceOf(FizzBuzzList::class, $result);
+        $this->assertSame(100, $result->count());
     }
 }
