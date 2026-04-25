@@ -3,6 +3,9 @@
 namespace App\Tests;
 
 use App\FizzBuzz;
+use App\FizzBuzzType01;
+use App\FizzBuzzType02;
+use App\FizzBuzzType03;
 use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
@@ -83,5 +86,60 @@ class FizzBuzzTest extends TestCase
         $this->assertSame('FizzBuzz', $lines[14]);
         $this->assertSame('Buzz', $lines[99]);
         $this->assertCount(100, $lines);
+    }
+
+    public function test_タイプ1_数を文字列に変換する(): void
+    {
+        $type = new FizzBuzzType01();
+        $result = $type->generate(1);
+
+        $this->assertSame('1', $result->getValue());
+    }
+
+    public function test_タイプ1_3の倍数でFizzを返す(): void
+    {
+        $type = new FizzBuzzType01();
+        $result = $type->generate(3);
+
+        $this->assertSame('Fizz', $result->getValue());
+    }
+
+    public function test_タイプ2_常に数値を返す(): void
+    {
+        $type = new FizzBuzzType02();
+        $result = $type->generate(3);
+
+        $this->assertSame('3', $result->getValue());
+    }
+
+    public function test_タイプ3_FizzBuzzのみ返す(): void
+    {
+        $type = new FizzBuzzType03();
+        $result = $type->generate(15);
+
+        $this->assertSame('FizzBuzz', $result->getValue());
+    }
+
+    public function test_タイプ3_FizzBuzz以外は数値を返す(): void
+    {
+        $type = new FizzBuzzType03();
+        $result = $type->generate(3);
+
+        $this->assertSame('3', $result->getValue());
+    }
+
+    public function test_ファクトリメソッドでタイプ1を生成する(): void
+    {
+        $type = FizzBuzz::create(1);
+        $result = $type->generate(3);
+
+        $this->assertSame('Fizz', $result->getValue());
+    }
+
+    public function test_不正なタイプで例外を発生する(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        FizzBuzz::create(4);
     }
 }

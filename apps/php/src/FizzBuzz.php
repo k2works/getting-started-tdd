@@ -4,21 +4,21 @@ namespace App;
 
 class FizzBuzz
 {
+    public static function create(int $type): FizzBuzzType
+    {
+        return match ($type) {
+            1 => new FizzBuzzType01(),
+            2 => new FizzBuzzType02(),
+            3 => new FizzBuzzType03(),
+            default => throw new \InvalidArgumentException("タイプ{$type}は見つかりません"),
+        };
+    }
+
     public function generate(int $number): string
     {
-        if ($number % 15 === 0) {
-            return 'FizzBuzz';
-        }
+        $type = self::create(1);
 
-        if ($number % 3 === 0) {
-            return 'Fizz';
-        }
-
-        if ($number % 5 === 0) {
-            return 'Buzz';
-        }
-
-        return (string) $number;
+        return $type->generate($number)->getValue();
     }
 
     /**
