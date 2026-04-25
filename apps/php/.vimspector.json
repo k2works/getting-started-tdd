@@ -13,16 +13,19 @@
         "stopOnEntry": false
       }
     },
-    "Debug current PHP file": {
+    "Debug current PHPUnit file": {
       "adapter": "vscode-php-debug",
       "filetypes": [
         "php"
       ],
       "configuration": {
-        "name": "Debug current PHP file",
+        "name": "Debug current PHPUnit file",
         "type": "php",
         "request": "launch",
-        "program": "${file}",
+        "program": "${workspaceRoot}/vendor/bin/phpunit",
+        "args": [
+          "${file}"
+        ],
         "cwd": "${workspaceRoot}",
         "port": 9003,
         "runtimeArgs": [
@@ -57,7 +60,7 @@
           "-dxdebug.client_host=127.0.0.1",
           "-dxdebug.client_port=9003"
         ],
-        "stopOnEntry": false,
+        "stopOnEntry": true,
         "env": {
           "XDEBUG_MODE": "debug",
           "XDEBUG_TRIGGER": "VIMDEBUG",
@@ -65,19 +68,16 @@
         }
       }
     },
-    "Debug current PHPUnit file": {
+    "Debug current standalone PHP file": {
       "adapter": "vscode-php-debug",
       "filetypes": [
         "php"
       ],
       "configuration": {
-        "name": "Debug current PHPUnit file",
+        "name": "Debug current standalone PHP file",
         "type": "php",
         "request": "launch",
-        "program": "${workspaceRoot}/vendor/bin/phpunit",
-        "args": [
-          "${file}"
-        ],
+        "program": "${file}",
         "cwd": "${workspaceRoot}",
         "port": 9003,
         "runtimeArgs": [
@@ -86,7 +86,7 @@
           "-dxdebug.client_host=127.0.0.1",
           "-dxdebug.client_port=9003"
         ],
-        "stopOnEntry": false,
+        "stopOnEntry": true,
         "env": {
           "XDEBUG_MODE": "debug",
           "XDEBUG_TRIGGER": "VIMDEBUG",

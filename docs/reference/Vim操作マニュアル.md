@@ -115,7 +115,7 @@
 - **リファクタリング**: `phpactor` により、クラスの移動やインターフェースの実装などのリファクタリング支援が受けられます。
 - **基本設定**: インデントがスペース4個に自動設定されます。
 - **デバッグ**: `nix develop .#php` で Xdebug 付き PHP を起動し、`apps/php` で Vim を開くと `.vimspector.json` の設定から Vimspector デバッグを開始できます。初回のみ `:VimspectorInstall vscode-php-debug` を実行してください。
-- **PHPUnit デバッグ**: `apps/php/tests/FizzBuzzTest.php` などでブレークポイントを置き、`<leader>dd` から `Debug current PHPUnit file` または `Debug PHPUnit suite` を選択します。
+- **PHPUnit デバッグ**: `apps/php/tests/FizzBuzzTest.php` などでブレークポイントを置き、`<leader>dd` から `Debug current PHPUnit file` または `Debug PHPUnit suite` を選択します。起動直後は entry で一度停止するため、`<leader>dc` で continue すると設定済みブレークポイントまで進みます。テストファイルは `Debug current standalone PHP file` ではなく PHPUnit 用設定で起動してください。
 
 ### [Haskell 開発](https://github.com/neovimhaskell/haskell-vim)
 - **シンタックスハイライト**: `neovimhaskell/haskell-vim` により Haskell 構文が高度にサポートされます。
