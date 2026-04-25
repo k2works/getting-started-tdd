@@ -25,9 +25,16 @@
         "program": "${file}",
         "cwd": "${workspaceRoot}",
         "port": 9003,
+        "runtimeArgs": [
+          "-dxdebug.mode=debug",
+          "-dxdebug.start_with_request=yes",
+          "-dxdebug.client_host=127.0.0.1",
+          "-dxdebug.client_port=9003"
+        ],
         "stopOnEntry": true,
         "env": {
           "XDEBUG_MODE": "debug",
+          "XDEBUG_TRIGGER": "VIMDEBUG",
           "XDEBUG_CONFIG": "client_host=127.0.0.1 client_port=9003 idekey=VIMDEBUG"
         }
       }
@@ -44,9 +51,16 @@
         "program": "${workspaceRoot}/vendor/bin/phpunit",
         "cwd": "${workspaceRoot}",
         "port": 9003,
+        "runtimeArgs": [
+          "-dxdebug.mode=debug",
+          "-dxdebug.start_with_request=yes",
+          "-dxdebug.client_host=127.0.0.1",
+          "-dxdebug.client_port=9003"
+        ],
         "stopOnEntry": false,
         "env": {
           "XDEBUG_MODE": "debug",
+          "XDEBUG_TRIGGER": "VIMDEBUG",
           "XDEBUG_CONFIG": "client_host=127.0.0.1 client_port=9003 idekey=VIMDEBUG"
         }
       }
@@ -66,9 +80,16 @@
         ],
         "cwd": "${workspaceRoot}",
         "port": 9003,
+        "runtimeArgs": [
+          "-dxdebug.mode=debug",
+          "-dxdebug.start_with_request=yes",
+          "-dxdebug.client_host=127.0.0.1",
+          "-dxdebug.client_port=9003"
+        ],
         "stopOnEntry": false,
         "env": {
           "XDEBUG_MODE": "debug",
+          "XDEBUG_TRIGGER": "VIMDEBUG",
           "XDEBUG_CONFIG": "client_host=127.0.0.1 client_port=9003 idekey=VIMDEBUG"
         }
       }
