@@ -22,6 +22,7 @@
         "name": "Debug current PHPUnit file",
         "type": "php",
         "request": "launch",
+        "runtimeExecutable": "${workspaceRoot}/bin/php-debug",
         "program": "${workspaceRoot}/vendor/bin/phpunit",
         "args": [
           "${file}"
@@ -51,6 +52,7 @@
         "name": "Debug PHPUnit suite",
         "type": "php",
         "request": "launch",
+        "runtimeExecutable": "${workspaceRoot}/bin/php-debug",
         "program": "${workspaceRoot}/vendor/bin/phpunit",
         "cwd": "${workspaceRoot}",
         "port": 9003,
@@ -77,6 +79,7 @@
         "name": "Debug current standalone PHP file",
         "type": "php",
         "request": "launch",
+        "runtimeExecutable": "${workspaceRoot}/bin/php-debug",
         "program": "${file}",
         "cwd": "${workspaceRoot}",
         "port": 9003,

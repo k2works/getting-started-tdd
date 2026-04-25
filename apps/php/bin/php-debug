@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+
+if php -m 2>/dev/null | grep -qi '^xdebug$'; then
+  exec env -u PHP_INI_SCAN_DIR XDEBUG_MODE="${XDEBUG_MODE:-debug}" php "$@"
+fi
+
+cd "$REPO_ROOT"
+exec nix develop .#php --command env -u PHP_INI_SCAN_DIR XDEBUG_MODE="${XDEBUG_MODE:-debug}" php "$@"
