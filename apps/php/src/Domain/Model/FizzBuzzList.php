@@ -115,6 +115,48 @@ final class FizzBuzzList
         return array_reduce($this->value, $callback, $initial);
     }
 
+    /**
+     * @param callable(FizzBuzzValue): bool $predicate
+     */
+    public function findFirst(callable $predicate): ?FizzBuzzValue
+    {
+        foreach ($this->value as $value) {
+            if ($predicate($value)) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param callable(FizzBuzzValue): bool $predicate
+     */
+    public function anyMatch(callable $predicate): bool
+    {
+        foreach ($this->value as $value) {
+            if ($predicate($value)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param callable(FizzBuzzValue): bool $predicate
+     */
+    public function allMatch(callable $predicate): bool
+    {
+        foreach ($this->value as $value) {
+            if (!$predicate($value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function __toString(): string
     {
         return implode(',', $this->toStringArray());

@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Domain\FizzBuzzException;
 use App\FizzBuzz;
 use PHPUnit\Framework\TestCase;
 
@@ -95,8 +96,16 @@ class FizzBuzzTest extends TestCase
 
     public function test_不正なタイプで例外を発生する(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(FizzBuzzException::class);
 
         FizzBuzz::create(4);
+    }
+
+    public function test_不正なタイプでカスタム例外を発生する(): void
+    {
+        $this->expectException(FizzBuzzException::class);
+        $this->expectExceptionMessage('タイプ99は見つかりません');
+
+        FizzBuzz::create(99);
     }
 }

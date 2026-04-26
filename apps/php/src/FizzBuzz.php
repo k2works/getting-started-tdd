@@ -2,21 +2,16 @@
 
 namespace App;
 
+use App\Domain\FizzBuzzException;
 use App\Domain\Type\FizzBuzzType;
-use App\Domain\Type\FizzBuzzType01;
-use App\Domain\Type\FizzBuzzType02;
-use App\Domain\Type\FizzBuzzType03;
+use App\Domain\Type\FizzBuzzTypeName;
 
 class FizzBuzz
 {
     public static function create(int $type): FizzBuzzType
     {
-        return match ($type) {
-            1 => new FizzBuzzType01(),
-            2 => new FizzBuzzType02(),
-            3 => new FizzBuzzType03(),
-            default => throw new \InvalidArgumentException("タイプ{$type}は見つかりません"),
-        };
+        return FizzBuzzTypeName::tryFrom($type)?->createType()
+            ?? throw new FizzBuzzException("タイプ{$type}は見つかりません");
     }
 
     public function generate(int $number): string

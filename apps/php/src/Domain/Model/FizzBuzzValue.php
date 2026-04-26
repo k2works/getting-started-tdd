@@ -2,6 +2,8 @@
 
 namespace App\Domain\Model;
 
+use App\Domain\FizzBuzzException;
+
 final class FizzBuzzValue
 {
     public function __construct(
@@ -9,7 +11,7 @@ final class FizzBuzzValue
         private readonly string $value,
     ) {
         if ($number < 0) {
-            throw new \InvalidArgumentException('値は正の値のみ許可します');
+            throw new FizzBuzzException('値は正の値のみ許可します');
         }
     }
 

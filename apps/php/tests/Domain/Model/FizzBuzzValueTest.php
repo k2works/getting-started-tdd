@@ -2,6 +2,7 @@
 
 namespace App\Tests\Domain\Model;
 
+use App\Domain\FizzBuzzException;
 use App\Domain\Model\FizzBuzzValue;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +18,14 @@ final class FizzBuzzValueTest extends TestCase
 
     public function test_負の値で例外を発生する(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(FizzBuzzException::class);
+
+        new FizzBuzzValue(-1, '-1');
+    }
+
+    public function test_負の値でカスタム例外を発生する(): void
+    {
+        $this->expectException(FizzBuzzException::class);
 
         new FizzBuzzValue(-1, '-1');
     }

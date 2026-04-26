@@ -211,4 +211,53 @@ final class FizzBuzzListTest extends TestCase
 
         $this->assertSame(6, $sum);
     }
+
+    public function test_findFirstで最初のFizzBuzzを見つける(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type);
+        $list = $command->execute();
+
+        $isFizzBuzz = fn (FizzBuzzValue $value): bool => $value->getValue() === 'FizzBuzz';
+        $result = $list->findFirst($isFizzBuzz);
+
+        $this->assertNotNull($result);
+        $this->assertSame(15, $result->getNumber());
+    }
+
+    public function test_findFirstで見つからない場合nullを返す(): void
+    {
+        $values = [new FizzBuzzValue(1, '1')];
+        $list = new FizzBuzzList($values);
+
+        $isFizzBuzz = fn (FizzBuzzValue $value): bool => $value->getValue() === 'FizzBuzz';
+        $result = $list->findFirst($isFizzBuzz);
+
+        $this->assertNull($result);
+    }
+
+    public function test_anyMatchでFizzが存在する(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $list = $command->execute();
+
+        $isFizz = fn (FizzBuzzValue $value): bool => $value->getValue() === 'Fizz';
+
+        $this->assertTrue($list->anyMatch($isFizz));
+    }
+
+    public function test_allMatchで全て数値ではない(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $list = $command->execute();
+
+        $isNumber = fn (FizzBuzzValue $value): bool =>
+            $value->getValue() !== 'Fizz'
+            && $value->getValue() !== 'Buzz'
+            && $value->getValue() !== 'FizzBuzz';
+
+        $this->assertFalse($list->allMatch($isNumber));
+    }
 }
