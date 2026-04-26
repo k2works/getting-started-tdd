@@ -118,4 +118,97 @@ final class FizzBuzzListTest extends TestCase
             $this->assertSame('Fizz', $value);
         }
     }
+
+    public function test_filterは元のリストを変更しない(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $original = $command->execute();
+        $originalCount = $original->count();
+
+        $isFizz = fn (FizzBuzzValue $value): bool => $value->getValue() === 'Fizz';
+        $original->filter($isFizz);
+
+        $this->assertSame($originalCount, $original->count());
+    }
+
+    public function test_groupByValueで値でグルーピングする(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $list = $command->execute();
+
+        $grouped = $list->groupByValue();
+
+        $this->assertArrayHasKey('Fizz', $grouped);
+        $this->assertArrayHasKey('Buzz', $grouped);
+        $this->assertArrayHasKey('FizzBuzz', $grouped);
+    }
+
+    public function test_countByValueで値ごとの出現回数を数える(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $list = $command->execute();
+
+        $counts = $list->countByValue();
+
+        $this->assertSame(1, $counts['FizzBuzz']);
+    }
+
+    public function test_takeで先頭N件を取得する(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type, 15);
+        $list = $command->execute();
+
+        $taken = $list->take(5);
+
+        $this->assertSame(5, $taken->count());
+    }
+
+    public function test_joinで要素を文字列で結合する(): void
+    {
+        $values = [
+            new FizzBuzzValue(1, '1'),
+            new FizzBuzzValue(2, '2'),
+            new FizzBuzzValue(3, 'Fizz'),
+        ];
+        $list = new FizzBuzzList($values);
+
+        $result = $list->join(', ');
+
+        $this->assertSame('1, 2, Fizz', $result);
+    }
+
+    public function test_メソッドチェーンでパイプラインを構築する(): void
+    {
+        $type = new FizzBuzzType01();
+        $command = new FizzBuzzListCommand($type);
+        $list = $command->execute();
+
+        $result = $list
+            ->filter(fn (FizzBuzzValue $value): bool => $value->getValue() === 'Fizz')
+            ->take(3)
+            ->join(', ');
+
+        $this->assertSame('Fizz, Fizz, Fizz', $result);
+    }
+
+    public function test_reduceで数値の合計を計算する(): void
+    {
+        $values = [
+            new FizzBuzzValue(1, '1'),
+            new FizzBuzzValue(2, '2'),
+            new FizzBuzzValue(3, 'Fizz'),
+        ];
+        $list = new FizzBuzzList($values);
+
+        $sum = $list->reduce(
+            0,
+            fn (int $accumulator, FizzBuzzValue $value): int => $accumulator + $value->getNumber()
+        );
+
+        $this->assertSame(6, $sum);
+    }
 }

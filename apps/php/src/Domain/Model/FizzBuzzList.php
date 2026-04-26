@@ -67,6 +67,54 @@ final class FizzBuzzList
         return array_map($callback, $this->value);
     }
 
+    /**
+     * @return array<string, FizzBuzzValue[]>
+     */
+    public function groupByValue(): array
+    {
+        $result = [];
+        foreach ($this->value as $value) {
+            $result[$value->getValue()][] = $value;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array<string, int>
+     */
+    public function countByValue(): array
+    {
+        $result = [];
+        foreach ($this->value as $value) {
+            $key = $value->getValue();
+            $result[$key] = ($result[$key] ?? 0) + 1;
+        }
+
+        return $result;
+    }
+
+    public function take(int $number): self
+    {
+        return new self(array_slice($this->value, 0, $number));
+    }
+
+    public function join(string $separator): string
+    {
+        return implode($separator, $this->toStringArray());
+    }
+
+    /**
+     * @template R
+     * @param R $initial
+     * @param callable(R, FizzBuzzValue): R $callback
+     * @return R
+     */
+    public function reduce(mixed $initial, callable $callback): mixed
+    {
+        return array_reduce($this->value, $callback, $initial);
+    }
+
     public function __toString(): string
     {
         return implode(',', $this->toStringArray());
