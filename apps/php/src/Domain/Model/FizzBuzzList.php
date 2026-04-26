@@ -47,6 +47,26 @@ final class FizzBuzzList
         );
     }
 
+    /**
+     * @param callable(FizzBuzzValue): bool $predicate
+     */
+    public function filter(callable $predicate): self
+    {
+        return new self(
+            array_values(array_filter($this->value, $predicate))
+        );
+    }
+
+    /**
+     * @template R
+     * @param callable(FizzBuzzValue): R $callback
+     * @return R[]
+     */
+    public function map(callable $callback): array
+    {
+        return array_map($callback, $this->value);
+    }
+
     public function __toString(): string
     {
         return implode(',', $this->toStringArray());
