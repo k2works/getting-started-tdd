@@ -9172,7 +9172,7 @@
 <li><strong>Haskell 実装</strong>: <code>apps/haskell/</code> に Haskell の TDD 実装が動作する状態</li>
 <li><strong>統合解説</strong>: <code>docs/article/integration/</code> に多言語統合解説が完成</li>
 <li><strong>品質</strong>: テスト全パス、HLint 警告ゼロ</li>
-<li><strong>Release 3.0</strong>: Phase 3 完了、全 12 言語 + 統合解説が揃い、Release 3.0 リリース準備完了</li>
+<li><strong>Release 3.0</strong>: Phase 3 完了、全 14 言語 + 統合解説が揃い、Release 3.0 リリース準備完了</li>
 </ol>
 <h3 id="_4">成功基準<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
@@ -9346,11 +9346,11 @@
 <h4 id="us-013">US-013: 多言語統合解説の執筆<a class="headerlink" href="#us-013" title="Permanent link">&para;</a></h4>
 <p><strong>ストーリー</strong>:</p>
 <blockquote>
-<p>プログラミング学習者として、12 言語を横断した比較解説を読みたい。なぜなら、各言語の TDD アプローチやパラダイムの違いを体系的に理解できるからだ。</p>
+<p>プログラミング学習者として、14 言語を横断した比較解説を読みたい。なぜなら、各言語の TDD アプローチやパラダイムの違いを体系的に理解できるからだ。</p>
 </blockquote>
 <p><strong>受入条件</strong>:</p>
 <ol>
-<li>12 言語を横断した比較表（テストフレームワーク、型システム、パラダイム）が存在する</li>
+<li>14 言語を横断した比較表（テストフレームワーク、型システム、パラダイム）が存在する</li>
 <li>パラダイム別（OOP、FP、マルチパラダイム）のパターン比較が記載されている</li>
 <li>TDD のアプローチの違い（各言語の Red-Green-Refactor の特徴）が解説されている</li>
 <li>開発環境・ツールチェーンの比較（ビルドツール、リンター、CI 構成）が記載されている</li>
@@ -9615,7 +9615,7 @@
 <tbody>
 <tr>
 <td>5.1</td>
-<td>統合解説: 12 言語の概要と分類（OOP/FP/マルチパラダイム）- 執筆</td>
+<td>統合解説: 14 言語の概要と分類（OOP/FP/マルチパラダイム）- 執筆</td>
 <td>3h</td>
 <td>AI</td>
 <td>[x]</td>
@@ -9798,7 +9798,7 @@ docs/article/
 <h3 id="_12">統合解説ディレクトリ構成<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>docs/article/integration/
 ├── index.md                                    (統合解説トップ・概要)
-├── 01-language-overview.md                     (12 言語の概要と分類)
+├── 01-language-overview.md                     (14 言語の概要と分類)
 ├── 02-test-framework-comparison.md             (テストフレームワーク比較)
 ├── 03-tdd-pattern-comparison.md                (パラダイム別 TDD パターン)
 ├── 04-type-system-comparison.md                (型システム・エラーハンドリング比較)
@@ -9940,13 +9940,13 @@ docs/article/
 <tbody>
 <tr>
 <td>1</td>
-<td>12 言語の概要と分類</td>
+<td>14 言語の概要と分類</td>
 <td>OOP（Java, C#）、スクリプト（Python, Ruby, PHP, Node）、システム（Go, Rust）、FP（Haskell, Elixir, Clojure, Scala, F#）の分類と特徴</td>
 </tr>
 <tr>
 <td>2</td>
 <td>テストフレームワーク比較</td>
-<td>12 言語のテストフレームワーク、アサーション、テスト構造の比較表</td>
+<td>14 言語のテストフレームワーク、アサーション、テスト構造の比較表</td>
 </tr>
 <tr>
 <td>3</td>
@@ -10075,7 +10075,7 @@ docs/article/
 <td>FizzBuzz の具体例に絞り、理論説明は最小限に。Wiki 参照を活用</td>
 </tr>
 <tr>
-<td>統合解説で 12 言語の正確な比較が困難</td>
+<td>統合解説で 14 言語の正確な比較が困難</td>
 <td>中</td>
 <td>各 apps/{lang}/ の実装を直接参照し、事実ベースで比較表を作成</td>
 </tr>
