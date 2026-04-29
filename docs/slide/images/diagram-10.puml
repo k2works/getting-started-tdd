@@ -1,0 +1,20 @@
+@startuml
+|学習者|
+:「TDD で FizzBuzz をやりたい」;
+
+|Claude Code|
+:SKILL 発動\npracticing-getting-start-tdd;
+:教材読み込み\n01-todo-list-and-first-test.md;
+
+|学習者|
+:Red: テストを書く;
+
+|Claude Code|
+:失敗確認・解説;
+
+|学習者|
+:Green: 最小実装;
+
+|Claude Code|
+:成功確認・次の TODO へ;
+@enduml

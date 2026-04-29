@@ -1,0 +1,11 @@
+@startuml
+[*] --> 分析
+分析 --> 開発
+開発 --> 運用
+運用 --> 開発
+運用 ---> [*]
+
+state 分析 #yellow
+state 開発 #red
+state 運用 #orange
+@enduml
