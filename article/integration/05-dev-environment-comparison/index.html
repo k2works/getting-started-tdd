@@ -9021,7 +9021,7 @@
 
 
 <h1 id="cicd">開発環境と CI/CD 比較<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
-<p>本章では、14 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。</p>
+<p>本章では、12 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。</p>
 <h2 id="nix">Nix による統一開発環境アプローチ<a class="headerlink" href="#nix" title="Permanent link">&para;</a></h2>
 <h3 id="nix_1">なぜ Nix か<a class="headerlink" href="#nix_1" title="Permanent link">&para;</a></h3>
 <p>多言語プロジェクトでは、各言語のランタイム、パッケージマネージャ、ツールチェーンのバージョン管理が課題となります。Nix は以下の問題を解決します。</p>
@@ -9867,7 +9867,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell
 </table>
 <h2 id="_12">まとめ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Nix</strong> により 14 言語の開発環境を <code>nix develop .#{lang}</code> の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています</li>
+<li><strong>Nix</strong> により 12 言語の開発環境を <code>nix develop .#{lang}</code> の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています</li>
 <li><strong>ビルドツール</strong>は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます</li>
 <li><strong>リンター / フォーマッタ</strong>はすべての言語で導入されており、「lint + complexity + test」の 3 段階品質ゲートを統一的に適用しています</li>
 <li><strong>CI/CD</strong> は GitHub Actions + Nix の共通パターンで、matrix strategy により全言語のテストを並列実行できます</li>
