@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+
+rectangle "ユーザー" as user
+rectangle "Claude Code" as claude
+rectangle ".claude/skills/" as skills {
+  rectangle "SKILL.md" as skill_md
+  rectangle "教材ファイル" as docs
+}
+
+user --> claude : 「TDD で FizzBuzz をやりたい」
+claude --> skill_md : 該当 SKILL を発動
+skill_md --> docs : 教材を読み込む
+skill_md --> claude : 進行ルールに従う
+claude --> user : 対話式チュートリアル開始
+@enduml

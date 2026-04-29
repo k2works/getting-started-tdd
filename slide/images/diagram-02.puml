@@ -1,0 +1,14 @@
+@startuml
+state Red #ffcccc
+state Green #ccffcc
+state Refactor #ccccff
+
+[*] --> Red
+Red : 失敗するテストを書く
+Red --> Green
+Green : 最小限の実装で通す
+Green --> Refactor
+Refactor : 重複を除去・可読性向上
+Refactor --> Red : 次の TODO へ
+Refactor --> [*]
+@enduml

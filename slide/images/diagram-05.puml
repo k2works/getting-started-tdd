@@ -1,0 +1,12 @@
+@startuml
+start
+:イテレーション計画;
+:ユーザーストーリー作成;
+:コーディングとテスト;
+note right
+  TDD サイクル
+  Red → Green → Refactor
+end note
+:イテレーションレビュー;
+stop
+@enduml

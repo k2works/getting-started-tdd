@@ -1,0 +1,27 @@
+@startuml
+start
+:Step 0: 開発環境の準備;
+note right
+  ユーザーの合意を得てから
+  コマンド実行
+end note
+:Step 1: 言語選択;
+note right
+  14 言語から学びたい言語を選ぶ
+end note
+:Step 2: 章の選択;
+note right
+  経験レベルに応じて開始章を提案
+end note
+:Step 3: 対話式チュートリアル;
+note right
+  Red → Green → Refactor を
+  ステップごとに進行
+end note
+:Step 4: KPT 振り返り;
+note right
+  Keep / Problem / Try を
+  章末でまとめる
+end note
+stop
+@enduml

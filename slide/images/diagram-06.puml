@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+actor 学習者
+node "ブラウザ" as browser
+cloud "GitHub Codespaces" {
+  node "devcontainer" as dc {
+    component "Nix flake" as nix
+    component "VS Code Server" as vscode
+    component "Claude Code" as claude
+  }
+  storage "リポジトリ\ngetting-started-tdd" as repo
+}
+
+学習者 --> browser
+browser --> vscode
+nix --> repo : nix develop .#{lang}
+claude --> repo : SKILL 発動
+@enduml
