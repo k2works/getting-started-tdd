@@ -109,7 +109,7 @@
 | 1.5 | 章 3: 明白な実装とリファクタリング - 執筆 | 2h | AI | [x] |
 | 1.6 | 章 3: 明白な実装とリファクタリング - 実装 | 1h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門1.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるClojure入門1.md`
 
 #### 2. 第 2 部: 開発環境と自動化（3 SP）
 
@@ -119,7 +119,7 @@
 | 2.2 | 章 5: パッケージ管理と静的解析（Leiningen、cljfmt）- 執筆 | 2h | AI | [x] |
 | 2.3 | 章 6: タスクランナーと CI/CD（Makefile、GitHub Actions）- 執筆 | 2h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門2.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるClojure入門2.md`
 
 #### 3. 第 3 部: オブジェクト指向設計（3 SP）
 
@@ -131,7 +131,7 @@ Clojure は LISP 系関数型言語のため、OOP 概念をプロトコル・�
 | 3.2 | 章 8: マルチメソッドとディスパッチ - 執筆・実装 | 3h | AI | [x] |
 | 3.3 | 章 9: 名前空間とモジュール設計 - 執筆・実装 | 3h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門3.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるClojure入門3.md`
 
 #### 4. 第 4 部: 関数型プログラミング（3 SP）
 
@@ -143,7 +143,7 @@ Clojure は LISP 系関数型言語のため、OOP 概念をプロトコル・�
 | 4.4 | 記事と実装の同期確認 | 1h | AI | [x] |
 | 4.5 | mkdocs.yml 更新とプレビュー確認 | 0.5h | AI | [x] |
 
-**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門4.md`
+**参照**: `tmp/k2works-wiki/WIP/テスト駆動開発から始めるプログラミング入門/テスト駆動開発から始めるClojure入門4.md`
 
 ---
 
@@ -277,7 +277,3 @@ nix develop .#clojure
 - [リリース計画](./release_plan.md)
 - [イテレーション 8 計画](./iteration_plan-8.md)
 - [イテレーション 8 ふりかえり](./retrospective-8.md)
-- [Wiki 参照: Clojure エピソード 1](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門1.md)
-- [Wiki 参照: Clojure エピソード 2](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門2.md)
-- [Wiki 参照: Clojure エピソード 3](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門3.md)
-- [Wiki 参照: Clojure エピソード 4](../../tmp/k2works-wiki/WIP/テスト駆動開発から始めるXX入門/テスト駆動開発から始めるClojure入門4.md)

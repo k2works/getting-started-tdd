@@ -1,6 +1,6 @@
 # 多言語統合解説
 
-本章では、14 言語（Java, Python, JavaScript, TypeScript, Ruby, Go, PHP, Rust, C#, F#, Clojure, Scala, Elixir, Haskell）による FizzBuzz TDD 実装を横断的に比較し、言語の設計思想、テストフレームワーク、TDD パターン、型システム、開発環境を統合的に解説します。
+本章では、12 言語（Java, Python, TypeScript, Ruby, Go, PHP, Rust, C#, F#, Clojure, Scala, Elixir, Haskell）による FizzBuzz TDD 実装を横断的に比較し、言語の設計思想、テストフレームワーク、TDD パターン、型システム、開発環境を統合的に解説します。
 
 ## 本章の目的
 
@@ -35,7 +35,7 @@
 
 | 章 | タイトル | 内容 |
 |----|---------|------|
-| 1 | [14 言語の概要と分類](01-language-overview.md) | パラダイム分類、型システム、ランタイム、FizzBuzz コア実装比較 |
+| 1 | [12 言語の概要と分類](01-language-overview.md) | パラダイム分類、型システム、ランタイム、FizzBuzz コア実装比較 |
 | 2 | [テストフレームワーク比較](02-test-framework-comparison.md) | テスト構造、アサーション、実行コマンドの比較 |
 | 3 | [パラダイム別 TDD パターン比較](03-tdd-pattern-comparison.md) | OOP/FP の TDD、ポリモーフィズム、コマンドパターン比較 |
 | 4 | [型システムとエラーハンドリング比較](04-type-system-comparison.md) | 静的/動的型付け、Option/Result パターン、型安全性 |
@@ -48,7 +48,7 @@
 
 ### 通読
 
-第 1 章から順に読み進めることで、14 言語の全体像を俯瞰できます。
+第 1 章から順に読み進めることで、12 言語の全体像を俯瞰できます。
 
 ### リファレンス
 
