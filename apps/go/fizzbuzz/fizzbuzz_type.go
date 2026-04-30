@@ -4,7 +4,7 @@ import "strconv"
 
 // FizzBuzzType はタイプごとの FizzBuzz 生成を抽象化するインターフェースです。
 type FizzBuzzType interface { //nolint:revive
-	Generate(number int) string
+	Generate(number int) FizzBuzzValue
 }
 
 // BasicGenerate は手続き型で FizzBuzz を生成します。
@@ -52,26 +52,26 @@ type FizzBuzzType01 struct { //nolint:revive
 	fizzBuzzTypeBase
 }
 
-// Generate はタイプ 1 の通常 FizzBuzz 文字列を返します。
-func (f FizzBuzzType01) Generate(number int) string {
+// Generate はタイプ 1 の通常 FizzBuzz 値を返します。
+func (f FizzBuzzType01) Generate(number int) FizzBuzzValue {
 	if f.isFizz(number) && f.isBuzz(number) {
-		return "FizzBuzz"
+		return NewFizzBuzzValue(number, "FizzBuzz")
 	}
 	if f.isFizz(number) {
-		return "Fizz"
+		return NewFizzBuzzValue(number, "Fizz")
 	}
 	if f.isBuzz(number) {
-		return "Buzz"
+		return NewFizzBuzzValue(number, "Buzz")
 	}
-	return strconv.Itoa(number)
+	return NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // FizzBuzzType02 は数値のみを返します。
 type FizzBuzzType02 struct{} //nolint:revive
 
-// Generate はタイプ 2 の数値文字列を返します。
-func (f FizzBuzzType02) Generate(number int) string {
-	return strconv.Itoa(number)
+// Generate はタイプ 2 の数値文字列の FizzBuzz 値を返します。
+func (f FizzBuzzType02) Generate(number int) FizzBuzzValue {
+	return NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // FizzBuzzType03 は FizzBuzz のみ返し、それ以外は数値を返します。
@@ -79,12 +79,12 @@ type FizzBuzzType03 struct { //nolint:revive
 	fizzBuzzTypeBase
 }
 
-// Generate はタイプ 3 の FizzBuzz または数値文字列を返します。
-func (f FizzBuzzType03) Generate(number int) string {
+// Generate はタイプ 3 の FizzBuzz または数値文字列の FizzBuzz 値を返します。
+func (f FizzBuzzType03) Generate(number int) FizzBuzzValue {
 	if f.isFizz(number) && f.isBuzz(number) {
-		return "FizzBuzz"
+		return NewFizzBuzzValue(number, "FizzBuzz")
 	}
-	return strconv.Itoa(number)
+	return NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // NewFizzBuzzType は指定されたタイプの FizzBuzzType を生成します。
