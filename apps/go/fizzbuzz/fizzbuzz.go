@@ -4,21 +4,11 @@ package fizzbuzz
 import (
 	"fmt"
 	"io"
-	"strconv"
 )
 
 // Generate は FizzBuzz の文字列を返します。
 func Generate(number int) string {
-	switch {
-	case number%15 == 0:
-		return "FizzBuzz"
-	case number%3 == 0:
-		return "Fizz"
-	case number%5 == 0:
-		return "Buzz"
-	default:
-		return strconv.Itoa(number)
-	}
+	return FizzBuzzType01{}.Generate(number)
 }
 
 // GenerateList は start から end までの FizzBuzz 結果をスライスで返します。
