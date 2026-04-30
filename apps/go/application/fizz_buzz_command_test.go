@@ -1,12 +1,17 @@
-package fizzbuzz
+package application
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/k2works/getting-started-tdd/apps/go/domain/model"
+	type_ "github.com/k2works/getting-started-tdd/apps/go/domain/type_"
+)
 
 func TestFizzBuzzValueCommand_Execute_値を生成する(t *testing.T) {
-	fbt := FizzBuzzType01{}
+	fbt := type_.FizzBuzzType01{}
 	cmd := NewFizzBuzzValueCommand(3, fbt)
 	result := cmd.Execute()
-	v, ok := result.(FizzBuzzValue)
+	v, ok := result.(model.FizzBuzzValue)
 	if !ok {
 		t.Fatal("Execute() should return FizzBuzzValue")
 	}
@@ -16,10 +21,10 @@ func TestFizzBuzzValueCommand_Execute_値を生成する(t *testing.T) {
 }
 
 func TestFizzBuzzListCommand_Execute_リストを生成する(t *testing.T) {
-	fbt := FizzBuzzType01{}
+	fbt := type_.FizzBuzzType01{}
 	cmd := NewFizzBuzzListCommand(fbt, 100)
 	result := cmd.Execute()
-	list, ok := result.(*FizzBuzzList)
+	list, ok := result.(*model.FizzBuzzList)
 	if !ok {
 		t.Fatal("Execute() should return *FizzBuzzList")
 	}

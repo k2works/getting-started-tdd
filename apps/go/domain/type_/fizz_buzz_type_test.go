@@ -1,4 +1,4 @@
-package fizzbuzz
+package type_ //nolint:revive
 
 import "testing"
 

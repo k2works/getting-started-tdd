@@ -1,10 +1,15 @@
-package fizzbuzz
+// Package type_ contains FizzBuzz generation strategies.
+package type_ //nolint:revive
 
-import "strconv"
+import (
+	"strconv"
+
+	"github.com/k2works/getting-started-tdd/apps/go/domain/model"
+)
 
 // FizzBuzzType はタイプごとの FizzBuzz 生成を抽象化するインターフェースです。
 type FizzBuzzType interface { //nolint:revive
-	Generate(number int) FizzBuzzValue
+	Generate(number int) model.FizzBuzzValue
 }
 
 // BasicGenerate は手続き型で FizzBuzz を生成します。
@@ -53,25 +58,25 @@ type FizzBuzzType01 struct { //nolint:revive
 }
 
 // Generate はタイプ 1 の通常 FizzBuzz 値を返します。
-func (f FizzBuzzType01) Generate(number int) FizzBuzzValue {
+func (f FizzBuzzType01) Generate(number int) model.FizzBuzzValue {
 	if f.isFizz(number) && f.isBuzz(number) {
-		return NewFizzBuzzValue(number, "FizzBuzz")
+		return model.NewFizzBuzzValue(number, "FizzBuzz")
 	}
 	if f.isFizz(number) {
-		return NewFizzBuzzValue(number, "Fizz")
+		return model.NewFizzBuzzValue(number, "Fizz")
 	}
 	if f.isBuzz(number) {
-		return NewFizzBuzzValue(number, "Buzz")
+		return model.NewFizzBuzzValue(number, "Buzz")
 	}
-	return NewFizzBuzzValue(number, strconv.Itoa(number))
+	return model.NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // FizzBuzzType02 は数値のみを返します。
 type FizzBuzzType02 struct{} //nolint:revive
 
 // Generate はタイプ 2 の数値文字列の FizzBuzz 値を返します。
-func (f FizzBuzzType02) Generate(number int) FizzBuzzValue {
-	return NewFizzBuzzValue(number, strconv.Itoa(number))
+func (f FizzBuzzType02) Generate(number int) model.FizzBuzzValue {
+	return model.NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // FizzBuzzType03 は FizzBuzz のみ返し、それ以外は数値を返します。
@@ -80,11 +85,11 @@ type FizzBuzzType03 struct { //nolint:revive
 }
 
 // Generate はタイプ 3 の FizzBuzz または数値文字列の FizzBuzz 値を返します。
-func (f FizzBuzzType03) Generate(number int) FizzBuzzValue {
+func (f FizzBuzzType03) Generate(number int) model.FizzBuzzValue {
 	if f.isFizz(number) && f.isBuzz(number) {
-		return NewFizzBuzzValue(number, "FizzBuzz")
+		return model.NewFizzBuzzValue(number, "FizzBuzz")
 	}
-	return NewFizzBuzzValue(number, strconv.Itoa(number))
+	return model.NewFizzBuzzValue(number, strconv.Itoa(number))
 }
 
 // NewFizzBuzzType は指定されたタイプの FizzBuzzType を生成します。

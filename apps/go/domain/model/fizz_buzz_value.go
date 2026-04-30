@@ -1,4 +1,4 @@
-package fizzbuzz
+package model
 
 // FizzBuzzValue は FizzBuzz の結果を表す値オブジェクトです。
 type FizzBuzzValue struct { //nolint:revive

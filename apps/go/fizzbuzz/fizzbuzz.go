@@ -4,20 +4,22 @@ package fizzbuzz
 import (
 	"fmt"
 	"io"
+
+	"github.com/k2works/getting-started-tdd/apps/go/application"
+	"github.com/k2works/getting-started-tdd/apps/go/domain/model"
+	type_ "github.com/k2works/getting-started-tdd/apps/go/domain/type_"
 )
 
 // Generate は FizzBuzz の文字列を返します。
 func Generate(number int) string {
-	return FizzBuzzType01{}.Generate(number).String()
+	return type_.FizzBuzzType01{}.Generate(number).String()
 }
 
 // GenerateList は start から end までの FizzBuzz 結果をスライスで返します。
 func GenerateList(start, end int) []string {
-	results := make([]string, 0, end-start+1)
-	for i := start; i <= end; i++ {
-		results = append(results, Generate(i))
-	}
-	return results
+	count := end - start + 1
+	command := application.NewFizzBuzzListCommand(type_.FizzBuzzType01{}, count)
+	return command.Execute().(*model.FizzBuzzList).ToStringSlice()
 }
 
 // Print は FizzBuzz の結果を writer に出力します。

@@ -1,4 +1,5 @@
-package fizzbuzz
+// Package model contains FizzBuzz domain value objects and collections.
+package model
 
 import "fmt"
 
