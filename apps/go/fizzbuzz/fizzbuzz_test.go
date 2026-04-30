@@ -2,9 +2,16 @@ package fizzbuzz
 
 import (
 	"bytes"
+	"errors"
 	"strings"
 	"testing"
 )
+
+type failingWriter struct{}
+
+func (failingWriter) Write([]byte) (int, error) {
+	return 0, errors.New("write failed")
+}
 
 func assertGenerate(t *testing.T, input int, want string) {
 	t.Helper()
@@ -70,7 +77,9 @@ func TestGenerateList_1から100までのFizzBuzzを返す(t *testing.T) {
 
 func TestPrint_FizzBuzzの結果を出力する(t *testing.T) {
 	var buf bytes.Buffer
-	Print(&buf)
+	if err := Print(&buf); err != nil {
+		t.Fatalf("Print() error = %v", err)
+	}
 	output := buf.String()
 
 	if !strings.Contains(output, "1\n") {
@@ -84,5 +93,11 @@ func TestPrint_FizzBuzzの結果を出力する(t *testing.T) {
 	}
 	if !strings.Contains(output, "FizzBuzz\n") {
 		t.Error("output should contain 'FizzBuzz'")
+	}
+}
+
+func TestPrint_writerのエラーを返す(t *testing.T) {
+	if err := Print(failingWriter{}); err == nil {
+		t.Fatal("Print() error = nil, want error")
 	}
 }

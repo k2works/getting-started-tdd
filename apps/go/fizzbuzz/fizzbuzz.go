@@ -1,3 +1,4 @@
+// Package fizzbuzz provides FizzBuzz generation and output helpers.
 package fizzbuzz
 
 import (
@@ -30,8 +31,11 @@ func GenerateList(start, end int) []string {
 }
 
 // Print は FizzBuzz の結果を writer に出力します。
-func Print(w io.Writer) {
+func Print(w io.Writer) error {
 	for _, s := range GenerateList(1, 100) {
-		fmt.Fprintln(w, s)
+		if _, err := fmt.Fprintln(w, s); err != nil {
+			return err
+		}
 	}
+	return nil
 }
