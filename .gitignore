@@ -22,6 +22,7 @@ dist/
 build/
 site/
 tmp/
+apps/*/target/
 
 # Logs
 *.log
@@ -55,3 +56,6 @@ uv.lock
 
 # IntelliJ module files
 *.iml
+
+# Tags
+tags

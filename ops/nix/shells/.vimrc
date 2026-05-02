@@ -532,6 +532,8 @@ let g:test#strategy = 'dispatch'
 " 言語別設定
 "----------------------------------------------------------
 " Rust
+let g:test#rust#runner = 'cargotest'
+let g:test#rust#cargotest#test_options = { 'nearest': [] }
 let g:rustfmt_autosave = 1
 
 " .NET (OmniSharp)
