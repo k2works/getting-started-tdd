@@ -1,3 +1,5 @@
+#![warn(clippy::cognitive_complexity)]
+
 use std::io::Write;
 
 pub fn generate(number: i32) -> String {
