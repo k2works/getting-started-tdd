@@ -1,0 +1,71 @@
+{
+  "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json",
+  "adapters": {
+    "CodeLLDB-nix": {
+      "extends": "CodeLLDB",
+      "command": [
+        "bash",
+        "-lc",
+        "set -e; if [ -z \"$CODELLDB_PATH\" ]; then store=$(nix build --no-link --print-out-paths nixpkgs#vscode-extensions.vadimcn.vscode-lldb 2>/tmp/vimspector-codelldb-nix.log); CODELLDB_PATH=\"$store/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb\"; fi; exec \"$CODELLDB_PATH\""
+      ]
+    }
+  },
+  "configurations": {
+    "Rust: debug all library tests": {
+      "adapter": "CodeLLDB-nix",
+      "variables": {
+        "TestProgram": {
+          "shell": [
+            "bash",
+            "-lc",
+            "cd apps/rust && cargo test --no-run --lib --message-format=json | python3 -c 'import json, sys; [print(m[\"executable\"]) for line in sys.stdin if (m:=json.loads(line)).get(\"reason\") == \"compiler-artifact\" and m.get(\"target\", {}).get(\"kind\") == [\"lib\"] and m.get(\"executable\")]'"
+          ],
+          "cwd": "${workspaceRoot}"
+        }
+      },
+      "configuration": {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug Rust library tests",
+        "program": "${TestProgram}",
+        "args": [
+          "--nocapture"
+        ],
+        "cwd": "${workspaceRoot}/apps/rust",
+        "sourceLanguages": [
+          "rust"
+        ],
+        "stopOnEntry": false
+      }
+    },
+    "Rust: debug named library test": {
+      "adapter": "CodeLLDB-nix",
+      "variables": {
+        "TestProgram": {
+          "shell": [
+            "bash",
+            "-lc",
+            "cd apps/rust && cargo test --no-run --lib --message-format=json | python3 -c 'import json, sys; [print(m[\"executable\"]) for line in sys.stdin if (m:=json.loads(line)).get(\"reason\") == \"compiler-artifact\" and m.get(\"target\", {}).get(\"kind\") == [\"lib\"] and m.get(\"executable\")]'"
+          ],
+          "cwd": "${workspaceRoot}"
+        }
+      },
+      "configuration": {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug named Rust library test",
+        "program": "${TestProgram}",
+        "args": [
+          "${TestIdentifier}",
+          "--exact",
+          "--nocapture"
+        ],
+        "cwd": "${workspaceRoot}/apps/rust",
+        "sourceLanguages": [
+          "rust"
+        ],
+        "stopOnEntry": false
+      }
+    }
+  }
+}

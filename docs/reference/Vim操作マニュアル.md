@@ -80,6 +80,8 @@
 | `<leader>dh` | ステップアウト |
 | `<leader>dk` | 再起動 |
 
+Rust プロジェクトではリポジトリルートの `.vimspector.json` に CodeLLDB 用の構成を定義しています。`nix develop .#rust` で環境に入り、Vim でブレークポイントを設定してから `<leader>dd` を押すと、ライブラリテスト全体または指定したテスト名でデバッグできます。
+
 ### [vim-test](https://github.com/vim-test/vim-test) (テスト実行)
 | キー | 動作 |
 |---|---|
