@@ -77,6 +77,83 @@ pub fn create(type_number: i32) -> Result<Box<dyn FizzBuzzType>, String> {
     }
 }
 
+pub struct FizzBuzzList {
+    list: Vec<FizzBuzzValue>,
+}
+
+impl FizzBuzzList {
+    const MAX_COUNT: usize = 100;
+
+    pub fn new(fizz_buzz_type: &dyn FizzBuzzType) -> Self {
+        let list = (1..=Self::MAX_COUNT as i32)
+            .map(|n| fizz_buzz_type.generate(n))
+            .collect();
+        Self { list }
+    }
+
+    pub fn value(&self) -> &[FizzBuzzValue] {
+        &self.list
+    }
+
+    pub fn len(&self) -> usize {
+        self.list.len()
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.list.is_empty()
+    }
+}
+
+impl std::fmt::Display for FizzBuzzList {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let values: Vec<String> = self.list.iter().map(|v| v.value().to_string()).collect();
+        write!(f, "{}", values.join("\n"))
+    }
+}
+
+pub trait FizzBuzzCommand {
+    fn execute(&self) -> String;
+}
+
+pub struct FizzBuzzValueCommand {
+    fizz_buzz_type: Box<dyn FizzBuzzType>,
+    number: i32,
+}
+
+impl FizzBuzzValueCommand {
+    pub fn new(type_number: i32, number: i32) -> Result<Self, String> {
+        let fizz_buzz_type = create(type_number)?;
+        Ok(Self {
+            fizz_buzz_type,
+            number,
+        })
+    }
+}
+
+impl FizzBuzzCommand for FizzBuzzValueCommand {
+    fn execute(&self) -> String {
+        self.fizz_buzz_type.generate(self.number).to_string()
+    }
+}
+
+pub struct FizzBuzzListCommand {
+    fizz_buzz_type: Box<dyn FizzBuzzType>,
+}
+
+impl FizzBuzzListCommand {
+    pub fn new(type_number: i32) -> Result<Self, String> {
+        let fizz_buzz_type = create(type_number)?;
+        Ok(Self { fizz_buzz_type })
+    }
+}
+
+impl FizzBuzzCommand for FizzBuzzListCommand {
+    fn execute(&self) -> String {
+        let list = FizzBuzzList::new(self.fizz_buzz_type.as_ref());
+        list.to_string()
+    }
+}
+
 pub fn generate(number: i32) -> String {
     FizzBuzzType01.generate(number).to_string()
 }
@@ -259,6 +336,98 @@ mod tests {
         #[test]
         fn test_存在しないタイプを指定するとエラーを返す() {
             let result = create(99);
+
+            match result {
+                Ok(_) => panic!("エラーが返ることを期待しています"),
+                Err(message) => assert_eq!("タイプ99は見つかりません", message),
+            }
+        }
+    }
+
+    mod fizz_buzz_listの場合 {
+        use super::*;
+
+        #[test]
+        fn test_通常のfizzbuzzを100件生成できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+
+            assert_eq!(100, list.len());
+            assert!(!list.is_empty());
+            assert_eq!("1", list.value()[0].value());
+            assert_eq!("Fizz", list.value()[2].value());
+            assert_eq!("Buzz", list.value()[4].value());
+            assert_eq!("FizzBuzz", list.value()[14].value());
+        }
+
+        #[test]
+        fn test_displayで改行区切りの文字列にできる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let output = list.to_string();
+
+            assert!(output.starts_with("1\n2\nFizz"));
+            assert!(output.contains("FizzBuzz"));
+        }
+    }
+
+    mod fizz_buzz_value_commandの場合 {
+        use super::*;
+
+        #[test]
+        fn test_タイプ1と数値15を指定してfizzbuzzを実行できる() {
+            let command = FizzBuzzValueCommand::new(1, 15).unwrap();
+
+            assert_eq!("FizzBuzz", command.execute());
+        }
+
+        #[test]
+        fn test_タイプ2と数値15を指定して数値文字列を実行できる() {
+            let command = FizzBuzzValueCommand::new(2, 15).unwrap();
+
+            assert_eq!("15", command.execute());
+        }
+
+        #[test]
+        fn test_存在しないタイプを指定するとエラーを返す() {
+            let result = FizzBuzzValueCommand::new(99, 1);
+
+            match result {
+                Ok(_) => panic!("エラーが返ることを期待しています"),
+                Err(message) => assert_eq!("タイプ99は見つかりません", message),
+            }
+        }
+    }
+
+    mod fizz_buzz_list_commandの場合 {
+        use super::*;
+
+        #[test]
+        fn test_タイプ1を指定して100件のfizzbuzzを実行できる() {
+            let command = FizzBuzzListCommand::new(1).unwrap();
+
+            let output = command.execute();
+
+            assert!(output.starts_with("1\n2\nFizz"));
+            assert!(output.contains("Buzz"));
+            assert!(output.contains("FizzBuzz"));
+        }
+
+        #[test]
+        fn test_タイプ3を指定してfizzbuzzのみを実行できる() {
+            let command = FizzBuzzListCommand::new(3).unwrap();
+
+            let output = command.execute();
+
+            assert!(output.starts_with("\n\nFizz"));
+            assert!(output.contains("FizzBuzz"));
+        }
+
+        #[test]
+        fn test_存在しないタイプを指定するとエラーを返す() {
+            let result = FizzBuzzListCommand::new(99);
 
             match result {
                 Ok(_) => panic!("エラーが返ることを期待しています"),
