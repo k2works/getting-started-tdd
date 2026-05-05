@@ -1,175 +1,18 @@
 #![warn(clippy::cognitive_complexity)]
 
-use std::io::Write;
+pub mod application;
+pub mod domain;
+pub mod fizz_buzz;
 
-#[derive(Debug, Clone, PartialEq)]
-pub struct FizzBuzzValue {
-    number: i32,
-    value: String,
-}
-
-impl FizzBuzzValue {
-    pub fn new(number: i32, value: String) -> Self {
-        Self { number, value }
-    }
-
-    pub fn number(&self) -> i32 {
-        self.number
-    }
-
-    pub fn value(&self) -> &str {
-        &self.value
-    }
-}
-
-impl std::fmt::Display for FizzBuzzValue {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.value)
-    }
-}
-
-pub trait FizzBuzzType {
-    fn generate(&self, number: i32) -> FizzBuzzValue;
-}
-
-pub struct FizzBuzzType01;
-
-impl FizzBuzzType for FizzBuzzType01 {
-    fn generate(&self, number: i32) -> FizzBuzzValue {
-        let value = match (number % 3, number % 5) {
-            (0, 0) => "FizzBuzz".to_string(),
-            (0, _) => "Fizz".to_string(),
-            (_, 0) => "Buzz".to_string(),
-            _ => number.to_string(),
-        };
-        FizzBuzzValue::new(number, value)
-    }
-}
-
-pub struct FizzBuzzType02;
-
-impl FizzBuzzType for FizzBuzzType02 {
-    fn generate(&self, number: i32) -> FizzBuzzValue {
-        FizzBuzzValue::new(number, number.to_string())
-    }
-}
-
-pub struct FizzBuzzType03;
-
-impl FizzBuzzType for FizzBuzzType03 {
-    fn generate(&self, number: i32) -> FizzBuzzValue {
-        let value = match (number % 3, number % 5) {
-            (0, 0) => "FizzBuzz".to_string(),
-            (0, _) => "Fizz".to_string(),
-            (_, 0) => "Buzz".to_string(),
-            _ => String::new(),
-        };
-        FizzBuzzValue::new(number, value)
-    }
-}
-
-pub fn create(type_number: i32) -> Result<Box<dyn FizzBuzzType>, String> {
-    match type_number {
-        1 => Ok(Box::new(FizzBuzzType01)),
-        2 => Ok(Box::new(FizzBuzzType02)),
-        3 => Ok(Box::new(FizzBuzzType03)),
-        _ => Err(format!("タイプ{}は見つかりません", type_number)),
-    }
-}
-
-pub struct FizzBuzzList {
-    list: Vec<FizzBuzzValue>,
-}
-
-impl FizzBuzzList {
-    const MAX_COUNT: usize = 100;
-
-    pub fn new(fizz_buzz_type: &dyn FizzBuzzType) -> Self {
-        let list = (1..=Self::MAX_COUNT as i32)
-            .map(|n| fizz_buzz_type.generate(n))
-            .collect();
-        Self { list }
-    }
-
-    pub fn value(&self) -> &[FizzBuzzValue] {
-        &self.list
-    }
-
-    pub fn len(&self) -> usize {
-        self.list.len()
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.list.is_empty()
-    }
-}
-
-impl std::fmt::Display for FizzBuzzList {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let values: Vec<String> = self.list.iter().map(|v| v.value().to_string()).collect();
-        write!(f, "{}", values.join("\n"))
-    }
-}
-
-pub trait FizzBuzzCommand {
-    fn execute(&self) -> String;
-}
-
-pub struct FizzBuzzValueCommand {
-    fizz_buzz_type: Box<dyn FizzBuzzType>,
-    number: i32,
-}
-
-impl FizzBuzzValueCommand {
-    pub fn new(type_number: i32, number: i32) -> Result<Self, String> {
-        let fizz_buzz_type = create(type_number)?;
-        Ok(Self {
-            fizz_buzz_type,
-            number,
-        })
-    }
-}
-
-impl FizzBuzzCommand for FizzBuzzValueCommand {
-    fn execute(&self) -> String {
-        self.fizz_buzz_type.generate(self.number).to_string()
-    }
-}
-
-pub struct FizzBuzzListCommand {
-    fizz_buzz_type: Box<dyn FizzBuzzType>,
-}
-
-impl FizzBuzzListCommand {
-    pub fn new(type_number: i32) -> Result<Self, String> {
-        let fizz_buzz_type = create(type_number)?;
-        Ok(Self { fizz_buzz_type })
-    }
-}
-
-impl FizzBuzzCommand for FizzBuzzListCommand {
-    fn execute(&self) -> String {
-        let list = FizzBuzzList::new(self.fizz_buzz_type.as_ref());
-        list.to_string()
-    }
-}
-
-pub fn generate(number: i32) -> String {
-    FizzBuzzType01.generate(number).to_string()
-}
-
-pub fn generate_list(start: i32, end: i32) -> Vec<String> {
-    (start..=end).map(generate).collect()
-}
-
-pub fn print_fizzbuzz(writer: &mut dyn Write) {
-    for s in generate_list(1, 100) {
-        writeln!(writer, "{}", s).unwrap();
-    }
-}
+pub use application::{FizzBuzzCommand, FizzBuzzListCommand, FizzBuzzValueCommand};
+pub use domain::model::{FizzBuzzList, FizzBuzzValue};
+pub use domain::types::{FizzBuzzType, FizzBuzzType01, FizzBuzzType02, FizzBuzzType03};
+pub use fizz_buzz::{create, generate, generate_list, print_fizzbuzz};
 
 #[cfg(test)]
 mod tests {
+    use std::io::Write;
+
     use super::*;
 
     mod fizz_buzz_valueの場合 {
