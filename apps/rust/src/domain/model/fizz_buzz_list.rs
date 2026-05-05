@@ -27,6 +27,45 @@ impl FizzBuzzList {
     pub fn is_empty(&self) -> bool {
         self.list.is_empty()
     }
+
+    pub fn filter_by_value(&self, target: &str) -> Vec<&FizzBuzzValue> {
+        self.list.iter().filter(|v| v.value() == target).collect()
+    }
+
+    pub fn map_values(&self) -> Vec<String> {
+        self.list.iter().map(|v| v.value().to_string()).collect()
+    }
+
+    pub fn find_first(&self, target: &str) -> Option<&FizzBuzzValue> {
+        self.list.iter().find(|v| v.value() == target)
+    }
+
+    pub fn any_match(&self, target: &str) -> bool {
+        self.list.iter().any(|v| v.value() == target)
+    }
+
+    pub fn all_match(&self, predicate: impl Fn(&FizzBuzzValue) -> bool) -> bool {
+        self.list.iter().all(predicate)
+    }
+
+    pub fn take(&self, n: usize) -> Vec<&FizzBuzzValue> {
+        self.list.iter().take(n).collect()
+    }
+
+    pub fn join(&self, separator: &str) -> String {
+        self.list
+            .iter()
+            .map(|v| v.value().to_string())
+            .collect::<Vec<_>>()
+            .join(separator)
+    }
+
+    pub fn reduce<F>(&self, f: F) -> String
+    where
+        F: Fn(String, &FizzBuzzValue) -> String,
+    {
+        self.list.iter().fold(String::new(), f)
+    }
 }
 
 impl std::fmt::Display for FizzBuzzList {

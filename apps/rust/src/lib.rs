@@ -214,6 +214,105 @@ mod tests {
             assert!(output.starts_with("1\n2\nFizz"));
             assert!(output.contains("FizzBuzz"));
         }
+
+        #[test]
+        fn test_filter_by_valueで指定した値だけを抽出できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let fizz_values = list.filter_by_value("Fizz");
+
+            assert_eq!(27, fizz_values.len());
+            assert!(fizz_values.iter().all(|v| v.value() == "Fizz"));
+        }
+
+        #[test]
+        fn test_map_valuesで値の文字列リストに変換できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let values = list.map_values();
+
+            assert_eq!(100, values.len());
+            assert_eq!("1", values[0]);
+            assert_eq!("Fizz", values[2]);
+            assert_eq!("Buzz", values[4]);
+            assert_eq!("FizzBuzz", values[14]);
+        }
+
+        #[test]
+        fn test_find_firstで最初に一致した値を取得できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let first_buzz = list.find_first("Buzz").unwrap();
+
+            assert_eq!(5, first_buzz.number());
+            assert_eq!("Buzz", first_buzz.value());
+        }
+
+        #[test]
+        fn test_any_matchで一致する値があるか判定できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+
+            assert!(list.any_match("FizzBuzz"));
+            assert!(!list.any_match("NotFound"));
+        }
+
+        #[test]
+        fn test_all_matchで全ての値が条件を満たすか判定できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+
+            assert!(list.all_match(|v| v.number() >= 1));
+            assert!(!list.all_match(|v| v.value() == "Fizz"));
+        }
+
+        #[test]
+        fn test_takeで先頭n件を取得できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let values = list.take(5);
+
+            assert_eq!(5, values.len());
+            assert_eq!("1", values[0].value());
+            assert_eq!("2", values[1].value());
+            assert_eq!("Fizz", values[2].value());
+            assert_eq!("4", values[3].value());
+            assert_eq!("Buzz", values[4].value());
+        }
+
+        #[test]
+        fn test_joinで指定した区切り文字で連結できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let joined = list.join(",");
+
+            assert!(joined.starts_with("1,2,Fizz,4,Buzz"));
+            assert!(joined.contains("FizzBuzz"));
+        }
+
+        #[test]
+        fn test_reduceで値を集約できる() {
+            let fizz_buzz_type = FizzBuzzType01;
+
+            let list = FizzBuzzList::new(&fizz_buzz_type);
+            let joined = list.reduce(|acc, v| {
+                if acc.is_empty() {
+                    v.value().to_string()
+                } else {
+                    format!("{}|{}", acc, v.value())
+                }
+            });
+
+            assert!(joined.starts_with("1|2|Fizz|4|Buzz"));
+            assert!(joined.contains("FizzBuzz"));
+        }
     }
 
     mod fizz_buzz_value_commandの場合 {
