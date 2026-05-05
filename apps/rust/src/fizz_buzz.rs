@@ -1,14 +1,9 @@
 use std::io::Write;
 
-use crate::domain::types::{FizzBuzzType, FizzBuzzType01, FizzBuzzType02, FizzBuzzType03};
+use crate::domain::types::{FizzBuzzType, FizzBuzzType01, FizzBuzzTypeName};
 
 pub fn create(type_number: i32) -> Result<Box<dyn FizzBuzzType>, String> {
-    match type_number {
-        1 => Ok(Box::new(FizzBuzzType01)),
-        2 => Ok(Box::new(FizzBuzzType02)),
-        3 => Ok(Box::new(FizzBuzzType03)),
-        _ => Err(format!("タイプ{}は見つかりません", type_number)),
-    }
+    Ok(FizzBuzzTypeName::from_number(type_number)?.create_type())
 }
 
 pub fn generate(number: i32) -> String {

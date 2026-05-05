@@ -6,7 +6,9 @@ pub mod fizz_buzz;
 
 pub use application::{FizzBuzzCommand, FizzBuzzListCommand, FizzBuzzValueCommand};
 pub use domain::model::{FizzBuzzList, FizzBuzzValue};
-pub use domain::types::{FizzBuzzType, FizzBuzzType01, FizzBuzzType02, FizzBuzzType03};
+pub use domain::types::{
+    FizzBuzzType, FizzBuzzType01, FizzBuzzType02, FizzBuzzType03, FizzBuzzTypeName,
+};
 pub use fizz_buzz::{create, generate, generate_list, print_fizzbuzz};
 
 #[cfg(test)]
@@ -184,6 +186,52 @@ mod tests {
                 Ok(_) => panic!("エラーが返ることを期待しています"),
                 Err(message) => assert_eq!("タイプ99は見つかりません", message),
             }
+        }
+    }
+
+    mod fizz_buzz_type_nameの場合 {
+        use super::*;
+
+        #[test]
+        fn test_数値からタイプ名へ変換できる() {
+            assert_eq!(
+                FizzBuzzTypeName::Standard,
+                FizzBuzzTypeName::from_number(1).unwrap()
+            );
+            assert_eq!(
+                FizzBuzzTypeName::NumberOnly,
+                FizzBuzzTypeName::from_number(2).unwrap()
+            );
+            assert_eq!(
+                FizzBuzzTypeName::FizzBuzzOnly,
+                FizzBuzzTypeName::from_number(3).unwrap()
+            );
+        }
+
+        #[test]
+        fn test_存在しない数値はエラーを返す() {
+            let result = FizzBuzzTypeName::from_number(99);
+
+            match result {
+                Ok(_) => panic!("エラーが返ることを期待しています"),
+                Err(message) => assert_eq!("タイプ99は見つかりません", message),
+            }
+        }
+
+        #[test]
+        fn test_タイプ名から表示ラベルを取得できる() {
+            assert_eq!("通常", FizzBuzzTypeName::Standard.label());
+            assert_eq!("数値のみ", FizzBuzzTypeName::NumberOnly.label());
+            assert_eq!("FizzBuzzのみ", FizzBuzzTypeName::FizzBuzzOnly.label());
+        }
+
+        #[test]
+        fn test_タイプ名からfizzbuzz_typeを生成できる() {
+            let fizz_buzz_type = FizzBuzzTypeName::Standard.create_type();
+
+            let value = fizz_buzz_type.generate(15);
+
+            assert_eq!("FizzBuzz", value.value());
         }
     }
 
