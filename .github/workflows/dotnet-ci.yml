@@ -4,12 +4,12 @@ on:
   push:
     branches: [main, develop]
     paths:
-      - "apps/dotnet/**"
+      - "apps/csharp/**"
       - ".github/workflows/dotnet-ci.yml"
   pull_request:
     branches: [main]
     paths:
-      - "apps/dotnet/**"
+      - "apps/csharp/**"
 
 permissions:
   contents: read
@@ -35,8 +35,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nix-dotnet-
 
-      - name: Build
-        run: nix develop .#dotnet --command bash -c "cd apps/dotnet && dotnet build"
+      - name: Restore .NET tools
+        run: nix develop .#dotnet --command bash -c "cd apps/csharp && dotnet tool restore"
 
-      - name: Run tests
-        run: nix develop .#dotnet --command bash -c "cd apps/dotnet && dotnet test --verbosity minimal"
+      - name: Run Cake Check
+        run: nix develop .#dotnet --command bash -c "cd apps/csharp && dotnet dotnet-cake --target=Check"
