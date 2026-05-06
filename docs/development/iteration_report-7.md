@@ -163,7 +163,7 @@
 ## 次のステップ
 
 1. IT8（C#/F#）イテレーション計画を作成
-2. apps/dotnet/ プロジェクト初期化（.NET + xUnit）
+2. apps/csharp/ プロジェクト初期化（.NET + xUnit）
 3. C#/F# 第 1〜12 章の執筆・実装を完了
 4. Phase 2 完了後、Release 2.0 準備
 

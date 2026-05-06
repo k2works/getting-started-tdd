@@ -113,9 +113,9 @@
 |---------|--------|
 | 記事（C#） | docs/article/csharp/（index.md + 12 章） |
 | 記事（F#） | docs/article/fsharp/（index.md + 12 章） |
-| 実装 | apps/dotnet/（.NET ソリューション、67 テスト） |
+| 実装 | apps/csharp/（C# classlib + xUnit tests） |
 | CI | .github/workflows/dotnet-ci.yml |
-| タスクランナー | apps/dotnet/build.cake（Cake）、apps/dotnet/Makefile（ラッパー） |
+| タスクランナー | なし |
 
 ### テスト内訳
 

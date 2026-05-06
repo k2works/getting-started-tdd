@@ -124,12 +124,12 @@ on:
   push:
     branches: [main, develop]
     paths:
-      - "apps/dotnet/**"
+      - "apps/csharp/**"
       - ".github/workflows/dotnet-ci.yml"
   pull_request:
     branches: [main]
     paths:
-      - "apps/dotnet/**"
+      - "apps/csharp/**"
 
 permissions:
   contents: read
@@ -149,19 +149,19 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 
       - name: Check formatting
         run: dotnet format --verify-no-changes
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 
       - name: Build
         run: dotnet build --no-restore
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 
       - name: Run tests
         run: dotnet test --no-build
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 ```
 
 ### CI パイプラインの流れ

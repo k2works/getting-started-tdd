@@ -17,7 +17,7 @@
 
 1. **記事（C#）**: C# の 12 章すべてが `docs/article/csharp/` に執筆完了
 2. **記事（F#）**: F# の 12 章すべてが `docs/article/fsharp/` に執筆完了
-3. **実装**: `apps/dotnet/` に C# と F# の TDD 実装が動作する状態
+3. **実装**: `apps/csharp/` に C# と F# の TDD 実装が動作する状態
 4. **品質**: テスト全パス、dotnet-format 違反ゼロ
 5. **Phase 2 完了**: IT5-IT8 の全言語が完了し、Release 2.0 準備完了
 
@@ -25,10 +25,10 @@
 
 - [ ] docs/article/csharp/index.md と 12 章の記事ファイルが作成済み
 - [ ] docs/article/fsharp/index.md と 12 章の記事ファイルが作成済み
-- [ ] apps/dotnet/ の dotnet test がすべてパス（C# + F# 両方）
+- [ ] apps/csharp/ の dotnet test がすべてパス（C# + F# 両方）
 - [ ] mkdocs.yml に C# セクションと F# セクションが追加され、プレビュー確認済み
 - [ ] dotnet-format 違反ゼロ
-- [ ] 記事内コード例と apps/dotnet/ の実コードが同期
+- [ ] 記事内コード例と apps/csharp/ の実コードが同期
 
 ---
 
@@ -81,7 +81,7 @@
 3. 開発環境の構築手順（.NET SDK、NuGet、dotnet-format）が記載されている
 4. C# の OOP 設計（カプセル化、interface/abstract class、LINQ）が段階的に解説されている
 5. F# の関数型プログラミング（パイプライン演算子、判別共用体、パターンマッチ）が段階的に解説されている
-6. 記事内のコード例と apps/dotnet/ の実装が一致している
+6. 記事内のコード例と apps/csharp/ の実装が一致している
 
 ### タスク
 
@@ -89,7 +89,7 @@
 
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
-| 0.1 | apps/dotnet/ に .NET ソリューション + C# xUnit + F# xUnit プロジェクトを作成 | 0.5h | AI | [ ] |
+| 0.1 | apps/csharp/ に .NET ソリューション + C# xUnit + F# xUnit プロジェクトを作成 | 0.5h | AI | [ ] |
 | 0.2 | .gitignore 先行設定（bin/, obj/, .vs/ 除外） | 0.5h | AI | [ ] |
 | 0.3 | テスト構成の確認（dotnet test） | 0.5h | AI | [ ] |
 | 0.4 | Makefile 作成（check タスク統合） | 0.5h | AI | [ ] |
@@ -218,37 +218,14 @@ C# は 3 エピソード言語のため、第 4 部は C# で利用可能な FP 
 ### ディレクトリ構成
 
 ```
-apps/dotnet/
-├── FizzBuzz.sln
-├── Makefile
-├── .gitignore
+apps/csharp/
 ├── FizzBuzz/                                    (C# classlib)
 │   ├── FizzBuzz.csproj
-│   ├── FizzBuzz.cs                              (公開 API)
-│   ├── Domain/
-│   │   ├── Model/
-│   │   │   ├── FizzBuzzValue.cs                 (値オブジェクト)
-│   │   │   └── FizzBuzzList.cs                  (ファーストクラスコレクション)
-│   │   └── Type/
-│   │       ├── IFizzBuzzType.cs                 (インターフェース)
-│   │       ├── FizzBuzzType01.cs                (タイプ 1: 通常)
-│   │       ├── FizzBuzzType02.cs                (タイプ 2: 数値のみ)
-│   │       └── FizzBuzzType03.cs                (タイプ 3: FizzBuzz のみ)
-│   └── Application/
-│       ├── IFizzBuzzCommand.cs                  (コマンドインターフェース)
-│       ├── FizzBuzzValueCommand.cs              (単一値コマンド)
-│       └── FizzBuzzListCommand.cs               (リストコマンド)
-├── FizzBuzzTest/                                (C# xUnit tests)
-│   ├── FizzBuzzTest.csproj
-│   └── FizzBuzzTest.cs
-├── FizzBuzzFSharp/                              (F# classlib)
-│   ├── FizzBuzzFSharp.fsproj
-│   ├── FizzBuzz.fs                              (公開 API)
-│   ├── Domain.fs                                (ドメインモデル)
-│   └── Application.fs                           (アプリケーション層)
-└── FizzBuzzFSharpTest/                          (F# xUnit tests)
-    ├── FizzBuzzFSharpTest.fsproj
-    └── FizzBuzzTest.fs
+│   └── Class1.cs
+└── FizzBuzzTest/                                (C# xUnit tests)
+    ├── FizzBuzzTest.csproj
+    ├── FizzBuzzTest.cs
+    └── UnitTest1.cs
 
 docs/article/
 ├── csharp/
@@ -335,11 +312,11 @@ nix develop .#dotnet
 
 - [x] 12 章の記事ファイルが docs/article/csharp/ に存在
 - [x] 12 章の記事ファイルが docs/article/fsharp/ に存在
-- [x] apps/dotnet/ の全テストがパス（C# 38 + F# 29 = 67 テスト）
+- [x] apps/csharp/ の全テストがパス（C# 38 + F# 29 = 67 テスト）
 - [x] dotnet-format 違反ゼロ
 - [x] mkdocs.yml に C# セクションと F# セクションが追加済み
 - [x] ローカルプレビューで表示確認済み
-- [x] 記事内コード例と apps/dotnet/ の実コードが同期
+- [x] 記事内コード例と apps/csharp/ の実コードが同期
 - [x] GitHub Issue #8 がクローズ済み
 
 ---

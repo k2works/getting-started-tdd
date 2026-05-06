@@ -61,7 +61,7 @@ dotnet CLI でプロジェクトを初期化し、テスト環境をセットア
 $ nix develop .#dotnet
 
 # プロジェクトの初期化
-$ cd apps/dotnet
+$ cd apps/csharp
 $ dotnet new classlib -n FizzBuzz
 $ dotnet new xunit -n FizzBuzzTest
 $ dotnet add FizzBuzzTest/FizzBuzzTest.csproj reference FizzBuzz/FizzBuzz.csproj

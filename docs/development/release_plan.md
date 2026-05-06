@@ -376,7 +376,7 @@ gantt
 
 **主なタスク**:
 
-- [x] apps/dotnet/ プロジェクト初期化（.NET SDK 8.0 + xUnit + Cake）
+- [x] apps/csharp/ プロジェクト初期化（.NET SDK 8.0 + xUnit）
 - [x] C# 第 1〜12 章の執筆と実装（docs/article/csharp/）
 - [x] F# 第 1〜12 章の執筆と実装（docs/article/fsharp/）
 - [x] CI ワークフロー（.github/workflows/dotnet-ci.yml）
@@ -538,7 +538,7 @@ gantt
 13. ~~apps/rust/ プロジェクト初期化（Cargo + Clippy + rustfmt）~~ ✅
 14. ~~Rust 第 1〜12 章の執筆・実装を完了~~ ✅
 15. ~~IT8（C#/F#）イテレーション計画を作成~~ ✅
-16. ~~apps/dotnet/ プロジェクト初期化（.NET SDK 8.0 + xUnit + Cake）~~ ✅
+16. ~~apps/csharp/ プロジェクト初期化（.NET SDK 8.0 + xUnit）~~ ✅
 17. ~~C#/F# 第 1〜12 章の執筆・実装を完了~~ ✅
 18. ~~IT9（Clojure）イテレーション計画を作成~~ ✅
 19. ~~apps/clojure/ プロジェクト初期化~~ ✅

@@ -121,14 +121,14 @@ on:
   push:
     branches: [main, develop]
     paths:
-      - "apps/dotnet/FizzBuzzFSharp/**"
-      - "apps/dotnet/FizzBuzzFSharpTest/**"
+      - "apps/csharp/FizzBuzzFSharp/**"
+      - "apps/csharp/FizzBuzzFSharpTest/**"
       - ".github/workflows/fsharp-ci.yml"
   pull_request:
     branches: [main]
     paths:
-      - "apps/dotnet/FizzBuzzFSharp/**"
-      - "apps/dotnet/FizzBuzzFSharpTest/**"
+      - "apps/csharp/FizzBuzzFSharp/**"
+      - "apps/csharp/FizzBuzzFSharpTest/**"
 
 permissions:
   contents: read
@@ -148,15 +148,15 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 
       - name: Build
         run: dotnet build --no-restore
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 
       - name: Run tests
         run: dotnet test --no-build
-        working-directory: apps/dotnet
+        working-directory: apps/csharp
 ```
 
 ### CI パイプラインの流れ

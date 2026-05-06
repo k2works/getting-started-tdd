@@ -64,14 +64,14 @@ FizzBuzz 問題を題材に、テスト駆動開発（TDD）の基本サイク�
 
 ## 実装コード
 
-本記事のすべてのコード例は `apps/dotnet/` に実装されています。
+本記事のすべてのコード例は `apps/csharp/` に実装されています。
 
 ```bash
 # 開発環境に入る
 nix develop .#dotnet
 
 # テスト実行
-cd apps/dotnet
+cd apps/csharp
 dotnet test
 ```
 

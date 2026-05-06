@@ -32,7 +32,7 @@
 ### Keep（継続すること）
 
 1. **.gitignore ファースト戦略の成功**
-   - IT7 の学びを活かし、`apps/dotnet/.gitignore` を最初に作成
+   - IT7 の学びを活かし、`apps/csharp/.gitignore` を最初に作成
    - `bin/`、`obj/`、`.vs/` の誤コミットを完全に防止できた
 
 2. **Nix 環境の安定利用**
