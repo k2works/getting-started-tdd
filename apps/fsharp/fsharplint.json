@@ -1,0 +1,8 @@
+{
+  "cyclomaticComplexity": {
+    "enabled": true,
+    "config": {
+      "maxComplexity": 7
+    }
+  }
+}

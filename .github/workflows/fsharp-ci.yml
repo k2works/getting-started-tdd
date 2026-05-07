@@ -1,0 +1,43 @@
+name: F# CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/fsharp/**"
+      - ".github/workflows/fsharp-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/fsharp/**"
+      - ".github/workflows/fsharp-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-fsharp-${{ hashFiles('flake.lock', 'ops/nix/environments/dotnet/shell.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-fsharp-
+
+      - name: Restore .NET tools
+        run: nix develop .#dotnet --command bash -c "cd apps/fsharp && dotnet tool restore"
+
+      - name: Run Cake Check
+        run: nix develop .#dotnet --command bash -c "cd apps/fsharp && dotnet dotnet-cake --target=Check"
