@@ -20,8 +20,10 @@ packages.mkShell {
     git config --global --add safe.directory /srv 2>/dev/null || true
     git config --global --add safe.directory "$(pwd)" 2>/dev/null || true
 
+    REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+
     # Vim 設定の反映
-    VIMRC_SRC="${./.vimrc}"
+    VIMRC_SRC="$REPO_ROOT/ops/nix/shells/.vimrc"
     VIMRC_DEST="$HOME/.vimrc"
     if [ -f "$VIMRC_SRC" ]; then
       ln -sf "$VIMRC_SRC" "$VIMRC_DEST"
@@ -31,7 +33,7 @@ packages.mkShell {
     fi
 
     # tmux 設定の反映
-    TMUX_CONF_SRC="${./.tmux.conf}"
+    TMUX_CONF_SRC="$REPO_ROOT/ops/nix/shells/.tmux.conf"
     TMUX_CONF_DEST="$HOME/.tmux.conf"
     if [ -f "$TMUX_CONF_SRC" ]; then
       ln -sf "$TMUX_CONF_SRC" "$TMUX_CONF_DEST"

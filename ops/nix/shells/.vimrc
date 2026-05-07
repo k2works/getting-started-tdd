@@ -7,6 +7,11 @@ set autowrite " 自動保存モード
 let mapleader = "," "リーダーキーマップ
 noremap \ ,
 
+let s:custom_vim_runtime = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/vim'
+if isdirectory(s:custom_vim_runtime)
+  execute 'set runtimepath^=' . fnameescape(s:custom_vim_runtime)
+endif
+
 "----------------------------------------------------------
 " 文字
 "----------------------------------------------------------
@@ -527,6 +532,17 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'dispatch'
+
+" vim-test custom runner for F# xUnit projects
+if !exists('g:test#custom_runners')
+  let g:test#custom_runners = {}
+endif
+if !has_key(g:test#custom_runners, 'FSharp')
+  let g:test#custom_runners['FSharp'] = []
+endif
+if index(g:test#custom_runners['FSharp'], 'Dotnettest') < 0
+  call add(g:test#custom_runners['FSharp'], 'Dotnettest')
+endif
 
 "----------------------------------------------------------
 " 言語別設定

@@ -89,6 +89,9 @@
 | `<leader>l` | 最後に実行したテストを再実行 |
 | `<leader>g` | 最後に実行したテストファイルを開く |
 
+- F# の xUnit テスト (`*.fs` + `open Xunit`) はカスタムランナーで `dotnet test` に接続されています。
+- `apps/fsharp/*Test/*.fs` では `<leader>t` で最寄りのテスト、`<leader>T` でファイル単位、`<leader>a` でプロジェクト単位の実行ができます。
+
 ### [vim-go](https://github.com/fatih/vim-go) (Go開発)
 | キー | 動作 |
 |---|---|
