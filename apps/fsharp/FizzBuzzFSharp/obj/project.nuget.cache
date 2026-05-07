@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8GkLL9T9ilg=",
+  "success": true,
+  "projectFilePath": "/workspaces/getting-started-tdd/apps/fsharp/FizzBuzzFSharp/FizzBuzzFSharp.fsproj",
+  "expectedPackageFiles": [
+    "/home/ubuntu/.nuget/packages/fsharp.core/8.0.403/fsharp.core.8.0.403.nupkg.sha512"
+  ],
+  "logs": []
+}
