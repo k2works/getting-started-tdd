@@ -7,44 +7,54 @@ module Domain =
         | NumberOnly
         | FizzBuzzOnly
 
-    type FizzBuzzValue =
-        { Number: int
-          Value: string }
+    type FizzBuzzValue = { Number: int; Value: string }
 
-        override this.ToString() = sprintf "%d:%s" this.Number this.Value
+    module FizzBuzzValue =
+        let create number value = { Number = number; Value = value }
 
-    let createValue number value = { Number = number; Value = value }
+        let toString (fizzBuzzValue: FizzBuzzValue) =
+            sprintf "%d:%s" fizzBuzzValue.Number fizzBuzzValue.Value
 
-    type FizzBuzzList =
-        { Values: FizzBuzzValue list }
+    let createValue number value = FizzBuzzValue.create number value
 
-        member this.Count = this.Values.Length
-        member this.Get(index) = this.Values.[index]
+    type FizzBuzzList = { Values: FizzBuzzValue list }
 
-        member this.Filter(predicate: FizzBuzzValue -> bool) =
-            { Values = this.Values |> List.filter predicate }
+    module FizzBuzzList =
+        let empty = { Values = [] }
 
-        member this.FindFirst(predicate: FizzBuzzValue -> bool) = this.Values |> List.tryFind predicate
+        let create (values: FizzBuzzValue list) = { Values = values }
 
-        member this.ToStringValues() =
-            this.Values |> List.map (fun v -> v.Value)
+        let count (fizzBuzzList: FizzBuzzList) = fizzBuzzList.Values.Length
 
-        member this.CountByValue() =
-            this.Values
+        let get index (fizzBuzzList: FizzBuzzList) = fizzBuzzList.Values.[index]
+
+        let filter (predicate: FizzBuzzValue -> bool) (fizzBuzzList: FizzBuzzList) =
+            { Values = fizzBuzzList.Values |> List.filter predicate }
+
+        let findFirst (predicate: FizzBuzzValue -> bool) (fizzBuzzList: FizzBuzzList) =
+            fizzBuzzList.Values |> List.tryFind predicate
+
+        let toStringValues (fizzBuzzList: FizzBuzzList) =
+            fizzBuzzList.Values |> List.map (fun value -> value.Value)
+
+        let countByValue (fizzBuzzList: FizzBuzzList) =
+            fizzBuzzList.Values
             |> List.groupBy (fun v -> v.Value)
             |> List.map (fun (key, group) -> (key, List.length group))
             |> Map.ofList
 
-        member this.Add(value: FizzBuzzValue) = { Values = this.Values @ [ value ] }
+        let add (value: FizzBuzzValue) (fizzBuzzList: FizzBuzzList) =
+            { Values = fizzBuzzList.Values @ [ value ] }
 
-        member this.AddRange(values: FizzBuzzValue list) = { Values = this.Values @ values }
+        let addRange (values: FizzBuzzValue list) (fizzBuzzList: FizzBuzzList) =
+            { Values = fizzBuzzList.Values @ values }
 
-        override this.ToString() =
-            this.Values |> List.map (fun v -> v.ToString()) |> String.concat ", "
+        let toString (fizzBuzzList: FizzBuzzList) =
+            fizzBuzzList.Values |> List.map FizzBuzzValue.toString |> String.concat ", "
 
-    let emptyList = { Values = [] }
+    let emptyList = FizzBuzzList.empty
 
-    let createList (values: FizzBuzzValue list) = { Values = values }
+    let createList (values: FizzBuzzValue list) = FizzBuzzList.create values
 
     let private isFizz number = number % 3 = 0
     let private isBuzz number = number % 5 = 0
@@ -72,23 +82,11 @@ module Domain =
     let safeGenerate (fizzBuzzType: FizzBuzzType) (number: int) : Result<FizzBuzzValue, string> =
         number |> validateNumber |> Result.map (generate fizzBuzzType)
 
-    type ResultBuilder() =
-        member _.Bind(result, f) =
-            match result with
-            | Ok value -> f value
-            | Error e -> Error e
-
-        member _.Return(value) = Ok value
-        member _.ReturnFrom(result) = result
-
-    let result = ResultBuilder()
-
     let processNumber (fizzBuzzType: FizzBuzzType) (input: int) =
-        result {
-            let! validNumber = validateNumber input
-            let fizzBuzzValue = generate fizzBuzzType validNumber
-            return fizzBuzzValue.Value
-        }
+        input
+        |> validateNumber
+        |> Result.map (generate fizzBuzzType)
+        |> Result.map (fun fizzBuzzValue -> fizzBuzzValue.Value)
 
 module Application =
 
@@ -96,7 +94,9 @@ module Application =
         Domain.generate fizzBuzzType number
 
     let executeList (fizzBuzzType: Domain.FizzBuzzType) (count: int) : Domain.FizzBuzzList =
-        [ 1..count ] |> List.map (Domain.generate fizzBuzzType) |> Domain.createList
+        [ 1..count ]
+        |> List.map (Domain.generate fizzBuzzType)
+        |> Domain.FizzBuzzList.create
 
 module FizzBuzz =
 
@@ -106,7 +106,7 @@ module FizzBuzz =
 
     let generateList (count: int) : string list =
         let list = Application.executeList Domain.Standard count
-        list.ToStringValues()
+        Domain.FizzBuzzList.toStringValues list
 
     let printFizzBuzz (count: int) : unit =
         generateList count |> List.iter (printfn "%s")

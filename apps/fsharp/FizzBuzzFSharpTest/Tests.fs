@@ -55,7 +55,7 @@ let ``同じ値のレコードは等しい`` () =
 [<Fact>]
 let ``ToStringはNumber_Colon_Value形式`` () =
     let value = Domain.createValue 3 "Fizz"
-    Assert.Equal("3:Fizz", value.ToString())
+    Assert.Equal("3:Fizz", Domain.FizzBuzzValue.toString value)
 
 [<Fact>]
 let ``Standard_数を文字列にして返す`` () =
@@ -96,14 +96,14 @@ let ``FizzBuzzOnly_十五の倍数以外は数値を文字列にして返す`` (
 [<Fact>]
 let ``空のリストを作成できる`` () =
     let list = Domain.emptyList
-    Assert.Equal(0, list.Count)
+    Assert.Equal(0, Domain.FizzBuzzList.count list)
 
 [<Fact>]
 let ``値を追加できる`` () =
     let list = Domain.emptyList
-    let newList = list.Add(Domain.createValue 1 "1")
-    Assert.Equal(1, newList.Count)
-    Assert.Equal(0, list.Count)
+    let newList = Domain.FizzBuzzList.add (Domain.createValue 1 "1") list
+    Assert.Equal(1, Domain.FizzBuzzList.count newList)
+    Assert.Equal(0, Domain.FizzBuzzList.count list)
 
 [<Fact>]
 let ``フィルタリングできる`` () =
@@ -114,8 +114,8 @@ let ``フィルタリングできる`` () =
               Domain.createValue 5 "Buzz"
               Domain.createValue 15 "FizzBuzz" ]
 
-    let filtered = list.Filter(fun v -> v.Value = "Fizz")
-    Assert.Equal(1, filtered.Count)
+    let filtered = Domain.FizzBuzzList.filter (fun v -> v.Value = "Fizz") list
+    Assert.Equal(1, Domain.FizzBuzzList.count filtered)
 
 [<Fact>]
 let ``executeValueで単一値を取得できる`` () =
@@ -125,7 +125,7 @@ let ``executeValueで単一値を取得できる`` () =
 [<Fact>]
 let ``executeListでリストを生成できる`` () =
     let result = Application.executeList Domain.Standard 100
-    Assert.Equal(100, result.Count)
+    Assert.Equal(100, Domain.FizzBuzzList.count result)
 
 [<Fact>]
 let ``部分適用でStandard専用の関数を作成できる`` () =
@@ -158,7 +158,7 @@ let ``値ごとにカウントできる`` () =
               Domain.createValue 6 "Fizz"
               Domain.createValue 5 "Buzz" ]
 
-    let counts = list.CountByValue()
+    let counts = Domain.FizzBuzzList.countByValue list
     Assert.Equal(1, counts.["1"])
     Assert.Equal(2, counts.["Fizz"])
     Assert.Equal(1, counts.["Buzz"])
@@ -171,7 +171,7 @@ let ``文字列リストに変換できる`` () =
               Domain.createValue 3 "Fizz"
               Domain.createValue 5 "Buzz" ]
 
-    let strings = list.ToStringValues()
+    let strings = Domain.FizzBuzzList.toStringValues list
     Assert.Equal<string list>([ "1"; "Fizz"; "Buzz" ], strings)
 
 [<Fact>]
@@ -182,7 +182,7 @@ let ``最初の一致する値を取得できる`` () =
               Domain.createValue 3 "Fizz"
               Domain.createValue 6 "Fizz" ]
 
-    let found = list.FindFirst(fun v -> v.Value = "Fizz")
+    let found = Domain.FizzBuzzList.findFirst (fun v -> v.Value = "Fizz") list
     Assert.True(found.IsSome)
     Assert.Equal(3, found.Value.Number)
 
@@ -190,7 +190,7 @@ let ``最初の一致する値を取得できる`` () =
 let ``一致する値がない場合はNoneを返す`` () =
     let list = Domain.createList [ Domain.createValue 1 "1"; Domain.createValue 2 "2" ]
 
-    let found = list.FindFirst(fun v -> v.Value = "Fizz")
+    let found = Domain.FizzBuzzList.findFirst (fun v -> v.Value = "Fizz") list
     Assert.True(found.IsNone)
 
 [<Fact>]
@@ -198,10 +198,25 @@ let ``複数の値をまとめて追加できる`` () =
     let list = Domain.emptyList
 
     let newList =
-        list.AddRange [ Domain.createValue 1 "1"; Domain.createValue 3 "Fizz" ]
+        Domain.FizzBuzzList.addRange [ Domain.createValue 1 "1"; Domain.createValue 3 "Fizz" ] list
 
-    Assert.Equal(2, newList.Count)
-    Assert.Equal(0, list.Count)
+    Assert.Equal(2, Domain.FizzBuzzList.count newList)
+    Assert.Equal(0, Domain.FizzBuzzList.count list)
+
+[<Fact>]
+let ``インデックスで値を取得できる`` () =
+    let list =
+        Domain.createList [ Domain.createValue 1 "1"; Domain.createValue 3 "Fizz" ]
+
+    let value = Domain.FizzBuzzList.get 1 list
+    Assert.Equal("Fizz", value.Value)
+
+[<Fact>]
+let ``リストを文字列化できる`` () =
+    let list =
+        Domain.createList [ Domain.createValue 1 "1"; Domain.createValue 3 "Fizz" ]
+
+    Assert.Equal("1:1, 3:Fizz", Domain.FizzBuzzList.toString list)
 
 [<Fact>]
 let ``正の整数でバリデーション成功`` () =
