@@ -5,6 +5,7 @@ packages.mkShell {
     curl
     wget
     vim-full
+    netcoredbg
     python3
     tmux
     zip

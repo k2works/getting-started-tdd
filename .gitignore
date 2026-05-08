@@ -9,6 +9,7 @@ node_modules/
 # IDE
 .idea/
 .vscode/
+.vimspector.session
 *.swp
 *.swo
 *~

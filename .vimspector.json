@@ -1,0 +1,53 @@
+{
+  "adapters": {
+    "netcoredbg": {
+      "name": "netcoredbg",
+      "command": [
+        "netcoredbg",
+        "--interpreter=vscode"
+      ],
+      "attach": {
+        "pidProperty": "processId",
+        "pidSelect": "ask"
+      }
+    }
+  },
+  "configurations": {
+    "F# xUnit Debug Harness": {
+      "adapter": "netcoredbg",
+      "filetypes": [
+        "fsharp"
+      ],
+      "default": true,
+      "configuration": {
+        "request": "launch",
+        "cwd": "${workspaceRoot}/apps/fsharp",
+        "program": "${workspaceRoot}/apps/fsharp/FizzBuzzFSharpTest/bin/Debug/net8.0/FizzBuzzFSharpTest.dll",
+        "args": [
+          "--test",
+          "${TestPattern:計算式でエラーが伝播する}"
+        ],
+        "stopAtEntry": false,
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
+    },
+    "F# FizzBuzz Runner": {
+      "adapter": "netcoredbg",
+      "filetypes": [
+        "fsharp"
+      ],
+      "configuration": {
+        "request": "launch",
+        "cwd": "${workspaceRoot}/apps/fsharp",
+        "program": "${workspaceRoot}/apps/fsharp/FizzBuzzFSharpTest/bin/Debug/net8.0/FizzBuzzFSharpTest.dll",
+        "args": [
+          "*${ProgramArgs:15}"
+        ],
+        "stopAtEntry": false,
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
+    }
+  }
+}
