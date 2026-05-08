@@ -80,12 +80,16 @@
 | `<leader>dh` | ステップアウト |
 | `<leader>dk` | 再起動 |
 
-- `nix develop .#dotnet` には `netcoredbg` が含まれており、`.vimspector.json` から `F# xUnit Debug Harness` と `F# FizzBuzz Runner` を選べます。
+- `nix develop .#dotnet` には `netcoredbg` が含まれており、`.vimspector.json` から `F# xUnit Debug Harness` / `F# FizzBuzz Runner` / `C# xUnit Debug Harness` / `C# FizzBuzz Runner` を選べます。
 - `F# xUnit Debug Harness` は `Program.fs` から対象テスト関数を reflection で 1 件だけ起動するデバッグ用構成です。`Tests.fs` にブレークポイントを置き、`,dd` で起動して `TestPattern` にテスト名の一部を入力してください。
 - 利用可能なテスト名は `nix develop .#dotnet --command bash -lc 'cd apps/fsharp && dotnet run --project FizzBuzzFSharpTest/FizzBuzzFSharpTest.fsproj -- --list-tests'` で確認できます。
 - `F# FizzBuzz Runner` は `apps/fsharp/FizzBuzzFSharpTest/Program.fs` を起点に通常実行をデバッグします。引数未指定時は `15` までの FizzBuzz を出力します。
 - `,dd` の初回起動前に `cd apps/fsharp && dotnet build` もしくは `dotnet test` を一度実行して、`bin/Debug/net8.0/FizzBuzzFSharpTest.dll` を生成してください。
 - 実行件数を変える場合は、`F# FizzBuzz Runner` 起動時に `ProgramArgs` へ `30` のような数値を入力します。
+- `C# xUnit Debug Harness` は `apps/csharp/FizzBuzzTest/Program.cs` から対象の `[Fact]` を 1 件だけ起動するデバッグ用構成です。`FizzBuzzTest/*.cs` にブレークポイントを置き、`,dd` で起動して `TestPattern` に `FizzBuzzCommandTest.ValueCommandで単一値を取得できる` のようなテスト名を入力してください。
+- 利用可能な C# テスト名は `nix develop .#dotnet --command bash -lc 'cd apps/csharp && dotnet run --project FizzBuzzTest/FizzBuzzTest.csproj -- --list-tests'` で確認できます。
+- `C# FizzBuzz Runner` は同じ `Program.cs` を起点に通常実行をデバッグします。引数未指定時は `15` までの FizzBuzz を出力します。
+- C# の初回起動前は `cd apps/csharp && dotnet build FizzBuzzTest/FizzBuzzTest.csproj` もしくは `dotnet test FizzBuzzTest/FizzBuzzTest.csproj` を一度実行して、`bin/Debug/net8.0/FizzBuzzTest.dll` を生成してください。`cd apps/csharp && dotnet test` 単体ではプロジェクトを特定できず失敗するため、プロジェクトファイルまで指定します。
 
 ### [vim-test](https://github.com/vim-test/vim-test) (テスト実行)
 | キー | 動作 |

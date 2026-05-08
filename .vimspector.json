@@ -48,6 +48,41 @@
         "console": "integratedTerminal",
         "justMyCode": true
       }
+    },
+    "C# xUnit Debug Harness": {
+      "adapter": "netcoredbg",
+      "filetypes": [
+        "cs"
+      ],
+      "configuration": {
+        "request": "launch",
+        "cwd": "${workspaceRoot}/apps/csharp",
+        "program": "${workspaceRoot}/apps/csharp/FizzBuzzTest/bin/Debug/net8.0/FizzBuzzTest.dll",
+        "args": [
+          "--test",
+          "${TestPattern:DebugHarnessTest.test_単一一致したテストだけを実行する}"
+        ],
+        "stopAtEntry": false,
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
+    },
+    "C# FizzBuzz Runner": {
+      "adapter": "netcoredbg",
+      "filetypes": [
+        "cs"
+      ],
+      "configuration": {
+        "request": "launch",
+        "cwd": "${workspaceRoot}/apps/csharp",
+        "program": "${workspaceRoot}/apps/csharp/FizzBuzzTest/bin/Debug/net8.0/FizzBuzzTest.dll",
+        "args": [
+          "${ProgramArgs:15}"
+        ],
+        "stopAtEntry": false,
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
     }
   }
 }
