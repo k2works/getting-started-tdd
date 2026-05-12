@@ -1,10 +1,14 @@
 defmodule FizzBuzz do
+  @moduledoc """
+  FizzBuzz の文字列変換を提供するモジュール。
+  """
+
   def generate(n) do
     cond do
       rem(n, 15) == 0 -> "FizzBuzz"
-      rem(n, 3) == 0  -> "Fizz"
-      rem(n, 5) == 0  -> "Buzz"
-      true            -> Integer.to_string(n)
+      rem(n, 3) == 0 -> "Fizz"
+      rem(n, 5) == 0 -> "Buzz"
+      true -> Integer.to_string(n)
     end
   end
 
