@@ -1,0 +1,32 @@
+{
+  "configurations": {
+    "Elixir: mix test": {
+      "adapter": "elixir-ls",
+      "filetypes": ["elixir"],
+      "configuration": {
+        "request": "launch",
+        "type": "mix_task",
+        "task": "test",
+        "taskArgs": [],
+        "startApps": true,
+        "projectDir": "${workspaceRoot}/apps/elixir",
+        "requireFiles": [
+          "test/**/test_helper.exs",
+          "test/**/*_test.exs"
+        ]
+      }
+    },
+    "Elixir: mix run": {
+      "adapter": "elixir-ls",
+      "filetypes": ["elixir"],
+      "configuration": {
+        "request": "launch",
+        "type": "mix_task",
+        "task": "run",
+        "taskArgs": [],
+        "startApps": true,
+        "projectDir": "${workspaceRoot}/apps/elixir"
+      }
+    }
+  }
+}
