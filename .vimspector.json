@@ -13,7 +13,10 @@
         "requireFiles": [
           "test/**/test_helper.exs",
           "test/**/*_test.exs"
-        ]
+        ],
+        "env": {
+          "MIX_ENV": "test"
+        }
       }
     },
     "Elixir: mix run": {
@@ -25,7 +28,10 @@
         "task": "run",
         "taskArgs": [],
         "startApps": true,
-        "projectDir": "${workspaceRoot}/apps/elixir"
+        "projectDir": "${workspaceRoot}/apps/elixir",
+        "env": {
+          "MIX_ENV": "dev"
+        }
       }
     }
   }
