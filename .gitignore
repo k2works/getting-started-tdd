@@ -41,6 +41,12 @@ npm-debug.log*
 tmp
 apps/java/.gradle
 
+# Elixir / Erlang
+erl_crash.dump
+
+# Tags
+tags
+
 # Python
 __pycache__/
 *.py[cod]
