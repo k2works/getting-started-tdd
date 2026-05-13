@@ -154,6 +154,7 @@ endif
 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:obsolete_csharp_repo_dir = s:dein_dir . '/repos/github.com/OrangeT'
 
 " dein.vimが存在していない場合はgithubからclone
 if &runtimepath !~# '/dein.vim'
@@ -161,6 +162,12 @@ if &runtimepath !~# '/dein.vim'
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
   execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+if isdirectory(s:obsolete_csharp_repo_dir)
+  call delete(s:obsolete_csharp_repo_dir, 'rf')
+  call delete(s:dein_dir . '/.cache/.vimrc/state_vim.vim')
+  call delete(s:dein_dir . '/.cache/.vimrc/cache_vim.json')
 endif
 
 if dein#load_state(s:dein_dir)
@@ -202,7 +209,6 @@ if dein#load_state(s:dein_dir)
   call dein#add('github/copilot.vim')
   call dein#add('rust-lang/rust.vim')
   call dein#add('OmniSharp/omnisharp-vim')
-  call dein#add('OrangeT/vim-csharp')
   call dein#add('ionide/ionide-vim')
   call dein#add('uiiaoo/java-syntax.vim')
   call dein#add('neovimhaskell/haskell-vim')
@@ -218,6 +224,7 @@ if dein#load_state(s:dein_dir)
 
   call dein#end()
   call dein#save_state()
+  call dein#recache_runtimepath()
 endif
 
 filetype plugin indent on
@@ -526,7 +533,53 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-let g:test#strategy = 'dispatch'
+
+function! s:test_project_root() abort
+  let l:dir = expand('%:p:h')
+  if empty(l:dir)
+    return getcwd()
+  endif
+
+  while l:dir !=# fnamemodify(l:dir, ':h')
+    for l:marker in [
+          \ 'stack.yaml',
+          \ 'package.yaml',
+          \ 'package.json',
+          \ 'pyproject.toml',
+          \ 'go.mod',
+          \ 'Cargo.toml',
+          \ 'Gemfile',
+          \ 'composer.json',
+          \ 'mix.exs',
+          \ 'build.gradle',
+          \ 'build.gradle.kts',
+          \ 'pom.xml',
+          \ 'deps.edn',
+          \ 'project.clj',
+          \ 'build.sbt'
+          \ ]
+      if filereadable(l:dir . '/' . l:marker)
+        return l:dir
+      endif
+    endfor
+
+    if !empty(glob(l:dir . '/*.cabal'))
+      return l:dir
+    endif
+
+    let l:dir = fnamemodify(l:dir, ':h')
+  endwhile
+
+  return getcwd()
+endfunction
+
+let g:test#project_root = function('s:test_project_root')
+if exists(':Dispatch') == 2 && exists('$TMUX')
+  let g:test#strategy = 'dispatch'
+else
+  let g:test#strategy = 'basic'
+endif
+let g:test#haskell#stacktest#test_command = '--system-ghc --no-install-ghc test'
 
 "----------------------------------------------------------
 " 言語別設定

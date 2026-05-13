@@ -103,7 +103,6 @@
 
 ### [.NET 開発](https://github.com/OmniSharp/omnisharp-vim)
 - **OmniSharp**: .NET (C#) 用の開発支援プラグインが導入されています。
-- **シンタックスハイライト**: `OrangeT/vim-csharp` により C# 構文がサポートされます。
 - **LSP連携**: `nix develop .#dotnet` 環境下で、`coc.nvim` と組み合わせて利用可能です。
 
 ### [Ruby 開発](https://github.com/vim-ruby/vim-ruby)
