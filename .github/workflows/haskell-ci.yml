@@ -34,18 +34,18 @@ jobs:
           path: |
             ~/.stack
             apps/haskell/.stack-work
-          key: ${{ runner.os }}-stack-${{ hashFiles('apps/haskell/stack.yaml', 'apps/haskell/package.yaml') }}
+          key: ${{ runner.os }}-stack-${{ hashFiles('apps/haskell/stack.yaml', 'apps/haskell/haskell.cabal') }}
           restore-keys: |
             ${{ runner.os }}-stack-
 
       - name: Build dependencies
-        run: nix develop .#haskell --command bash -c "cd apps/haskell && stack build --only-dependencies --test --no-run-tests"
+        run: nix develop .#haskell --command bash -c "cd apps/haskell && stack --system-ghc --no-install-ghc build --only-dependencies --test --no-run-tests"
 
       - name: Lint (HLint)
-        run: nix develop .#haskell --command bash -c "cd apps/haskell && hlint src/ test/ app/"
+        run: nix develop .#haskell --command bash -c "cd apps/haskell && hlint src/ test/ -h .hlint.yaml"
 
       - name: Complexity check
         run: nix develop .#haskell --command bash -c "cd apps/haskell && bash scripts/complexity.sh --threshold 10 src"
 
       - name: Test
-        run: nix develop .#haskell --command bash -c "cd apps/haskell && stack test"
+        run: nix develop .#haskell --command bash -c "cd apps/haskell && stack --system-ghc --no-install-ghc test"
