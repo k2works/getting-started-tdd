@@ -45,3 +45,19 @@ spec = do
 
     it "15 番目の要素は 'FizzBuzz'" $
       generateList 100 !! 14 `shouldBe` "FizzBuzz"
+
+  describe "generateWith" $ do
+    it "カスタムルールで生成できる" $ do
+      let rule n = if even n then "Even" else "Odd"
+      generateWith rule 2 `shouldBe` "Even"
+      generateWith rule 3 `shouldBe` "Odd"
+
+  describe "transform" $ do
+    it "リストを変換できる" $ do
+      let result = transform (++ "!") ["Fizz", "Buzz"]
+      result `shouldBe` ["Fizz!", "Buzz!"]
+
+  describe "filterList" $ do
+    it "リストをフィルタリングできる" $ do
+      let result = filterList (/= "Fizz") (generateList 5)
+      result `shouldBe` ["1", "2", "4", "Buzz"]

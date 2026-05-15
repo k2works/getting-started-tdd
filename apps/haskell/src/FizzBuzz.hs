@@ -1,6 +1,9 @@
 module FizzBuzz
   ( generate
+  , filterList
+  , generateWith
   , generateList
+  , transform
   ) where
 
 generate :: Int -> String
@@ -10,5 +13,14 @@ generate n
   | n `mod` 5 == 0  = "Buzz"
   | otherwise       = show n
 
+generateWith :: (Int -> String) -> Int -> String
+generateWith rule = rule
+
 generateList :: Int -> [String]
 generateList n = map generate [1 .. n]
+
+transform :: (a -> b) -> [a] -> [b]
+transform = map
+
+filterList :: (a -> Bool) -> [a] -> [a]
+filterList = filter
