@@ -69,3 +69,37 @@ spec = do
           toUpper' = map (\c -> if isAsciiLower c then toEnum (fromEnum c - 32) else c)
           composed = compose addExclaim toUpper'
       composed "fizz" `shouldBe` "FIZZ!"
+
+  describe "safeGenerate" $ do
+    it "正の整数で成功する" $
+      safeGenerate 3 `shouldBe` Right "Fizz"
+
+    it "0 以下でエラーを返す" $
+      safeGenerate 0 `shouldBe` Left "正の整数を指定してください"
+
+    it "負数でエラーを返す" $
+      safeGenerate (-1) `shouldBe` Left "正の整数を指定してください"
+
+  describe "safeGenerateList" $ do
+    it "正の整数で成功する" $
+      safeGenerateList 3 `shouldBe` Right ["1", "2", "Fizz"]
+
+    it "0 以下でエラーを返す" $
+      safeGenerateList 0 `shouldBe` Left "正の整数を指定してください"
+
+  describe "safeFizzBuzzPair" $ do
+    it "2 つの成功結果を結合できる" $
+      safeFizzBuzzPair 3 5 `shouldBe` Right "Fizz, Buzz"
+
+    it "最初の値が不正ならエラーを返す" $
+      safeFizzBuzzPair 0 5 `shouldBe` Left "正の整数を指定してください"
+
+    it "2 番目の値が不正ならエラーを返す" $
+      safeFizzBuzzPair 3 (-1) `shouldBe` Left "正の整数を指定してください"
+
+  describe "lazyStream" $ do
+    it "遅延ストリームから要素を取得できる" $
+      take 3 lazyStream `shouldBe` ["1", "2", "Fizz"]
+
+    it "15 番目の要素は 'FizzBuzz'" $
+      lazyStream !! 14 `shouldBe` "FizzBuzz"
