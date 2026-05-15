@@ -1,5 +1,6 @@
 module FizzBuzz.FizzBuzzSpec (spec) where
 
+import Data.Char (isAsciiLower)
 import FizzBuzz
 import Test.Hspec
 
@@ -61,3 +62,10 @@ spec = do
     it "リストをフィルタリングできる" $ do
       let result = filterList (/= "Fizz") (generateList 5)
       result `shouldBe` ["1", "2", "4", "Buzz"]
+
+  describe "compose" $ do
+    it "2 つの関数を合成できる" $ do
+      let addExclaim = (++ "!")
+          toUpper' = map (\c -> if isAsciiLower c then toEnum (fromEnum c - 32) else c)
+          composed = compose addExclaim toUpper'
+      composed "fizz" `shouldBe` "FIZZ!"

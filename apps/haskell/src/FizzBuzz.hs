@@ -1,5 +1,6 @@
 module FizzBuzz
-  ( generate
+  ( compose
+  , generate
   , filterList
   , generateWith
   , generateList
@@ -15,6 +16,9 @@ generate n
 
 generateWith :: (Int -> String) -> Int -> String
 generateWith rule = rule
+
+compose :: (b -> c) -> (a -> b) -> a -> c
+compose = (.)
 
 generateList :: Int -> [String]
 generateList n = map generate [1 .. n]
