@@ -38,4 +38,29 @@ mod TestFizzBuzz {
     @Test
     def convert_30_returns_FizzBuzz(): Unit \ Assert =
         Assert.assertEq(expected = "FizzBuzz", FizzBuzz.convert(30))
+
+    /// 100 件のリストを生成する。
+    @Test
+    def generateList_has_100_elements(): Unit \ Assert =
+        Assert.assertEq(expected = 100, List.length(FizzBuzz.generateList(100)))
+
+    /// 最初の要素は "1"。
+    @Test
+    def generateList_first_is_1(): Unit \ Assert =
+        Assert.assertEq(expected = Some("1"), List.nth(0, FizzBuzz.generateList(100)))
+
+    /// 3 番目の要素は "Fizz"。
+    @Test
+    def generateList_third_is_Fizz(): Unit \ Assert =
+        Assert.assertEq(expected = Some("Fizz"), List.nth(2, FizzBuzz.generateList(100)))
+
+    /// 5 番目の要素は "Buzz"。
+    @Test
+    def generateList_fifth_is_Buzz(): Unit \ Assert =
+        Assert.assertEq(expected = Some("Buzz"), List.nth(4, FizzBuzz.generateList(100)))
+
+    /// 15 番目の要素は "FizzBuzz"。
+    @Test
+    def generateList_fifteenth_is_FizzBuzz(): Unit \ Assert =
+        Assert.assertEq(expected = Some("FizzBuzz"), List.nth(14, FizzBuzz.generateList(100)))
 }
