@@ -260,6 +260,9 @@ nav:
           - 第 7 章 列挙型とトレイトによるポリモーフィズム: article/flix/07-enums-and-traits.md
           - 第 8 章 パターンマッチと代数的データ型: article/flix/08-pattern-matching-and-adt.md
           - 第 9 章 モジュール設計と SOLID 原則: article/flix/09-modules-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/flix/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/flix/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと代数的効果: article/flix/12-error-handling-and-effects.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
           - 14 言語の概要と分類: article/integration/01-language-overview.md
