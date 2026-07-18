@@ -47,6 +47,7 @@
 | :--- | :--- |
 | `developing-backend` | バックエンド TDD（インサイドアウト） |
 | `developing-frontend` | フロントエンド TDD（アウトサイドイン） |
+| `creating-article` | 多言語 TDD シリーズへの対象言語の記事新規追加 |
 
 ### 計画・進捗
 
