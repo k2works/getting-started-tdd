@@ -1,6 +1,6 @@
 # テストフレームワーク比較
 
-本章では、12 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
+本章では、14 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
 
 ## テストフレームワーク一覧
 
@@ -19,6 +19,7 @@
 | Scala | ScalaTest | 3.x | 複数スタイル対応、マッチャー豊富 |
 | Elixir | ExUnit | 標準 | 標準ライブラリ、describe/test 構造 |
 | Haskell | HSpec | 2.x | BDD スタイル、describe/it 構造 |
+| Flix | flix test | 標準 | 標準同梱、`@Test` アノテーションベース |
 
 ## テスト構造の比較
 
@@ -82,6 +83,20 @@ class FizzBuzzTest extends TestCase
         $this->assertSame('1', $fizzbuzz->generate(1));
     }
 }
+```
+
+#### Flix（flix test）
+
+Flix は標準同梱の `@Test` アノテーションと `Assert.assertEq` でテストを定義します。BDD ではなくアノテーションベースのスタイルです。
+
+```flix
+@Test
+def testConvert1(): Bool =
+    Assert.assertEq(expected = "1", actual = FizzBuzz.convert(1))
+
+@Test
+def testConvert3(): Bool =
+    Assert.assertEq(expected = "Fizz", actual = FizzBuzz.convert(3))
 ```
 
 ### スタイル 2: describe/it（BDD スタイル）
@@ -260,6 +275,7 @@ mod tests {
 | Scala | `assert(actual == expected)` | `assert(condition)` | `assertThrows[T] { ... }` |
 | Elixir | `assert actual == expected` | `assert condition` | `assert_raise Error, fn -> ... end` |
 | Haskell | `` actual `shouldBe` expected `` | `shouldSatisfy` | `shouldThrow` |
+| Flix | `Assert.assertEq(expected, actual)` | `Bool` を返す | `Result`/`Option` で表現 |
 
 ## テスト実行コマンドの比較
 
@@ -278,6 +294,7 @@ mod tests {
 | Scala | `sbt test` | `sbt "testOnly *Spec"` | scoverage |
 | Elixir | `mix test` | `mix test test/file_test.exs:10` | `mix test --cover` |
 | Haskell | `stack test` | `stack test --ta "-m pattern"` | HPC |
+| Flix | `java -jar flix.jar test` | - | - |
 
 ## テスト構造の比較まとめ
 
@@ -298,6 +315,7 @@ mod tests {
 | Scala | `describe` / `test` | 制限なし |
 | Elixir | `describe` ブロック | 1 レベル |
 | Haskell | `describe` ブロック | 制限なし |
+| Flix | テスト関数（モジュール単位） | モジュール単位 |
 
 ### セットアップ / ティアダウン
 
@@ -316,6 +334,7 @@ mod tests {
 | Scala | `BeforeAndAfterAll` / `BeforeAndAfterEach` | 同左 |
 | Elixir | `setup` / `setup_all` | `on_exit` |
 | Haskell | `before` / `beforeAll` | `after` / `afterAll` |
+| Flix | なし（関数呼び出し） | なし |
 
 ## パラメータ化テスト
 
@@ -336,12 +355,13 @@ mod tests {
 | Scala | `Table` / `forAll` | `Table(("n","expected"), (1,"1"))` |
 | Elixir | ループ + テストマクロ | `for {input, expected} <- data` |
 | Haskell | `mapM_` / QuickCheck | `mapM_ (\(n, e) -> ...) cases` |
+| Flix | リスト畳み込み + `Assert.assertEq` | `List.forEach` でケースを検証 |
 
 ## まとめ
 
 テストフレームワークの選択は言語の設計思想と密接に関連しています。
 
-1. **アノテーション / アトリビュートベース**（Java, C#, PHP）は OOP 言語に多く、クラスベースの構造化が特徴です
+1. **アノテーション / アトリビュートベース**（Java, C#, PHP, Flix）はクラスベースまたは関数ベースの構造化が特徴です。Flix は FP 言語ながら標準同梱の `@Test` アノテーションを採用しています
 2. **describe/it スタイル**（TypeScript, Ruby, Scala, Elixir, Haskell）は BDD の影響を受けており、テストの意図が読みやすくなります
 3. **関数ベース**（Python, Go, Rust, Clojure）はシンプルさを重視し、テストを通常の関数として扱います
 4. **パラメータ化テスト**はすべての言語で何らかの形で実現可能ですが、Go のテーブル駆動テストと Clojure の `are` マクロが特に洗練されています

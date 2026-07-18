@@ -1,0 +1,53 @@
+name: Flix CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/flix/**"
+      - ".github/workflows/flix-ci.yml"
+      - "ops/nix/environments/flix/shell.nix"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/flix/**"
+      - ".github/workflows/flix-ci.yml"
+      - "ops/nix/environments/flix/shell.nix"
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-flix-${{ hashFiles('flake.lock', 'ops/nix/environments/flix/shell.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-flix-
+
+      - name: Cache Flix jar
+        uses: actions/cache@v4
+        with:
+          path: apps/flix/flix.jar
+          key: flix-jar-${{ hashFiles('apps/flix/flix.toml') }}
+          restore-keys: |
+            flix-jar-
+
+      - name: Check (types and effects)
+        run: nix develop .#flix --command bash -c "cd apps/flix && java -jar flix.jar check"
+
+      - name: Test
+        run: nix develop .#flix --command bash -c "cd apps/flix && java -jar flix.jar test"

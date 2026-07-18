@@ -157,6 +157,32 @@ end
     (is (= "1" (fizzbuzz 1)))))
 ```
 
+### Flix の例
+
+Flix では enum で型を定義し、trait とパターンマッチング（網羅性検査あり）で実装します。
+
+```flix
+// 型を enum で定義
+pub enum FizzBuzzType {
+    case Standard
+    case NumberOnly
+    case FizzBuzzOnly
+}
+
+// パターンマッチングで実装
+pub def generate(t: FizzBuzzType, n: Int32): String = match t {
+    case FizzBuzzType.Standard     => convert(n)
+    case FizzBuzzType.NumberOnly   => Int32.toString(n)
+    case FizzBuzzType.FizzBuzzOnly =>
+        if (Int32.remainder(n, 15) == 0) "FizzBuzz" else Int32.toString(n)
+}
+
+// テスト
+@Test
+def testGenerate3(): Bool =
+    Assert.assertEq(expected = "Fizz", actual = generate(FizzBuzzType.Standard, 3))
+```
+
 ## ポリモーフィズムの実現方法の比較
 
 ポリモーフィズム（多態性）は FizzBuzz の複数タイプ（通常、数値のみ、FizzBuzz のみ）を切り替える際に重要な概念です。各言語でその実現方法が異なります。
@@ -243,7 +269,7 @@ instance Generatable StandardType where
     | otherwise        = show n
 ```
 
-### 判別共用体 / ADT（F#, Haskell, Scala, Rust）
+### 判別共用体 / ADT（F#, Haskell, Scala, Rust, Flix）
 
 ```fsharp
 // F#: 判別共用体による多態性
@@ -290,6 +316,7 @@ end
 | protocol（Elixir） | Elixir | なし | なし | あり |
 | type class | Haskell | あり | あり（型レベル） | コンパイル時解決 |
 | 判別共用体 | F# | あり | あり | パターンマッチ |
+| enum + trait | Flix | あり | あり（網羅性検査） | パターンマッチ |
 | ダックタイピング | Python, Ruby | なし | なし | あり |
 
 ## コマンドパターンの各言語実装比較
@@ -421,6 +448,7 @@ executeList n = map generate [1..n]
 | Scala | trait + case class / 関数 | OOP/FP 両方で表現可能 |
 | Elixir | 関数 | パイプラインで連鎖 |
 | Haskell | 関数 | 関数合成で自然に表現 |
+| Flix | 関数 / 代数的効果 | 効果で「実行」と「解釈」を分離可能 |
 
 ## OOP vs FP: TDD アプローチの対比
 

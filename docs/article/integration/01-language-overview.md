@@ -1,6 +1,6 @@
-# 12 言語の概要と分類
+# 14 言語の概要と分類
 
-本章では、12 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
+本章では、14 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
 
 ## パラダイム別分類
 
@@ -23,6 +23,7 @@
 | 言語 | 特徴 |
 |------|------|
 | Haskell | 純粋関数型、型クラス、モナド、遅延評価 |
+| Flix | JVM 上の関数型ファースト、ML 系型システム、代数的効果 |
 | Clojure | LISP 方言、動的型付け、不変データ構造、プロトコル |
 | Elixir | BEAM VM、パターンマッチング、パイプライン、OTP |
 | F# | .NET ランタイム、判別共用体、パイプライン演算子 |
@@ -48,7 +49,7 @@ OOP と FP の両方を自然にサポートする言語です。
 
 | 分類 | 言語 | 型チェックのタイミング |
 |------|------|---------------------|
-| 静的型付け | Java, TypeScript, Go, Rust, C#, F#, Scala, Haskell | コンパイル時 |
+| 静的型付け | Java, TypeScript, Go, Rust, C#, F#, Scala, Haskell, Flix | コンパイル時 |
 | 動的型付け | Python, Ruby, PHP, Clojure, Elixir | 実行時 |
 
 ### 型の強さのスペクトル
@@ -58,12 +59,12 @@ OOP と FP の両方を自然にサポートする言語です。
 ```
 弱い型付け ←────────────────────────────→ 強い型付け
 
-PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
+PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell  Flix
 ```
 
 | レベル | 言語例 | 特徴 |
 |--------|-------|------|
-| 非常に強い | Haskell, Rust | 暗黙の変換がほぼない、型推論が強力 |
+| 非常に強い | Haskell, Rust, Flix | 暗黙の変換がほぼない、型推論が強力 |
 | 強い | Java, C#, F#, Scala, Go | 明示的なキャストが必要 |
 | 中程度 | Python, Ruby, TypeScript | 一部の暗黙変換を許容 |
 | 比較的柔軟 | PHP, Clojure, Elixir | 動的だが実行時にチェック |
@@ -72,7 +73,7 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
 
 | レベル | 言語 | 例 |
 |--------|------|-----|
-| 完全推論（HM 型推論） | Haskell, F# | ほぼすべてのローカル型を推論 |
+| 完全推論（HM 型推論） | Haskell, F#, Flix | ほぼすべてのローカル型を推論 |
 | 高い推論能力 | Rust, Scala, TypeScript | ローカル変数・ジェネリクスの推論 |
 | 中程度 | Java, C#, Go | `var` / `:=` によるローカル推論 |
 | 限定的 | Python, Ruby, PHP | 型ヒント/アノテーションで補完 |
@@ -89,6 +90,7 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
 | Java | JVM のネイティブ言語、最大のエコシステム |
 | Scala | JVM + 独自の OOP/FP 融合 |
 | Clojure | JVM + LISP、Java ライブラリとの相互運用 |
+| Flix | JVM 上の関数型ファースト、代数的効果と効果システム |
 
 ### BEAM（Erlang VM）
 
@@ -345,6 +347,18 @@ generate n
   | otherwise        = show n
 ```
 
+### Flix
+
+ML 系の型システムを持つ関数型ファースト言語による if 式ベースの定義です。
+
+```flix
+pub def convert(n: Int32): String =
+    if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+    else if (Int32.remainder(n, 3) == 0) "Fizz"
+    else if (Int32.remainder(n, 5) == 0) "Buzz"
+    else                                 Int32.toString(n)
+```
+
 ## 実装パターンの比較まとめ
 
 | 言語 | 分岐方法 | 型の安全性 | コード量 |
@@ -362,13 +376,14 @@ generate n
 | Scala | match + ガード節 | コンパイル時チェック | 少ない |
 | Elixir | cond + ガード節 | 実行時チェック | 少ない |
 | Haskell | ガード節 | コンパイル時 + 型クラス | 非常に少ない |
+| Flix | if 式 + パターンマッチ | コンパイル時 + 効果検査 | 少ない |
 
 ## まとめ
 
-12 言語の概要を俯瞰すると、以下の傾向が見えてきます。
+14 言語の概要を俯瞰すると、以下の傾向が見えてきます。
 
 1. **OOP 言語**（Java, C#, PHP）は、クラス階層とインターフェースにより構造化された FizzBuzz 実装となります
-2. **FP 言語**（Haskell, Clojure, Elixir, F#）は、パターンマッチングや条件式で簡潔に表現できます
+2. **FP 言語**（Haskell, Flix, Clojure, Elixir, F#）は、パターンマッチングや条件式で簡潔に表現できます。特に Flix は代数的効果と効果システムにより副作用を型で追跡できます
 3. **マルチパラダイム言語**（Rust, Scala, TypeScript, Python, Ruby, Go）は、状況に応じて OOP と FP を使い分けることができます
 4. **パターンマッチング**を持つ言語（Rust, Scala, F#, Haskell, Elixir）は、FizzBuzz のような条件分岐を特に簡潔に書けます
 

@@ -249,9 +249,23 @@ nav:
           - 第 10 章 高階関数とカリー化: article/haskell/10-higher-order-functions-and-currying.md
           - 第 11 章 関数合成とポイントフリースタイル: article/haskell/11-function-composition-and-point-free.md
           - 第 12 章 モナドとエラーハンドリング: article/haskell/12-monad-and-error-handling.md
+      - Flix:
+          - 概要: article/flix/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/flix/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/flix/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/flix/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/flix/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/flix/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/flix/06-task-runner-and-ci-cd.md
+          - 第 7 章 列挙型とトレイトによるポリモーフィズム: article/flix/07-enums-and-traits.md
+          - 第 8 章 パターンマッチと代数的データ型: article/flix/08-pattern-matching-and-adt.md
+          - 第 9 章 モジュール設計と SOLID 原則: article/flix/09-modules-and-module-design.md
+          - 第 10 章 高階関数と関数合成: article/flix/10-higher-order-functions-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/flix/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと代数的効果: article/flix/12-error-handling-and-effects.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
-          - 14 言語の概要と分類: article/integration/01-language-overview.md
+          - 15 言語の概要と分類: article/integration/01-language-overview.md
           - テストフレームワーク比較: article/integration/02-test-framework-comparison.md
           - パラダイム別 TDD パターン比較: article/integration/03-tdd-pattern-comparison.md
           - 型システムとエラーハンドリング比較: article/integration/04-type-system-comparison.md
