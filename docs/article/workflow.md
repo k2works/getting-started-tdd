@@ -450,6 +450,7 @@ nix develop .#scala
 nix develop .#elixir
 nix develop .#haskell
 nix develop .#flix
+nix develop .#kotlin
 ```
 
 ### 実装の始め方
@@ -489,4 +490,5 @@ cd apps/java
 | Elixir | 未着手 | 未着手 | 未着手 | 未着手 | - |
 | Haskell | 未着手 | 未着手 | 未着手 | 未着手 | - |
 | Flix | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT9 完了 |
+| Kotlin | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT10 完了 |
 | 統合解説 | 未着手 | 未着手 | 未着手 | 未着手 | - |

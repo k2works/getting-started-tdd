@@ -74,6 +74,28 @@ public function test_1を渡したら文字列1を返す(): void
 }
 ```
 
+### Kotlin の例
+
+Kotlin では enum class の抽象メソッド（State パターン）や sealed class で型ごとの振る舞いを定義し、`when` の網羅性を活かして TDD を進めます。
+
+```kotlin
+// enum class の抽象メソッドで型ごとの振る舞いを定義
+enum class FizzBuzzType {
+    STANDARD {
+        override fun generate(number: Int): FizzBuzzValue =
+            FizzBuzzValue(number, FizzBuzz.convert(number))
+    };
+
+    abstract fun generate(number: Int): FizzBuzzValue
+}
+
+// テストを書く
+@Test
+fun `1を渡したら文字列1を返す`() {
+    assertEquals("1", FizzBuzzType.STANDARD.generate(1).value)
+}
+```
+
 ## FP の型 / パターンマッチを活用した TDD
 
 FP 言語では、純粋関数とパターンマッチングを中心に TDD を進めます。
@@ -317,6 +339,7 @@ end
 | type class | Haskell | あり | あり（型レベル） | コンパイル時解決 |
 | 判別共用体 | F# | あり | あり | パターンマッチ |
 | enum + trait | Flix | あり | あり（網羅性検査） | パターンマッチ |
+| sealed class / enum class | Kotlin | あり | あり（when 網羅性） | パターンマッチ / 仮想メソッド |
 | ダックタイピング | Python, Ruby | なし | なし | あり |
 
 ## コマンドパターンの各言語実装比較
@@ -431,6 +454,29 @@ executeList :: Int -> [String]
 executeList n = map generate [1..n]
 ```
 
+### Kotlin（sealed class + when）
+
+```kotlin
+// sealed class でコマンドを型として定義
+sealed class FizzBuzzCommand {
+    abstract fun execute(): List<String>
+}
+
+class FizzBuzzValueCommand(
+    private val type: FizzBuzzType,
+    private val number: Int,
+) : FizzBuzzCommand() {
+    override fun execute(): List<String> =
+        listOf(type.generate(number).value)
+}
+
+// when で網羅的に分岐
+fun run(command: FizzBuzzCommand): List<String> = when (command) {
+    is FizzBuzzValueCommand -> command.execute()
+    is FizzBuzzListCommand -> command.execute()
+}
+```
+
 ### コマンドパターンの比較
 
 | 言語 | 実現方法 | 特徴 |
@@ -449,6 +495,7 @@ executeList n = map generate [1..n]
 | Elixir | 関数 | パイプラインで連鎖 |
 | Haskell | 関数 | 関数合成で自然に表現 |
 | Flix | 関数 / 代数的効果 | 効果で「実行」と「解釈」を分離可能 |
+| Kotlin | sealed class + when / interface + class | 網羅的な when でコマンド種別を型安全に分岐 |
 
 ## OOP vs FP: TDD アプローチの対比
 

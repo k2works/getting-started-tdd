@@ -6,7 +6,7 @@
 
 ## 対象言語
 
-`ops/nix/environments/` に定義された 13 言語環境：
+`ops/nix/environments/` に定義された 14 言語環境：
 
 | 環境名 | 言語 | エピソード数 | 備考 |
 |--------|------|-------------|------|
@@ -23,6 +23,7 @@
 | elixir | Elixir | 4 | Erlang VM + 関数型 |
 | haskell | Haskell | 4 | 純粋関数型 |
 | flix | Flix | 4 | JVM + 関数型・代数的効果 |
+| kotlin | Kotlin | 4 | JVM + OOP・FP ハイブリッド |
 
 ## 章構成
 
@@ -96,6 +97,7 @@ Wiki エピソード 4 の内容を 3 章に分割。OOP から FP への移行�
 | Haskell | モナド合成、型クラス、do 記法 |
 | Ruby | Enumerable、ブロック/Proc/Lambda、ベンチマーク |
 | Flix | 代数的効果、Datalog 制約、型クラス（trait）、パイプライン |
+| Kotlin | 高階関数、ラムダ、Sequence、sealed class/Result |
 
 ## ファイル構成
 
@@ -145,6 +147,9 @@ docs/article/
 ├── flix/                 # Flix
 │   ├── index.md
 │   └── ...
+├── kotlin/               # Kotlin
+│   ├── index.md
+│   └── ...
 └── all/                  # 多言語統合解説
     ├── index.md
     └── ...
@@ -168,8 +173,39 @@ apps/
 ├── scala/                # Scala プロジェクト
 ├── elixir/               # Elixir プロジェクト
 ├── haskell/              # Haskell プロジェクト
-└── flix/                 # Flix プロジェクト
+├── flix/                 # Flix プロジェクト
+└── kotlin/               # Kotlin プロジェクト
 ```
+
+## Kotlin 追加執筆計画
+
+Kotlin は JVM 上で動作する静的型付けの言語で、OOP と FP をバランスよく融合する。Java 相互運用を保ちつつ、data class・sealed class・拡張関数・高階関数・null 安全性・`Result` を備えるため、Ruby と同じ全 4 部（12 章）構成でフルに執筆できる。動的型付けの Ruby に対し、Kotlin は静的型・null 安全の観点で対比する。
+
+### 前提整備
+
+| 項目 | 内容 | 状態 |
+|------|------|------|
+| Nix 環境 | `ops/nix/environments/kotlin/`（JDK 21 + kotlin + gradle）を追加し flake に登録 | 完了 |
+| アプリ雛形 | `apps/kotlin/` に Gradle（Kotlin JVM）プロジェクト（`build.gradle.kts`, `src/main`, `src/test`）を作成 | 完了 |
+| テスト基盤 | `kotlin.test`（JUnit Platform）と `gradle test` を採用 | 完了 |
+| 記事ディレクトリ | `docs/article/kotlin/`（`index.md` + 01〜12） | 進行中 |
+
+### 章別執筆計画
+
+| 章 | テーマ | Kotlin での焦点 |
+|----|--------|----------------|
+| 1 | TODO リストと最初のテスト | `kotlin.test` の `@Test`・`assertEquals`、テストファースト |
+| 2 | 仮実装と三角測量 | `when` 式・`%` 演算子による一般化 |
+| 3 | 明白な実装とリファクタリング | `List`・`map`・range、`main` での出力 |
+| 4 | バージョン管理と Conventional Commits | Git フロー（言語共通） |
+| 5 | パッケージ管理と静的解析 | Gradle・`build.gradle.kts`、detekt/ktlint |
+| 6 | タスクランナーと CI/CD | Gradle タスク、GitHub Actions、Nix |
+| 7 | カプセル化とポリモーフィズム | `enum class`・`interface`・`when`、data class |
+| 8 | デザインパターンの適用 | sealed class、値オブジェクト、Command |
+| 9 | SOLID 原則とモジュール設計 | package 分割、インターフェース、例外／`Result` |
+| 10 | 高階関数と関数合成 | ラムダ、`map`/`filter`/`fold`、関数参照 |
+| 11 | 不変データとパイプライン処理 | `val`・不変コレクション、`Sequence` 遅延評価 |
+| 12 | エラーハンドリングと型安全性 | null 安全、`Result`、sealed class、`when` 網羅 |
 
 ## Flix 追加執筆計画
 

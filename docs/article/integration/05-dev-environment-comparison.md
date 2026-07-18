@@ -1,6 +1,6 @@
 # 開発環境と CI/CD 比較
 
-本章では、14 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
+本章では、15 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
 
 ## Nix による統一開発環境アプローチ
 
@@ -58,6 +58,9 @@ nix develop .#haskell
 
 # Flix 環境（Nix で JDK を管理し flix.jar と組み合わせる）
 nix develop .#flix
+
+# Kotlin 環境（Nix で JDK 21 + kotlin + gradle を管理）
+nix develop .#kotlin
 ```
 
 ### Nix Flake の構造
@@ -79,7 +82,8 @@ ops/nix/
     ├── scala.nix
     ├── elixir.nix
     ├── haskell.nix
-    └── flix.nix
+    ├── flix.nix
+    └── kotlin.nix
 ```
 
 ## ビルドツール比較表
@@ -100,6 +104,7 @@ ops/nix/
 | Elixir | Mix | `mix.exs` | Hex | mix tasks |
 | Haskell | Stack | `package.yaml` / `stack.yaml` | Stackage / Hackage | stack tasks |
 | Flix | Flix (flix.jar) | `flix.toml` | Flix パッケージ | flix.jar コマンド |
+| Kotlin | Gradle | `build.gradle.kts` | Maven Central | Gradle tasks |
 
 > **Note**: Flix はビルド・パッケージ管理・テスト・フォーマッタ・LSP がすべて単一の `flix.jar` に同梱されており、別途ツールを追加する必要がありません。
 
@@ -121,6 +126,7 @@ ops/nix/
 | Elixir | `mix compile` | `mix clean` | `mix run` |
 | Haskell | `stack build` | `stack clean` | `stack run` |
 | Flix | `java -jar flix.jar build` | - | `java -jar flix.jar run` |
+| Kotlin | `gradle build` | `gradle clean` | `gradle run` |
 
 ## リンター / フォーマッタ比較表
 
@@ -146,6 +152,9 @@ ops/nix/
 | Elixir | Credo | スタイル + 複雑度 | `.credo.exs` |
 | Haskell | HLint | スタイル + イディオム | `.hlint.yaml` |
 | Flix | コンパイラ標準 | 型検査 + 効果検査 + 網羅性検査 | `flix.toml` |
+| Kotlin | detekt | バグパターン + 複雑度 | `detekt.yml` |
+| Kotlin | ktlint | コーディングスタイル | `.editorconfig` |
+| Kotlin | コンパイラ標準 | 型検査 + null 検査 + when 網羅性検査 | `build.gradle.kts` |
 
 ### フォーマッタ
 
@@ -165,6 +174,7 @@ ops/nix/
 | Elixir | mix format | `.formatter.exs` |
 | Haskell | Ormolu / Fourmolu | 設定不要（標準） |
 | Flix | flix format（標準同梱） | 設定不要（標準） |
+| Kotlin | ktlint（自動修正） | `.editorconfig` |
 
 ## CI/CD ワークフロー構成
 
@@ -187,7 +197,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix]
+        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix, kotlin]
     steps:
       - uses: actions/checkout@v4
 
@@ -222,6 +232,9 @@ jobs:
 | Elixir | `mix credo` | `mix test` | `mix test --cover` |
 | Haskell | `stack exec -- hlint .` | `stack test` | HPC |
 | Flix | `java -jar flix.jar check` | `java -jar flix.jar test` | - |
+| Kotlin | `gradle detekt ktlintCheck` | `gradle test` | `gradle koverReport` |
+
+> **Note**: Kotlin は `.github/workflows/kotlin-ci.yml` で Nix 環境上の `gradle build` と `gradle test` を実行します。
 
 > **Note**: Flix は `flix init` が GitHub Actions ワークフローを生成し、CI では `flix.jar` を都度ダウンロードして利用します。
 
@@ -261,6 +274,7 @@ jobs:
 | Elixir | Credo | Credo (complexity) | ExUnit | cover |
 | Haskell | HLint | - | HSpec | HPC |
 | Flix | コンパイラ標準（型/効果/網羅性検査） | - | flix test | - |
+| Kotlin | detekt + ktlint | detekt | kotlin.test | Kover / JaCoCo |
 
 ## Taskfile による統一タスクランナー
 
@@ -333,10 +347,11 @@ tasks:
 | Elixir | `mix test --stale` | 変更ファイルのみテスト |
 | Haskell | `stack test --file-watch` | ファイル変更で自動テスト |
 | Flix | LSP + エディタ連携 | flix.jar 同梱の LSP で即時フィードバック |
+| Kotlin | `gradle test --continuous` | 変更検知で自動テスト |
 
 ## まとめ
 
-1. **Nix** により 14 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動します
+1. **Nix** により 15 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供します
 2. **ビルドツール**は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます
 3. **リンター / フォーマッタ**はすべての言語で導入されており、「lint + complexity + test」の 3 段階品質ゲートを統一的に適用しています
 4. **CI/CD** は GitHub Actions + Nix の共通パターンで、matrix strategy により全言語のテストを並列実行できます

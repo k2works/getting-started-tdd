@@ -1,6 +1,6 @@
 # 型システムとエラーハンドリング比較
 
-本章では、14 言語の型システムとエラーハンドリングのアプローチを比較します。型システムの強さはコードの安全性に直結し、エラーハンドリングの方法はプログラムの堅牢性を左右します。
+本章では、15 言語の型システムとエラーハンドリングのアプローチを比較します。型システムの強さはコードの安全性に直結し、エラーハンドリングの方法はプログラムの堅牢性を左右します。
 
 ## 静的型付け vs 動的型付け
 
@@ -19,6 +19,7 @@
 | Scala | オプション（推論優先） | 強い | あり |
 | Haskell | オプション（推論優先） | HM 型推論 | あり（型クラス） |
 | Flix | オプション（推論優先） | HM 型推論 | あり（トレイト） |
+| Kotlin | オプション（推論優先） | ローカル変数・戻り値 | あり（`reified` 対応） |
 
 **メリット**:
 - コンパイル時にバグを検出できる
@@ -260,6 +261,32 @@ def testSafeGenerate0(): Bool =
 
 さらに Flix は代数的効果（algebraic effects）と効果システムを備えており、副作用を型で追跡します。`eff` で効果を宣言し `run ... with handler` で解釈することで、「実行」と「解釈」を分離できます。これは他の対象言語にはない Flix 独自の副作用管理の仕組みです。
 
+### Kotlin: Result と null 安全
+
+Kotlin は標準ライブラリの `Result<T>` で成功 / 失敗を型で扱い、`String` と `String?` を型で区別する null 安全を備えます。
+
+```kotlin
+// Result: 成功と失敗を型で表現
+fun safeGenerate(number: Int): Result<String> =
+    if (number > 0) Result.success(FizzBuzz.convert(number))
+    else Result.failure(IllegalArgumentException("正の整数を指定してください"))
+
+// テスト
+@Test
+fun `正の整数で success を返す`() {
+    assertEquals("Fizz", safeGenerate(3).getOrNull())
+}
+
+@Test
+fun `0 以下で failure を返す`() {
+    assertTrue(safeGenerate(0).isFailure)
+}
+
+// null 安全: ?.（安全呼び出し）と ?:（エルビス演算子）
+fun label(value: FizzBuzzValue?): String =
+    value?.value ?: "未定義"
+```
+
 ### TypeScript: ユニオン型
 
 TypeScript はユニオン型でエラーを型安全に表現できます。
@@ -293,6 +320,7 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | Ruby | `nil` | 例外 | `rescue` |
 | PHP | `null` | 例外 | `try/catch` |
 | C# | `null` / `T?` | 例外 | `?.` null 条件演算子 |
+| Kotlin | `T?`（null 安全） | `Result<T>` / 例外 | `?.` / `?:` / `getOrNull` |
 
 ## エラーハンドリングの各言語アプローチ
 
@@ -323,6 +351,7 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | F# | `Result<'T, 'E>` | パイプラインで連鎖 |
 | Scala | `Either[E, T]` | `for` 内包表記で合成 |
 | Flix | `Result[e, t]` | パターンマッチ、代数的効果で副作用を追跡 |
+| Kotlin | `Result<T>` | `getOrNull` / `fold` / `map` で合成、例外も併用可 |
 
 ### アプローチ 3: タプルベース
 
@@ -354,7 +383,7 @@ Clojure のように、動的に条件を判定するアプローチです。
 | レベル | 言語 | 特徴 |
 |--------|------|------|
 | null なし | Rust, Haskell, Flix | Option/Maybe で明示的に扱う |
-| null 安全機能あり | Kotlin, F#, Scala | Nullable アノテーション / Option |
+| null 安全機能あり | Kotlin, F#, Scala | `T` と `T?` を型で区別 / Option |
 | null 条件演算子あり | C#, TypeScript | `?.` で安全にアクセス |
 | null 可能 | Java, Go, Python, Ruby, PHP, Clojure, Elixir | 実行時に NullPointerException の可能性 |
 
@@ -364,7 +393,7 @@ Clojure のように、動的に条件を判定するアプローチです。
 
 | レベル | 言語 | 特徴 |
 |--------|------|------|
-| 厳密 | Rust, Haskell, F#, Scala, Flix | すべてのケースを網羅しないとコンパイルエラー |
+| 厳密 | Rust, Haskell, F#, Scala, Flix, Kotlin | すべてのケースを網羅しないとコンパイルエラー（Kotlin は sealed class / enum に対する式としての `when`） |
 | 警告 | TypeScript（narrowing） | 制御フロー分析で未処理ケースを警告 |
 | なし | Java, Go, Python, Ruby, PHP, Clojure, Elixir, C# | 実行時にデフォルトケースに到達 |
 
@@ -409,13 +438,13 @@ switch (type) {
 テストの必要性: 高い ←──────────────────────→ 低い
 型の安全性:    低い ←──────────────────────→ 高い
 
-PHP  Ruby  Python  Clojure  Elixir  Java  Go  TS  C#  Scala  F#  Rust  Haskell  Flix
+PHP  Ruby  Python  Clojure  Elixir  Java  Go  TS  C#  Kotlin  Scala  F#  Rust  Haskell  Flix
 ```
 
 | 型安全性レベル | テスト戦略 | 言語例 |
 |-------------|----------|-------|
 | 非常に高い | 型で多くのバグを防止、プロパティベーステスト | Haskell, Rust, Flix |
-| 高い | 型 + 単体テストで十分 | F#, Scala, TypeScript |
+| 高い | 型 + 単体テストで十分 | F#, Scala, TypeScript, Kotlin |
 | 中程度 | 単体テスト + 統合テスト | Java, C#, Go |
 | 低い | テストカバレッジが重要、TDD が特に有効 | Python, Ruby, PHP, Clojure, Elixir |
 
@@ -424,7 +453,7 @@ PHP  Ruby  Python  Clojure  Elixir  Java  Go  TS  C#  Scala  F#  Rust  Haskell  
 1. **静的型付け言語**はコンパイル時にバグを検出でき、IDE サポートが強力です。特に Rust, Haskell, F# の型システムは非常に強力です
 2. **Option/Result パターン**は例外に頼らない安全なエラーハンドリングを提供します。Rust と Haskell がこの分野のリーダーです
 3. **動的型付け言語**では TDD によるテストカバレッジが型安全性を補完する重要な役割を果たします
-4. **網羅性チェック**を持つ言語（Rust, Haskell, F#, Scala, Flix）では、新しいバリアントの追加時にすべての処理箇所を更新することが保証されます。特に Flix は代数的効果と効果システムにより、副作用そのものを型で追跡できる点が独自です
+4. **網羅性チェック**を持つ言語（Rust, Haskell, F#, Scala, Flix, Kotlin）では、新しいバリアントの追加時にすべての処理箇所を更新することが保証されます。Kotlin は sealed class / enum に対する式としての `when` で網羅性を検査し、`String` と `String?` を型で区別する null 安全も備えます。特に Flix は代数的効果と効果システムにより、副作用そのものを型で追跡できる点が独自です
 5. **Go の多値返却**と **Elixir のタプルパターン**は、言語の哲学に合った独自のエラーハンドリングアプローチです
 
 次章では、開発環境と CI/CD の統一アプローチを比較します。
