@@ -249,6 +249,9 @@ nav:
           - 第 10 章 高階関数とカリー化: article/haskell/10-higher-order-functions-and-currying.md
           - 第 11 章 関数合成とポイントフリースタイル: article/haskell/11-function-composition-and-point-free.md
           - 第 12 章 モナドとエラーハンドリング: article/haskell/12-monad-and-error-handling.md
+      - Flix:
+          - 概要: article/flix/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/flix/01-todo-list-and-first-test.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
           - 14 言語の概要と分類: article/integration/01-language-overview.md

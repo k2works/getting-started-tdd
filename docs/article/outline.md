@@ -2,11 +2,11 @@
 
 ## 概要
 
-「テスト駆動開発から始めるプログラミング入門」シリーズの執筆計画。Wiki 記事（エピソード 1〜4）の内容を再構成し、12 言語で統一的な章構成の記事として執筆する。
+「テスト駆動開発から始めるプログラミング入門」シリーズの執筆計画。Wiki 記事（エピソード 1〜4）の内容を再構成し、13 言語環境で統一的な章構成の記事として執筆する。
 
 ## 対象言語
 
-`ops/nix/environments/` に定義された 12 言語環境：
+`ops/nix/environments/` に定義された 13 言語環境：
 
 | 環境名 | 言語 | エピソード数 | 備考 |
 |--------|------|-------------|------|
@@ -22,6 +22,7 @@
 | scala | Scala | 4 | OOP + FP ハイブリッド |
 | elixir | Elixir | 4 | Erlang VM + 関数型 |
 | haskell | Haskell | 4 | 純粋関数型 |
+| flix | Flix | 4 | JVM + 関数型・代数的効果 |
 
 ## 章構成
 
@@ -94,6 +95,7 @@ Wiki エピソード 4 の内容を 3 章に分割。OOP から FP への移行�
 | Elixir | with 構文、GenServer、パイプラインオペレータ |
 | Haskell | モナド合成、型クラス、do 記法 |
 | Ruby | Enumerable、ブロック/Proc/Lambda、ベンチマーク |
+| Flix | 代数的効果、Datalog 制約、型クラス（trait）、パイプライン |
 
 ## ファイル構成
 
@@ -140,6 +142,9 @@ docs/article/
 ├── haskell/              # Haskell
 │   ├── index.md
 │   └── ...
+├── flix/                 # Flix
+│   ├── index.md
+│   └── ...
 └── all/                  # 多言語統合解説
     ├── index.md
     └── ...
@@ -162,5 +167,42 @@ apps/
 ├── clojure/              # Clojure プロジェクト
 ├── scala/                # Scala プロジェクト
 ├── elixir/               # Elixir プロジェクト
-└── haskell/              # Haskell プロジェクト
+├── haskell/              # Haskell プロジェクト
+└── flix/                 # Flix プロジェクト
 ```
+
+## Flix 追加執筆計画
+
+Flix は JVM 上で動作する関数型ファーストの言語で、代数的効果（algebraic effects）と Datalog による論理プログラミングを第一級でサポートする点が特色。純粋関数型言語（Haskell）に近い立ち位置ながら、効果システムとトレイト（型クラス相当）を備えるため、全 4 部（12 章）をフルに執筆できる。
+
+### 前提整備
+
+| 項目 | 内容 | 状態 |
+|------|------|------|
+| Nix 環境 | `ops/nix/environments/flix/` を追加（JDK + Flix コンパイラ） | 未着手 |
+| アプリ雛形 | `apps/flix/` に Flix プロジェクト（`flix.toml`, `src/`, `test/`）を作成 | 未着手 |
+| テスト基盤 | Flix 標準の `@Test` アノテーションと `flix test` を採用 | 未着手 |
+| 記事ディレクトリ | `docs/article/flix/`（`index.md` + 01〜12） | 未着手 |
+
+### 章別執筆計画
+
+| 章 | テーマ | Flix での焦点 |
+|----|--------|--------------|
+| 1 | TODO リストと最初のテスト | `@Test` と `flix test`、`Assert.eq`、テストファースト |
+| 2 | 仮実装と三角測量 | ハードコーディング → パターンマッチによる一般化 |
+| 3 | 明白な実装とリファクタリング | 純粋関数、`mod` によるモジュール化、動作するきれいなコード |
+| 4 | バージョン管理と Conventional Commits | Git フロー（言語共通） |
+| 5 | パッケージ管理と静的解析 | `flix.toml`、`flix build`、型検査・効果検査 |
+| 6 | タスクランナーと CI/CD | `flix test` の CI 組み込み、Nix による再現ビルド |
+| 7 | カプセル化とポリモーフィズム | 列挙型（enum）、トレイト（trait）による多相 |
+| 8 | デザインパターンの適用 | 代数的データ型、`Option`/Null Object、値としての関数 |
+| 9 | SOLID 原則とモジュール設計 | `mod` 分割、トレイト境界、`Result` による例外表現 |
+| 10 | 高階関数と関数合成 | `>>`/`<<` 合成、カリー化、`Functor`/`Foldable` |
+| 11 | 不変データとパイプライン処理 | 不変データ、`List`/`Chain`、`|>` パイプライン、効果分離 |
+| 12 | エラーハンドリングと型安全性 | `Result`/`Option`、パターンマッチ、代数的効果によるエラー処理 |
+
+### 進め方
+
+1. `ops/nix/environments/flix/` と `apps/flix/` の雛形を用意し、`flix test` が通る最小構成を確認する（第 1〜3 部の TDD 基盤）。
+2. `orchestrating-development` スキルに従い、章ごとに記事執筆と TDD 実装を同期させる（Haskell の 4 エピソード言語構成を参考にする）。
+3. Flix 固有の代数的効果・Datalog は第 4 部（第 11〜12 章）で重点的に扱い、他の関数型言語との差分を `docs/article/all/` に反映する。
