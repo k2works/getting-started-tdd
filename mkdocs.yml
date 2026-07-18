@@ -252,6 +252,8 @@ nav:
       - Flix:
           - 概要: article/flix/index.md
           - 第 1 章 TODO リストと最初のテスト: article/flix/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/flix/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/flix/03-obvious-implementation-and-refactoring.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
           - 14 言語の概要と分類: article/integration/01-language-overview.md
