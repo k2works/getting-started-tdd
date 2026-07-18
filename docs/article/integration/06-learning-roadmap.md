@@ -1,6 +1,6 @@
 # 学習ロードマップ
 
-本章では、12 言語を効果的に学ぶための推奨順序、各言語で習得できる概念、そして学習を深めるための次のステップを提示します。
+本章では、14 言語を効果的に学ぶための推奨順序、各言語で習得できる概念、そして学習を深めるための次のステップを提示します。
 
 ## 推奨学習順序
 
@@ -58,8 +58,9 @@ TypeScript ──→ Ruby ──→ Go or Rust
 関数型プログラミングの概念を段階的に導入します。
 
 ```
-F# ──→ Scala ──→ Elixir or Clojure ──→ Haskell
- │       │              │                   │
+F# ──→ Scala ──→ Elixir or Clojure ──→ Haskell ──→ Flix
+ │       │              │                   │           │
+ │       │              │                   │           └─ 代数的効果と効果システム
  │       │              │                   └─ 純粋関数型の頂点
  │       │              └─ BEAM/LISP の世界
  │       └─ OOP + FP のハイブリッド
@@ -73,6 +74,12 @@ F# ──→ Scala ──→ Elixir or Clojure ──→ Haskell
 | 8a | **Elixir** | 1-2 週間 | パターンマッチング、パイプライン、{:ok, :error} |
 | 8b | **Clojure** | 2-3 週間 | S 式、不変データ、プロトコル、REPL 駆動 |
 | 9 | **Haskell** | 3-4 週間 | 型クラス、モナド、遅延評価、do 記法 |
+| 10 | **Flix** | 2-3 週間 | enum/trait、Result/Option、代数的効果、効果システム |
+
+**Flix を Haskell の後に学ぶ理由**:
+- Haskell で純粋 FP と型システムの基礎を固めた後、Flix の代数的効果（algebraic effects）と効果システムに進むと理解しやすい
+- `eff` で効果を宣言し `run ... with handler` で解釈することで、「実行」と「解釈」を分離する考え方を学べる
+- JVM 上で動作するため、Java・Scala・Clojure の知識やエコシステムを活かせる
 
 **F# を FP の入口に選ぶ理由**:
 - C# と同じ .NET ランタイム上で動作し、既存知識を活かせる
@@ -120,22 +127,24 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 | 概念 | 最もよく学べる言語 | 理由 |
 |------|----------------|------|
 | 高階関数 | Python, TypeScript, Ruby | 馴染みやすい構文 |
-| パターンマッチング | Rust, F#, Scala, Elixir, Haskell | 言語レベルでサポート |
-| 不変データ | Clojure, Haskell, F# | デフォルトが不変 |
+| パターンマッチング | Rust, F#, Scala, Elixir, Haskell, Flix | 言語レベルでサポート（Flix は網羅性検査あり） |
+| 不変データ | Clojure, Haskell, F#, Flix | デフォルトが不変 |
 | パイプライン | F#, Elixir | `\|>` 演算子 |
 | モナド | Haskell | 最も純粋な実装 |
-| 代数的データ型 | Haskell, F#, Rust, Scala | 判別共用体 / enum |
+| 代数的データ型 | Haskell, F#, Rust, Scala, Flix | 判別共用体 / enum |
 | 遅延評価 | Haskell, Scala, Clojure | 言語レベルでサポート |
-| プロトコル / 型クラス | Clojure, Haskell | ad-hoc ポリモーフィズム |
+| プロトコル / 型クラス | Clojure, Haskell, Flix | ad-hoc ポリモーフィズム（Flix は trait） |
+| 代数的効果 | Flix | 効果システムで副作用を型追跡、「実行」と「解釈」を分離 |
 
 ### 型システム概念
 
 | 概念 | 最もよく学べる言語 | 理由 |
 |------|----------------|------|
 | 静的型付け | Java, Go | 明示的な型宣言 |
-| 型推論 | Haskell, F#, Rust | HM 型推論 |
+| 型推論 | Haskell, F#, Rust, Flix | HM 型推論 |
 | ジェネリクス | Java, TypeScript, Rust | 段階的に学べる |
-| Option/Result | Rust, Haskell | null なし言語 |
+| Option/Result | Rust, Haskell, Flix | null なし言語 |
+| 効果システム | Flix | 代数的効果で副作用を型で追跡 |
 | ユニオン型 | TypeScript, F# | 型で状態を表現 |
 | 型クラス | Haskell | ad-hoc ポリモーフィズム |
 | 所有権 / 借用 | Rust | メモリ安全性 |
@@ -159,7 +168,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
                     │    │                     │               │
                     │    └─────────┬───────────┘               │
                     │              ▼                            │
-                    │          Haskell                          │
+                    │          Haskell ──→ Flix                 │
                     └──────────────┬───────────────────────────┘
                                    │
                     ┌──────────────┴───────────────────────────┐
@@ -244,6 +253,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 | Scala | Programming in Scala (Odersky et al.) |
 | Elixir | Programming Elixir (Dave Thomas) |
 | Haskell | Learn You a Haskell for Great Good! (Miran Lipovaca) |
+| Flix | Flix 公式ドキュメント / 公式サイトのチュートリアル |
 
 #### FP 全般
 
@@ -263,7 +273,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 
 ## まとめ
 
-12 言語の学習は一見膨大に感じますが、以下の戦略で効率的に進めることができます。
+14 言語の学習は一見膨大に感じますが、以下の戦略で効率的に進めることができます。
 
 1. **フェーズ分けして段階的に**: OOP → マルチパラダイム → FP の順で概念を積み上げる
 2. **FizzBuzz を共通題材に**: 同じ仕様を異なる言語で実装することで、差分に集中できる

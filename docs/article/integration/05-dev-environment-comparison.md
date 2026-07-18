@@ -1,6 +1,6 @@
 # 開発環境と CI/CD 比較
 
-本章では、12 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
+本章では、14 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
 
 ## Nix による統一開発環境アプローチ
 
@@ -55,6 +55,9 @@ nix develop .#elixir
 
 # Haskell 環境
 nix develop .#haskell
+
+# Flix 環境（Nix で JDK を管理し flix.jar と組み合わせる）
+nix develop .#flix
 ```
 
 ### Nix Flake の構造
@@ -75,7 +78,8 @@ ops/nix/
     ├── clojure.nix
     ├── scala.nix
     ├── elixir.nix
-    └── haskell.nix
+    ├── haskell.nix
+    └── flix.nix
 ```
 
 ## ビルドツール比較表
@@ -95,6 +99,9 @@ ops/nix/
 | Scala | sbt | `build.sbt` | Maven / Ivy | sbt tasks |
 | Elixir | Mix | `mix.exs` | Hex | mix tasks |
 | Haskell | Stack | `package.yaml` / `stack.yaml` | Stackage / Hackage | stack tasks |
+| Flix | Flix (flix.jar) | `flix.toml` | Flix パッケージ | flix.jar コマンド |
+
+> **Note**: Flix はビルド・パッケージ管理・テスト・フォーマッタ・LSP がすべて単一の `flix.jar` に同梱されており、別途ツールを追加する必要がありません。
 
 ### ビルドコマンド比較
 
@@ -113,6 +120,7 @@ ops/nix/
 | Scala | `sbt compile` | `sbt clean` | `sbt run` |
 | Elixir | `mix compile` | `mix clean` | `mix run` |
 | Haskell | `stack build` | `stack clean` | `stack run` |
+| Flix | `java -jar flix.jar build` | - | `java -jar flix.jar run` |
 
 ## リンター / フォーマッタ比較表
 
@@ -137,6 +145,7 @@ ops/nix/
 | Scala | WartRemover | バグパターン | `build.sbt` |
 | Elixir | Credo | スタイル + 複雑度 | `.credo.exs` |
 | Haskell | HLint | スタイル + イディオム | `.hlint.yaml` |
+| Flix | コンパイラ標準 | 型検査 + 効果検査 + 網羅性検査 | `flix.toml` |
 
 ### フォーマッタ
 
@@ -155,6 +164,7 @@ ops/nix/
 | Scala | scalafmt | `.scalafmt.conf` |
 | Elixir | mix format | `.formatter.exs` |
 | Haskell | Ormolu / Fourmolu | 設定不要（標準） |
+| Flix | flix format（標準同梱） | 設定不要（標準） |
 
 ## CI/CD ワークフロー構成
 
@@ -177,7 +187,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell]
+        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix]
     steps:
       - uses: actions/checkout@v4
 
@@ -211,6 +221,9 @@ jobs:
 | Scala | `sbt scalafmtCheck wartremoverCheck` | `sbt test` | `sbt coverage test coverageReport` |
 | Elixir | `mix credo` | `mix test` | `mix test --cover` |
 | Haskell | `stack exec -- hlint .` | `stack test` | HPC |
+| Flix | `java -jar flix.jar check` | `java -jar flix.jar test` | - |
+
+> **Note**: Flix は `flix init` が GitHub Actions ワークフローを生成し、CI では `flix.jar` を都度ダウンロードして利用します。
 
 ## 品質ゲートの統一
 
@@ -247,6 +260,7 @@ jobs:
 | Scala | scalafmt + WartRemover | WartRemover | ScalaTest | scoverage |
 | Elixir | Credo | Credo (complexity) | ExUnit | cover |
 | Haskell | HLint | - | HSpec | HPC |
+| Flix | コンパイラ標準（型/効果/網羅性検査） | - | flix test | - |
 
 ## Taskfile による統一タスクランナー
 
@@ -318,10 +332,11 @@ tasks:
 | Scala | `sbt ~test` | チルダ前置で継続実行 |
 | Elixir | `mix test --stale` | 変更ファイルのみテスト |
 | Haskell | `stack test --file-watch` | ファイル変更で自動テスト |
+| Flix | LSP + エディタ連携 | flix.jar 同梱の LSP で即時フィードバック |
 
 ## まとめ
 
-1. **Nix** により 12 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています
+1. **Nix** により 14 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動します
 2. **ビルドツール**は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます
 3. **リンター / フォーマッタ**はすべての言語で導入されており、「lint + complexity + test」の 3 段階品質ゲートを統一的に適用しています
 4. **CI/CD** は GitHub Actions + Nix の共通パターンで、matrix strategy により全言語のテストを並列実行できます
