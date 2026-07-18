@@ -263,6 +263,9 @@ nav:
           - 第 10 章 高階関数と関数合成: article/flix/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/flix/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと代数的効果: article/flix/12-error-handling-and-effects.md
+      - Kotlin:
+          - 概要: article/kotlin/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/kotlin/01-todo-list-and-first-test.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
           - 15 言語の概要と分類: article/integration/01-language-overview.md
