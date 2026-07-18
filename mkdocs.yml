@@ -254,6 +254,9 @@ nav:
           - 第 1 章 TODO リストと最初のテスト: article/flix/01-todo-list-and-first-test.md
           - 第 2 章 仮実装と三角測量: article/flix/02-fake-it-and-triangulation.md
           - 第 3 章 明白な実装とリファクタリング: article/flix/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/flix/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/flix/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/flix/06-task-runner-and-ci-cd.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
           - 14 言語の概要と分類: article/integration/01-language-overview.md
