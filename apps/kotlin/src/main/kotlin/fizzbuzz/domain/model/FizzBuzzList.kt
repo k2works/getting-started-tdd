@@ -1,4 +1,6 @@
-package fizzbuzz
+package fizzbuzz.domain.model
+
+import fizzbuzz.domain.type.FizzBuzzType
 
 /**
  * FizzBuzz の結果を保持するファーストクラスコレクション。

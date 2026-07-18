@@ -1,4 +1,4 @@
-package fizzbuzz
+package fizzbuzz.domain.type
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -1,4 +1,8 @@
-package fizzbuzz
+package fizzbuzz.application
+
+import fizzbuzz.domain.model.FizzBuzzList
+import fizzbuzz.domain.model.FizzBuzzValue
+import fizzbuzz.domain.type.FizzBuzzType
 
 /**
  * FizzBuzz の実行要求を表すコマンド。

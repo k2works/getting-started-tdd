@@ -75,59 +75,110 @@ FizzBuzzCommand ──→ FizzBuzzList ──→ FizzBuzzValue ──→ FizzBuz
 
 依存は一方向で循環がありません。抽象度が高く安定した `FizzBuzzType` に向かって依存が流れています。
 
-## 9.4 モジュール設計 — package と可視性
+## 9.4 モジュール設計 — package 分割
 
-### package 分割
+第 7・8 章では、`FizzBuzzType`・`FizzBuzzValue`・`FizzBuzzList`・`FizzBuzzCommand` を単一の `fizzbuzz` package に置いて構築してきました。ここで、責務に基づいて 3 つのレイヤーに **再編成** します。
 
-Kotlin では `package` 宣言でモジュールを構成します。第 3 部の要素はすべて `fizzbuzz` package に属します。
+### 設計方針
 
-```kotlin
-package fizzbuzz
-```
+| レイヤー | 配置先 package | 責務 |
+|---------|---------------|------|
+| **ドメインモデル** | `fizzbuzz.domain.model` | 値オブジェクト、コレクション |
+| **ドメインタイプ** | `fizzbuzz.domain.type` | ビジネスルール（FizzBuzz 変換） |
+| **アプリケーション** | `fizzbuzz.application` | 操作の実行（コマンド） |
 
 ### ディレクトリ構成
 
+Kotlin では package 名とディレクトリ構造を一致させるのが慣例です。
+
 ```
 apps/kotlin/src/main/kotlin/fizzbuzz/
-├── FizzBuzzType.kt      (enum + 抽象メソッド + create ファクトリ)
-├── FizzBuzzValue.kt     (data class 値オブジェクト)
-├── FizzBuzzList.kt      (ファーストクラスコレクション)
-└── FizzBuzzCommand.kt   (sealed class コマンド)
+├── domain/
+│   ├── model/
+│   │   ├── FizzBuzzValue.kt      (FizzBuzzValue)
+│   │   └── FizzBuzzList.kt       (FizzBuzzList)
+│   └── type/
+│       └── FizzBuzzType.kt       (FizzBuzzType enum + create)
+└── application/
+    └── FizzBuzzCommand.kt        (FizzBuzzCommand + ValueCommand/ListCommand)
 ```
 
-Kotlin では package 名とディレクトリ構造を一致させるのが慣例です。同一 package 内のクラスは相互に import なしで参照できます。
+各ファイルの先頭でレイヤーに対応する package を宣言します。
 
-### companion object と可視性
+```kotlin
+// domain/type/FizzBuzzType.kt
+package fizzbuzz.domain.type
+```
 
-Kotlin の可視性修飾子を使い分けます。
+```kotlin
+// domain/model/FizzBuzzValue.kt
+package fizzbuzz.domain.model
+
+import fizzbuzz.domain.type.FizzBuzzType
+```
+
+```kotlin
+// application/FizzBuzzCommand.kt
+package fizzbuzz.application
+
+import fizzbuzz.domain.model.FizzBuzzList
+import fizzbuzz.domain.model.FizzBuzzValue
+import fizzbuzz.domain.type.FizzBuzzType
+```
+
+> **タイプの表現について**: Ruby 版では `FizzBuzzType` 基底クラスと `FizzBuzzType01`〜`03` のサブクラスをファイル分割していますが、Kotlin では `enum class` の各定数に `generate` を `override` させることで、同じ「タイプごとの振る舞い」を 1 ファイルに凝集できます（第 7 章参照）。ファイル数は減りますが、`domain.type` というレイヤーの責務は同一です。
+
+### 依存関係
+
+```
+application ──→ domain.model ──→ domain.type
+     │               │                │
+  コマンド      値・コレクション      タイプ
+```
+
+- `domain.type` は他のレイヤーに依存しない（最も安定）
+- `domain.model` は `domain.type` に依存する（`FizzBuzzValue.create` が `type.generate` を呼ぶ）
+- `application` は `domain.model` と `domain.type` の両方に依存する
+
+依存は一方向（`application → domain.model → domain.type`）に流れ、循環がありません。最も変わりにくいビジネスルール（`domain.type`）が最も安定し、上位のレイヤーがそれに依存する構造です。
+
+Kotlin では `import` で明示的に依存を宣言するため、`build.gradle.kts` の設定なしに package をまたいだ参照ができます。Ruby の「バレルファイル（`require_relative` の集約）」に相当する仕組みは Kotlin では不要で、利用側が必要な package を個別に `import` します。これにより、どのファイルが何に依存しているかが `import` 文から一目で分かります。
+
+### 可視性
+
+Kotlin の可視性修飾子でレイヤー間の公開範囲を制御します。
 
 | 修飾子 | 可視範囲 | 本設計での用途 |
 |--------|---------|--------------|
-| `public`（既定） | どこからでも | `FizzBuzzType`、`FizzBuzzValue` などの公開 API |
+| `public`（既定） | どこからでも | 各レイヤーが公開する API |
 | `internal` | 同一モジュール内 | モジュール内部でのみ使うユーティリティ |
 | `private` | 同一ファイル / クラス内 | クラス内部の実装詳細 |
 
-- `companion object` は Java の `static` に相当し、`create` などのファクトリメソッドを型に紐づけて提供します。`FizzBuzzType.create(1)` のようにインスタンス化せず呼べます。
-- 値オブジェクトのプロパティは `val` で公開しつつ、生成は `companion object` の `create` に集約することで、生成ロジックの一貫性を保っています。
-- `sealed class` のサブクラスは同一ファイル内に閉じるため、`FizzBuzzCommand` の取りうる型はファイルを見れば把握できます。
+`companion object` の `create` にオブジェクト生成を集約し、`sealed class` でコマンドの取りうる型を限定することで、各レイヤーの公開 API を最小限に保っています。
 
-## 9.5 テストのファイル分割
+## 9.5 テストのモジュール対応
 
-テストも要素ごとにファイルを分割します。
+テストも本体の package 構造に合わせて分割します。
 
 ```
 apps/kotlin/src/test/kotlin/fizzbuzz/
-├── FizzBuzzTypeTest.kt      (タイプの変換・ファクトリのテスト)
-├── FizzBuzzValueTest.kt     (値オブジェクト・コレクションのテスト)
-└── FizzBuzzCommandTest.kt   (コマンドのテスト)
+├── domain/
+│   ├── model/
+│   │   └── FizzBuzzValueTest.kt   (値オブジェクト・コレクション)
+│   └── type/
+│       └── FizzBuzzTypeTest.kt    (タイプの変換・ファクトリ)
+└── application/
+    └── FizzBuzzCommandTest.kt     (コマンド)
 ```
 
-各テストは `kotlin.test` の `@Test`・`assertEquals`・`assertTrue` を使い、テストメソッド名にはバッククォート囲みの日本語で意図を記述します。
+各テストファイルは対応する本体と同じ package を宣言し、他レイヤーの型は `import` します。
 
 ```kotlin
+package fizzbuzz.domain.model
+
+import fizzbuzz.domain.type.FizzBuzzType
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 ```
 
 ### テスト実行結果
@@ -138,7 +189,7 @@ $ ./gradlew test
 BUILD SUCCESSFUL
 ```
 
-すべてのテストが通り、第 3 部の実装が完成しました。
+すべてのテストが通り、第 3 部の実装がレイヤー構造として完成しました。
 
 ## 9.6 各言語のモジュール設計比較
 

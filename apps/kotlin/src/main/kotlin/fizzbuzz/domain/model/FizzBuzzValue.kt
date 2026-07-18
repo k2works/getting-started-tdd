@@ -1,4 +1,6 @@
-package fizzbuzz
+package fizzbuzz.domain.model
+
+import fizzbuzz.domain.type.FizzBuzzType
 
 /**
  * 数値と変換結果をまとめた値オブジェクト。

@@ -1,4 +1,4 @@
-package fizzbuzz
+package fizzbuzz.domain.type
 
 /**
  * FizzBuzz のタイプ（出力の切り替え）を表す列挙型。
