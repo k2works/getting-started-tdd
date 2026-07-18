@@ -1,6 +1,6 @@
 # 学習ロードマップ
 
-本章では、14 言語を効果的に学ぶための推奨順序、各言語で習得できる概念、そして学習を深めるための次のステップを提示します。
+本章では、15 言語を効果的に学ぶための推奨順序、各言語で習得できる概念、そして学習を深めるための次のステップを提示します。
 
 ## 推奨学習順序
 
@@ -35,9 +35,9 @@ Java ──→ Python
 OOP の基盤の上に、異なるパラダイムの要素を積み上げます。
 
 ```
-TypeScript ──→ Ruby ──→ Go or Rust
+TypeScript ──→ Ruby ──→ Go or Rust or Kotlin
      │           │         │
-     │           │         └─ 構造化/所有権という新概念
+     │           │         └─ 構造化/所有権/null 安全という新概念
      │           └─ OOP + ブロック/Lambda
      └─ 型システムの拡張（ユニオン型、型ガード）
 ```
@@ -48,10 +48,15 @@ TypeScript ──→ Ruby ──→ Go or Rust
 | 4 | **Ruby** | 1-2 週間 | ブロック/Proc/Lambda、Minitest、RuboCop |
 | 5a | **Go** | 1-2 週間 | 構造体、暗黙的インターフェース、テーブル駆動テスト |
 | 5b | **Rust** | 2-3 週間 | 所有権、借用、trait、Result/Option、Clippy |
+| 5c | **Kotlin** | 1-2 週間 | data class、sealed class、null 安全、高階関数、Result、Gradle |
 
 **Go と Rust はどちらか一方を選択、または順に学習**:
 - **Go**: シンプルさを重視する場合。インターフェースの構造的部分型が新鮮
 - **Rust**: 型安全性を深く理解したい場合。所有権システムが根本的に新しい
+
+**Kotlin を加える理由**:
+- JVM 上の OOP/FP ハイブリッドで、Java の知識を活かしながら null 安全と data class・sealed class を学べる
+- `when` の網羅性検査と `Result` により、型安全なエラーハンドリングへの橋渡しになる
 
 ### フェーズ 3: FP への展開（2-4 言語）
 
@@ -117,7 +122,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 |------|----------------|------|
 | カプセル化 | Java, C# | アクセス修飾子が明確 |
 | 継承 | Java, Ruby | 単一/Mixin 継承の対比 |
-| ポリモーフィズム（名前的） | Java, C#, TypeScript | interface の明示的実装 |
+| ポリモーフィズム（名前的） | Java, C#, TypeScript, Kotlin | interface の明示的実装 |
 | ポリモーフィズム（構造的） | Go, TypeScript | 暗黙的インターフェース |
 | デザインパターン | Java, C# | GoF パターンが直接適用 |
 | SOLID 原則 | Java, TypeScript | 依存性の注入が自然 |
@@ -126,12 +131,12 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 
 | 概念 | 最もよく学べる言語 | 理由 |
 |------|----------------|------|
-| 高階関数 | Python, TypeScript, Ruby | 馴染みやすい構文 |
-| パターンマッチング | Rust, F#, Scala, Elixir, Haskell, Flix | 言語レベルでサポート（Flix は網羅性検査あり） |
+| 高階関数 | Python, TypeScript, Ruby, Kotlin | 馴染みやすい構文（Kotlin はラムダ `{ x -> ... }` と関数参照 `::f`） |
+| パターンマッチング | Rust, F#, Scala, Elixir, Haskell, Flix, Kotlin | 言語レベルでサポート（Flix は網羅性検査あり、Kotlin は sealed class への `when`） |
 | 不変データ | Clojure, Haskell, F#, Flix | デフォルトが不変 |
 | パイプライン | F#, Elixir | `\|>` 演算子 |
 | モナド | Haskell | 最も純粋な実装 |
-| 代数的データ型 | Haskell, F#, Rust, Scala, Flix | 判別共用体 / enum |
+| 代数的データ型 | Haskell, F#, Rust, Scala, Flix, Kotlin | 判別共用体 / enum / sealed class |
 | 遅延評価 | Haskell, Scala, Clojure | 言語レベルでサポート |
 | プロトコル / 型クラス | Clojure, Haskell, Flix | ad-hoc ポリモーフィズム（Flix は trait） |
 | 代数的効果 | Flix | 効果システムで副作用を型追跡、「実行」と「解釈」を分離 |
@@ -143,8 +148,10 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 | 静的型付け | Java, Go | 明示的な型宣言 |
 | 型推論 | Haskell, F#, Rust, Flix | HM 型推論 |
 | ジェネリクス | Java, TypeScript, Rust | 段階的に学べる |
-| Option/Result | Rust, Haskell, Flix | null なし言語 |
+| Option/Result | Rust, Haskell, Flix, Kotlin | null なし / null 安全（Kotlin は `Result` と `T?`） |
 | 効果システム | Flix | 代数的効果で副作用を型で追跡 |
+| null 安全 | Kotlin, F#, Scala | `T` と `T?` を型で区別 |
+| sealed class / ADT | Kotlin, Scala, Rust | 型で網羅的に状態を表現 |
 | ユニオン型 | TypeScript, F# | 型で状態を表現 |
 | 型クラス | Haskell | ad-hoc ポリモーフィズム |
 | 所有権 / 借用 | Rust | メモリ安全性 |
@@ -174,7 +181,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
                     ┌──────────────┴───────────────────────────┐
                     │       フェーズ 2: マルチパラダイム        │
                     │                                          │
-                    │   TypeScript ──→ Ruby ──→ Go / Rust      │
+                    │   TypeScript ──→ Ruby ──→ Go / Rust / Kotlin │
                     │       │                    │             │
                     │       └── PHP              └── C#        │
                     └──────────────┬───────────────────────────┘
@@ -254,6 +261,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 | Elixir | Programming Elixir (Dave Thomas) |
 | Haskell | Learn You a Haskell for Great Good! (Miran Lipovaca) |
 | Flix | Flix 公式ドキュメント / 公式サイトのチュートリアル |
+| Kotlin | Kotlin in Action (Isakova & Elizarov) |
 
 #### FP 全般
 
@@ -273,7 +281,7 @@ PHP と C# は上記のフェーズに含まれていませんが、以下のタ
 
 ## まとめ
 
-14 言語の学習は一見膨大に感じますが、以下の戦略で効率的に進めることができます。
+15 言語の学習は一見膨大に感じますが、以下の戦略で効率的に進めることができます。
 
 1. **フェーズ分けして段階的に**: OOP → マルチパラダイム → FP の順で概念を積み上げる
 2. **FizzBuzz を共通題材に**: 同じ仕様を異なる言語で実装することで、差分に集中できる

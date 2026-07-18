@@ -279,7 +279,7 @@ nav:
           - 第 12 章 エラーハンドリングと型安全性: article/kotlin/12-error-handling-and-type-safety.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
-          - 15 言語の概要と分類: article/integration/01-language-overview.md
+          - 16 言語の概要と分類: article/integration/01-language-overview.md
           - テストフレームワーク比較: article/integration/02-test-framework-comparison.md
           - パラダイム別 TDD パターン比較: article/integration/03-tdd-pattern-comparison.md
           - 型システムとエラーハンドリング比較: article/integration/04-type-system-comparison.md
