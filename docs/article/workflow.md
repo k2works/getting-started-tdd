@@ -449,6 +449,7 @@ nix develop .#clojure
 nix develop .#scala
 nix develop .#elixir
 nix develop .#haskell
+nix develop .#flix
 ```
 
 ### 実装の始め方

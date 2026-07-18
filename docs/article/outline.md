@@ -179,10 +179,10 @@ Flix は JVM 上で動作する関数型ファーストの言語で、代数的�
 
 | 項目 | 内容 | 状態 |
 |------|------|------|
-| Nix 環境 | `ops/nix/environments/flix/` を追加（JDK + Flix コンパイラ） | 未着手 |
-| アプリ雛形 | `apps/flix/` に Flix プロジェクト（`flix.toml`, `src/`, `test/`）を作成 | 未着手 |
-| テスト基盤 | Flix 標準の `@Test` アノテーションと `flix test` を採用 | 未着手 |
-| 記事ディレクトリ | `docs/article/flix/`（`index.md` + 01〜12） | 未着手 |
+| Nix 環境 | `ops/nix/environments/flix/`（JDK 21 + flix.jar ブートストラップ）を追加し flake に登録 | 完了 |
+| アプリ雛形 | `apps/flix/` に Flix プロジェクト（`flix.toml`, `src/`, `test/`）を作成 | 完了 |
+| テスト基盤 | Flix 標準の `@Test` アノテーションと `flix test` を採用 | 完了 |
+| 記事ディレクトリ | `docs/article/flix/`（`index.md` + 01〜12） | 完了 |
 
 ### 章別執筆計画
 
