@@ -260,7 +260,7 @@ Prolog は単一化（unification）とバックトラッキングを基礎と�
 | Nix 環境 | `ops/nix/environments/prolog/`（SWI-Prolog 9.2）を追加し flake に登録 | 完了 |
 | アプリ雛形 | `apps/prolog/` に `src/`・`test/`・`Makefile`・test runner を作成 | 完了 |
 | テスト基盤 | `plunit`（`begin_tests`/`end_tests`）と `make test` を採用 | 完了 |
-| 記事ディレクトリ | `docs/article/prolog/`（`index.md` + 01〜12） | 進行中 |
+| 記事ディレクトリ | `docs/article/prolog/`（`index.md` + 01〜12） | 完了 |
 
 ### 章別執筆計画
 
