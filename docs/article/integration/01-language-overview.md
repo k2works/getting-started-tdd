@@ -1,6 +1,6 @@
-# 15 言語の概要と分類
+# 16 言語の概要と分類
 
-本章では、15 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
+本章では、16 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
 
 ## パラダイム別分類
 
@@ -42,6 +42,14 @@ OOP と FP の両方を自然にサポートする言語です。
 | Kotlin | クラス、interface、data class | 高階関数、ラムダ、sealed class、Sequence |
 | Go | 構造体、インターフェース | ファーストクラス関数、クロージャ |
 
+### 論理型・宣言的（ロジックプログラミング）
+
+「何を求めるか」を関係（述語）として宣言し、単一化とバックトラッキングによって解を導出する、OOP・FP のいずれとも異なる第 4 のパラダイムです。
+
+| 言語 | 特徴 |
+|------|------|
+| Prolog | SWI-Prolog、論理型・宣言的、項（term）、単一化、バックトラッキング、複数節ディスパッチ |
+
 ## 型システムによる分類
 
 型システムは言語の安全性と表現力を大きく左右します。
@@ -51,7 +59,7 @@ OOP と FP の両方を自然にサポートする言語です。
 | 分類 | 言語 | 型チェックのタイミング |
 |------|------|---------------------|
 | 静的型付け | Java, TypeScript, Go, Rust, C#, F#, Scala, Haskell, Flix, Kotlin | コンパイル時 |
-| 動的型付け | Python, Ruby, PHP, Clojure, Elixir | 実行時 |
+| 動的型付け | Python, Ruby, PHP, Clojure, Elixir, Prolog | 実行時 |
 
 ### 型の強さのスペクトル
 
@@ -68,7 +76,7 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  Kotlin  F#  Scala  Rust  Haskell  F
 | 非常に強い | Haskell, Rust, Flix | 暗黙の変換がほぼない、型推論が強力 |
 | 強い | Java, C#, Kotlin, F#, Scala, Go | 明示的なキャストが必要 |
 | 中程度 | Python, Ruby, TypeScript | 一部の暗黙変換を許容 |
-| 比較的柔軟 | PHP, Clojure, Elixir | 動的だが実行時にチェック |
+| 比較的柔軟 | PHP, Clojure, Elixir, Prolog | 動的だが実行時にチェック（単一化と型検査述語） |
 
 ### 型推論の能力
 
@@ -78,7 +86,7 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  Kotlin  F#  Scala  Rust  Haskell  F
 | 高い推論能力 | Rust, Scala, TypeScript, Kotlin | ローカル変数・ジェネリクスの推論 |
 | 中程度 | Java, C#, Go | `var` / `:=` によるローカル推論 |
 | 限定的 | Python, Ruby, PHP | 型ヒント/アノテーションで補完 |
-| 不要 | Clojure, Elixir | 動的型付けのため型推論が不要 |
+| 不要 | Clojure, Elixir, Prolog | 動的型付けのため型推論が不要 |
 
 ## ランタイム環境による分類
 
@@ -123,6 +131,12 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  Kotlin  F#  Scala  Rust  Haskell  F
 | Ruby | CRuby、DSL 構築に強い |
 | PHP | Zend Engine、Web に特化 |
 | TypeScript | Node.js (V8 JIT) 上で実行 |
+
+### 論理型 VM
+
+| 言語 | 特徴 |
+|------|------|
+| Prolog | WAM（Warren Abstract Machine）ベースの SWI-Prolog VM、単一化とバックトラッキングを実行 |
 
 ## FizzBuzz コア実装の比較
 
@@ -374,6 +388,17 @@ fun convert(n: Int): String = when {
 }
 ```
 
+### Prolog
+
+複数節 + ガード + カットによる関係の定義です。関数の戻り値ではなく、第 2 引数を単一化で返します。
+
+```prolog
+fizzbuzz(N, "FizzBuzz") :- 0 is N mod 15, !.
+fizzbuzz(N, "Fizz")     :- 0 is N mod 3, !.
+fizzbuzz(N, "Buzz")     :- 0 is N mod 5, !.
+fizzbuzz(N, Result)     :- format(string(Result), "~w", [N]).
+```
+
 ## 実装パターンの比較まとめ
 
 | 言語 | 分岐方法 | 型の安全性 | コード量 |
@@ -393,14 +418,16 @@ fun convert(n: Int): String = when {
 | Haskell | ガード節 | コンパイル時 + 型クラス | 非常に少ない |
 | Flix | if 式 + パターンマッチ | コンパイル時 + 効果検査 | 少ない |
 | Kotlin | when 式 | コンパイル時 + null 安全 | 少ない |
+| Prolog | 複数節 + ガード + カット | 実行時（単一化） | 少ない |
 
 ## まとめ
 
-15 言語の概要を俯瞰すると、以下の傾向が見えてきます。
+16 言語の概要を俯瞰すると、以下の傾向が見えてきます。
 
 1. **OOP 言語**（Java, C#, PHP）は、クラス階層とインターフェースにより構造化された FizzBuzz 実装となります
 2. **FP 言語**（Haskell, Flix, Clojure, Elixir, F#）は、パターンマッチングや条件式で簡潔に表現できます。特に Flix は代数的効果と効果システムにより副作用を型で追跡できます
 3. **マルチパラダイム言語**（Rust, Scala, TypeScript, Python, Ruby, Go, Kotlin）は、状況に応じて OOP と FP を使い分けることができます。特に Kotlin は data class・sealed class と高階関数を備え、Java 相互運用しながら null 安全を型で保証します
 4. **パターンマッチング**を持つ言語（Rust, Scala, F#, Haskell, Elixir）は、FizzBuzz のような条件分岐を特に簡潔に書けます
+5. **論理型・宣言的言語**（Prolog）は、FizzBuzz を関数ではなく関係として定義し、複数節ディスパッチ・単一化・バックトラッキングという独自の計算モデルで表現します。宣言性という点では純粋 FP（Haskell, Flix）と近縁ですが、解の導出方法が根本的に異なります
 
 次章では、これらの言語のテストフレームワークを詳しく比較します。

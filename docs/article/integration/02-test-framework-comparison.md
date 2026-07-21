@@ -1,6 +1,6 @@
 # テストフレームワーク比較
 
-本章では、15 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
+本章では、16 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
 
 ## テストフレームワーク一覧
 
@@ -21,6 +21,7 @@
 | Haskell | HSpec | 2.x | BDD スタイル、describe/it 構造 |
 | Flix | flix test | 標準 | 標準同梱、`@Test` アノテーションベース |
 | Kotlin | kotlin.test | 標準 | JUnit Platform 上、`@Test` アノテーションベース |
+| Prolog | plunit | 標準 | SWI-Prolog 標準同梱、`test/1` 述語ベース |
 
 ## テスト構造の比較
 
@@ -277,6 +278,22 @@ mod tests {
     (is (= "Fizz" (fizzbuzz 3)))))
 ```
 
+#### Prolog（plunit）
+
+Prolog は `begin_tests/1` と `end_tests/1` で囲んだブロック内に `test/1` 述語を定義します。テストも述語（宣言）であり、ゴールの導出とアサーションで検証します。
+
+```prolog
+:- use_module('../src/fizzbuzz').
+
+:- begin_tests(fizzbuzz).
+
+test(returns_fizz_for_multiple_of_3) :-
+    fizzbuzz(3, R),
+    assertion(R == "Fizz").
+
+:- end_tests(fizzbuzz).
+```
+
 ## アサーション方法の比較
 
 | 言語 | 等値比較 | 真偽チェック | 例外検証 |
@@ -296,6 +313,7 @@ mod tests {
 | Haskell | `` actual `shouldBe` expected `` | `shouldSatisfy` | `shouldThrow` |
 | Flix | `Assert.assertEq(expected, actual)` | `Bool` を返す | `Result`/`Option` で表現 |
 | Kotlin | `assertEquals(expected, actual)` | `assertTrue(condition)` | `assertFailsWith<T> { ... }` |
+| Prolog | `assertion(Actual == Expected)` | `assertion(Cond)` | `catch/3` で捕捉 |
 
 ## テスト実行コマンドの比較
 
@@ -316,6 +334,7 @@ mod tests {
 | Haskell | `stack test` | `stack test --ta "-m pattern"` | HPC |
 | Flix | `java -jar flix.jar test` | - | - |
 | Kotlin | `gradle test` | `gradle test --tests "*.testName"` | Kover / JaCoCo |
+| Prolog | `make test` | - | - |
 
 ## テスト構造の比較まとめ
 
@@ -338,6 +357,7 @@ mod tests {
 | Haskell | `describe` ブロック | 制限なし |
 | Flix | テスト関数（モジュール単位） | モジュール単位 |
 | Kotlin | テストクラス / `@Nested` | 制限なし |
+| Prolog | `begin_tests`/`end_tests` ブロック | ブロック単位 |
 
 ### セットアップ / ティアダウン
 
@@ -358,6 +378,7 @@ mod tests {
 | Haskell | `before` / `beforeAll` | `after` / `afterAll` |
 | Flix | なし（関数呼び出し） | なし |
 | Kotlin | `@BeforeTest` | `@AfterTest` |
+| Prolog | `setup(Goal)` オプション | `cleanup(Goal)` オプション |
 
 ## パラメータ化テスト
 
@@ -380,6 +401,7 @@ mod tests {
 | Haskell | `mapM_` / QuickCheck | `mapM_ (\(n, e) -> ...) cases` |
 | Flix | リスト畳み込み + `Assert.assertEq` | `List.forEach` でケースを検証 |
 | Kotlin | リスト反復 + `assertEquals` | `listOf(...).forEach { (n, e) -> ... }` |
+| Prolog | `forall` オプション | `test(name, [forall(member(N-E, Cases))])` |
 
 ## まとめ
 
@@ -387,7 +409,7 @@ mod tests {
 
 1. **アノテーション / アトリビュートベース**（Java, C#, PHP, Flix, Kotlin）はクラスベースまたは関数ベースの構造化が特徴です。Flix は FP 言語ながら標準同梱の `@Test` アノテーションを採用しています。Kotlin は `kotlin.test` の `@Test` を JUnit Platform 上で実行します
 2. **describe/it スタイル**（TypeScript, Ruby, Scala, Elixir, Haskell）は BDD の影響を受けており、テストの意図が読みやすくなります
-3. **関数ベース**（Python, Go, Rust, Clojure）はシンプルさを重視し、テストを通常の関数として扱います
-4. **パラメータ化テスト**はすべての言語で何らかの形で実現可能ですが、Go のテーブル駆動テストと Clojure の `are` マクロが特に洗練されています
+3. **関数ベース**（Python, Go, Rust, Clojure）はシンプルさを重視し、テストを通常の関数として扱います。Prolog は論理型言語ならではの述語ベースで、`test/1` 述語のゴール導出とアサーションによってテストを宣言します
+4. **パラメータ化テスト**はすべての言語で何らかの形で実現可能ですが、Go のテーブル駆動テストと Clojure の `are` マクロ、Prolog の `forall` オプションが特に洗練されています
 
 次章では、パラダイムの違いが TDD パターンにどう影響するかを比較します。
