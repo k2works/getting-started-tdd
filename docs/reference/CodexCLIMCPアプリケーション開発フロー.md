@@ -535,8 +535,8 @@ npm run check
 
 ## 関連ドキュメント
 
-- [開発環境セットアップ](dev_app_instruction.md)
-- [Codex CLI MCP サーバー設定](codex_instruction.md)
+- [開発ガイド](開発ガイド.md)
+- [Codex CLI MCP サーバー設定](CodexCLIMCPサーバー設定手順.md)
 - [イテレーション計画](../development/iteration_plan-3.md)
 - [コーディングとテストガイド](../reference/コーディングとテストガイド.md)
 
