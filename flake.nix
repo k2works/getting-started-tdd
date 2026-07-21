@@ -28,6 +28,7 @@
           scala = import ./ops/nix/environments/scala/shell.nix { inherit packages; };
           flix = import ./ops/nix/environments/flix/shell.nix { inherit packages; };
           kotlin = import ./ops/nix/environments/kotlin/shell.nix { inherit packages; };
+          prolog = import ./ops/nix/environments/prolog/shell.nix { inherit packages; };
         };
       }
     );

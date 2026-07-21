@@ -6,7 +6,7 @@
 
 ## 対象言語
 
-`ops/nix/environments/` に定義された 14 言語環境：
+`ops/nix/environments/` に定義された 15 言語環境：
 
 | 環境名 | 言語 | エピソード数 | 備考 |
 |--------|------|-------------|------|
@@ -24,6 +24,7 @@
 | haskell | Haskell | 4 | 純粋関数型 |
 | flix | Flix | 4 | JVM + 関数型・代数的効果 |
 | kotlin | Kotlin | 4 | JVM + OOP・FP ハイブリッド |
+| prolog | Prolog | 4 | 論理型・宣言的（SWI-Prolog） |
 
 ## 章構成
 
@@ -98,6 +99,7 @@ Wiki エピソード 4 の内容を 3 章に分割。OOP から FP への移行�
 | Ruby | Enumerable、ブロック/Proc/Lambda、ベンチマーク |
 | Flix | 代数的効果、Datalog 制約、型クラス（trait）、パイプライン |
 | Kotlin | 高階関数、ラムダ、Sequence、sealed class/Result |
+| Prolog | 高階述語（maplist/foldl/include）、findall、`ok/error` の直和項によるエラー表現 |
 
 ## ファイル構成
 
@@ -150,6 +152,9 @@ docs/article/
 ├── kotlin/               # Kotlin
 │   ├── index.md
 │   └── ...
+├── prolog/               # Prolog
+│   ├── index.md
+│   └── ...
 └── all/                  # 多言語統合解説
     ├── index.md
     └── ...
@@ -174,7 +179,8 @@ apps/
 ├── elixir/               # Elixir プロジェクト
 ├── haskell/              # Haskell プロジェクト
 ├── flix/                 # Flix プロジェクト
-└── kotlin/               # Kotlin プロジェクト
+├── kotlin/               # Kotlin プロジェクト
+└── prolog/               # Prolog プロジェクト
 ```
 
 ## Kotlin 追加執筆計画
@@ -242,3 +248,39 @@ Flix は JVM 上で動作する関数型ファーストの言語で、代数的�
 1. `ops/nix/environments/flix/` と `apps/flix/` の雛形を用意し、`flix test` が通る最小構成を確認する（第 1〜3 部の TDD 基盤）。
 2. `orchestrating-development` スキルに従い、章ごとに記事執筆と TDD 実装を同期させる（Haskell の 4 エピソード言語構成を参考にする）。
 3. Flix 固有の代数的効果・Datalog は第 4 部（第 11〜12 章）で重点的に扱い、他の関数型言語との差分を `docs/article/all/` に反映する。
+
+## Prolog 追加執筆計画
+
+Prolog は単一化（unification）とバックトラッキングを基礎とする論理型・宣言的言語で、これまでの命令型・OOP・FP のいずれとも異なるパラダイムを提供する。関数の代わりに述語（predicate）を、代入の代わりに単一化を、条件分岐の代わりに複数節（clause）とパターンマッチを用いる。OOP のクラス階層は持たないが、複数節による多相・モジュールシステム・高階述語（`maplist`/`foldl`/`include`/`call`）を備えるため、全 4 部（12 章）を論理型の観点で執筆できる。第 3 部の「オブジェクト指向設計」は、複数節ディスパッチ・値としての項（term）・モジュール分割へ読み替える。テストは SWI-Prolog 標準の `plunit` を用いる。
+
+### 前提整備
+
+| 項目 | 内容 | 状態 |
+|------|------|------|
+| Nix 環境 | `ops/nix/environments/prolog/`（SWI-Prolog 9.2）を追加し flake に登録 | 完了 |
+| アプリ雛形 | `apps/prolog/` に `src/`・`test/`・`Makefile`・test runner を作成 | 完了 |
+| テスト基盤 | `plunit`（`begin_tests`/`end_tests`）と `make test` を採用 | 完了 |
+| 記事ディレクトリ | `docs/article/prolog/`（`index.md` + 01〜12） | 完了 |
+
+### 章別執筆計画
+
+| 章 | テーマ | Prolog での焦点 |
+|----|--------|----------------|
+| 1 | TODO リストと最初のテスト | `plunit` の `begin_tests`/`test`/`assertion`、テストファースト |
+| 2 | 仮実装と三角測量 | ファクト（事実）による仮実装 → 複数節と `mod` による一般化 |
+| 3 | 明白な実装とリファクタリング | 単一化・カット（`!`）・`format`、モジュール化 |
+| 4 | バージョン管理と Conventional Commits | Git フロー（言語共通） |
+| 5 | パッケージ管理と静的解析 | `pack`、`swipl -g check`、singleton 変数警告 |
+| 6 | タスクランナーと CI/CD | `Makefile`・test runner、GitHub Actions、Nix |
+| 7 | カプセル化とポリモーフィズム | 複数節ディスパッチ（State/Strategy 相当）、`type_create` |
+| 8 | デザインパターンの適用 | 項としての値オブジェクト、`ok/error`、Command 述語 |
+| 9 | SOLID 原則とモジュール設計 | `module/2`・`use_module`、ファーストクラスコレクション |
+| 10 | 高階関数と関数合成 | `call/N`・`maplist`・`include`、述語合成 |
+| 11 | 不変データとパイプライン処理 | 単一化による不変性、`numlist`→`maplist` パイプライン |
+| 12 | エラーハンドリングと型安全性 | `ok/error` 直和項、`catch/throw`、`Option`（nil）表現 |
+
+### 進め方
+
+1. `ops/nix/environments/prolog/` と `apps/prolog/` の雛形を用意し、`make test` が通る最小構成を確認する（第 1〜3 部の TDD 基盤）。
+2. `orchestrating-development` スキルに従い、章ごとに記事執筆と TDD 実装を同期させる（他の関数型言語との対比を意識する）。
+3. Prolog 固有の単一化・バックトラッキング・宣言性は各部で強調し、他パラダイムとの差分を `docs/article/all/` に反映する。

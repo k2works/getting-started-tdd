@@ -1,6 +1,6 @@
 # 開発環境と CI/CD 比較
 
-本章では、15 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
+本章では、16 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
 
 ## Nix による統一開発環境アプローチ
 
@@ -61,6 +61,9 @@ nix develop .#flix
 
 # Kotlin 環境（Nix で JDK 21 + kotlin + gradle を管理）
 nix develop .#kotlin
+
+# Prolog 環境（Nix で SWI-Prolog 9.2 を管理）
+nix develop .#prolog
 ```
 
 ### Nix Flake の構造
@@ -83,7 +86,8 @@ ops/nix/
     ├── elixir.nix
     ├── haskell.nix
     ├── flix.nix
-    └── kotlin.nix
+    ├── kotlin.nix
+    └── prolog.nix
 ```
 
 ## ビルドツール比較表
@@ -105,6 +109,7 @@ ops/nix/
 | Haskell | Stack | `package.yaml` / `stack.yaml` | Stackage / Hackage | stack tasks |
 | Flix | Flix (flix.jar) | `flix.toml` | Flix パッケージ | flix.jar コマンド |
 | Kotlin | Gradle | `build.gradle.kts` | Maven Central | Gradle tasks |
+| Prolog | make（.pl 直接ロード） | `Makefile` | SWI-Prolog pack | make |
 
 > **Note**: Flix はビルド・パッケージ管理・テスト・フォーマッタ・LSP がすべて単一の `flix.jar` に同梱されており、別途ツールを追加する必要がありません。
 
@@ -127,6 +132,7 @@ ops/nix/
 | Haskell | `stack build` | `stack clean` | `stack run` |
 | Flix | `java -jar flix.jar build` | - | `java -jar flix.jar run` |
 | Kotlin | `gradle build` | `gradle clean` | `gradle run` |
+| Prolog | - (インタプリタ) | - | `swipl -g main src/main.pl` |
 
 ## リンター / フォーマッタ比較表
 
@@ -155,6 +161,7 @@ ops/nix/
 | Kotlin | detekt | バグパターン + 複雑度 | `detekt.yml` |
 | Kotlin | ktlint | コーディングスタイル | `.editorconfig` |
 | Kotlin | コンパイラ標準 | 型検査 + null 検査 + when 網羅性検査 | `build.gradle.kts` |
+| Prolog | コンパイラ標準（ロード時警告） | singleton 変数警告 + 未定義述語検出 + 構文検査 | `Makefile` |
 
 ### フォーマッタ
 
@@ -175,6 +182,7 @@ ops/nix/
 | Haskell | Ormolu / Fourmolu | 設定不要（標準） |
 | Flix | flix format（標準同梱） | 設定不要（標準） |
 | Kotlin | ktlint（自動修正） | `.editorconfig` |
+| Prolog | - (専用フォーマッタなし) | - |
 
 ## CI/CD ワークフロー構成
 
@@ -197,7 +205,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix, kotlin]
+        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix, kotlin, prolog]
     steps:
       - uses: actions/checkout@v4
 
@@ -233,10 +241,13 @@ jobs:
 | Haskell | `stack exec -- hlint .` | `stack test` | HPC |
 | Flix | `java -jar flix.jar check` | `java -jar flix.jar test` | - |
 | Kotlin | `gradle detekt ktlintCheck` | `gradle test` | `gradle koverReport` |
+| Prolog | `make lint` | `make test` | - |
 
 > **Note**: Kotlin は `.github/workflows/kotlin-ci.yml` で Nix 環境上の `gradle build` と `gradle test` を実行します。
 
 > **Note**: Flix は `flix init` が GitHub Actions ワークフローを生成し、CI では `flix.jar` を都度ダウンロードして利用します。
+
+> **Note**: Prolog は `.github/workflows/prolog-ci.yml` で `nix develop .#prolog --command bash -c "cd apps/prolog && make lint / make test"` を実行します。`paths` は `apps/prolog/**`・当ワークフロー・`ops/nix/environments/prolog/shell.nix` に限定されます。
 
 ## 品質ゲートの統一
 
@@ -275,6 +286,7 @@ jobs:
 | Haskell | HLint | - | HSpec | HPC |
 | Flix | コンパイラ標準（型/効果/網羅性検査） | - | flix test | - |
 | Kotlin | detekt + ktlint | detekt | kotlin.test | Kover / JaCoCo |
+| Prolog | コンパイラ標準（ロード時警告） | - | plunit | - |
 
 ## Taskfile による統一タスクランナー
 
@@ -348,10 +360,11 @@ tasks:
 | Haskell | `stack test --file-watch` | ファイル変更で自動テスト |
 | Flix | LSP + エディタ連携 | flix.jar 同梱の LSP で即時フィードバック |
 | Kotlin | `gradle test --continuous` | 変更検知で自動テスト |
+| Prolog | `make test`（再ロード） | consult で即時再読み込み |
 
 ## まとめ
 
-1. **Nix** により 15 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供します
+1. **Nix** により 16 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供し、Prolog は Nix で SWI-Prolog 9.2 を提供します
 2. **ビルドツール**は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます
 3. **リンター / フォーマッタ**はすべての言語で導入されており、「lint + complexity + test」の 3 段階品質ゲートを統一的に適用しています
 4. **CI/CD** は GitHub Actions + Nix の共通パターンで、matrix strategy により全言語のテストを並列実行できます
