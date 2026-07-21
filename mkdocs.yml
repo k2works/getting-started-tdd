@@ -277,9 +277,23 @@ nav:
           - 第 10 章 高階関数と関数合成: article/kotlin/10-higher-order-functions-and-composition.md
           - 第 11 章 不変データとパイプライン処理: article/kotlin/11-immutable-data-and-pipeline.md
           - 第 12 章 エラーハンドリングと型安全性: article/kotlin/12-error-handling-and-type-safety.md
+      - Prolog:
+          - 概要: article/prolog/index.md
+          - 第 1 章 TODO リストと最初のテスト: article/prolog/01-todo-list-and-first-test.md
+          - 第 2 章 仮実装と三角測量: article/prolog/02-fake-it-and-triangulation.md
+          - 第 3 章 明白な実装とリファクタリング: article/prolog/03-obvious-implementation-and-refactoring.md
+          - 第 4 章 バージョン管理と Conventional Commits: article/prolog/04-version-control-and-conventional-commits.md
+          - 第 5 章 パッケージ管理と静的解析: article/prolog/05-package-management-and-static-analysis.md
+          - 第 6 章 タスクランナーと CI/CD: article/prolog/06-task-runner-and-ci-cd.md
+          - 第 7 章 複数節ディスパッチとポリモーフィズム: article/prolog/07-clause-dispatch-and-polymorphism.md
+          - 第 8 章 項とデザインパターン: article/prolog/08-terms-and-design-patterns.md
+          - 第 9 章 モジュール設計: article/prolog/09-modules-and-module-design.md
+          - 第 10 章 高階述語と述語合成: article/prolog/10-higher-order-predicates-and-composition.md
+          - 第 11 章 不変データとパイプライン処理: article/prolog/11-immutable-data-and-pipeline.md
+          - 第 12 章 エラーハンドリングと型安全性: article/prolog/12-error-handling-and-type-safety.md
       - 多言語統合解説:
           - 概要: article/integration/index.md
-          - 16 言語の概要と分類: article/integration/01-language-overview.md
+          - 17 言語の概要と分類: article/integration/01-language-overview.md
           - テストフレームワーク比較: article/integration/02-test-framework-comparison.md
           - パラダイム別 TDD パターン比較: article/integration/03-tdd-pattern-comparison.md
           - 型システムとエラーハンドリング比較: article/integration/04-type-system-comparison.md
