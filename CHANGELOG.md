@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [4.3.0] - 2026-09-25
+
+トータルスコアによる総合比較と言語の性格コラムを、学習ロードマップから独立した章（第 7・8 章）に分離。コラムに『君のことが大大大大大好きな100人の彼女』版の比喩を追加。
+
+### Documentation
+
+- docs(integration): 総合スコアとコラムを独立した章に分離 (9f05921)
+- docs(integration): コラムに 100 人の彼女版の比喩を追加 (72b9725)
+
 ## [4.2.0] - 2026-09-25
 
 学習ロードマップに、16 言語の性格を『Fate/stay night』の登場人物で例えるコラムを追加。作品を知らない読者向けの前提解説と公式サイトへのリンクを併記。
