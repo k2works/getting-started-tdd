@@ -14,7 +14,7 @@ TDD を支える開発基盤として、依存関係の管理とコード品質�
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.2.20"
     application
 }
 
@@ -43,7 +43,7 @@ application {
 
 | 要素 | 説明 |
 |------|------|
-| `kotlin("jvm") version "2.1.0"` | Kotlin/JVM プラグイン（Kotlin 2.x） |
+| `kotlin("jvm") version "2.2.20"` | Kotlin/JVM プラグイン（Kotlin 2.x） |
 | `application` | `gradle run` で `main` を実行できるようにする |
 | `repositories { mavenCentral() }` | 依存を Maven Central から取得 |
 | `testImplementation(kotlin("test"))` | テスト用に kotlin.test を追加 |
@@ -86,7 +86,7 @@ detekt は Kotlin 向けの静的解析ツールで、コードスメル・複�
 ```kotlin
 // build.gradle.kts（導入例）
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.2.20"
     application
     id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }

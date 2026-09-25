@@ -24,8 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Force render any mermaid diagrams
+        // mermaid 11 では init() が非推奨のため run() を使う
         setTimeout(function() {
-            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+            const nodes = document.querySelectorAll('.mermaid');
+            if (typeof mermaid.run === 'function') {
+                mermaid.run({ nodes: nodes });
+            } else {
+                mermaid.init(undefined, nodes);
+            }
         }, 1000);
     } else {
         console.error('Mermaid library not loaded');

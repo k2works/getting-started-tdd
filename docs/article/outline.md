@@ -194,7 +194,7 @@ Kotlin は JVM 上で動作する静的型付けの言語で、OOP と FP をバ
 | Nix 環境 | `ops/nix/environments/kotlin/`（JDK 21 + kotlin + gradle）を追加し flake に登録 | 完了 |
 | アプリ雛形 | `apps/kotlin/` に Gradle（Kotlin JVM）プロジェクト（`build.gradle.kts`, `src/main`, `src/test`）を作成 | 完了 |
 | テスト基盤 | `kotlin.test`（JUnit Platform）と `gradle test` を採用 | 完了 |
-| 記事ディレクトリ | `docs/article/kotlin/`（`index.md` + 01〜12） | 進行中 |
+| 記事ディレクトリ | `docs/article/kotlin/`（`index.md` + 01〜12） | 完了 |
 
 ### 章別執筆計画
 

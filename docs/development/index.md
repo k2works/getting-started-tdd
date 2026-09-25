@@ -2,7 +2,7 @@
 
 ## 計画
 
-- [リリース計画](./release_plan.md) - 3 フェーズ × 12 イテレーションのリリース計画
+- [リリース計画](./release_plan.md) - 4 フェーズ × 15 イテレーションのリリース計画
 
 ## イテレーション 1（Java）
 
@@ -75,3 +75,26 @@
 - [イテレーション 12 計画](./iteration_plan-12.md) - Haskell + 多言語統合解説の執筆・実装計画
 - [ふりかえり 12](./retrospective-12.md) - IT12 KPT 分析（プロジェクト全体ふりかえり含む）
 - [完了報告書 12](./iteration_report-12.md) - IT12 実績・品質メトリクス（最終報告書）
+
+## Phase 4（追加言語: Kotlin / Flix / Prolog）
+
+Phase 3 完了後に追加した 3 言語（イテレーション 13〜15、計 39 SP）。
+執筆計画は [記事アウトライン](../article/outline.md) の「追加執筆計画」、
+実績は [リリース計画](./release_plan.md) の Phase 4 節に記載。
+
+- IT13 Kotlin（13 SP） - [記事](../article/kotlin/index.md) / `apps/kotlin` / 39 テスト
+- IT14 Flix（13 SP） - [記事](../article/flix/index.md) / `apps/flix` / 45 テスト
+- IT15 Prolog（13 SP） - [記事](../article/prolog/index.md) / `apps/prolog` / 28 テスト
+- [Phase 4 完了報告書](./iteration_report-phase4.md) - IT13〜15 の実績・KPT・残作業
+
+## テスト実行環境
+
+全 15 アプリのテストは 2026-09-25 時点でグリーン。実行環境には次の区分がある。
+
+- ホスト環境で実行可 - go, rust, python, node, php, dotnet, elixir, java,
+  kotlin, scala, clojure
+- Nix 環境が必要 - haskell, ruby, flix, prolog
+
+Nix 環境は `nix develop .#<言語>` で起動する。haskell はホストの GHC 9.8.4 と
+Apple `ar` の組み合わせでリンクに失敗し、ruby はホストの system Ruby 2.6 が
+`Gemfile.lock` の Bundler 2.7.2 を満たせないため、いずれも Nix 環境で実行する。
