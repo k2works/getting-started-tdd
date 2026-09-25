@@ -10324,9 +10324,9 @@
 </code></pre></div>
 <p>型シグネチャを読むと、<code>map</code> は「<code>a</code> 型を <code>b</code> 型に変換する関数」と「<code>a</code> 型のリスト」を受け取り、「<code>b</code> 型のリスト」を返すことがわかります。<code>a</code> と <code>b</code> は型変数であり、任意の型を取れます。</p>
 <p>FizzBuzz リストに感嘆符を付加する例を見てみましょう。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- FizzBuzz リストの各要素に &quot;!&quot; を付加する</span>
-<span class="nf">map</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;1!&quot;, &quot;2!&quot;, &quot;Fizz!&quot;, &quot;4!&quot;, &quot;Buzz!&quot;]</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- FizzBuzz リストの各要素に "!" を付加する</span>
+<span class="nf">map</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="w"> </span><span class="s">"!"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["1!", "2!", "Fizz!", "4!", "Buzz!"]</span>
 </code></pre></div>
 <p><code>generateList</code> の定義自体も <code>map</code> を使っています。</p>
 <div class="highlight"><pre><span></span><code><span class="nf">generateList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">String</span><span class="p">]</span>
@@ -10338,13 +10338,13 @@
 <div class="highlight"><pre><span></span><code><span class="nf">filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
 </code></pre></div>
 <p>FizzBuzz リストから "Fizz" だけを抽出する例です。</p>
-<div class="highlight"><pre><span></span><code><span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;]</span>
+<div class="highlight"><pre><span></span><code><span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["Fizz", "Fizz", "Fizz", "Fizz"]</span>
 </code></pre></div>
 <p>数値だけを抽出する例も見てみましょう。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- &quot;Fizz&quot;、&quot;Buzz&quot;、&quot;FizzBuzz&quot; でない要素を抽出</span>
-<span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;7&quot;, &quot;8&quot;, &quot;11&quot;, &quot;13&quot;, &quot;14&quot;]</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- "Fizz"、"Buzz"、"FizzBuzz" でない要素を抽出</span>
+<span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["1", "2", "4", "7", "8", "11", "13", "14"]</span>
 </code></pre></div>
 <p>ここで <code>\s -&gt; ...</code> はラムダ式（無名関数）です。<code>\</code> は数学のラムダ記号（λ）を ASCII で表現したものです。</p>
 <h3 id="foldl-foldr">foldl / foldr — リストの畳み込み<a class="headerlink" href="#foldl-foldr" title="Permanent link">&para;</a></h3>
@@ -10353,13 +10353,13 @@
 <span class="nf">foldr</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">b</span>
 </code></pre></div>
 <p><code>foldl</code> は左から右へ、<code>foldr</code> は右から左へ畳み込みます。FizzBuzz リストの集計に使ってみましょう。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- &quot;Fizz&quot; の出現回数をカウントする</span>
-<span class="nf">foldl</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">count</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- "Fizz" の出現回数をカウントする</span>
+<span class="nf">foldl</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">count</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
 <span class="c1">-- =&gt; 4</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- FizzBuzz リストをカンマ区切りの文字列に結合する</span>
-<span class="nf">foldl</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">acc</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="c1">-- =&gt; &quot;1, 2, Fizz, 4, Buzz&quot;</span>
+<span class="nf">foldl</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">acc</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="s">""</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">-- =&gt; "1, 2, Fizz, 4, Buzz"</span>
 </code></pre></div>
 <p><code>foldl</code> と <code>foldr</code> の違いは畳み込みの方向と結合の仕方にあります。</p>
 <table>
@@ -10391,11 +10391,11 @@
 <h3 id="red">Red: カスタムルールのテスト<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <p><code>generateWith</code> は「FizzBuzz の生成ルールを外部から注入する」高階関数です。まずテストを書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;generateWith&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;カスタムルールで生成できる&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="s">&quot;Even&quot;</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="s">&quot;Odd&quot;</span>
-<span class="w">    </span><span class="n">generateWith</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Even&quot;</span>
-<span class="w">    </span><span class="n">generateWith</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Odd&quot;</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"generateWith"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"カスタムルールで生成できる"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="s">"Even"</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="s">"Odd"</span>
+<span class="w">    </span><span class="n">generateWith</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Even"</span>
+<span class="w">    </span><span class="n">generateWith</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Odd"</span>
 </code></pre></div>
 <h3 id="green-generatewith">Green: generateWith の実装<a class="headerlink" href="#green-generatewith" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
@@ -10412,22 +10412,22 @@
 <h3 id="_2">実践: デフォルトルールの利用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><code>generateWith</code> に <code>generate</code> を渡せば、通常の FizzBuzz と同じ結果が得られます。</p>
 <div class="highlight"><pre><span></span><code><span class="nf">generateWith</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">15</span>
-<span class="c1">-- =&gt; &quot;FizzBuzz&quot;</span>
+<span class="c1">-- =&gt; "FizzBuzz"</span>
 
 <span class="nf">generateWith</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span>
-<span class="c1">-- =&gt; &quot;Fizz&quot;</span>
+<span class="c1">-- =&gt; "Fizz"</span>
 </code></pre></div>
 <p>カスタムルールも自由に定義できます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 偶数・奇数ルール</span>
-<span class="kr">let</span><span class="w"> </span><span class="n">evenOdd</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="s">&quot;Even&quot;</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="s">&quot;Odd&quot;</span>
+<span class="kr">let</span><span class="w"> </span><span class="n">evenOdd</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="s">"Even"</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="s">"Odd"</span>
 <span class="nf">generateWith</span><span class="w"> </span><span class="n">evenOdd</span><span class="w"> </span><span class="mi">4</span>
-<span class="c1">-- =&gt; &quot;Even&quot;</span>
+<span class="c1">-- =&gt; "Even"</span>
 
 <span class="c1">-- すべて大文字に変換するルール</span>
 <span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"> </span><span class="p">(</span><span class="nf">toUpper</span><span class="p">)</span>
 <span class="kr">let</span><span class="w"> </span><span class="n">shoutRule</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">toUpper</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="nf">generateWith</span><span class="w"> </span><span class="n">shoutRule</span><span class="w"> </span><span class="mi">3</span>
-<span class="c1">-- =&gt; &quot;FIZZ&quot;</span>
+<span class="c1">-- =&gt; "FIZZ"</span>
 </code></pre></div>
 <h2 id="104">10.4 カリー化と部分適用<a class="headerlink" href="#104" title="Permanent link">&para;</a></h2>
 <h3 id="_3">すべての関数はカリー化されている<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -10437,8 +10437,8 @@
 <span class="nf">add</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
 
 <span class="c1">-- 明示的にカリー化した形</span>
-<span class="nf">add&#39;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
-<span class="nf">add&#39;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="nf">\</span><span class="n">y</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+<span class="nf">add'</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">add'</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="nf">\</span><span class="n">y</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
 </code></pre></div>
 <p>型シグネチャ <code>Int -&gt; Int -&gt; Int</code> は、実際には <code>Int -&gt; (Int -&gt; Int)</code> と読みます。<code>-&gt;</code> は右結合なので、括弧を省略できるのです。</p>
 <h3 id="_4">部分適用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -10456,14 +10456,14 @@
 <span class="nf">fizzBuzzAll</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">generate</span>
 
 <span class="nf">fizzBuzzAll</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">]</span>
-<span class="c1">-- =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;FizzBuzz&quot;]</span>
+<span class="c1">-- =&gt; ["1", "2", "Fizz", "FizzBuzz"]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- filter に条件を渡す → 「Fizz を含む要素だけを残す関数」が得られる</span>
 <span class="nf">onlyFizz</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">String</span><span class="p">]</span>
-<span class="nf">onlyFizz</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="nf">onlyFizz</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 
 <span class="nf">onlyFizz</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;]</span>
+<span class="c1">-- =&gt; ["Fizz", "Fizz", "Fizz", "Fizz"]</span>
 </code></pre></div>
 <h3 id="_5">セクション<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>演算子の部分適用を<strong>セクション</strong>（section）と呼びます。</p>
@@ -10471,9 +10471,9 @@
 <span class="nf">map</span><span class="w"> </span><span class="p">(</span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
 <span class="c1">-- =&gt; [2, 3, 4]</span>
 
-<span class="c1">-- (== &quot;Fizz&quot;) は \x -&gt; x == &quot;Fizz&quot; と同じ</span>
-<span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;, &quot;Fizz&quot;]</span>
+<span class="c1">-- (== "Fizz") は \x -&gt; x == "Fizz" と同じ</span>
+<span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["Fizz", "Fizz", "Fizz", "Fizz"]</span>
 
 <span class="c1">-- (`mod` 3) は \x -&gt; x `mod` 3 と同じ</span>
 <span class="nf">map</span><span class="w"> </span><span class="p">(`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">9</span><span class="p">]</span>
@@ -10483,10 +10483,10 @@
 <h3 id="red-transform">Red: transform のテスト<a class="headerlink" href="#red-transform" title="Permanent link">&para;</a></h3>
 <p><code>transform</code> は <code>map</code> をラップした関数です。まずテストを書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;transform&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;リストを変換できる&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">transform</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Fizz!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz!&quot;</span><span class="p">]</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"transform"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"リストを変換できる"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">transform</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="w"> </span><span class="s">"!"</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">]</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">"Fizz!"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz!"</span><span class="p">]</span>
 </code></pre></div>
 <h3 id="green-transform">Green: transform の実装<a class="headerlink" href="#green-transform" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
@@ -10496,10 +10496,10 @@
 <p><code>transform</code> の型シグネチャは <code>map</code> と同じです。<code>transform = map</code> は、<code>transform</code> を <code>map</code> の別名として定義しています。これは<strong>ポイントフリー</strong>（引数を明示しない）スタイルの定義です。次の章で詳しく解説します。</p>
 <h3 id="red-filterlist">Red: filterList のテスト<a class="headerlink" href="#red-filterlist" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;filterList&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;リストをフィルタリングできる&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filterList</span><span class="w"> </span><span class="p">(</span><span class="o">/=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">]</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"filterList"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"リストをフィルタリングできる"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="kr">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filterList</span><span class="w"> </span><span class="p">(</span><span class="o">/=</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">]</span>
 </code></pre></div>
 <h3 id="green-filterlist">Green: filterList の実装<a class="headerlink" href="#green-filterlist" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
@@ -10533,24 +10533,24 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="w">    </span><span class="kt">Map</span><span class="o">.</span><span class="n">empty</span>
 <span class="w">    </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="w">  </span><span class="kr">where</span>
-<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
-<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="kr">_</span><span class="w">          </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Number&quot;</span>
+<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w">     </span><span class="ow">=</span><span class="w"> </span><span class="s">"Buzz"</span>
+<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="n">classify</span><span class="w"> </span><span class="kr">_</span><span class="w">          </span><span class="ow">=</span><span class="w"> </span><span class="s">"Number"</span>
 
 <span class="nf">summarize</span><span class="w"> </span><span class="mi">15</span>
-<span class="c1">-- =&gt; fromList [(&quot;Buzz&quot;,2),(&quot;Fizz&quot;,4),(&quot;FizzBuzz&quot;,1),(&quot;Number&quot;,8)]</span>
+<span class="c1">-- =&gt; fromList [("Buzz",2),("Fizz",4),("FizzBuzz",1),("Number",8)]</span>
 </code></pre></div>
 <h3 id="fizzbuzz_1">FizzBuzz リストの加工パイプライン<a class="headerlink" href="#fizzbuzz_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- 1 から 30 までの FizzBuzz リストから、</span>
-<span class="c1">-- &quot;Fizz&quot; または &quot;Buzz&quot; の要素だけを取り出し、</span>
+<span class="c1">-- "Fizz" または "Buzz" の要素だけを取り出し、</span>
 <span class="c1">-- 大文字に変換して、件数を数える</span>
 <span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"> </span><span class="p">(</span><span class="nf">toUpper</span><span class="p">)</span>
 
 <span class="nf">result</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">  </span><span class="n">length</span>
 <span class="w">    </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">toUpper</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">)</span>
 <span class="w">        </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">30</span><span class="p">)))</span>
 <span class="c1">-- =&gt; 14</span>
 </code></pre></div>
@@ -10561,11 +10561,11 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <div class="highlight"><pre><span></span><code><span class="c1">// Java</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="p">::</span><span class="n">generate</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">))</span>
 <span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell</span>
-<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">])</span>
+<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">])</span>
 </code></pre></div>
 <p>Java の Stream API は<strong>メソッドチェーン</strong>で処理を繋ぎます。Haskell では関数の組み合わせ（合成やネスト）で同じことを実現します。</p>
 <table>
@@ -10602,16 +10602,16 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <h3 id="python-map-filter">Python の map / filter<a class="headerlink" href="#python-map-filter" title="Permanent link">&para;</a></h3>
 <p>Python にも組み込みの <code>map</code> と <code>filter</code> がありますが、Python ではリスト内包表記が好まれます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Python</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">if</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">if</span> <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">]</span>
 
 <span class="c1"># map / filter を使う場合</span>
-<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="n">generate</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">))))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="n">generate</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">))))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell（リスト内包表記も使える）</span>
-<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">s</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">],</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">]</span>
+<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">s</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">],</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">]</span>
 
 <span class="c1">-- map / filter を使う場合</span>
-<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">])</span>
+<span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">])</span>
 </code></pre></div>
 <p>Haskell のリスト内包表記は Python と似た構文ですが、ガード条件の記述がより自然です。</p>
 <h3 id="elixir-enum">Elixir の Enum モジュール<a class="headerlink" href="#elixir-enum" title="Permanent link">&para;</a></h3>
@@ -10619,11 +10619,11 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <div class="highlight"><pre><span></span><code><span class="c1"># Elixir</span>
 <span class="mi">1</span><span class="o">..</span><span class="mi">15</span>
 <span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
-<span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="ni">&amp;1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">))</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="ni">&amp;1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">))</span>
 <span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell</span>
-<span class="nf">length</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]))</span>
+<span class="nf">length</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]))</span>
 </code></pre></div>
 <p>Elixir のパイプライン演算子は処理の流れを左から右へ読める点が直感的です。Haskell では関数合成 <code>.</code> や関数適用 <code>$</code> で同様の可読性を実現します（次章で詳述）。</p>
 <h3 id="_7">カリー化の比較<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -10741,7 +10741,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

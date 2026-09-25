@@ -10142,12 +10142,12 @@ packages<span class="o">.</span>mkShell <span class="p">{</span>
     hlint
   <span class="p">];</span>
 
-  <span class="ss">shellHook</span> <span class="o">=</span> baseShell<span class="o">.</span>shellHook <span class="o">+</span> <span class="s s-Multiline">&#39;&#39;</span>
-<span class="s s-Multiline">    echo &quot;Welcome to the Haskell development environment!&quot;</span>
+  <span class="ss">shellHook</span> <span class="o">=</span> baseShell<span class="o">.</span>shellHook <span class="o">+</span> <span class="s s-Multiline">''</span>
+<span class="s s-Multiline">    echo "Welcome to the Haskell development environment!"</span>
 <span class="s s-Multiline">    ghc --version</span>
 <span class="s s-Multiline">    cabal --version</span>
 <span class="s s-Multiline">    stack --version</span>
-<span class="s s-Multiline">  &#39;&#39;</span><span class="p">;</span>
+<span class="s s-Multiline">  ''</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>環境の起動:</p>
@@ -10260,7 +10260,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell
 make<span class="w"> </span>check
 
 <span class="c1"># または Nix 環境外からワンライナーで実行</span>
-nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="w"> </span>--command<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd apps/haskell &amp;&amp; make check&quot;</span>
+nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="w"> </span>--command<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd apps/haskell &amp;&amp; make check"</span>
 </code></pre></div>
 <p><code>make check</code> の実行順序は次の通りです。</p>
 <ol>
@@ -10281,12 +10281,12 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/haskell/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/haskell-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/haskell/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/haskell-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/haskell/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/haskell-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/haskell/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/haskell-ci.yml"</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">build-and-test</span><span class="p">:</span>
@@ -10302,7 +10302,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/nix-cache</span>
-<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-haskell-${{ hashFiles(&#39;flake.lock&#39;, &#39;ops/nix/environments/haskell/shell.nix&#39;) }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-haskell-${{ hashFiles('flake.lock', 'ops/nix/environments/haskell/shell.nix') }}</span>
 <span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">${{ runner.os }}-nix-haskell-</span>
 
@@ -10312,21 +10312,21 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">~/.stack</span>
 <span class="w">            </span><span class="no">apps/haskell/.stack-work</span>
-<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-stack-${{ hashFiles(&#39;apps/haskell/stack.yaml&#39;, &#39;apps/haskell/package.yaml&#39;) }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-stack-${{ hashFiles('apps/haskell/stack.yaml', 'apps/haskell/package.yaml') }}</span>
 <span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">${{ runner.os }}-stack-</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build dependencies</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c &quot;cd apps/haskell &amp;&amp; stack build --only-dependencies --test --no-run-tests&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c "cd apps/haskell &amp;&amp; stack build --only-dependencies --test --no-run-tests"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint (HLint)</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c &quot;cd apps/haskell &amp;&amp; hlint src/ test/ app/&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c "cd apps/haskell &amp;&amp; hlint src/ test/ app/"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Complexity check</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c &quot;cd apps/haskell &amp;&amp; bash scripts/complexity.sh --threshold 10 src&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c "cd apps/haskell &amp;&amp; bash scripts/complexity.sh --threshold 10 src"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c &quot;cd apps/haskell &amp;&amp; stack test&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#haskell --command bash -c "cd apps/haskell &amp;&amp; stack test"</span>
 </code></pre></div>
 <h3 id="_3">ワークフローの構成<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>CI パイプラインは次の 4 ステップで構成されています。</p>
@@ -10360,12 +10360,12 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <div class="highlight"><pre><span></span><code><span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/haskell/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/haskell-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/haskell/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/haskell-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/haskell/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/haskell-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/haskell/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/haskell-ci.yml"</span>
 </code></pre></div>
 <p><code>paths</code> フィルタにより、Haskell 関連ファイルまたはワークフロー定義に変更があった場合のみ CI が実行されます。他の言語のコード変更では実行されないため、CI リソースを節約できます。</p>
 <h3 id="_5">キャッシュ戦略<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -10375,7 +10375,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
 <span class="w">  </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/nix-cache</span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-haskell-${{ hashFiles(&#39;flake.lock&#39;, &#39;ops/nix/environments/haskell/shell.nix&#39;) }}</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-haskell-${{ hashFiles('flake.lock', 'ops/nix/environments/haskell/shell.nix') }}</span>
 </code></pre></div>
 <p><code>flake.lock</code> と <code>shell.nix</code> のハッシュをキーにすることで、Nix 環境が変わらない限りキャッシュが再利用されます。</p>
 <p><strong>Stack キャッシュ</strong></p>
@@ -10385,7 +10385,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#haskell<span class="
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">      </span><span class="no">~/.stack</span>
 <span class="w">      </span><span class="no">apps/haskell/.stack-work</span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-stack-${{ hashFiles(&#39;apps/haskell/stack.yaml&#39;, &#39;apps/haskell/package.yaml&#39;) }}</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-stack-${{ hashFiles('apps/haskell/stack.yaml', 'apps/haskell/package.yaml') }}</span>
 </code></pre></div>
 <p><code>stack.yaml</code> と <code>package.yaml</code> のハッシュをキーにすることで、依存関係が変わらない限りビルド済みパッケージが再利用されます。<code>~/.stack</code> にはグローバルなパッケージデータベース、<code>apps/haskell/.stack-work</code> にはプロジェクト固有のビルド成果物が保存されます。</p>
 <h3 id="nix-ci">Nix を CI で使う利点<a class="headerlink" href="#nix-ci" title="Permanent link">&para;</a></h3>
@@ -10451,7 +10451,7 @@ make<span class="w"> </span>check
 
 <span class="c1"># コミットしてプッシュ</span>
 git<span class="w"> </span>add<span class="w"> </span>src/FizzBuzz.hs<span class="w"> </span>test/FizzBuzz/FizzBuzzSpec.hs
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(fizzbuzz): generateList を実装&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat(fizzbuzz): generateList を実装"</span>
 git<span class="w"> </span>push
 </code></pre></div>
 <h2 id="67">6.7 まとめ<a class="headerlink" href="#67" title="Permanent link">&para;</a></h2>
@@ -10531,7 +10531,7 @@ git<span class="w"> </span>push
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

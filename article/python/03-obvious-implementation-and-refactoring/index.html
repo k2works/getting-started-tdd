@@ -10124,18 +10124,18 @@
     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate_list</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FizzBuzz&quot;</span>
-    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"2"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"4"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"FizzBuzz"</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1から100までのFizzBuzzを生成する FAILED
 
-E       AttributeError: &#39;FizzBuzz&#39; object has no attribute &#39;generate_list&#39;
+E       AttributeError: 'FizzBuzz' object has no attribute 'generate_list'
 </code></pre></div>
 <h3 id="green">Green: 明白な実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
 <p>Python のリスト内包表記を使って簡潔に実装します。</p>
@@ -10143,11 +10143,11 @@ E       AttributeError: &#39;FizzBuzz&#39; object has no attribute &#39;generate
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"FizzBuzz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Buzz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">generate_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
@@ -10169,13 +10169,13 @@ E       AttributeError: &#39;FizzBuzz&#39; object has no attribute &#39;generate
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_プリントする</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">print_fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
     <span class="n">captured</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="n">captured</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">captured</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
-    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
-    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span>
+    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">lines</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"FizzBuzz"</span>
 </code></pre></div>
 <h3 id="_2">実装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">print_fizzbuzz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -10188,7 +10188,7 @@ E       AttributeError: &#39;FizzBuzz&#39; object has no attribute &#39;generate
 <div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lib.fizzbuzz</span><span class="w"> </span><span class="kn">import</span> <span class="n">FizzBuzz</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">fizzbuzz</span> <span class="o">=</span> <span class="n">FizzBuzz</span><span class="p">()</span>
     <span class="n">fizzbuzz</span><span class="o">.</span><span class="n">print_fizzbuzz</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
@@ -10360,7 +10360,7 @@ Buzz
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

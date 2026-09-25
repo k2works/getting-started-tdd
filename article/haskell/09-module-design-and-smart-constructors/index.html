@@ -10500,7 +10500,7 @@
 <span class="nf">createType</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="kt">Type01</span>
 <span class="nf">createType</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="kt">Type02</span>
 <span class="nf">createType</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="kt">Type03</span>
-<span class="nf">createType</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;未定義のタイプです&quot;</span>
+<span class="nf">createType</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"未定義のタイプです"</span>
 </code></pre></div>
 <p>スマートコンストラクタは、値の生成に <strong>バリデーション</strong> を挟むことで、不正な値の生成を防ぐパターンです。</p>
 <table>
@@ -10540,7 +10540,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1">-- Either の値を使うには、パターンマッチでエラーケースを処理する必要がある</span>
 <span class="kr">case</span><span class="w"> </span><span class="n">createType</span><span class="w"> </span><span class="n">userInput</span><span class="w"> </span><span class="kr">of</span>
 <span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="n">fbType</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">fbType</span><span class="w"> </span><span class="mi">15</span><span class="w">   </span><span class="c1">-- 正常系</span>
-<span class="w">  </span><span class="kt">Left</span><span class="w"> </span><span class="n">errMsg</span><span class="w">  </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">&quot;Error: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">errMsg</span><span class="w">  </span><span class="c1">-- エラー系</span>
+<span class="w">  </span><span class="kt">Left</span><span class="w"> </span><span class="n">errMsg</span><span class="w">  </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">"Error: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">errMsg</span><span class="w">  </span><span class="c1">-- エラー系</span>
 </code></pre></div>
 <p>Go の <code>(value, error)</code> パターンと似ていますが、Haskell ではコンパイラが両方のケースの処理を網羅性チェックで検証するため、エラーの無視が困難です。</p>
 <h2 id="95">9.5 コマンドパターン<a class="headerlink" href="#95" title="Permanent link">&para;</a></h2>
@@ -10599,24 +10599,24 @@
 
 <span class="nf">spec</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Spec</span>
 <span class="nf">spec</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">&quot;ValueCommand&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;指定した数値で実行できる&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">"ValueCommand"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"指定した数値で実行できる"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">      </span><span class="kr">let</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ValueCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">vcNumber</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">vcType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Type01</span><span class="w"> </span><span class="p">}</span>
 <span class="w">          </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">executeValue</span><span class="w"> </span><span class="n">cmd</span>
-<span class="w">      </span><span class="n">value</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="w">      </span><span class="n">value</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Fizz"</span>
 
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;15 の倍数で FizzBuzz を返す&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"15 の倍数で FizzBuzz を返す"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">      </span><span class="kr">let</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ValueCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">vcNumber</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="n">vcType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Type01</span><span class="w"> </span><span class="p">}</span>
 <span class="w">          </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">executeValue</span><span class="w"> </span><span class="n">cmd</span>
-<span class="w">      </span><span class="n">value</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
+<span class="w">      </span><span class="n">value</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">&quot;ListCommand&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;デフォルトで 100 件のリストを生成する&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">"ListCommand"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"デフォルトで 100 件のリストを生成する"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">      </span><span class="kr">let</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ListCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lcCount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">lcType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Type01</span><span class="w"> </span><span class="p">}</span>
 <span class="w">          </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">executeList</span><span class="w"> </span><span class="n">cmd</span>
 <span class="w">      </span><span class="n">listCount</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="mi">100</span>
 
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;指定した件数でリストを生成する&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"指定した件数でリストを生成する"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">      </span><span class="kr">let</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ListCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lcCount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">lcType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Type01</span><span class="w"> </span><span class="p">}</span>
 <span class="w">          </span><span class="n">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">executeList</span><span class="w"> </span><span class="n">cmd</span>
 <span class="w">      </span><span class="n">listCount</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span>
@@ -10642,30 +10642,30 @@ FizzBuzz.CommandSpec
 <span class="w">    </span>指定した件数でリストを生成する
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">30</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">30</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
 <span class="w">  </span>generateList
 <span class="w">    </span><span class="m">100</span><span class="w"> </span>件のリストを生成する
-<span class="w">    </span>最初の要素は<span class="w"> </span><span class="s1">&#39;1&#39;</span>
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span>
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span>
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span>
+<span class="w">    </span>最初の要素は<span class="w"> </span><span class="s1">'1'</span>
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'Fizz'</span>
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'Buzz'</span>
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'FizzBuzz'</span>
 FizzBuzz.TypeSpec
 <span class="w">  </span>Type01
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
 <span class="w">  </span>Type02
 <span class="w">    </span>数値を文字列に変換する
 <span class="w">  </span>Type03
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数で<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数で<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
 <span class="w">  </span>createType
 <span class="w">    </span>タイプ<span class="w"> </span><span class="m">1</span><span class="w"> </span>を生成できる
 <span class="w">    </span>タイプ<span class="w"> </span><span class="m">2</span><span class="w"> </span>を生成できる
@@ -10882,7 +10882,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

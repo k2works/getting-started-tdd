@@ -10226,18 +10226,18 @@
 <p>Java の Gradle、Node の npm、Python の uv、Ruby の Bundler、Rust の Cargo に相当するのが NuGet です。</p>
 <h3 id="fsproj">.fsproj ファイルの構成<a class="headerlink" href="#fsproj" title="Permanent link">&para;</a></h3>
 <p>F# プロジェクトの設定は <code>.fsproj</code> ファイルで管理されます。本プロジェクトのライブラリプロジェクトは以下の構成です。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
 <span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <span class="w">    </span><span class="nt">&lt;GenerateDocumentationFile&gt;</span>true<span class="nt">&lt;/GenerateDocumentationFile&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Library.fs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Library.fs"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="nt">&lt;/Project&gt;</span>
 </code></pre></div>
 <p>テストプロジェクトの設定は以下の通りです。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
 <span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <span class="w">    </span><span class="nt">&lt;IsPackable&gt;</span>false<span class="nt">&lt;/IsPackable&gt;</span>
@@ -10245,17 +10245,17 @@
 <span class="w">    </span><span class="nt">&lt;IsTestProject&gt;</span>true<span class="nt">&lt;/IsTestProject&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Tests.fs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Program.fs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Tests.fs"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Compile</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Program.fs"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.NET.Test.Sdk&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;17.8.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit.runner.visualstudio&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;coverlet.collector&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;6.0.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.NET.Test.Sdk"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"17.8.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit.runner.visualstudio"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"coverlet.collector"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"6.0.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;..\FizzBuzzFSharp\FizzBuzzFSharp.fsproj&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"..\FizzBuzzFSharp\FizzBuzzFSharp.fsproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="nt">&lt;/Project&gt;</span>
 </code></pre></div>
@@ -10320,14 +10320,14 @@ $<span class="w"> </span>fantomas<span class="w"> </span>src/<span class="w"> </
 <h3 id="_3">コードスタイル例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>Fantomas はデフォルトで F# のスタイルガイドに従ったフォーマットを適用します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Before（手動フォーマット）</span>
-<span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="n">int</span><span class="o">):</span><span class="kt">string</span><span class="o">=</span><span class="k">match</span><span class="o">(</span><span class="n">number</span><span class="o">%</span><span class="mi">3</span><span class="o">,</span><span class="n">number</span><span class="o">%</span><span class="mi">5</span><span class="o">)</span><span class="k">with</span><span class="o">|(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">)-&gt;</span><span class="s">&quot;FizzBuzz&quot;</span><span class="o">|(</span><span class="mi">0</span><span class="o">,_)-&gt;</span><span class="s">&quot;Fizz&quot;</span><span class="o">|(_,</span><span class="mi">0</span><span class="o">)-&gt;</span><span class="s">&quot;Buzz&quot;</span><span class="o">|_-&gt;</span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
+<span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="n">int</span><span class="o">):</span><span class="kt">string</span><span class="o">=</span><span class="k">match</span><span class="o">(</span><span class="n">number</span><span class="o">%</span><span class="mi">3</span><span class="o">,</span><span class="n">number</span><span class="o">%</span><span class="mi">5</span><span class="o">)</span><span class="k">with</span><span class="o">|(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">)-&gt;</span><span class="s">"FizzBuzz"</span><span class="o">|(</span><span class="mi">0</span><span class="o">,_)-&gt;</span><span class="s">"Fizz"</span><span class="o">|(_,</span><span class="mi">0</span><span class="o">)-&gt;</span><span class="s">"Buzz"</span><span class="o">|_-&gt;</span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
 
 <span class="c1">// After（Fantomas 適用後）</span>
 <span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="o">)</span><span class="w"> </span><span class="k">with</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="o">_)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(_,</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="o">_)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(_,</span><span class="w"> </span><span class="mi">0</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
 </code></pre></div>
 <h2 id="54-fsharplint">5.4 FSharpLint によるコード複雑度チェック<a class="headerlink" href="#54-fsharplint" title="Permanent link">&para;</a></h2>
@@ -10371,10 +10371,10 @@ $<span class="w"> </span>dotnet<span class="w"> </span>tool<span class="w"> </sp
 <h3 id="fsharplintjson">fsharplint.json による閾値設定<a class="headerlink" href="#fsharplintjson" title="Permanent link">&para;</a></h3>
 <p>プロジェクトルートに <code>fsharplint.json</code> を作成し、閾値を設定します。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;cyclomaticComplexity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;maxComplexity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">    </span><span class="nt">"cyclomaticComplexity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"maxComplexity"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10406,24 +10406,24 @@ See https://fsprojects.github.io/FSharpLint/how-tos/rules/FL0071.html
 </code></pre></div>
 <h3 id="cake">Cake への追加<a class="headerlink" href="#cake" title="Permanent link">&para;</a></h3>
 <p><code>build.cake</code> に FSharpLint タスクを追加します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">Task</span><span class="p">(</span><span class="s">&quot;FSharpLint&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span><span class="p">(</span><span class="s">"FSharpLint"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">exitCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">&quot;dotnet&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessSettings</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">exitCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">"dotnet"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessSettings</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dotnet-fsharplint lint --lint-config fsharplint.json FizzBuzzFSharp/Library.fs&quot;</span>
+<span class="w">        </span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dotnet-fsharplint lint --lint-config fsharplint.json FizzBuzzFSharp/Library.fs"</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exitCode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;FSharpLint チェックに失敗しました。F# コードの複雑度を下げてください。&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">"FSharpLint チェックに失敗しました。F# コードの複雑度を下げてください。"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">Information</span><span class="p">(</span><span class="s">&quot;FSharpLint チェック: OK（全関数が閾値以下）&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Information</span><span class="p">(</span><span class="s">"FSharpLint チェック: OK（全関数が閾値以下）"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Check&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Complexity&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;FSharpLint&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Check"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Complexity"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"FSharpLint"</span><span class="p">);</span>
 </code></pre></div>
 <p><code>dotnet dotnet-cake --target=FSharpLint</code> で F# の複雑度チェックを単独実行、<code>dotnet dotnet-cake --target=Check</code> で C#/F# 両方の全品質チェックをまとめて実行できます。</p>
 <h3 id="_6">他言語との比較<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -10487,7 +10487,7 @@ See https://fsprojects.github.io/FSharpLint/how-tos/rules/FL0071.html
 <h3 id="coverlet">coverlet によるカバレッジ計測<a class="headerlink" href="#coverlet" title="Permanent link">&para;</a></h3>
 <p>coverlet は .NET のクロスプラットフォームカバレッジツールです。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># カバレッジ付きでテスト実行</span>
-$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--collect:<span class="s2">&quot;XPlat Code Coverage&quot;</span>
+$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--collect:<span class="s2">"XPlat Code Coverage"</span>
 </code></pre></div>
 <p>テスト結果は <code>TestResults/</code> ディレクトリに Cobertura XML 形式で出力されます。</p>
 <h2 id="56">5.6 他言語との比較<a class="headerlink" href="#56" title="Permanent link">&para;</a></h2>
@@ -10622,7 +10622,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</sp
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

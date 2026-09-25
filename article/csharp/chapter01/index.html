@@ -10120,7 +10120,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>new<span class="w"> </spa
 $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </span>FizzBuzzTest/FizzBuzzTest.csproj<span class="w"> </span>reference<span class="w"> </span>FizzBuzz/FizzBuzz.csproj
 </code></pre></div>
 <p>xUnit テストプロジェクトの <code>.csproj</code> ファイルは以下のようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
 <span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
@@ -10129,12 +10129,12 @@ $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </spa
 <span class="w">    </span><span class="nt">&lt;IsTestProject&gt;</span>true<span class="nt">&lt;/IsTestProject&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.NET.Test.Sdk&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;17.8.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit.runner.visualstudio&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.NET.Test.Sdk"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"17.8.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit.runner.visualstudio"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;..\FizzBuzz\FizzBuzz.csproj&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"..\FizzBuzz\FizzBuzz.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <span class="nt">&lt;/Project&gt;</span>
 </code></pre></div>
@@ -10148,7 +10148,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </spa
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test_Greeting</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">,</span><span class="w"> </span><span class="s">"hello world"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10187,7 +10187,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </spa
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="err">数を文字列にして返す</span><span class="n">_1</span><span class="err">を渡したら文字列</span><span class="mi">1</span><span class="err">を返す</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10211,7 +10211,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </spa
 <span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Generate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"1"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10232,7 +10232,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>add<span class="w"> </spa
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10312,7 +10312,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

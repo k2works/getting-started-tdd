@@ -10130,7 +10130,7 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function test_2を渡したら文字列2を返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;2&#39;, $fizzbuzz-&gt;generate(2));</span>
+<span class="x">    $this-&gt;assertSame('2', $fizzbuzz-&gt;generate(2));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>テストを実行すると失敗します。</p>
@@ -10139,8 +10139,8 @@ FizzBuzz
 <span class="w"> </span>✔<span class="w"> </span>1を渡したら文字列1を返す
 <span class="w"> </span>✘<span class="w"> </span>2を渡したら文字列2を返す
 <span class="w">   </span>Failed<span class="w"> </span>asserting<span class="w"> </span>that<span class="w"> </span>two<span class="w"> </span>strings<span class="w"> </span>are<span class="w"> </span>identical.
-<span class="w">   </span>Expected:<span class="w"> </span><span class="s1">&#39;2&#39;</span>
-<span class="w">   </span>Actual<span class="w">  </span>:<span class="w"> </span><span class="s1">&#39;1&#39;</span>
+<span class="w">   </span>Expected:<span class="w"> </span><span class="s1">'2'</span>
+<span class="w">   </span>Actual<span class="w">  </span>:<span class="w"> </span><span class="s1">'1'</span>
 </code></pre></div>
 <h3 id="green">Green: 一般化<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
 <p>仮実装を一般化して、数値を文字列に変換するようにします。</p>
@@ -10172,7 +10172,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">2</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function test_3を渡したら文字列Fizzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;Fizz&#39;, $fizzbuzz-&gt;generate(3));</span>
+<span class="x">    $this-&gt;assertSame('Fizz', $fizzbuzz-&gt;generate(3));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>テストを実行すると失敗します（期待値は "Fizz"、実際は "3"）。</p>
@@ -10181,7 +10181,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">2</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function generate(int $number): string</span>
 <span class="x">{</span>
 <span class="x">    if ($number === 3) {</span>
-<span class="x">        return &#39;Fizz&#39;;</span>
+<span class="x">        return 'Fizz';</span>
 <span class="x">    }</span>
 <span class="x">    return (string) $number;</span>
 <span class="x">}</span>
@@ -10194,17 +10194,17 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">3</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function test_5を渡したら文字列Buzzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;Buzz&#39;, $fizzbuzz-&gt;generate(5));</span>
+<span class="x">    $this-&gt;assertSame('Buzz', $fizzbuzz-&gt;generate(5));</span>
 <span class="x">}</span>
 </code></pre></div>
 <h3 id="green_2">Green: 仮実装<a class="headerlink" href="#green_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="x">public function generate(int $number): string</span>
 <span class="x">{</span>
 <span class="x">    if ($number === 3) {</span>
-<span class="x">        return &#39;Fizz&#39;;</span>
+<span class="x">        return 'Fizz';</span>
 <span class="x">    }</span>
 <span class="x">    if ($number === 5) {</span>
-<span class="x">        return &#39;Buzz&#39;;</span>
+<span class="x">        return 'Buzz';</span>
 <span class="x">    }</span>
 <span class="x">    return (string) $number;</span>
 <span class="x">}</span>
@@ -10217,7 +10217,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">4</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function test_15を渡したら文字列FizzBuzzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;FizzBuzz&#39;, $fizzbuzz-&gt;generate(15));</span>
+<span class="x">    $this-&gt;assertSame('FizzBuzz', $fizzbuzz-&gt;generate(15));</span>
 <span class="x">}</span>
 </code></pre></div>
 <h3 id="green_3">Green: 仮実装<a class="headerlink" href="#green_3" title="Permanent link">&para;</a></h3>
@@ -10225,13 +10225,13 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">4</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function generate(int $number): string</span>
 <span class="x">{</span>
 <span class="x">    if ($number === 15) {</span>
-<span class="x">        return &#39;FizzBuzz&#39;;</span>
+<span class="x">        return 'FizzBuzz';</span>
 <span class="x">    }</span>
 <span class="x">    if ($number === 3) {</span>
-<span class="x">        return &#39;Fizz&#39;;</span>
+<span class="x">        return 'Fizz';</span>
 <span class="x">    }</span>
 <span class="x">    if ($number === 5) {</span>
-<span class="x">        return &#39;Buzz&#39;;</span>
+<span class="x">        return 'Buzz';</span>
 <span class="x">    }</span>
 <span class="x">    return (string) $number;</span>
 <span class="x">}</span>
@@ -10250,7 +10250,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">5</span><span 
 </ul>
 <p>ここまでの作業をコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: FizzBuzz の仮実装を完了&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: FizzBuzz の仮実装を完了'</span>
 </code></pre></div>
 <h2 id="26">2.6 まとめ<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10329,7 +10329,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

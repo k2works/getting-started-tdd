@@ -10207,13 +10207,13 @@
 </table>
 <h3 id="f">F# プロジェクトでの例<a class="headerlink" href="#f" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># テスト追加</span>
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 
 <span class="c1"># 機能実装</span>
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat: generate 関数で match 式による FizzBuzz 判定を実装&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat: generate 関数で match 式による FizzBuzz 判定を実装'</span>
 
 <span class="c1"># リファクタリング</span>
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;refactor: パイプライン演算子でリスト生成を簡潔に記述&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'refactor: パイプライン演算子でリスト生成を簡潔に記述'</span>
 </code></pre></div>
 <h2 id="44-git">4.4 Git の基本操作<a class="headerlink" href="#44-git" title="Permanent link">&para;</a></h2>
 <h3 id="_3">リポジトリの初期化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -10221,16 +10221,16 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
 $<span class="w"> </span>git<span class="w"> </span>init
 
 <span class="c1"># .gitignore を作成</span>
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bin/</span>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"bin/</span>
 <span class="s2">obj/</span>
 <span class="s2">.vs/</span>
 <span class="s2">*.user</span>
 <span class="s2">coverage/</span>
-<span class="s2">test-results/&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.gitignore
+<span class="s2">test-results/"</span><span class="w"> </span>&gt;<span class="w"> </span>.gitignore
 
 <span class="c1"># 初期コミット</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: initial commit&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: initial commit"</span>
 </code></pre></div>
 <h3 id="_4">基本的なワークフロー<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># 変更内容を確認</span>
@@ -10240,7 +10240,7 @@ $<span class="w"> </span>git<span class="w"> </span>status
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>src/Library.fs<span class="w"> </span>tests/Tests.fs
 
 <span class="c1"># コミット</span>
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat: generate 関数で FizzBuzz 判定を実装&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat: generate 関数で FizzBuzz 判定を実装'</span>
 
 <span class="c1"># 履歴の確認</span>
 $<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
@@ -10249,15 +10249,15 @@ $<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-
 <p>TDD の各フェーズでコミットすることで、変更の意図が明確になります。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Red フェーズ: テストの追加</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>tests/Tests.fs
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 三の倍数で Fizz を返すテストを追加&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 三の倍数で Fizz を返すテストを追加'</span>
 
 <span class="c1"># Green フェーズ: 実装</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>src/Library.fs
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat: 三の倍数で Fizz を返す実装を追加&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat: 三の倍数で Fizz を返す実装を追加'</span>
 
 <span class="c1"># Refactor フェーズ: リファクタリング</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>src/Library.fs
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;refactor: match 式でパターンマッチに変更&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'refactor: match 式でパターンマッチに変更'</span>
 </code></pre></div>
 <h2 id="45-git">4.5 Git フロー<a class="headerlink" href="#45-git" title="Permanent link">&para;</a></h2>
 <h3 id="_6">ブランチ戦略<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -10299,7 +10299,7 @@ $<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </s
 
 <span class="c1"># 変更をコミット</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: FizzBuzzType 判別共用体を追加&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: FizzBuzzType 判別共用体を追加"</span>
 
 <span class="c1"># develop ブランチに統合</span>
 $<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>develop
@@ -10411,7 +10411,7 @@ test-results/
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10085,7 +10085,7 @@
 <h3 id="_1">ファクトリメソッドの改善<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>従来の <code>FizzBuzzType.create()</code> は、未定義タイプに <code>FizzBuzzTypeNotDefined</code> を返していました。呼び出し側が <code>None</code> の可能性を認識できるように改善します。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">type_</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FizzBuzzType | None&quot;</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">type_</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"FizzBuzzType | None"</span><span class="p">:</span>
     <span class="n">types</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">type</span><span class="p">[</span><span class="n">FizzBuzzType</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="mi">1</span><span class="p">:</span> <span class="n">FizzBuzzType01</span><span class="p">,</span>
         <span class="mi">2</span><span class="p">:</span> <span class="n">FizzBuzzType02</span><span class="p">,</span>
@@ -10099,13 +10099,13 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTypeName</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">STANDARD</span> <span class="o">=</span> <span class="s2">&quot;standard&quot;</span>
-    <span class="n">NUMBER_ONLY</span> <span class="o">=</span> <span class="s2">&quot;number_only&quot;</span>
-    <span class="n">FIZZ_BUZZ_ONLY</span> <span class="o">=</span> <span class="s2">&quot;fizz_buzz_only&quot;</span>
+    <span class="n">STANDARD</span> <span class="o">=</span> <span class="s2">"standard"</span>
+    <span class="n">NUMBER_ONLY</span> <span class="o">=</span> <span class="s2">"number_only"</span>
+    <span class="n">FIZZ_BUZZ_ONLY</span> <span class="o">=</span> <span class="s2">"fizz_buzz_only"</span>
 </code></pre></div>
 <h3 id="_2">型安全なファクトリメソッド<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_from_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FizzBuzzTypeName</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FizzBuzzType&quot;</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_from_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">FizzBuzzTypeName</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"FizzBuzzType"</span><span class="p">:</span>
     <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">FizzBuzzTypeName</span><span class="p">,</span> <span class="nb">type</span><span class="p">[</span><span class="n">FizzBuzzType</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">FizzBuzzTypeName</span><span class="o">.</span><span class="n">STANDARD</span><span class="p">:</span> <span class="n">FizzBuzzType01</span><span class="p">,</span>
         <span class="n">FizzBuzzTypeName</span><span class="o">.</span><span class="n">NUMBER_ONLY</span><span class="p">:</span> <span class="n">FizzBuzzType02</span><span class="p">,</span>
@@ -10116,25 +10116,25 @@
 <h3 id="_3">テスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_列挙型でタイプを生成する</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">type_</span> <span class="o">=</span> <span class="n">FizzBuzzType</span><span class="o">.</span><span class="n">create_from_name</span><span class="p">(</span><span class="n">FizzBuzzTypeName</span><span class="o">.</span><span class="n">STANDARD</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_存在しないタイプはKeyErrorになる</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Enum はそもそも不正な値を許さない</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
-        <span class="n">FizzBuzzTypeName</span><span class="p">(</span><span class="s2">&quot;invalid&quot;</span><span class="p">)</span>
+        <span class="n">FizzBuzzTypeName</span><span class="p">(</span><span class="s2">"invalid"</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="124-match">12.4 match 文によるパターンマッチング<a class="headerlink" href="#124-match" title="Permanent link">&para;</a></h2>
 <p>Python 3.10 以降で使える <code>match</code> 文を活用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">FizzBuzzValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">match</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
-        <span class="k">case</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 3 の倍数&quot;</span>
-        <span class="k">case</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 5 の倍数&quot;</span>
-        <span class="k">case</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 15 の倍数&quot;</span>
+        <span class="k">case</span> <span class="s2">"Fizz"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 3 の倍数"</span>
+        <span class="k">case</span> <span class="s2">"Buzz"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 5 の倍数"</span>
+        <span class="k">case</span> <span class="s2">"FizzBuzz"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> は 15 の倍数"</span>
         <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> はそのまま&quot;</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> はそのまま"</span>
 </code></pre></div>
 <h2 id="125">12.5 エントリポイントの更新<a class="headerlink" href="#125" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
@@ -10142,7 +10142,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">lib.domain.type.fizz_buzz_type_name</span><span class="w"> </span><span class="kn">import</span> <span class="n">FizzBuzzTypeName</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lib.application.fizz_buzz_list_command</span><span class="w"> </span><span class="kn">import</span> <span class="n">FizzBuzzListCommand</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">type_</span> <span class="o">=</span> <span class="n">FizzBuzzType</span><span class="o">.</span><span class="n">create_from_name</span><span class="p">(</span><span class="n">FizzBuzzTypeName</span><span class="o">.</span><span class="n">STANDARD</span><span class="p">)</span>
     <span class="n">command</span> <span class="o">=</span> <span class="n">FizzBuzzListCommand</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
@@ -10284,7 +10284,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

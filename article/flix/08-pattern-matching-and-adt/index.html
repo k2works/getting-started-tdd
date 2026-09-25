@@ -10139,8 +10139,8 @@
 <h3 id="_2">網羅性検査<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>Flix のパターンマッチは <strong>網羅的</strong> でなければなりません。すべてのケースを覆っていないと、コンパイラが警告・エラーを出します。</p>
 <div class="highlight"><pre><span></span><code>match x {
-    case FizzBuzzType.Type01 =&gt; &quot;...&quot;
-    case FizzBuzzType.Type02 =&gt; &quot;...&quot;
+    case FizzBuzzType.Type01 =&gt; "..."
+    case FizzBuzzType.Type02 =&gt; "..."
     // Type03 を忘れると非網羅としてコンパイルエラー
 }
 </code></pre></div>
@@ -10180,7 +10180,7 @@
         case 1 =&gt; Ok(FizzBuzzType.Type01)
         case 2 =&gt; Ok(FizzBuzzType.Type02)
         case 3 =&gt; Ok(FizzBuzzType.Type03)
-        case _ =&gt; Err(&quot;該当するタイプは存在しません: ${no}&quot;)
+        case _ =&gt; Err("該当するタイプは存在しません: ${no}")
     }
 }
 </code></pre></div>
@@ -10198,7 +10198,7 @@ Passed:<span class="w"> </span><span class="m">30</span>,<span class="w"> </span
 <h3 id="result_1">Result の利用<a class="headerlink" href="#result_1" title="Permanent link">&para;</a></h3>
 <p>呼び出し側は <code>match</code> や <code>Result</code> モジュールの関数で結果を処理します。</p>
 <div class="highlight"><pre><span></span><code>match FizzBuzzType.create(1) {
-    case Ok(fbType) =&gt; Generatable.generate(fbType, 15)  // &quot;FizzBuzz&quot;
+    case Ok(fbType) =&gt; Generatable.generate(fbType, 15)  // "FizzBuzz"
     case Err(msg)   =&gt; msg
 }
 </code></pre></div>
@@ -10328,7 +10328,7 @@ Passed:<span class="w"> </span><span class="m">30</span>,<span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10101,11 +10101,11 @@
 <h3 id="flixtoml">flix.toml<a class="headerlink" href="#flixtoml" title="Permanent link">&para;</a></h3>
 <p>Flix のパッケージ定義は <code>flix.toml</code> に記述します。<code>flix init</code> で雛形が生成されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">[package]</span>
-<span class="n">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fizzbuzz&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;FizzBuzz TDD implementation in Flix&quot;</span>
-<span class="n">version</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">flix</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.75.1&quot;</span>
-<span class="n">authors</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;k2works&quot;</span><span class="p">]</span>
+<span class="n">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">"fizzbuzz"</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FizzBuzz TDD implementation in Flix"</span>
+<span class="n">version</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<span class="n">flix</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.75.1"</span>
+<span class="n">authors</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"k2works"</span><span class="p">]</span>
 </code></pre></div>
 <ul>
 <li><code>name</code> / <code>version</code> -- パッケージ名とセマンティックバージョン</li>
@@ -10115,10 +10115,10 @@
 <h3 id="_1">依存関係の追加<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>依存パッケージは <code>[dependencies]</code>（Flix パッケージ）と <code>[mvn-dependencies]</code>（Maven パッケージ）のセクションに記述します。Flix は JVM 言語なので、Java の膨大な Maven エコシステムをそのまま利用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="s2">&quot;github:flix/museum&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.4.0&quot;</span>
+<span class="s2">"github:flix/museum"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.4.0"</span>
 
 <span class="k">[mvn-dependencies]</span>
-<span class="s2">&quot;org.apache.commons:commons-lang3&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.14.0&quot;</span>
+<span class="s2">"org.apache.commons:commons-lang3"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"3.14.0"</span>
 </code></pre></div>
 <p>FizzBuzz では標準ライブラリ（<code>Int32</code>、<code>List</code> など）のみで完結するため、追加の依存は不要です。</p>
 <h3 id="_2">依存関係の解決<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -10302,7 +10302,7 @@ $<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

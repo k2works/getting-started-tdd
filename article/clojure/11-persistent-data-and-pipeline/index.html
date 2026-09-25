@@ -10145,7 +10145,7 @@
 <span class="w">       </span><span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[[</span><span class="nv">k</span><span class="w"> </span><span class="nv">v</span><span class="p">]]</span><span class="w"> </span><span class="p">[</span><span class="nv">k</span><span class="w"> </span><span class="p">(</span><span class="nb">count </span><span class="nv">v</span><span class="p">)]))</span>
 <span class="w">       </span><span class="p">(</span><span class="nb">into </span><span class="p">{})))</span>
 
-<span class="c1">;; =&gt; {&quot;1&quot; 1, &quot;2&quot; 1, &quot;Fizz&quot; 27, &quot;4&quot; 1, &quot;Buzz&quot; 14, ...}</span>
+<span class="c1">;; =&gt; {"1" 1, "2" 1, "Fizz" 27, "4" 1, "Buzz" 14, ...}</span>
 </code></pre></div>
 <h2 id="113">11.3 シーケンス抽象<a class="headerlink" href="#113" title="Permanent link">&para;</a></h2>
 <p>Clojure のシーケンス抽象は、すべてのコレクションに統一的なインターフェースを提供します。</p>
@@ -10156,8 +10156,8 @@
 
 <span class="c1">;; 必要な分だけ取得</span>
 <span class="p">(</span><span class="nb">take </span><span class="mi">15</span><span class="w"> </span><span class="nv">infinite-fizzbuzz</span><span class="p">)</span>
-<span class="c1">;=&gt; (&quot;1&quot; &quot;2&quot; &quot;Fizz&quot; &quot;4&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;7&quot; &quot;8&quot; &quot;Fizz&quot; &quot;Buzz&quot;</span>
-<span class="c1">;    &quot;11&quot; &quot;Fizz&quot; &quot;13&quot; &quot;14&quot; &quot;FizzBuzz&quot;)</span>
+<span class="c1">;=&gt; ("1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz"</span>
+<span class="c1">;    "11" "Fizz" "13" "14" "FizzBuzz")</span>
 </code></pre></div>
 <p><code>iterate</code> は無限シーケンスを生成しますが、遅延評価のため実際にはアクセスした要素のみが計算されます。</p>
 <h3 id="_4">トランスデューサー<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -10166,28 +10166,28 @@
 <span class="p">(</span><span class="k">def </span><span class="nv">fizzbuzz-xf</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">comp</span>
 <span class="w">    </span><span class="p">(</span><span class="nb">map </span><span class="nv">fizzbuzz</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&quot;[A-Za-z]+&quot;</span><span class="w"> </span><span class="nv">%</span><span class="p">))))</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">"[A-Za-z]+"</span><span class="w"> </span><span class="nv">%</span><span class="p">))))</span>
 
 <span class="c1">;; ベクタに適用</span>
 <span class="p">(</span><span class="nb">into </span><span class="p">[]</span><span class="w"> </span><span class="nv">fizzbuzz-xf</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span>
-<span class="c1">;=&gt; [&quot;Fizz&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;Fizz&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;FizzBuzz&quot;]</span>
+<span class="c1">;=&gt; ["Fizz" "Buzz" "Fizz" "Fizz" "Buzz" "Fizz" "FizzBuzz"]</span>
 
 <span class="c1">;; 文字列に適用</span>
 <span class="p">(</span><span class="nf">transduce</span><span class="w"> </span><span class="nv">fizzbuzz-xf</span><span class="w"> </span><span class="nb">str </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span>
-<span class="c1">;=&gt; &quot;FizzBuzzFizzFizzBuzzFizzFizzBuzz&quot;</span>
+<span class="c1">;=&gt; "FizzBuzzFizzFizzBuzzFizzFizzBuzz"</span>
 </code></pre></div>
 <h2 id="114">11.4 パイプライン処理<a class="headerlink" href="#114" title="Permanent link">&para;</a></h2>
 <h3 id="_5">実践的なパイプライン<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defn </span><span class="nv">fizzbuzz-report</span>
-<span class="w">  </span><span class="s">&quot;FizzBuzz の統計レポートを生成する&quot;</span>
+<span class="w">  </span><span class="s">"FizzBuzz の統計レポートを生成する"</span>
 <span class="w">  </span><span class="p">[</span><span class="nv">max-n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">-&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">max-n</span><span class="p">))</span>
 <span class="w">       </span><span class="p">(</span><span class="nb">map </span><span class="nv">fizzbuzz</span><span class="p">)</span>
 <span class="w">       </span><span class="p">(</span><span class="nf">group-by</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">s</span><span class="p">]</span>
 <span class="w">                   </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span><span class="w"> </span><span class="ss">:fizzbuzz</span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="ss">:fizz</span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">)</span><span class="w"> </span><span class="ss">:buzz</span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)</span><span class="w"> </span><span class="ss">:fizzbuzz</span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="ss">:fizz</span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">= </span><span class="nv">s</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">)</span><span class="w"> </span><span class="ss">:buzz</span>
 <span class="w">                     </span><span class="ss">:else</span><span class="w"> </span><span class="ss">:number</span><span class="p">)))</span>
 <span class="w">       </span><span class="p">(</span><span class="nb">map </span><span class="p">(</span><span class="k">fn </span><span class="p">[[</span><span class="nv">k</span><span class="w"> </span><span class="nv">v</span><span class="p">]]</span><span class="w"> </span><span class="p">[</span><span class="nv">k</span><span class="w"> </span><span class="p">(</span><span class="nb">count </span><span class="nv">v</span><span class="p">)]))</span>
 <span class="w">       </span><span class="p">(</span><span class="nb">into </span><span class="p">(</span><span class="nf">sorted-map</span><span class="p">))))</span>
@@ -10285,7 +10285,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

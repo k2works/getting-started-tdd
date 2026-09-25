@@ -10126,7 +10126,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>rust
 <span class="k">mod</span><span class="w"> </span><span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cp">#[test]</span>
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_learning_to_string_整数を文字列へ変換できる</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">42.</span><span class="n">to_string</span><span class="p">());</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"42"</span><span class="p">,</span><span class="w"> </span><span class="mf">42.</span><span class="n">to_string</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10169,7 +10169,7 @@ running<span class="w"> </span><span class="m">1</span><span class="w"> </span><
 
 <span class="w">    </span><span class="cp">#[test]</span>
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10178,7 +10178,7 @@ running<span class="w"> </span><span class="m">1</span><span class="w"> </span><
 running<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">test</span>
 <span class="nb">test</span><span class="w"> </span>tests::test_1を渡したら文字列1を返す<span class="w"> </span>...<span class="w"> </span>FAILED
 
-thread<span class="w"> </span><span class="s1">&#39;tests::test_1を渡したら文字列1を返す&#39;</span><span class="w"> </span>panicked<span class="w"> </span>at<span class="w"> </span><span class="s1">&#39;not yet implemented&#39;</span>
+thread<span class="w"> </span><span class="s1">'tests::test_1を渡したら文字列1を返す'</span><span class="w"> </span>panicked<span class="w"> </span>at<span class="w"> </span><span class="s1">'not yet implemented'</span>
 </code></pre></div>
 <p><code>not yet implemented</code>——まだ実装されていません。<code>todo!()</code> マクロは「ここはまだ未実装」であることを明示し、実行時にパニックを起こします。</p>
 <h3 id="green">Green: 仮実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10190,7 +10190,7 @@ thread<span class="w"> </span><span class="s1">&#39;tests::test_1を渡したら
 </blockquote>
 <p><code>generate</code> 関数を定義して、文字列リテラルを返します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s">&quot;1&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">()</span>
+<span class="w">    </span><span class="s">"1"</span><span class="p">.</span><span class="n">to_string</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>テストを実行します。</p>
@@ -10213,7 +10213,7 @@ running<span class="w"> </span><span class="m">1</span><span class="w"> </span><
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10293,7 +10293,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

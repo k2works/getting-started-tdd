@@ -10243,7 +10243,7 @@
 <p>Java の Gradle、Node の npm、Python の pip、Ruby の Bundler、Rust の Cargo に相当するのが NuGet です。</p>
 <h3 id="csproj">.csproj ファイルの構成<a class="headerlink" href="#csproj" title="Permanent link">&para;</a></h3>
 <p>本プロジェクトの <code>.csproj</code> ファイルは以下のようになっています。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
 <span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net8.0<span class="nt">&lt;/TargetFramework&gt;</span>
 <span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
@@ -10253,10 +10253,10 @@
 </code></pre></div>
 <p>テストプロジェクトの <code>.csproj</code> にはテスト関連のパッケージが含まれます。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;coverlet.collector&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;6.0.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;Microsoft.NET.Test.Sdk&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;17.8.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;xunit.runner.visualstudio&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;2.5.3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"coverlet.collector"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"6.0.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.NET.Test.Sdk"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"17.8.0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"xunit.runner.visualstudio"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"2.5.3"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/ItemGroup&gt;</span>
 </code></pre></div>
 <h3 id="_1">主要なコマンド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10379,11 +10379,11 @@ $<span class="w"> </span>dotnet<span class="w"> </span>format
 <h3 id="coverlet">coverlet<a class="headerlink" href="#coverlet" title="Permanent link">&para;</a></h3>
 <p>C# のカバレッジツールとして <code>coverlet</code> があります。xUnit テストプロジェクトには既に含まれています。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># カバレッジ付きテスト実行</span>
-$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--collect:<span class="s2">&quot;XPlat Code Coverage&quot;</span>
+$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--collect:<span class="s2">"XPlat Code Coverage"</span>
 </code></pre></div>
 <p>HTML レポートを生成するには <code>reportgenerator</code> を利用します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>dotnet-reportgenerator-globaltool
-$<span class="w"> </span>reportgenerator<span class="w"> </span>-reports:<span class="s2">&quot;**/coverage.cobertura.xml&quot;</span><span class="w"> </span>-targetdir:<span class="s2">&quot;coverage&quot;</span><span class="w"> </span>-reporttypes:Html
+$<span class="w"> </span>reportgenerator<span class="w"> </span>-reports:<span class="s2">"**/coverage.cobertura.xml"</span><span class="w"> </span>-targetdir:<span class="s2">"coverage"</span><span class="w"> </span>-reporttypes:Html
 </code></pre></div>
 <h2 id="56-sonaranalyzer">5.6 SonarAnalyzer によるコード複雑度チェック<a class="headerlink" href="#56-sonaranalyzer" title="Permanent link">&para;</a></h2>
 <h3 id="cognitive-complexity">認知的複雑度（Cognitive Complexity）<a class="headerlink" href="#cognitive-complexity" title="Permanent link">&para;</a></h3>
@@ -10423,7 +10423,7 @@ $<span class="w"> </span>reportgenerator<span class="w"> </span>-reports:<span c
 </code></pre></div>
 <p><code>.csproj</code> にパッケージ参照が追加されます。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;ItemGroup&gt;</span>
-<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">&quot;SonarAnalyzer.CSharp&quot;</span><span class="w"> </span><span class="na">Version=</span><span class="s">&quot;10.20.0.135146&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"SonarAnalyzer.CSharp"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"10.20.0.135146"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;IncludeAssets&gt;</span>runtime;<span class="w"> </span>build;<span class="w"> </span>native;<span class="w"> </span>contentfiles;<span class="w"> </span>analyzers;<span class="w"> </span>buildtransitive<span class="nt">&lt;/IncludeAssets&gt;</span>
 <span class="w">    </span><span class="nt">&lt;PrivateAssets&gt;</span>all<span class="nt">&lt;/PrivateAssets&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/PackageReference&gt;</span>
@@ -10448,24 +10448,24 @@ $<span class="w"> </span>dotnet<span class="w"> </span>build<span class="w"> </s
 <p>現在の FizzBuzz 実装では、各メソッドが短く単純なため、閾値を超えるメソッドはありません。</p>
 <h3 id="cake">Cake への追加<a class="headerlink" href="#cake" title="Permanent link">&para;</a></h3>
 <p><code>build.cake</code> に Complexity タスクを追加します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">Task</span><span class="p">(</span><span class="s">&quot;Complexity&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span><span class="p">(</span><span class="s">"Complexity"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">exitCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">&quot;dotnet&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessSettings</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">exitCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">"dotnet"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessSettings</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;build FizzBuzz.sln --no-restore -warnaserror:S3776&quot;</span>
+<span class="w">        </span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"build FizzBuzz.sln --no-restore -warnaserror:S3776"</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exitCode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;認知的複雑度チェックに失敗しました。メソッドの複雑度を下げてください。&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">"認知的複雑度チェックに失敗しました。メソッドの複雑度を下げてください。"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">Information</span><span class="p">(</span><span class="s">&quot;認知的複雑度チェック: OK（全メソッドが閾値以下）&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Information</span><span class="p">(</span><span class="s">"認知的複雑度チェック: OK（全メソッドが閾値以下）"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Check&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Complexity&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Check"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Complexity"</span><span class="p">);</span>
 </code></pre></div>
 <p><code>dotnet dotnet-cake --target=Complexity</code> で複雑度チェックを単独実行、<code>dotnet dotnet-cake --target=Check</code> で全品質チェックをまとめて実行できます。</p>
 <h3 id="_6">他言語との比較<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -10626,7 +10626,7 @@ $<span class="w"> </span>dotnet<span class="w"> </span>build<span class="w"> </s
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

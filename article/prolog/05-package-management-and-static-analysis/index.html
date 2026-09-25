@@ -10107,7 +10107,7 @@
 <p>これらはコンパイル時の検査であり、テストを実行する前にコードの明白な誤りを排除できます。「テストで守る範囲」と「ロード時検査で守る範囲」を役割分担することで、テストはロジックの振る舞いに集中できます。</p>
 <h3 id="singleton">singleton 変数警告の例<a class="headerlink" href="#singleton" title="Permanent link">&para;</a></h3>
 <p>たとえば次のように、意図せず片方だけ変数名を書き間違えたとします。</p>
-<div class="highlight"><pre><span></span><code><span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">Number</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<div class="highlight"><pre><span></span><code><span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">Number</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
 </code></pre></div>
 <p>この節では <code>N</code> と <code>Number</code> がそれぞれ 1 回しか出現しないため、ロード時に singleton 変数警告が出力されます。</p>
 <div class="highlight"><pre><span></span><code>Warning: .../fizzbuzz.pl:9:
@@ -10124,9 +10124,9 @@
 <div class="highlight"><pre><span></span><code><span class="c"># 構文・特異点（singleton 変数など）を検査する</span>
 <span class="nf">lint</span><span class="o">:</span>
 <span class="w">    </span>@for<span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>src/*.pl<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>swipl<span class="w"> </span>-q<span class="w"> </span>-g<span class="w"> </span><span class="s2">&quot;halt(0)&quot;</span><span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;halt(1)&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$$</span><span class="s2">f&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>swipl<span class="w"> </span>-q<span class="w"> </span>-g<span class="w"> </span><span class="s2">"halt(0)"</span><span class="w"> </span>-t<span class="w"> </span><span class="s2">"halt(1)"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$$</span><span class="s2">f"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="k">done</span>
-<span class="w">    </span>@echo<span class="w"> </span><span class="s2">&quot;lint: OK&quot;</span>
+<span class="w">    </span>@echo<span class="w"> </span><span class="s2">"lint: OK"</span>
 </code></pre></div>
 <p><code>swipl -q -g "halt(0)" -t "halt(1)" "$$f"</code> は、<code>src/</code> 配下の各 <code>.pl</code> ファイルを SWI-Prolog にロードし、正常にロードできれば <code>halt(0)</code>（成功）で終了します。ロード中にエラーが発生した場合は初期化目標が失敗し <code>-t "halt(1)"</code> によって <code>halt(1)</code>（失敗）で終了するため、シェルの <code>|| exit 1</code> で lint 全体が失敗します。</p>
 <p>各オプションの意味は次のとおりです。</p>
@@ -10298,7 +10298,7 @@ lint:<span class="w"> </span>OK
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

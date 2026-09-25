@@ -10063,20 +10063,20 @@
 
 <span class="w">  </span><span class="kn">alias</span><span class="w"> </span><span class="nc">FizzBuzz.Command</span><span class="o">.</span><span class="p">{</span><span class="nc">ListCommand</span><span class="p">,</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;ValueCommand は単一値を処理する&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"ValueCommand は単一値を処理する"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">}</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;ValueCommand は不正値でエラーを返す&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"ValueCommand は不正値でエラーを返す"</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:invalid_number</span><span class="p">}</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:invalid_number</span><span class="p">}</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ValueCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"3"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:invalid_number</span><span class="p">}</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;ListCommand は 1..limit の結果一覧を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ListCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span><span class="p">]}</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"ListCommand は 1..limit の結果一覧を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ListCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Buzz"</span><span class="p">]}</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;ListCommand は不正値でエラーを返す&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"ListCommand は不正値でエラーを返す"</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">ListCommand</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:invalid_limit</span><span class="p">}</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
@@ -10151,7 +10151,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

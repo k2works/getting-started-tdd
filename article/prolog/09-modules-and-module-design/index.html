@@ -10415,8 +10415,8 @@
 └── fizzbuzz_command.plt (コマンド)
 </code></pre></div>
 <p><code>fizzbuzz_list</code> のテストは、対象モジュールと参照する <code>fizzbuzz_value</code> を取り込みます。</p>
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_list&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_list'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_list</span><span class="p">).</span>
 </code></pre></div>
@@ -10526,18 +10526,18 @@
 <span class="c1">%  各タイプごとの節が振る舞いを切り替える（State/Strategy 相当）。</span>
 
 <span class="c1">% type_01: 通常の FizzBuzz</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span>          <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span>          <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 
 <span class="c1">% type_02: 数字のみ</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_02</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_02</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 
 <span class="c1">% type_03: Fizz のみ（Buzz なし）</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span>          <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">generate</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">R</span><span class="p">)</span>          <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">R</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 
 <span class="c1">%% type_create(+No:integer, -Result) is det.</span>
 <span class="c1">%</span>
@@ -10546,7 +10546,7 @@
 <span class="nf">type_create</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s s-Atom">type_02</span><span class="p">))</span> <span class="p">:-</span> <span class="p">!.</span>
 <span class="nf">type_create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">))</span> <span class="p">:-</span> <span class="p">!.</span>
 <span class="nf">type_create</span><span class="p">(</span><span class="nv">No</span><span class="p">,</span> <span class="nf">error</span><span class="p">(</span><span class="nv">Message</span><span class="p">))</span> <span class="p">:-</span>
-    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">&quot;該当するタイプは存在しません: ~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">No</span><span class="p">]).</span>
+    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">"該当するタイプは存在しません: ~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">No</span><span class="p">]).</span>
 </code></pre></div>
 <h2 id="fizzbuzz_valuepl">実装 — fizzbuzz_value.pl<a class="headerlink" href="#fizzbuzz_valuepl" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">module</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_value</span><span class="p">,</span> <span class="p">[</span><span class="s s-Atom">value_create</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="s s-Atom">value_number</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s s-Atom">value_value</span><span class="o">/</span><span class="mi">2</span><span class="p">]).</span>
@@ -10582,8 +10582,8 @@
     <span class="nf">length</span><span class="p">(</span><span class="nv">Values</span><span class="p">,</span> <span class="nv">Count</span><span class="p">).</span>
 </code></pre></div>
 <h2 id="fizzbuzz_listplt">テスト — fizzbuzz_list.plt<a class="headerlink" href="#fizzbuzz_listplt" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_list&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_list'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_list</span><span class="p">).</span>
 
@@ -10595,13 +10595,13 @@
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">first_element_is_one</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">list_create</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s s-Atom">type_01</span><span class="p">,</span> <span class="p">[</span><span class="nv">First</span> <span class="p">|</span> <span class="k">_</span><span class="p">]),</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">First</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">fifteenth_element_is_fizzbuzz</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">list_create</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s s-Atom">type_01</span><span class="p">,</span> <span class="nv">Values</span><span class="p">),</span>
     <span class="nf">last</span><span class="p">(</span><span class="nv">Values</span><span class="p">,</span> <span class="nv">Last</span><span class="p">),</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">Last</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"FizzBuzz"</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">end_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_list</span><span class="p">).</span>
 </code></pre></div>
@@ -10672,7 +10672,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10102,7 +10102,7 @@
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="err">値を追加できる</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">));</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">newList</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span><span class="w"> </span><span class="c1">// 元のリストは変更されない</span>
 <span class="p">}</span>
@@ -10111,7 +10111,7 @@
 <p>C# の LINQ はメソッドチェーンで連結でき、パイプライン処理を実現します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// パイプライン: Where → Select → ToList</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">fizzNumbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Values</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Number</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 </code></pre></div>
@@ -10120,7 +10120,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1">// 全 FizzBuzz 値を改行区切りで連結</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">joined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Values</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">Aggregate</span><span class="p">((</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$&quot;{acc}\n{v}&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="n">Aggregate</span><span class="p">((</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{acc}\n{v}"</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="take-n">Take（先頭 N 件）<a class="headerlink" href="#take-n" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">firstFive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Values</span>
@@ -10145,7 +10145,7 @@
 
 <span class="c1">// ImmutableList の使用例</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">immutableList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImmutableList</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">immutableList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">));</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">immutableList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">));</span>
 
 <span class="c1">// 元のリストは空のまま</span>
 <span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">immutableList</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
@@ -10166,7 +10166,7 @@
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">_values</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span><span class="w"> </span><span class="n">_values</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Equals</span><span class="p">(</span><span class="n">FizzBuzzList</span><span class="o">?</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
@@ -10194,8 +10194,8 @@
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">();</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">newList</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
 <span class="p">}</span>
@@ -10205,13 +10205,13 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">list1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">list2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span><span class="w"> </span><span class="n">list2</span><span class="p">);</span>
 <span class="p">}</span>
@@ -10327,7 +10327,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

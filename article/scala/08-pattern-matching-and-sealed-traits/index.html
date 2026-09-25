@@ -10023,9 +10023,9 @@
 <p><code>match/case</code> の基本構文は次のとおりです。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="n">number</span><span class="w"> </span><span class="k">match</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">n</span><span class="w">                </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">toString</span>
 </code></pre></div>
 <p>重要な要素は 3 つです。</p>
@@ -10053,7 +10053,7 @@
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Type01</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Type02</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Type03</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">s&quot;未定義のタイプ: </span><span class="si">$</span><span class="n">typeNumber</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">s"未定義のタイプ: </span><span class="si">$</span><span class="n">typeNumber</span><span class="s">"</span><span class="p">)</span>
 </code></pre></div>
 <p>生成責務を <code>FizzBuzzType.create</code> に集約することで、呼び出し側は型番号の解釈を意識せずに済みます。</p>
 <h2 id="85-strategy">8.5 Strategy パターンとの対応<a class="headerlink" href="#85-strategy" title="Permanent link">&para;</a></h2>
@@ -10067,19 +10067,19 @@
 <p>この構成により、呼び出し側の条件分岐を排除し、ポリモーフィズムで振る舞いを切り替えられます。</p>
 <h2 id="86">8.6 テスト<a class="headerlink" href="#86" title="Permanent link">&para;</a></h2>
 <p>ファクトリメソッドは <code>TypeSpec</code> で次のように検証しています。</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="s">&quot;create: タイプ 1 を生成できる&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="s">"create: タイプ 1 を生成できる"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="nc">Type01</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">test</span><span class="p">(</span><span class="s">&quot;create: タイプ 2 を生成できる&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">test</span><span class="p">(</span><span class="s">"create: タイプ 2 を生成できる"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="nc">Type02</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">test</span><span class="p">(</span><span class="s">&quot;create: タイプ 3 を生成できる&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">test</span><span class="p">(</span><span class="s">"create: タイプ 3 を生成できる"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="nc">Type03</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">test</span><span class="p">(</span><span class="s">&quot;create: 未定義のタイプで例外が発生する&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">test</span><span class="p">(</span><span class="s">"create: 未定義のタイプで例外が発生する"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">assertThrows</span><span class="p">[</span><span class="nc">IllegalArgumentException</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nc">FizzBuzzType</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
@@ -10161,7 +10161,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

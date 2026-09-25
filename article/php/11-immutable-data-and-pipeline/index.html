@@ -10158,7 +10158,7 @@
 <span class="x">    $original = $command-&gt;execute();</span>
 <span class="x">    $originalCount = $original-&gt;count();</span>
 
-<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz';</span>
 <span class="x">    $original-&gt;filter($isFizz);</span>
 
 <span class="x">    $this-&gt;assertSame($originalCount, $original-&gt;count());</span>
@@ -10175,9 +10175,9 @@
 
 <span class="x">    $grouped = $list-&gt;groupByValue();</span>
 
-<span class="x">    $this-&gt;assertArrayHasKey(&#39;Fizz&#39;, $grouped);</span>
-<span class="x">    $this-&gt;assertArrayHasKey(&#39;Buzz&#39;, $grouped);</span>
-<span class="x">    $this-&gt;assertArrayHasKey(&#39;FizzBuzz&#39;, $grouped);</span>
+<span class="x">    $this-&gt;assertArrayHasKey('Fizz', $grouped);</span>
+<span class="x">    $this-&gt;assertArrayHasKey('Buzz', $grouped);</span>
+<span class="x">    $this-&gt;assertArrayHasKey('FizzBuzz', $grouped);</span>
 <span class="x">}</span>
 </code></pre></div>
 <details>
@@ -10207,7 +10207,7 @@
 
 <span class="x">    $counts = $list-&gt;countByValue();</span>
 
-<span class="x">    $this-&gt;assertSame(1, $counts[&#39;FizzBuzz&#39;]);</span>
+<span class="x">    $this-&gt;assertSame(1, $counts['FizzBuzz']);</span>
 <span class="x">}</span>
 </code></pre></div>
 <details>
@@ -10256,15 +10256,15 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function test_joinで要素を文字列で結合する(): void</span>
 <span class="x">{</span>
 <span class="x">    $values = [</span>
-<span class="x">        new FizzBuzzValue(1, &#39;1&#39;),</span>
-<span class="x">        new FizzBuzzValue(2, &#39;2&#39;),</span>
-<span class="x">        new FizzBuzzValue(3, &#39;Fizz&#39;),</span>
+<span class="x">        new FizzBuzzValue(1, '1'),</span>
+<span class="x">        new FizzBuzzValue(2, '2'),</span>
+<span class="x">        new FizzBuzzValue(3, 'Fizz'),</span>
 <span class="x">    ];</span>
 <span class="x">    $list = new FizzBuzzList($values);</span>
 
-<span class="x">    $result = $list-&gt;join(&#39;, &#39;);</span>
+<span class="x">    $result = $list-&gt;join(', ');</span>
 
-<span class="x">    $this-&gt;assertSame(&#39;1, 2, Fizz&#39;, $result);</span>
+<span class="x">    $this-&gt;assertSame('1, 2, Fizz', $result);</span>
 <span class="x">}</span>
 </code></pre></div>
 <details>
@@ -10288,11 +10288,11 @@
 <span class="x">    $list = $command-&gt;execute();</span>
 
 <span class="x">    $result = $list</span>
-<span class="x">        -&gt;filter(fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;)</span>
+<span class="x">        -&gt;filter(fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz')</span>
 <span class="x">        -&gt;take(3)</span>
-<span class="x">        -&gt;join(&#39;, &#39;);</span>
+<span class="x">        -&gt;join(', ');</span>
 
-<span class="x">    $this-&gt;assertSame(&#39;Fizz, Fizz, Fizz&#39;, $result);</span>
+<span class="x">    $this-&gt;assertSame('Fizz, Fizz, Fizz', $result);</span>
 <span class="x">}</span>
 </code></pre></div>
 <h3 id="array_reduce">array_reduce パターン<a class="headerlink" href="#array_reduce" title="Permanent link">&para;</a></h3>
@@ -10301,9 +10301,9 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function test_reduceで数値の合計を計算する(): void</span>
 <span class="x">{</span>
 <span class="x">    $values = [</span>
-<span class="x">        new FizzBuzzValue(1, &#39;1&#39;),</span>
-<span class="x">        new FizzBuzzValue(2, &#39;2&#39;),</span>
-<span class="x">        new FizzBuzzValue(3, &#39;Fizz&#39;),</span>
+<span class="x">        new FizzBuzzValue(1, '1'),</span>
+<span class="x">        new FizzBuzzValue(2, '2'),</span>
+<span class="x">        new FizzBuzzValue(3, 'Fizz'),</span>
 <span class="x">    ];</span>
 <span class="x">    $list = new FizzBuzzList($values);</span>
 
@@ -10459,7 +10459,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

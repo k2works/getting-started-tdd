@@ -10047,7 +10047,7 @@
 <span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cachix/install-nix-action@v30</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#elixir --command bash -c &quot;cd apps/elixir &amp;&amp; mix test&quot;</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#elixir --command bash -c "cd apps/elixir &amp;&amp; mix test"</span>
 </code></pre></div>
 <p>重要なのは、ローカルと CI が同じ <code>nix develop</code> を起点にしている点です。これにより「ローカルでは通るが CI で失敗する」を減らせます。</p>
 <h2 id="66">6.6 まとめ<a class="headerlink" href="#66" title="Permanent link">&para;</a></h2>
@@ -10119,7 +10119,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

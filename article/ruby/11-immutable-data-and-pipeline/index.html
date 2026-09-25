@@ -10151,8 +10151,8 @@
 <p>Ruby では <code># frozen_string_literal: true</code> マジックコメントにより、ファイル内のすべての文字列リテラルが自動的に凍結されます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># frozen_string_literal: true</span>
 
-<span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span>
-<span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; world&quot;</span><span class="w">  </span><span class="c1"># =&gt; FrozenError</span>
+<span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hello"</span>
+<span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">" world"</span><span class="w">  </span><span class="c1"># =&gt; FrozenError</span>
 </code></pre></div>
 <h3 id="fizzbuzzvalue">FizzBuzzValue の不変性<a class="headerlink" href="#fizzbuzzvalue" title="Permanent link">&para;</a></h3>
 <p><code>FizzBuzzValue</code> は <code>attr_reader</code> のみ（setter なし）で不変性を実現しています。</p>
@@ -10180,9 +10180,9 @@
 <span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzListCommand</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
 <span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="n">execute</span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">group_by_value</span>
-<span class="c1"># =&gt; { &quot;1&quot; =&gt; [FizzBuzzValue(1,1)],</span>
-<span class="c1">#      &quot;2&quot; =&gt; [FizzBuzzValue(2,2)],</span>
-<span class="c1">#      &quot;Fizz&quot; =&gt; [FizzBuzzValue(Fizz,3), ...],</span>
+<span class="c1"># =&gt; { "1" =&gt; [FizzBuzzValue(1,1)],</span>
+<span class="c1">#      "2" =&gt; [FizzBuzzValue(2,2)],</span>
+<span class="c1">#      "Fizz" =&gt; [FizzBuzzValue(Fizz,3), ...],</span>
 <span class="c1">#      ... }</span>
 </code></pre></div>
 <h3 id="tally_by_value">tally_by_value<a class="headerlink" href="#tally_by_value" title="Permanent link">&para;</a></h3>
@@ -10195,7 +10195,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># 使用例</span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">tally_by_value</span>
-<span class="c1"># =&gt; { &quot;1&quot; =&gt; 1, &quot;2&quot; =&gt; 1, &quot;Fizz&quot; =&gt; 4, &quot;4&quot; =&gt; 1, &quot;Buzz&quot; =&gt; 2, ... &quot;FizzBuzz&quot; =&gt; 1 }</span>
+<span class="c1"># =&gt; { "1" =&gt; 1, "2" =&gt; 1, "Fizz" =&gt; 4, "4" =&gt; 1, "Buzz" =&gt; 2, ... "FizzBuzz" =&gt; 1 }</span>
 </code></pre></div>
 <h3 id="take_values-join_values">take_values / join_values<a class="headerlink" href="#take_values-join_values" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzList</span>
@@ -10203,7 +10203,7 @@
 <span class="w">    </span><span class="no">FizzBuzzList</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@value</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">join_values</span><span class="p">(</span><span class="n">separator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">join_values</span><span class="p">(</span><span class="n">separator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">', '</span><span class="p">)</span>
 <span class="w">    </span><span class="vi">@value</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
@@ -10225,9 +10225,9 @@
 <span class="w">    </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="n">execute</span>
 <span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">group_by_value</span>
 <span class="w">    </span><span class="n">assert_instance_of</span><span class="w"> </span><span class="no">Hash</span><span class="p">,</span><span class="w"> </span><span class="n">result</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">&#39;Fizz&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">&#39;Buzz&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">'Fizz'</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">'Buzz'</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">'FizzBuzz'</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_tally_by_valueで値ごとの件数を返す</span>
@@ -10235,19 +10235,19 @@
 <span class="w">    </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzListCommand</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
 <span class="w">    </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="n">execute</span>
 <span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">tally_by_value</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">&#39;Fizz&#39;</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">&#39;Buzz&#39;</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">'FizzBuzz'</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">'Fizz'</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="s1">'Buzz'</span><span class="o">]</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_join_valuesで文字列結合</span>
 <span class="w">    </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
-<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
-<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="w">      </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <span class="w">    </span><span class="o">]</span>
 <span class="w">    </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzList</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1, 2, Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">join_values</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1, 2, Fizz'</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="n">join_values</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -10271,10 +10271,10 @@
 <span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="no">FizzBuzzType</span><span class="o">::</span><span class="no">TYPE_01</span><span class="p">)</span>
 <span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzListCommand</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="n">execute</span>
-<span class="w">  </span><span class="o">.</span><span class="n">select_type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="o">.</span><span class="n">select_type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="o">.</span><span class="n">take_values</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">  </span><span class="o">.</span><span class="n">join_values</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
-<span class="c1"># =&gt; &quot;Fizz, Fizz, Fizz, Fizz, Fizz&quot;</span>
+<span class="w">  </span><span class="o">.</span><span class="n">join_values</span><span class="p">(</span><span class="s1">', '</span><span class="p">)</span>
+<span class="c1"># =&gt; "Fizz, Fizz, Fizz, Fizz, Fizz"</span>
 </code></pre></div>
 <h2 id="115-lazy-enumerator">11.5 Lazy Enumerator<a class="headerlink" href="#115-lazy-enumerator" title="Permanent link">&para;</a></h2>
 <p>Ruby の <code>lazy</code> メソッドで遅延評価が可能です。大量データの処理で効率的です。</p>
@@ -10290,7 +10290,7 @@
 <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="no">Float</span><span class="o">::</span><span class="no">INFINITY</span><span class="p">)</span>
 <span class="w">  </span><span class="o">.</span><span class="n">lazy</span>
 <span class="w">  </span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-<span class="w">  </span><span class="o">.</span><span class="n">select</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="o">.</span><span class="n">select</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">  </span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:number</span><span class="p">)</span>
 <span class="c1"># =&gt; [15, 30, 45]</span>
@@ -10427,7 +10427,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

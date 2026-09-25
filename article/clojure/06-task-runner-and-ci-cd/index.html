@@ -10174,10 +10174,10 @@ packages<span class="o">.</span>mkShell <span class="p">{</span>
     babashka
     clojure-lsp
   <span class="p">]);</span>
-  <span class="ss">shellHook</span> <span class="o">=</span> <span class="s s-Multiline">&#39;&#39;</span>
+  <span class="ss">shellHook</span> <span class="o">=</span> <span class="s s-Multiline">''</span>
 <span class="s s-Multiline">    </span><span class="si">${</span>baseShell<span class="o">.</span>shellHook<span class="si">}</span>
-<span class="s s-Multiline">    echo &quot;Clojure development environment activated&quot;</span>
-<span class="s s-Multiline">  &#39;&#39;</span><span class="p">;</span>
+<span class="s s-Multiline">    echo "Clojure development environment activated"</span>
+<span class="s s-Multiline">  ''</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <table>
@@ -10337,12 +10337,12 @@ Ran<span class="w"> </span><span class="m">10</span><span class="w"> </span>test
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/clojure/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/clojure-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/clojure/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/clojure-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/clojure/**&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/clojure/**"</span>
 
 <span class="nt">permissions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -10364,18 +10364,18 @@ Ran<span class="w"> </span><span class="m">10</span><span class="w"> </span>test
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/nix-cache</span>
-<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-clojure-${{ hashFiles(&#39;flake.lock&#39;, &#39;ops/nix/environments/clojure/shell.nix&#39;) }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-clojure-${{ hashFiles('flake.lock', 'ops/nix/environments/clojure/shell.nix') }}</span>
 <span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">${{ runner.os }}-nix-clojure-</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run linter (Eastwood)</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c &quot;cd apps/clojure &amp;&amp; lein eastwood&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c "cd apps/clojure &amp;&amp; lein eastwood"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run complexity check</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c &quot;cd apps/clojure &amp;&amp; lein complexity&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c "cd apps/clojure &amp;&amp; lein complexity"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c &quot;cd apps/clojure &amp;&amp; lein test&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#clojure --command bash -c "cd apps/clojure &amp;&amp; lein test"</span>
 </code></pre></div>
 <h3 id="ci">CI パイプラインの流れ<a class="headerlink" href="#ci" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Push / PR → Checkout → Nix インストール → Nix キャッシュ復元
@@ -10575,7 +10575,7 @@ Ran<span class="w"> </span><span class="m">10</span><span class="w"> </span>test
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

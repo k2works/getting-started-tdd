@@ -10076,18 +10076,18 @@
 <p>前章で三角測量による実装を学びました。この章では <strong>明白な実装</strong> で残りの FizzBuzz ロジックを完成させ、<strong>リファクタリング</strong> によってコードを整理します。</p>
 <h2 id="32-3-5">3.2 3 と 5 両方の倍数<a class="headerlink" href="#32-3-5" title="Permanent link">&para;</a></h2>
 <h3 id="red">RED<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;3 と 5 両方の倍数の場合には「FizzBuzz」と返す&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;15 を渡したら文字列 \&quot;FizzBuzz\&quot; を返す&quot;</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;FizzBuzz&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">15</span><span class="p">)))))</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"3 と 5 両方の倍数の場合には「FizzBuzz」と返す"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"15 を渡したら文字列 \"FizzBuzz\" を返す"</span>
+<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"FizzBuzz"</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">15</span><span class="p">)))))</span>
 </code></pre></div>
 <p>テスト実行 → RED。15 は 3 の倍数でもあるため "Fizz" が返されます。</p>
 <h3 id="green">GREEN<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
 <p>3 と 5 両方の倍数の条件を最初に配置します。Clojure の <code>and</code> で複合条件を表現します。</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defn </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">[</span><span class="nv">n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="ss">:else</span><span class="w"> </span><span class="p">(</span><span class="nb">str </span><span class="nv">n</span><span class="p">)))</span>
 </code></pre></div>
 <p>テスト実行 → GREEN。</p>
@@ -10099,15 +10099,15 @@
 </blockquote>
 <p>現在のコードは明快で読みやすいですが、<code>(zero? (mod n 3))</code> という条件が重複しています。Clojure ではヘルパー関数を使って条件を抽出できます。</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defn- </span><span class="nv">divisible-by?</span>
-<span class="w">  </span><span class="s">&quot;n が d で割り切れるかどうかを判定する&quot;</span>
+<span class="w">  </span><span class="s">"n が d で割り切れるかどうかを判定する"</span>
 <span class="w">  </span><span class="p">[</span><span class="nv">n</span><span class="w"> </span><span class="nv">d</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">d</span><span class="p">)))</span>
 
 <span class="p">(</span><span class="kd">defn </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">[</span><span class="nv">n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">divisible-by?</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="ss">:else</span><span class="w"> </span><span class="p">(</span><span class="nb">str </span><span class="nv">n</span><span class="p">)))</span>
 </code></pre></div>
 <p>テスト実行 → GREEN。リファクタリング後もテストが通ることを確認しました。</p>
@@ -10115,11 +10115,11 @@
 <p>1 から 100 までの FizzBuzz リストを生成する機能を追加します。</p>
 <h3 id="red_1">RED<a class="headerlink" href="#red_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nf">deftest</span><span class="w"> </span><span class="nv">fizzbuzz-list-test</span>
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;1 から 100 までの FizzBuzz リストを生成する&quot;</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"1 から 100 までの FizzBuzz リストを生成する"</span>
 <span class="w">    </span><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">result</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz-list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">100</span><span class="p">)]</span>
 <span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="mi">100</span><span class="w"> </span><span class="p">(</span><span class="nb">count </span><span class="nv">result</span><span class="p">)))</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">(</span><span class="nb">first </span><span class="nv">result</span><span class="p">)))</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;Buzz&quot;</span><span class="w"> </span><span class="p">(</span><span class="nb">nth </span><span class="nv">result</span><span class="w"> </span><span class="mi">99</span><span class="p">))))))</span>
+<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"1"</span><span class="w"> </span><span class="p">(</span><span class="nb">first </span><span class="nv">result</span><span class="p">)))</span>
+<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"Buzz"</span><span class="w"> </span><span class="p">(</span><span class="nb">nth </span><span class="nv">result</span><span class="w"> </span><span class="mi">99</span><span class="p">))))))</span>
 </code></pre></div>
 <h3 id="green_1">GREEN<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <p>Clojure の <code>map</code> と <code>range</code> を使って実装します。</p>
@@ -10234,7 +10234,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

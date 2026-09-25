@@ -7900,6 +7900,56 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
+        テストフレームワーク特性のレーダー比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テストフレームワーク特性のレーダー比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        評価軸と基準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アノテーション / アトリビュートベース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describeit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        describe/it・関数・述語ベース
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         まとめ
       
     </span>
@@ -10385,7 +10435,7 @@
 <span class="w">    </span><span class="nd">@Test</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">数を文字列にして返す_1を渡したら文字列1を返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">FizzBuzzType</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzzType</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">getValue</span><span class="p">());</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">getValue</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nd">@Nested</span>
@@ -10393,7 +10443,7 @@
 <span class="w">        </span><span class="nd">@Test</span>
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">_3を渡したらFizzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">FizzBuzzType</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzzType</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="na">getValue</span><span class="p">());</span>
+<span class="w">            </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="na">getValue</span><span class="p">());</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10404,13 +10454,13 @@
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="n">Generate_1</span><span class="err">を渡すと文字列</span><span class="mi">1</span><span class="err">を返す</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Theory]</span>
-<span class="w">    </span><span class="na">[InlineData(3, &quot;Fizz&quot;)]</span>
-<span class="w">    </span><span class="na">[InlineData(5, &quot;Buzz&quot;)]</span>
-<span class="w">    </span><span class="na">[InlineData(15, &quot;FizzBuzz&quot;)]</span>
+<span class="w">    </span><span class="na">[InlineData(3, "Fizz")]</span>
+<span class="w">    </span><span class="na">[InlineData(5, "Buzz")]</span>
+<span class="w">    </span><span class="na">[InlineData(15, "FizzBuzz")]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="n">Generate_</span><span class="err">倍数に応じた文字列を返す</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">expected</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">Generate</span><span class="p">(</span><span class="n">input</span><span class="p">));</span>
@@ -10423,7 +10473,7 @@
 <span class="x">    public function test_1を渡したら文字列1を返す(): void</span>
 <span class="x">    {</span>
 <span class="x">        $fizzbuzz = new FizzBuzz();</span>
-<span class="x">        $this-&gt;assertSame(&#39;1&#39;, $fizzbuzz-&gt;generate(1));</span>
+<span class="x">        $this-&gt;assertSame('1', $fizzbuzz-&gt;generate(1));</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10431,50 +10481,50 @@
 <p>Flix は標準同梱の <code>@Test</code> アノテーションと <code>Assert.assertEq</code> でテストを定義します。BDD ではなくアノテーションベースのスタイルです。</p>
 <div class="highlight"><pre><span></span><code>@Test
 def testConvert1(): Bool =
-    Assert.assertEq(expected = &quot;1&quot;, actual = FizzBuzz.convert(1))
+    Assert.assertEq(expected = "1", actual = FizzBuzz.convert(1))
 
 @Test
 def testConvert3(): Bool =
-    Assert.assertEq(expected = &quot;Fizz&quot;, actual = FizzBuzz.convert(3))
+    Assert.assertEq(expected = "Fizz", actual = FizzBuzz.convert(3))
 </code></pre></div>
 <h4 id="kotlinkotlintest">Kotlin（kotlin.test）<a class="headerlink" href="#kotlinkotlintest" title="Permanent link">&para;</a></h4>
 <p>Kotlin は <code>kotlin.test</code> の <code>@Test</code> アノテーションと <code>assertEquals</code> でテストを定義します。JUnit Platform 上で動作し、テスト名にはバッククォートで日本語を記述できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nd">@Test</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="err">`1を渡したら文字列1を返す`() {</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nd">@Test</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="err">`3を渡したら</span><span class="nf">Fizz</span><span class="err">を返す`</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="2-describeitbdd">スタイル 2: describe/it（BDD スタイル）<a class="headerlink" href="#2-describeitbdd" title="Permanent link">&para;</a></h3>
 <p>テストをネストされたブロックで構造化する BDD スタイルです。</p>
 <h4 id="typescriptvitest">TypeScript（Vitest）<a class="headerlink" href="#typescriptvitest" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;FizzBuzzType&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;タイプ1の場合&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s2">"FizzBuzzType"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s2">"タイプ1の場合"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">FizzBuzzType</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 
-<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;1を渡したら文字列&#39;1&#39;を返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="kr">type</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">value</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s2">"1を渡したら文字列'1'を返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="kr">type</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">value</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"1"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 
-<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;3を渡したら&#39;Fizz&#39;を返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="kr">type</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">3</span><span class="p">).</span><span class="nx">value</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Fizz&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s2">"3を渡したら'Fizz'を返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="kr">type</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">3</span><span class="p">).</span><span class="nx">value</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Fizz"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
 <h4 id="rubyminitest">Ruby（Minitest）<a class="headerlink" href="#rubyminitest" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTypeTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">&quot;FizzBuzzType&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">describe</span><span class="w"> </span><span class="s2">&quot;タイプ1の場合&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="s2">&quot;1を渡したら文字列&#39;1&#39;を返す&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">"FizzBuzzType"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">describe</span><span class="w"> </span><span class="s2">"タイプ1の場合"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="s2">"1を渡したら文字列'1'を返す"</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType01</span><span class="o">.</span><span class="n">new</span>
-<span class="w">        </span><span class="n">assert_equal</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="w">        </span><span class="n">assert_equal</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
 <span class="w">      </span><span class="k">end</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10482,51 +10532,51 @@ def testConvert3(): Bool =
 </code></pre></div>
 <h4 id="scalascalatest">Scala（ScalaTest）<a class="headerlink" href="#scalascalatest" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzSpec</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">AnyFunSuite</span><span class="p">:</span>
-<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">&quot;1 を渡すと文字列 1 を返す&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">"1 を渡すと文字列 1 を返す"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"1"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">&quot;3 の倍数を渡すと Fizz を返す&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">"3 の倍数を渡すと Fizz を返す"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 <h4 id="elixirexunit">Elixir（ExUnit）<a class="headerlink" href="#elixirexunit" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="n">describe</span><span class="w"> </span><span class="s2">&quot;generate/1&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;1 を渡すと文字列 1 を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">describe</span><span class="w"> </span><span class="s2">"generate/1"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"1 を渡すと文字列 1 を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"1"</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;3 の倍数を渡すと Fizz を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
+<span class="w">  </span><span class="n">test</span><span class="w"> </span><span class="s2">"3 の倍数を渡すと Fizz を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Fizz"</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <h4 id="haskellhspec">Haskell（HSpec）<a class="headerlink" href="#haskellhspec" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nf">spec</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Spec</span>
 <span class="nf">spec</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">&quot;generate&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;1 を渡すと &#39;1&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">"generate"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"1 を渡すと '1' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"1"</span>
 
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;3 の倍数を渡すと &#39;Fizz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"3 の倍数を渡すと 'Fizz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Fizz"</span>
 </code></pre></div>
 <h3 id="3">スタイル 3: 関数ベース<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>テストを関数として定義するシンプルなスタイルです。</p>
 <h4 id="pythonpytest">Python（pytest）<a class="headerlink" href="#pythonpytest" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span><span class="p">():</span>
     <span class="n">type_</span> <span class="o">=</span> <span class="n">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
+    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"1"</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したらFizzを返す</span><span class="p">():</span>
     <span class="n">type_</span> <span class="o">=</span> <span class="n">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
+    <span class="k">assert</span> <span class="n">type_</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
 </code></pre></div>
 <h4 id="gotesting">Go（testing）<a class="headerlink" href="#gotesting" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">TestGenerate_1を渡したら文字列1を返す</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;expected &#39;1&#39;, got &#39;%s&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"1"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">"expected '1', got '%s'"</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -10536,15 +10586,15 @@ def testConvert3(): Bool =
 <span class="w">        </span><span class="nx">input</span><span class="w">    </span><span class="kt">int</span>
 <span class="w">        </span><span class="nx">expected</span><span class="w"> </span><span class="kt">string</span>
 <span class="w">    </span><span class="p">}{</span>
-<span class="w">        </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">},</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;input=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">input</span><span class="p">),</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">"input=%d"</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">input</span><span class="p">),</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">got</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Generate</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">input</span><span class="p">);</span><span class="w"> </span><span class="nx">got</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;Generate(%d) = %s, want %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">t</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">"Generate(%d) = %s, want %s"</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="p">)</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">})</span>
 <span class="w">    </span><span class="p">}</span>
@@ -10557,7 +10607,7 @@ def testConvert3(): Bool =
 
 <span class="w">    </span><span class="cp">#[test]</span>
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">mod</span><span class="w"> </span><span class="err">三の倍数の場合</span><span class="w"> </span><span class="p">{</span>
@@ -10565,29 +10615,29 @@ def testConvert3(): Bool =
 
 <span class="w">        </span><span class="cp">#[test]</span>
 <span class="w">        </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_3を渡したらfizzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">            </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="clojureclojuretest">Clojure（clojure.test）<a class="headerlink" href="#clojureclojuretest" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nf">deftest</span><span class="w"> </span><span class="nv">fizzbuzz-test</span>
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;数を文字列にして返す&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;1 を渡したら文字列 1 を返す&quot;</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">1</span><span class="p">)))))</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"数を文字列にして返す"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"1 を渡したら文字列 1 を返す"</span>
+<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"1"</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">1</span><span class="p">)))))</span>
 
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;3 の倍数のときは Fizz と返す&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;Fizz&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">3</span><span class="p">)))))</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"3 の倍数のときは Fizz と返す"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"Fizz"</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">3</span><span class="p">)))))</span>
 </code></pre></div>
 <h4 id="prologplunit">Prolog（plunit）<a class="headerlink" href="#prologplunit" title="Permanent link">&para;</a></h4>
 <p>Prolog は <code>begin_tests/1</code> と <code>end_tests/1</code> で囲んだブロック内に <code>test/1</code> 述語を定義します。テストも述語（宣言）であり、ゴールの導出とアサーションで検証します。</p>
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">returns_fizz_for_multiple_of_3</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nv">R</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">end_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">).</span>
 </code></pre></div>
@@ -11087,7 +11137,80 @@ def testConvert3(): Bool =
 </tr>
 </tbody>
 </table>
-<h2 id="_10">まとめ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_10">テストフレームワーク特性のレーダー比較<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>前節までの比較を 5 つの軸で数値化します。</p>
+<h3 id="_11">評価軸と基準<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>0〜1</th>
+<th>2〜3</th>
+<th>4〜5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>標準搭載度</td>
+<td>外部ライブラリの導入が必須</td>
+<td>準標準として広く使われる</td>
+<td>言語/ランタイムに同梱</td>
+</tr>
+<tr>
+<td>グルーピング</td>
+<td>ブロック単位で固定</td>
+<td>クラス/モジュール単位</td>
+<td>制限なくネスト可能</td>
+</tr>
+<tr>
+<td>セットアップ機構</td>
+<td>仕組みを持たない</td>
+<td>関数呼び出しやオプションで代替</td>
+<td>専用の前後処理フックを持つ</td>
+</tr>
+<tr>
+<td>パラメータ化</td>
+<td>手動ループのみ</td>
+<td>マクロやループで表現</td>
+<td>専用構文を持つ</td>
+</tr>
+<tr>
+<td>アサーション表現力</td>
+<td>等値比較のみ</td>
+<td>主要なマッチャーを持つ</td>
+<td>豊富なマッチャーと差分表示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">アノテーション / アトリビュートベース<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title アノテーション系テストフレームワークの特性
+  axis std["標準搭載度"], gr["グルーピング"], su["セットアップ機構"]
+  axis pt["パラメータ化"], as["アサーション表現力"]
+  curve junit["Java / JUnit 5"]{2, 5, 5, 5, 4}
+  curve xunit["C# / xUnit"]{4, 3, 4, 5, 3}
+  curve ktest["Kotlin / kotlin.test"]{4, 5, 4, 2, 3}
+  curve flix["Flix / flix test"]{5, 2, 1, 2, 2}
+  max 5
+  min 0</code></pre>
+<p>JUnit 5 は <code>@Nested</code>・<code>@BeforeEach</code>・<code>@ParameterizedTest</code> を揃え、最も機能が充実して
+います。Flix は <code>flix.jar</code> に同梱されるため標準搭載度が最大ですが、セットアップ用の
+フックを持たず関数呼び出しで代替します。</p>
+<h3 id="describeit">describe/it・関数・述語ベース<a class="headerlink" href="#describeit" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title describe/it 系・関数系テストフレームワークの特性
+  axis std["標準搭載度"], gr["グルーピング"], su["セットアップ機構"]
+  axis pt["パラメータ化"], as["アサーション表現力"]
+  curve pytest["Python / pytest"]{3, 5, 5, 5, 4}
+  curve vitest["TypeScript / Vitest"]{2, 5, 5, 5, 5}
+  curve hspec["Haskell / HSpec"]{2, 5, 4, 3, 4}
+  curve plunit["Prolog / plunit"]{5, 2, 3, 4, 2}
+  max 5
+  min 0</code></pre>
+<p>pytest と Vitest はフィクスチャ/フックと専用のパラメータ化構文を備え、表現力が高く
+なります。plunit は SWI-Prolog 標準同梱で <code>forall</code> オプションによるパラメータ化も
+持ちますが、グルーピングは <code>begin_tests</code>/<code>end_tests</code> のブロック単位に限られます。</p>
+<h2 id="_13">まとめ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>テストフレームワークの選択は言語の設計思想と密接に関連しています。</p>
 <ol>
 <li><strong>アノテーション / アトリビュートベース</strong>（Java, C#, PHP, Flix, Kotlin）はクラスベースまたは関数ベースの構造化が特徴です。Flix は FP 言語ながら標準同梱の <code>@Test</code> アノテーションを採用しています。Kotlin は <code>kotlin.test</code> の <code>@Test</code> を JUnit Platform 上で実行します</li>
@@ -11163,7 +11286,7 @@ def testConvert3(): Bool =
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

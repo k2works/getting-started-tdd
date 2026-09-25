@@ -10158,9 +10158,9 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>haske
 
 <span class="nf">spec</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Spec</span>
 <span class="nf">spec</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">&quot;learning test&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;整数を文字列へ変換できる&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">show</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;42&quot;</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">"learning test"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"整数を文字列へ変換できる"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">show</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"42"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
@@ -10210,20 +10210,20 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 
 <span class="nf">spec</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Spec</span>
 <span class="nf">spec</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">&quot;generate&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;1 を渡すと &#39;1&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s">"generate"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"1 を渡すと '1' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"1"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
 
 Failures:
 
 <span class="w">  </span>test/FizzBuzz/FizzBuzzSpec.hs:9:7:
-<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
 <span class="w">       </span>evaluate<span class="w"> </span>raised<span class="w"> </span>an<span class="w"> </span>unexpected<span class="w"> </span>exception:
 <span class="w">         </span>Prelude.undefined
 
@@ -10244,14 +10244,14 @@ Failures:
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
 
 <span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
-<span class="nf">generate</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="nf">generate</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"1"</span>
 </code></pre></div>
 <p>引数のパターンに <code>_</code>（ワイルドカード）を使い、どんな値が来ても無視して <code>"1"</code> を返します。これは Rust の <code>"1".to_string()</code> をベタ書きするのと同じ仮実装です。Haskell では文字列リテラル <code>"1"</code> がそのまま <code>String</code> 型（<code>[Char]</code> の型エイリアス）になるため、Rust のような <code>to_string()</code> 変換は不要です。</p>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
 
 Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span>seconds
 <span class="m">1</span><span class="w"> </span>example,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
@@ -10269,7 +10269,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10350,7 +10350,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

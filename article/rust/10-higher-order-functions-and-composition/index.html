@@ -10066,16 +10066,16 @@
 </code></pre></div>
 <h3 id="filter">filter — 要素の選別<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">fizz_values</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;&amp;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">iter</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">collect</span><span class="p">();</span>
 </code></pre></div>
 <h3 id="find">find — 最初の一致要素<a class="headerlink" href="#find" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">first_buzz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">iter</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="any-all">any / all — 条件判定<a class="headerlink" href="#any-all" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">has_fizzbuzz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">iter</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="n">any</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="n">any</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">);</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="n">all_non_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">iter</span><span class="p">()</span>
 <span class="w">    </span><span class="p">.</span><span class="n">all</span><span class="p">(</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="n">value</span><span class="p">().</span><span class="n">is_empty</span><span class="p">());</span>
@@ -10208,7 +10208,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

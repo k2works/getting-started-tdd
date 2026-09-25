@@ -10150,13 +10150,13 @@
 <h2 id="52-sbt">5.2 sbt によるパッケージ管理<a class="headerlink" href="#52-sbt" title="Permanent link">&para;</a></h2>
 <h3 id="buildsbt">build.sbt の構成<a class="headerlink" href="#buildsbt" title="Permanent link">&para;</a></h3>
 <p><code>apps/scala/build.sbt</code> では、プロジェクトの基本情報と依存関係を定義します。</p>
-<div class="highlight"><pre><span></span><code><span class="k">lazy</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="k">lazy</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">"."</span><span class="p">))</span>
 <span class="w">  </span><span class="p">.</span><span class="n">settings</span><span class="p">(</span>
-<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;fizzbuzz&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">version</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;0.1.0&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">scalaVersion</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;3.3.4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"fizzbuzz"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">version</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"0.1.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">scalaVersion</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"3.3.4"</span><span class="p">,</span>
 <span class="w">    </span><span class="n">libraryDependencies</span><span class="w"> </span><span class="o">++=</span><span class="w"> </span><span class="nc">Seq</span><span class="p">(</span>
-<span class="w">      </span><span class="s">&quot;org.scalatest&quot;</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">&quot;scalatest&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;3.2.18&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
+<span class="w">      </span><span class="s">"org.scalatest"</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">"scalatest"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"3.2.18"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
 </code></pre></div>
@@ -10168,8 +10168,8 @@
 </ul>
 <h3 id="projectpluginssbt">プラグインの追加（project/plugins.sbt）<a class="headerlink" href="#projectpluginssbt" title="Permanent link">&para;</a></h3>
 <p><code>sbt</code> プラグインは <code>apps/scala/project/plugins.sbt</code> に追加します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">addSbtPlugin</span><span class="p">(</span><span class="s">&quot;org.scalameta&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;sbt-scalafmt&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;2.5.2&quot;</span><span class="p">)</span>
-<span class="n">addSbtPlugin</span><span class="p">(</span><span class="s">&quot;org.wartremover&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;sbt-wartremover&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;3.2.5&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">addSbtPlugin</span><span class="p">(</span><span class="s">"org.scalameta"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"sbt-scalafmt"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"2.5.2"</span><span class="p">)</span>
+<span class="n">addSbtPlugin</span><span class="p">(</span><span class="s">"org.wartremover"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"sbt-wartremover"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"3.2.5"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="test">依存関係の管理（<code>%</code> と <code>%%</code> の違い、Test スコープ）<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
 <ul>
@@ -10178,7 +10178,7 @@
 <li><code>% Test</code>: テスト時だけ必要な依存関係に付けます。</li>
 </ul>
 <p>例:</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;org.scalatest&quot;</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">&quot;scalatest&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;3.2.18&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
+<div class="highlight"><pre><span></span><code><span class="s">"org.scalatest"</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">"scalatest"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"3.2.18"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
 </code></pre></div>
 <p>この指定により、本番 Artifact には <code>ScalaTest</code> が含まれません。</p>
 <h2 id="53-scalafmt">5.3 scalafmt によるコードフォーマット<a class="headerlink" href="#53-scalafmt" title="Permanent link">&para;</a></h2>
@@ -10294,10 +10294,10 @@ OK すべての関数が複雑度閾値以内です。
 <h2 id="56">5.6 コンパイラオプション<a class="headerlink" href="#56" title="Permanent link">&para;</a></h2>
 <p><code>apps/scala/build.sbt</code> では次の <code>scalacOptions</code> を設定しています。</p>
 <div class="highlight"><pre><span></span><code><span class="n">scalacOptions</span><span class="w"> </span><span class="o">++=</span><span class="w"> </span><span class="nc">Seq</span><span class="p">(</span>
-<span class="w">  </span><span class="s">&quot;-deprecation&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s">&quot;-feature&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s">&quot;-unchecked&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s">&quot;-Xfatal-warnings&quot;</span>
+<span class="w">  </span><span class="s">"-deprecation"</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"-feature"</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"-unchecked"</span><span class="p">,</span>
+<span class="w">  </span><span class="s">"-Xfatal-warnings"</span>
 <span class="p">)</span>
 </code></pre></div>
 <ul>
@@ -10383,7 +10383,7 @@ OK すべての関数が複雑度閾値以内です。
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

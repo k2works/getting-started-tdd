@@ -10245,15 +10245,15 @@
 <h3 id="buildgradle">build.gradle の更新<a class="headerlink" href="#buildgradle" title="Permanent link">&para;</a></h3>
 <p>品質管理ツールを追加した <code>build.gradle</code> は以下のようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;java&#39;</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;jacoco&#39;</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;checkstyle&#39;</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;pmd&#39;</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;com.github.spotbugs&#39;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s1">&#39;6.0.7&#39;</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'java'</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'jacoco'</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'checkstyle'</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'pmd'</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'com.github.spotbugs'</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s1">'6.0.7'</span>
 <span class="o">}</span>
 
-<span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tdd.fizzbuzz&#39;</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0.1.0-SNAPSHOT&#39;</span>
+<span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'tdd.fizzbuzz'</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'0.1.0-SNAPSHOT'</span>
 
 <span class="n">java</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">toolchain</span><span class="w"> </span><span class="o">{</span>
@@ -10266,27 +10266,27 @@
 <span class="o">}</span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">testImplementation</span><span class="w"> </span><span class="s1">&#39;org.junit.jupiter:junit-jupiter:5.10.2&#39;</span>
-<span class="w">    </span><span class="n">testRuntimeOnly</span><span class="w"> </span><span class="s1">&#39;org.junit.platform:junit-platform-launcher&#39;</span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="w"> </span><span class="s1">'org.junit.jupiter:junit-jupiter:5.10.2'</span>
+<span class="w">    </span><span class="n">testRuntimeOnly</span><span class="w"> </span><span class="s1">'org.junit.platform:junit-platform-launcher'</span>
 
 <span class="w">    </span><span class="c1">// SpotBugs 関連</span>
-<span class="w">    </span><span class="n">spotbugsPlugins</span><span class="w"> </span><span class="s1">&#39;com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0&#39;</span>
+<span class="w">    </span><span class="n">spotbugsPlugins</span><span class="w"> </span><span class="s1">'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'</span>
 <span class="o">}</span>
 
 <span class="n">test</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">useJUnitPlatform</span><span class="o">()</span>
 
 <span class="w">    </span><span class="n">testLogging</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">events</span><span class="o">(</span><span class="s2">&quot;passed&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;skipped&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="o">)</span>
+<span class="w">        </span><span class="n">events</span><span class="o">(</span><span class="s2">"passed"</span><span class="o">,</span><span class="w"> </span><span class="s2">"skipped"</span><span class="o">,</span><span class="w"> </span><span class="s2">"failed"</span><span class="o">)</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 
 <span class="n">jacoco</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">toolVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0.8.11&#39;</span>
+<span class="w">    </span><span class="n">toolVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'0.8.11'</span>
 <span class="o">}</span>
 
 <span class="n">pmd</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">&#39;config/pmd/ruleset.xml&#39;</span><span class="o">)</span>
+<span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">'config/pmd/ruleset.xml'</span><span class="o">)</span>
 <span class="w">    </span><span class="n">ruleSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
 <span class="o">}</span>
 
@@ -10295,7 +10295,7 @@
 <span class="w">    </span><span class="n">reports</span><span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="n">xml</span><span class="o">.</span><span class="na">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">        </span><span class="n">csv</span><span class="o">.</span><span class="na">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">        </span><span class="n">html</span><span class="o">.</span><span class="na">outputLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layout</span><span class="o">.</span><span class="na">buildDirectory</span><span class="o">.</span><span class="na">dir</span><span class="o">(</span><span class="s1">&#39;jacocoHtml&#39;</span><span class="o">)</span>
+<span class="w">        </span><span class="n">html</span><span class="o">.</span><span class="na">outputLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layout</span><span class="o">.</span><span class="na">buildDirectory</span><span class="o">.</span><span class="na">dir</span><span class="o">(</span><span class="s1">'jacocoHtml'</span><span class="o">)</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -10318,44 +10318,44 @@
 </code></pre></div>
 <h3 id="checkstyle_1">Checkstyle 設定ファイル<a class="headerlink" href="#checkstyle_1" title="Permanent link">&para;</a></h3>
 <p>プロジェクト固有のコーディング規約を定義する <code>config/checkstyle/checkstyle.xml</code> を作成します。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="cp">&lt;!DOCTYPE module PUBLIC</span>
-<span class="cp">        &quot;-//Checkstyle//DTD Checkstyle Configuration 1.3//EN&quot;</span>
-<span class="cp">        &quot;https://checkstyle.org/dtds/configuration_1_3.dtd&quot;&gt;</span>
+<span class="cp">        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"</span>
+<span class="cp">        "https://checkstyle.org/dtds/configuration_1_3.dtd"&gt;</span>
 
-<span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Checker&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;charset&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"Checker"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"charset"</span><span class="w"> </span><span class="na">value=</span><span class="s">"UTF-8"</span><span class="nt">/&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- 抑制ルール --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;SuppressionFilter&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${config_loc}/suppressions.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"SuppressionFilter"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"file"</span><span class="w"> </span><span class="na">value=</span><span class="s">"${config_loc}/suppressions.xml"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/module&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- ファイルレベルのチェック --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FileTabCharacter&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;eachLine&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"FileTabCharacter"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"eachLine"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/module&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- TreeWalker による AST 解析 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TreeWalker&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"TreeWalker"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="cm">&lt;!-- インデント --&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Indentation&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;basicOffset&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"Indentation"</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"basicOffset"</span><span class="w"> </span><span class="na">value=</span><span class="s">"4"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/module&gt;</span>
 
 <span class="w">        </span><span class="cm">&lt;!-- 命名規則 --&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TypeName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MethodName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;LocalVariableName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MemberName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ConstantName&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"TypeName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"MethodName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"LocalVariableName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"MemberName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"ConstantName"</span><span class="nt">/&gt;</span>
 
 <span class="w">        </span><span class="cm">&lt;!-- その他 --&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EmptyStatement&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EqualsHashCode&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MagicNumber&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ignoreHashCodeMethod&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ignoreAnnotation&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"EmptyStatement"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"EqualsHashCode"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;module</span><span class="w"> </span><span class="na">name=</span><span class="s">"MagicNumber"</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"ignoreHashCodeMethod"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"ignoreAnnotation"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/module&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/module&gt;</span>
 <span class="nt">&lt;/module&gt;</span>
@@ -10367,11 +10367,11 @@
 <h4 id="before">Before<a class="headerlink" href="#before" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
 <span class="p">}</span>
@@ -10382,11 +10382,11 @@
 
 <span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">FIZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">BUZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">FIZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">BUZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
 <span class="p">}</span>
@@ -10405,8 +10405,8 @@
 <h3 id="_1">テストコードの抑制ルール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>テストコードではマジックナンバーや日本語メソッド名を許容するため、<code>config/checkstyle/suppressions.xml</code> で抑制ルールを設定します。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;suppressions&gt;</span>
-<span class="w">    </span><span class="nt">&lt;suppress</span><span class="w"> </span><span class="na">files=</span><span class="s">&quot;.*Test\.java$&quot;</span><span class="w"> </span><span class="na">checks=</span><span class="s">&quot;MagicNumber&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;suppress</span><span class="w"> </span><span class="na">files=</span><span class="s">&quot;.*Test\.java$&quot;</span><span class="w"> </span><span class="na">checks=</span><span class="s">&quot;MethodName&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;suppress</span><span class="w"> </span><span class="na">files=</span><span class="s">".*Test\.java$"</span><span class="w"> </span><span class="na">checks=</span><span class="s">"MagicNumber"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;suppress</span><span class="w"> </span><span class="na">files=</span><span class="s">".*Test\.java$"</span><span class="w"> </span><span class="na">checks=</span><span class="s">"MethodName"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/suppressions&gt;</span>
 </code></pre></div>
 <p>リファクタリング後もテストが通ることを確認します。</p>
@@ -10494,54 +10494,54 @@
 </table>
 <h3 id="pmd_1">PMD ルールセットの設定<a class="headerlink" href="#pmd_1" title="Permanent link">&para;</a></h3>
 <p><code>config/pmd/ruleset.xml</code> にコード複雑度のルールを定義します。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Custom Rules&quot;</span>
-<span class="w">         </span><span class="na">xmlns=</span><span class="s">&quot;http://pmd.sourceforge.net/ruleset/2.0.0&quot;</span>
-<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://pmd.sourceforge.net/ruleset/2.0.0</span>
-<span class="s">             https://pmd.sourceforge.io/ruleset_2_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">"Custom Rules"</span>
+<span class="w">         </span><span class="na">xmlns=</span><span class="s">"http://pmd.sourceforge.net/ruleset/2.0.0"</span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://pmd.sourceforge.net/ruleset/2.0.0</span>
+<span class="s">             https://pmd.sourceforge.io/ruleset_2_0_0.xsd"</span><span class="nt">&gt;</span>
 
 <span class="w">    </span><span class="nt">&lt;description&gt;</span>プロジェクト用<span class="w"> </span>PMD<span class="w"> </span>ルールセット<span class="nt">&lt;/description&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- 基本ルール --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/bestpractices.xml&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;JUnitTestContainsTooManyAsserts&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/bestpractices.xml"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"JUnitTestContainsTooManyAsserts"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/errorprone.xml&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/codestyle.xml&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;AtLeastOneConstructor&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OnlyOneReturn&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;LocalVariableCouldBeFinal&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MethodArgumentCouldBeFinal&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ShortVariable&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;LongVariable&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ShortMethodName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ShortClassName&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;CommentDefaultAccessModifier&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/errorprone.xml"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/codestyle.xml"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"AtLeastOneConstructor"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"OnlyOneReturn"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"LocalVariableCouldBeFinal"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"MethodArgumentCouldBeFinal"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"ShortVariable"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"LongVariable"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"ShortMethodName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"ShortClassName"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"CommentDefaultAccessModifier"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- コード複雑度 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/design.xml/CyclomaticComplexity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/design.xml/CyclomaticComplexity"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;classReportLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;80&quot;</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;methodReportLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;7&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"classReportLevel"</span><span class="w"> </span><span class="na">value=</span><span class="s">"80"</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"methodReportLevel"</span><span class="w"> </span><span class="na">value=</span><span class="s">"7"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/design.xml/CognitiveComplexity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/design.xml/CognitiveComplexity"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reportLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"reportLevel"</span><span class="w"> </span><span class="na">value=</span><span class="s">"4"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;category/java/design.xml/NPathComplexity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/design.xml/NPathComplexity"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reportLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;200&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"reportLevel"</span><span class="w"> </span><span class="na">value=</span><span class="s">"200"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 <span class="nt">&lt;/ruleset&gt;</span>
 </code></pre></div>
 <p><code>build.gradle</code> に PMD のルールセットファイルを参照する設定を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">pmd</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">&#39;config/pmd/ruleset.xml&#39;</span><span class="o">)</span>
+<span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">'config/pmd/ruleset.xml'</span><span class="o">)</span>
 <span class="w">    </span><span class="n">ruleSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -10663,7 +10663,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10094,54 +10094,54 @@
 <p>Ruby の Rake、Java の Gradle、Node の npm scripts、Rust の Makefile に相当します。F# プロジェクトでは Cake が広く使われています。</p>
 <h3 id="cake_1">Cake ビルドスクリプトの定義<a class="headerlink" href="#cake_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// build.cake</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">&quot;target&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Default&quot;</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">&quot;configuration&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Release&quot;</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">"target"</span><span class="p">,</span><span class="w"> </span><span class="s">"Default"</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">"configuration"</span><span class="p">,</span><span class="w"> </span><span class="s">"Release"</span><span class="p">);</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Clean&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Clean"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">&quot;./src/bin&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">&quot;./src/obj&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">&quot;./tests/bin&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">&quot;./tests/obj&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">"./src/bin"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">"./src/obj"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">"./tests/bin"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CleanDirectory</span><span class="p">(</span><span class="s">"./tests/obj"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Clean&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Clean"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetBuild</span><span class="p">(</span><span class="s">&quot;./FizzBuzzFSharp.sln&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetBuildSettings</span>
+<span class="w">    </span><span class="n">DotNetBuild</span><span class="p">(</span><span class="s">"./FizzBuzzFSharp.sln"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetBuildSettings</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Format&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Format"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">&quot;dotnet&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fantomas ./src --recurse&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">&quot;dotnet&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fantomas ./tests --recurse&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">"dotnet"</span><span class="p">,</span><span class="w"> </span><span class="s">"fantomas ./src --recurse"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">StartProcess</span><span class="p">(</span><span class="s">"dotnet"</span><span class="p">,</span><span class="w"> </span><span class="s">"fantomas ./tests --recurse"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetTest</span><span class="p">(</span><span class="s">&quot;./tests/FizzBuzzFSharpTest.fsproj&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetTestSettings</span>
+<span class="w">    </span><span class="n">DotNetTest</span><span class="p">(</span><span class="s">"./tests/FizzBuzzFSharpTest.fsproj"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetTestSettings</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span>
 <span class="w">        </span><span class="n">NoBuild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;All&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Clean&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Format&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"All"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Clean"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Format"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Test"</span><span class="p">);</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Default&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;All&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Default"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"All"</span><span class="p">);</span>
 
 <span class="n">RunTarget</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
 </code></pre></div>
@@ -10212,14 +10212,14 @@ Total:<span class="w">   </span><span class="m">00</span>:00:07.1604924
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/FizzBuzzFSharp/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/FizzBuzzFSharpTest/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/fsharp-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/FizzBuzzFSharp/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/FizzBuzzFSharpTest/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/fsharp-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/FizzBuzzFSharp/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/FizzBuzzFSharpTest/**&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/FizzBuzzFSharp/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/FizzBuzzFSharpTest/**"</span>
 
 <span class="nt">permissions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -10404,7 +10404,7 @@ Total:<span class="w">   </span><span class="m">00</span>:00:07.1604924
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

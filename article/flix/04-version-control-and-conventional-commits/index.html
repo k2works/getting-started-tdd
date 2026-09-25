@@ -10146,7 +10146,7 @@
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>apps/flix
 git<span class="w"> </span>init
 git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore(flix): initialize Flix project&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"chore(flix): initialize Flix project"</span>
 </code></pre></div>
 <p><code>git init</code> でリポジトリを初期化し、<code>git add</code> でステージング、<code>git commit</code> で履歴を確定します。TDD では Red → Green → Refactor の小さな単位でコミットすると、変更意図を追いやすくなります。</p>
 <h3 id="_1">基本操作のループ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10161,7 +10161,7 @@ git<span class="w"> </span>diff
 git<span class="w"> </span>add<span class="w"> </span>src/FizzBuzz.flix<span class="w"> </span>test/TestFizzBuzz.flix
 
 <span class="c1"># コミット</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test(fizzbuzz): 15 の倍数に対する失敗テストを追加&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"test(fizzbuzz): 15 の倍数に対する失敗テストを追加"</span>
 
 <span class="c1"># 履歴確認</span>
 git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--decorate<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
@@ -10252,17 +10252,17 @@ chore(ci): Flix CI ワークフローを追加
 <p>TDD の各段階でコミットすることで、変更の意図を明確に保てます。</p>
 <h3 id="red">Red — 失敗するテストを追加<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>test/TestFizzBuzz.flix
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test(fizzbuzz): generateList の失敗テストを追加&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"test(fizzbuzz): generateList の失敗テストを追加"</span>
 </code></pre></div>
 <p>テストファイルのみをコミットし、テスト（Flix ではコンパイルエラーを含む）が失敗する状態を記録します。</p>
 <h3 id="green">Green — テストを通す最小実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>src/FizzBuzz.flix
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(fizzbuzz): generateList を実装&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat(fizzbuzz): generateList を実装"</span>
 </code></pre></div>
 <p>実装ファイルのみをコミットし、全テストが通過する状態を記録します。</p>
 <h3 id="refactor">Refactor — 振る舞いを変えない整理<a class="headerlink" href="#refactor" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>src/FizzBuzz.flix<span class="w"> </span>test/TestFizzBuzz.flix
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;refactor(fizzbuzz): パイプラインの可読性を向上&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"refactor(fizzbuzz): パイプラインの可読性を向上"</span>
 </code></pre></div>
 <p>テストが通り続けていることを確認した上で、コードの改善をコミットします。</p>
 <p>ポイントは、1 コミット 1 意図です。<code>feat</code> と <code>refactor</code> を同一コミットに混ぜないことで、レビューしやすくなります。</p>
@@ -10365,7 +10365,7 @@ git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </sp
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

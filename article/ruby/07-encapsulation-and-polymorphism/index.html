@@ -10141,17 +10141,17 @@
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">type</span>
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
 <span class="w">      </span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="mi">2</span>
 <span class="w">      </span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
 <span class="w">      </span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">else</span>
-<span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="s2">&quot;未定義のタイプ: </span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="s2">"未定義のタイプ: </span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">"</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
@@ -10233,7 +10233,7 @@
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="no">TYPE_01</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="no">FizzBuzzType01</span><span class="o">.</span><span class="n">new</span>
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="no">TYPE_02</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="no">FizzBuzzType02</span><span class="o">.</span><span class="n">new</span>
 <span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="no">TYPE_03</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="no">FizzBuzzType03</span><span class="o">.</span><span class="n">new</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">raise</span><span class="w"> </span><span class="s2">&quot;未定義のタイプ: </span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">raise</span><span class="w"> </span><span class="s2">"未定義のタイプ: </span><span class="si">#{</span><span class="n">type</span><span class="si">}</span><span class="s2">"</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
@@ -10255,9 +10255,9 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzType01</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">FizzBuzzType</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Buzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'Buzz'</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 
 <span class="w">    </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10271,7 +10271,7 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzType03</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">FizzBuzzType</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fizz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buzz?</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 
 <span class="w">    </span><span class="no">FizzBuzzValue</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10295,61 +10295,61 @@
 <p>テストをタイプ別の <code>describe</code> ブロックに整理します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># frozen_string_literal: true</span>
 
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;../../../test_helper&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;../../../../lib/fizz_buzz/fizz_buzz&#39;</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'../../../test_helper'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'../../../../lib/fizz_buzz/fizz_buzz'</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTypeTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">&#39;タイプ1の場合&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">'タイプ1の場合'</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span>
 <span class="w">      </span><span class="vi">@type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="no">FizzBuzzType</span><span class="o">::</span><span class="no">TYPE_01</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したらFizzを返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_5を渡したらBuzzを返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_15を渡したらFizzBuzzを返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">&#39;タイプ2の場合&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">'タイプ2の場合'</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span>
 <span class="w">      </span><span class="vi">@type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="no">FizzBuzzType</span><span class="o">::</span><span class="no">TYPE_02</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したら文字列3を返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'3'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_15を渡したら文字列15を返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;15&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'15'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">&#39;タイプ3の場合&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">'タイプ3の場合'</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span>
 <span class="w">      </span><span class="vi">@type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="no">FizzBuzzType</span><span class="o">::</span><span class="no">TYPE_03</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したら文字列3を返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'3'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_15を渡したらFizzBuzzを返す</span>
-<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
+<span class="w">      </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@type</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">&#39;ファクトリメソッド&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s1">'ファクトリメソッド'</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test_TYPE_01を指定するとFizzBuzzType01が返る</span>
 <span class="w">      </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="no">FizzBuzzType</span><span class="o">::</span><span class="no">TYPE_01</span><span class="p">)</span>
 <span class="w">      </span><span class="n">assert_instance_of</span><span class="w"> </span><span class="no">FizzBuzzType01</span><span class="p">,</span><span class="w"> </span><span class="n">type</span>
@@ -10501,7 +10501,7 @@ Started<span class="w"> </span>with<span class="w"> </span>run<span class="w"> <
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

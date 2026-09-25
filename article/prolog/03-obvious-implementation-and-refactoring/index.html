@@ -10082,10 +10082,10 @@
 <h2 id="32">3.2 明白な実装<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
 <h3 id="_1">数値のデフォルト処理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>前章までに <code>fizzbuzz/2</code> は次の 4 つの節で構成されました。最後の節に注目します。</p>
-<div class="highlight"><pre><span></span><code><span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Result</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Result</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<div class="highlight"><pre><span></span><code><span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Result</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Result</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 </code></pre></div>
 <p>ここで <strong>明白な実装</strong> の考え方を確認しておきましょう。</p>
 <blockquote>
@@ -10143,7 +10143,7 @@
     <span class="nf">numlist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="nv">Ns</span><span class="p">),</span>
     <span class="nf">maplist</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">,</span> <span class="nv">Ns</span><span class="p">,</span> <span class="nv">List</span><span class="p">),</span>
     <span class="nf">forall</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">List</span><span class="p">),</span>
-           <span class="nf">format</span><span class="p">(</span><span class="s2">&quot;~w~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">S</span><span class="p">])).</span>
+           <span class="nf">format</span><span class="p">(</span><span class="s2">"~w~n"</span><span class="p">,</span> <span class="p">[</span><span class="nv">S</span><span class="p">])).</span>
 </code></pre></div>
 <p>Prolog 固有のポイントを確認しましょう。</p>
 <ul>
@@ -10274,13 +10274,13 @@ FizzBuzz
 <span class="c1">%% fizzbuzz(+N:integer, -Result:string) is det.</span>
 <span class="c1">%</span>
 <span class="c1">%  数 N を FizzBuzz 変換した文字列 Result を返す。</span>
-<span class="c1">%  3 の倍数は &quot;Fizz&quot;、5 の倍数は &quot;Buzz&quot;、両方の倍数は &quot;FizzBuzz&quot;、</span>
+<span class="c1">%  3 の倍数は "Fizz"、5 の倍数は "Buzz"、両方の倍数は "FizzBuzz"、</span>
 <span class="c1">%  それ以外は数値そのものを文字列化して返す。</span>
 
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Result</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Result</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span> <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Result</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Result</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 </code></pre></div>
 
 </details>
@@ -10299,7 +10299,7 @@ FizzBuzz
     <span class="nf">numlist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="nv">Ns</span><span class="p">),</span>
     <span class="nf">maplist</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">,</span> <span class="nv">Ns</span><span class="p">,</span> <span class="nv">List</span><span class="p">),</span>
     <span class="nf">forall</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">List</span><span class="p">),</span>
-           <span class="nf">format</span><span class="p">(</span><span class="s2">&quot;~w~n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">S</span><span class="p">])).</span>
+           <span class="nf">format</span><span class="p">(</span><span class="s2">"~w~n"</span><span class="p">,</span> <span class="p">[</span><span class="nv">S</span><span class="p">])).</span>
 </code></pre></div>
 
 </details>
@@ -10307,25 +10307,25 @@ FizzBuzz
 <details>
 <summary>テストコード（test/fizzbuzz.plt）</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">returns_fizz_for_multiple_of_3</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nv">R</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">returns_buzz_for_multiple_of_5</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nv">R</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">"Buzz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">returns_fizzbuzz_for_multiple_of_15</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="nv">R</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">"FizzBuzz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">returns_number_otherwise</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">R</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">R</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">end_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz</span><span class="p">).</span>
 </code></pre></div>
@@ -10398,7 +10398,7 @@ FizzBuzz
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

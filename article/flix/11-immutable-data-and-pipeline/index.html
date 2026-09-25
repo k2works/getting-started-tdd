@@ -10117,16 +10117,16 @@ let ys = List.map(n -&gt; n * 10, xs);
     /// 数を FizzBuzz 文字列に変換する。
     ///
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 
     ///
     /// 文字列を括弧で装飾する。
     ///
     pub def decorate(s: String): String =
-        &quot;[${s}]&quot;
+        "[${s}]"
 
     ///
     /// convert と decorate を合成した変換。
@@ -10138,7 +10138,7 @@ let ys = List.map(n -&gt; n * 10, xs);
 <div class="highlight"><pre><span></span><code>    /// 合成で変換と装飾を連結する。
     @Test
     def convertAndDecorate_composes(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;[Fizz]&quot;, FizzBuzzPipeline.convertAndDecorate(3))
+        Assert.assertEq(expected = "[Fizz]", FizzBuzzPipeline.convertAndDecorate(3))
 </code></pre></div>
 <p><code>convertAndDecorate(3)</code> は <code>decorate(convert(3))</code> = <code>decorate("Fizz")</code> = <code>"[Fizz]"</code> です。小さな純粋関数を合成して、より大きな変換を組み立てられました。</p>
 <h2 id="115">11.5 パイプライン処理<a class="headerlink" href="#115" title="Permanent link">&para;</a></h2>
@@ -10165,7 +10165,7 @@ let ys = List.map(n -&gt; n * 10, xs);
     @Test
     def process_pipeline(): Unit \ Assert =
         let result = FizzBuzzPipeline.process(5);
-        Assert.assertEq(expected = Some(&quot;[Buzz]&quot;), List.nth(4, result))
+        Assert.assertEq(expected = Some("[Buzz]"), List.nth(4, result))
 </code></pre></div>
 <h2 id="116">11.6 命令型スタイルからの書き換え<a class="headerlink" href="#116" title="Permanent link">&para;</a></h2>
 <p>命令型言語なら、次のようにループと可変変数で書くところです（擬似コード）。</p>
@@ -10300,7 +10300,7 @@ return result
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

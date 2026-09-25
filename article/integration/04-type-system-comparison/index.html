@@ -7961,6 +7961,56 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
+        型安全性のレーダー比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="型安全性のレーダー比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        評価軸と基準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        強い静的型付け言語
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中程度・動的型付け言語
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         型システムとテストの関係
       
     </span>
@@ -7969,7 +8019,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         まとめ
@@ -10434,22 +10484,22 @@
 <span class="c1">-- 型は関数シグネチャで宣言</span>
 <span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">generate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">;; Clojure: 動的型付け</span>
 <span class="p">(</span><span class="kd">defn </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">[</span><span class="nv">n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="ss">:else</span><span class="w"> </span><span class="p">(</span><span class="nb">str </span><span class="nv">n</span><span class="p">)))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">% Prolog: 動的型付け（値は項）</span>
 <span class="c1">% 単一化と型検査述語で実行時に型を確認する</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
-<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Value</span><span class="p">)</span>      <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Value</span><span class="p">),</span> <span class="s2">&quot;~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">15</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">3</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)</span>     <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="mi">0</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">5</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Value</span><span class="p">)</span>      <span class="p">:-</span> <span class="nf">integer</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span> <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Value</span><span class="p">),</span> <span class="s2">"~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 </code></pre></div>
 <h2 id="option-maybe-result">Option / Maybe / Result パターンの比較<a class="headerlink" href="#option-maybe-result" title="Permanent link">&para;</a></h2>
 <p>null や例外に頼らず、型で「値が存在しない可能性」や「処理が失敗する可能性」を表現するパターンです。</p>
@@ -10464,8 +10514,8 @@
 <span class="c1">// テスト</span>
 <span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_create_有効な種別番号で生成できる</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;type should be created&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">value</span><span class="p">());</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">"type should be created"</span><span class="p">);</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">value</span><span class="p">());</span>
 <span class="p">}</span>
 
 <span class="cp">#[test]</span>
@@ -10478,15 +10528,15 @@
 <div class="highlight"><pre><span></span><code><span class="c1">-- Either: Left がエラー、Right が成功</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 
 <span class="c1">-- テスト</span>
-<span class="nf">it</span><span class="w"> </span><span class="s">&quot;正の整数で成功する&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="nf">it</span><span class="w"> </span><span class="s">"正の整数で成功する"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="s">"Fizz"</span>
 
-<span class="nf">it</span><span class="w"> </span><span class="s">&quot;0 以下でエラーを返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="nf">it</span><span class="w"> </span><span class="s">"0 以下でエラーを返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 </code></pre></div>
 <h3 id="scala-option-either">Scala: Option と Either<a class="headerlink" href="#scala-option-either" title="Permanent link">&para;</a></h3>
 <p>Scala は Option と Either の両方を提供します。</p>
@@ -10498,7 +10548,7 @@
 <span class="c1">// Either: エラー情報付き</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">generateEither</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">Either</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nc">Right</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
-<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nc">Left</span><span class="p">(</span><span class="s">s&quot;正の整数が必要です: </span><span class="si">$</span><span class="n">number</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nc">Left</span><span class="p">(</span><span class="s">s"正の整数が必要です: </span><span class="si">$</span><span class="n">number</span><span class="s">"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="f-option-result">F#: Option と Result<a class="headerlink" href="#f-option-result" title="Permanent link">&para;</a></h3>
 <p>F# は Option と Result を標準で提供します。</p>
@@ -10510,7 +10560,7 @@
 <span class="c1">// Result</span>
 <span class="k">let</span><span class="w"> </span><span class="nv">safeGenerate</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">Ok</span><span class="w"> </span><span class="o">(</span><span class="n">generate</span><span class="w"> </span><span class="n">Standard</span><span class="w"> </span><span class="n">number</span><span class="o">)</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 </code></pre></div>
 <h3 id="elixir-ok-value-error-reason">Elixir: {:ok, value} / {:error, reason}<a class="headerlink" href="#elixir-ok-value-error-reason" title="Permanent link">&para;</a></h3>
 <p>Elixir はタプルでエラーを表現する慣習があります。</p>
@@ -10519,17 +10569,17 @@
 <span class="k">end</span>
 
 <span class="kd">def</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="n">_number</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;正の整数を指定してください&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s2">"正の整数を指定してください"</span><span class="p">}</span>
 <span class="k">end</span>
 
 <span class="c1"># テスト</span>
-<span class="n">test</span><span class="w"> </span><span class="s2">&quot;正の整数で {:ok, value} を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">}</span>
-<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">}</span>
+<span class="n">test</span><span class="w"> </span><span class="s2">"正の整数で {:ok, value} を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">"1"</span><span class="p">}</span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">}</span>
 <span class="k">end</span>
 
-<span class="n">test</span><span class="w"> </span><span class="s2">&quot;0 以下で {:error, reason} を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;正の整数を指定してください&quot;</span><span class="p">}</span>
+<span class="n">test</span><span class="w"> </span><span class="s2">"0 以下で {:error, reason} を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s2">"正の整数を指定してください"</span><span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
 <h3 id="clojure-ex-info">Clojure: ex-info / 条件付き戻り値<a class="headerlink" href="#clojure-ex-info" title="Permanent link">&para;</a></h3>
@@ -10538,7 +10588,7 @@
 <span class="p">(</span><span class="kd">defn </span><span class="nv">safe-fizzbuzz</span><span class="w"> </span><span class="p">[</span><span class="nv">n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">pos? </span><span class="nv">n</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span><span class="ss">:ok</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="nv">n</span><span class="p">)}</span>
-<span class="w">    </span><span class="p">{</span><span class="ss">:error</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span><span class="p">}))</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:error</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span><span class="p">}))</span>
 </code></pre></div>
 <h3 id="java-optional">Java: Optional<a class="headerlink" href="#java-optional" title="Permanent link">&para;</a></h3>
 <p>Java 8 以降は Optional でnull 安全を提供します。</p>
@@ -10562,7 +10612,7 @@
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">FizzBuzzType03</span><span class="p">{},</span><span class="w"> </span><span class="kc">nil</span>
 <span class="w">    </span><span class="k">default</span><span class="p">:</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">&quot;該当するタイプは存在しません: %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">typeNum</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Errorf</span><span class="p">(</span><span class="s">"該当するタイプは存在しません: %d"</span><span class="p">,</span><span class="w"> </span><span class="nx">typeNum</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10571,16 +10621,16 @@
 <div class="highlight"><pre><span></span><code>// Result: エラー付きの失敗を型で表現
 pub def safeGenerate(n: Int32): Result[String, String] =
     if (n &gt; 0) Ok(convert(n))
-    else       Err(&quot;正の整数を指定してください&quot;)
+    else       Err("正の整数を指定してください")
 
 // テスト
 @Test
 def testSafeGenerate3(): Bool =
-    Assert.assertEq(expected = Ok(&quot;Fizz&quot;), actual = safeGenerate(3))
+    Assert.assertEq(expected = Ok("Fizz"), actual = safeGenerate(3))
 
 @Test
 def testSafeGenerate0(): Bool =
-    Assert.assertEq(expected = Err(&quot;正の整数を指定してください&quot;), actual = safeGenerate(0))
+    Assert.assertEq(expected = Err("正の整数を指定してください"), actual = safeGenerate(0))
 </code></pre></div>
 <p>さらに Flix は代数的効果（algebraic effects）と効果システムを備えており、副作用を型で追跡します。<code>eff</code> で効果を宣言し <code>run ... with handler</code> で解釈することで、「実行」と「解釈」を分離できます。これは他の対象言語にはない Flix 独自の副作用管理の仕組みです。</p>
 <h3 id="kotlin-result-null">Kotlin: Result と null 安全<a class="headerlink" href="#kotlin-result-null" title="Permanent link">&para;</a></h3>
@@ -10588,12 +10638,12 @@ def testSafeGenerate0(): Bool =
 <div class="highlight"><pre><span></span><code><span class="c1">// Result: 成功と失敗を型で表現</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">safeGenerate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">failure</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;正の整数を指定してください&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">failure</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"正の整数を指定してください"</span><span class="p">))</span>
 
 <span class="c1">// テスト</span>
 <span class="nd">@Test</span>
 <span class="kd">fun</span><span class="w"> </span><span class="err">`正の整数で </span><span class="nf">success</span><span class="w"> </span><span class="err">を返す`</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">safeGenerate</span><span class="p">(</span><span class="m">3</span><span class="p">).</span><span class="na">getOrNull</span><span class="p">())</span>
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">safeGenerate</span><span class="p">(</span><span class="m">3</span><span class="p">).</span><span class="na">getOrNull</span><span class="p">())</span>
 <span class="p">}</span>
 
 <span class="nd">@Test</span>
@@ -10602,8 +10652,8 @@ def testSafeGenerate0(): Bool =
 <span class="p">}</span>
 
 <span class="c1">// null 安全: ?.（安全呼び出し）と ?:（エルビス演算子）</span>
-<span class="kd">fun</span><span class="w"> </span><span class="nf">label</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">FizzBuzzValue?)</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">value</span><span class="o">?.</span><span class="na">value</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">&quot;未定義&quot;</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">label</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">FizzBuzzValue?</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">value</span><span class="o">?.</span><span class="na">value</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">"未定義"</span>
 </code></pre></div>
 <h3 id="typescript">TypeScript: ユニオン型<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h3>
 <p>TypeScript はユニオン型でエラーを型安全に表現できます。</p>
@@ -10621,7 +10671,7 @@ def testSafeGenerate0(): Bool =
 <div class="highlight"><pre><span></span><code><span class="c1">% Result 相当: ok(Value) / error(Message) の直和項</span>
 <span class="nf">safe_convert</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nf">error</span><span class="p">(</span><span class="nv">Message</span><span class="p">))</span> <span class="p">:-</span>
     <span class="nv">N</span> <span class="o">=&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">!,</span>
-    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">&quot;正の数を指定してください: ~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
+    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">"正の数を指定してください: ~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">]).</span>
 <span class="nf">safe_convert</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="nv">Value</span><span class="p">))</span> <span class="p">:-</span>
     <span class="nf">fizzbuzz</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Value</span><span class="p">).</span>
 
@@ -10633,10 +10683,10 @@ def testSafeGenerate0(): Bool =
 
 <span class="c1">% テスト</span>
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">safe_convert_3</span><span class="p">)</span> <span class="p">:-</span>
-    <span class="nf">safe_convert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s2">&quot;Fizz&quot;</span><span class="p">)).</span>
+    <span class="nf">safe_convert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s2">"Fizz"</span><span class="p">)).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">safe_convert_0</span><span class="p">)</span> <span class="p">:-</span>
-    <span class="nf">safe_convert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">error</span><span class="p">(</span><span class="s2">&quot;正の数を指定してください: 0&quot;</span><span class="p">)).</span>
+    <span class="nf">safe_convert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">error</span><span class="p">(</span><span class="s2">"正の数を指定してください: 0"</span><span class="p">)).</span>
 </code></pre></div>
 <p>なお Prolog は <code>throw/1</code> / <code>catch/3</code> による例外機構も備えており、値ベースの <code>ok</code> / <code>error</code> と対比して解説できます。</p>
 <h3 id="optionresult">Option/Result パターン比較表<a class="headerlink" href="#optionresult" title="Permanent link">&para;</a></h3>
@@ -10966,11 +11016,92 @@ def testSafeGenerate0(): Bool =
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzType01</span><span class="p">();</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzType02</span><span class="p">();</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzType03</span><span class="p">();</span>
-<span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;該当するタイプは存在しません&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"該当するタイプは存在しません"</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// default がないと実行時エラーの可能性</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_7">型システムとテストの関係<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">型安全性のレーダー比較<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>前節までの表（型の強さ・型推論・null 安全性・網羅性チェック）を 6 軸で数値化します。</p>
+<h3 id="_8">評価軸と基準<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>0〜1</th>
+<th>2〜3</th>
+<th>4〜5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>静的型付け</td>
+<td>実行時のみ型を検査</td>
+<td>型ヒント/漸進的型付け</td>
+<td>コンパイル時に全式を検査</td>
+</tr>
+<tr>
+<td>型の強さ</td>
+<td>暗黙変換を広く許容</td>
+<td>一部の暗黙変換を許容</td>
+<td>暗黙変換がほぼない</td>
+</tr>
+<tr>
+<td>型推論</td>
+<td>型推論を持たない</td>
+<td>ローカル変数のみ推論</td>
+<td>HM 型推論でほぼ全体を推論</td>
+</tr>
+<tr>
+<td>null 安全</td>
+<td>null / nil が全型に入りうる</td>
+<td><code>?.</code> 等で緩和</td>
+<td>型で null を区別または null なし</td>
+</tr>
+<tr>
+<td>網羅性検査</td>
+<td>検査なし</td>
+<td>制御フロー分析で警告</td>
+<td>未網羅はコンパイルエラー</td>
+</tr>
+<tr>
+<td>Result 型</td>
+<td>例外のみ</td>
+<td>慣習的なタプル/多値返却</td>
+<td>標準の Option/Result を型で強制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">強い静的型付け言語<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 強い静的型付け言語の型安全性
+  axis st["静的型付け"], sg["型の強さ"], ti["型推論"]
+  axis ns["null 安全"], ex["網羅性検査"], rs["Result 型"]
+  curve haskell["Haskell"]{5, 5, 5, 5, 5, 5}
+  curve rust["Rust"]{5, 5, 4, 5, 5, 5}
+  curve flix["Flix"]{5, 5, 5, 5, 5, 5}
+  curve kotlin["Kotlin"]{5, 4, 4, 4, 4, 4}
+  max 5
+  min 0</code></pre>
+<p>Haskell・Rust・Flix は null を持たず Option/Maybe で不在を表現し、網羅性検査も厳密
+です。Flix はさらに代数的効果により副作用そのものを型で追跡します。Kotlin は <code>T</code> と
+<code>T?</code> を型で区別する null 安全と sealed class に対する <code>when</code> の網羅性検査を備え、
+JVM 言語としては最も高い水準にあります。</p>
+<h3 id="_10">中程度・動的型付け言語<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 中程度・動的型付け言語の型安全性
+  axis st["静的型付け"], sg["型の強さ"], ti["型推論"]
+  axis ns["null 安全"], ex["網羅性検査"], rs["Result 型"]
+  curve java["Java"]{5, 4, 3, 1, 1, 3}
+  curve ts["TypeScript"]{4, 3, 4, 3, 3, 3}
+  curve elixir["Elixir"]{1, 2, 0, 1, 1, 4}
+  curve prolog["Prolog"]{1, 2, 0, 1, 1, 3}
+  max 5
+  min 0</code></pre>
+<p>Java は静的型付けでありながら null を型で区別できず、<code>switch</code> の網羅性も検査されない
+ため、null 安全と網羅性検査の軸が低くなります。Elixir は動的型付けですが
+<code>{:ok, value}</code> / <code>{:error, reason}</code> が言語文化として徹底しており、Result 型の軸では
+静的型付け言語に並びます。Prolog も <code>ok</code> / <code>error</code> の直和項で同様の表現を採ります。</p>
+<h2 id="_11">型システムとテストの関係<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>型の強さとテストの必要性は反比例の関係にあります。</p>
 <div class="highlight"><pre><span></span><code>テストの必要性: 高い ←──────────────────────→ 低い
 型の安全性:    低い ←──────────────────────→ 高い
@@ -11008,7 +11139,7 @@ PHP  Ruby  Python  Prolog  Clojure  Elixir  Java  Go  TS  C#  Kotlin  Scala  F# 
 </tr>
 </tbody>
 </table>
-<h2 id="_8">まとめ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_12">まとめ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>静的型付け言語</strong>はコンパイル時にバグを検出でき、IDE サポートが強力です。特に Rust, Haskell, F# の型システムは非常に強力です</li>
 <li><strong>Option/Result パターン</strong>は例外に頼らない安全なエラーハンドリングを提供します。Rust と Haskell がこの分野のリーダーです</li>
@@ -11084,7 +11215,7 @@ PHP  Ruby  Python  Prolog  Clojure  Elixir  Java  Go  TS  C#  Kotlin  Scala  F# 
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

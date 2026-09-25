@@ -10133,8 +10133,8 @@
 <h2 id="22">2.2 三角測量<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
 <p>1 を渡したら文字列 "1" を返すようにできました。では、2 を渡したらどうなるでしょうか？</p>
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;2を渡したら文字列2を返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">2</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"2を渡したら文字列2を返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">2</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"2"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <p>テストを実行します。</p>
@@ -10142,8 +10142,8 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code> FAIL  test/fizzbuzz.test.ts &gt; FizzBuzz
   ✕ 2を渡したら文字列2を返す
-    Expected: &quot;2&quot;
-    Received: &quot;1&quot;
+    Expected: "2"
+    Received: "1"
 </code></pre></div>
 <p>テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。</p>
 <h3 id="green">Green: 一般化する<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10183,14 +10183,14 @@
 <h2 id="23-3-fizz">2.3 3 の倍数 — Fizz<a class="headerlink" href="#23-3-fizz" title="Permanent link">&para;</a></h2>
 <p>次は「3 の倍数のときは数の代わりに Fizz と返す」に取り掛かります。</p>
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;3を渡したらFizzを返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">3</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Fizz&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"3を渡したらFizzを返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">3</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Fizz"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code> FAIL  test/fizzbuzz.test.ts &gt; FizzBuzz
   ✕ 3を渡したらFizzを返す
-    Expected: &quot;Fizz&quot;
-    Received: &quot;3&quot;
+    Expected: "Fizz"
+    Received: "3"
 </code></pre></div>
 <h3 id="green_1">Green: 明白な実装<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <p>3 の倍数の判定は明白なので、直接的に実装します。</p>
@@ -10203,7 +10203,7 @@
 <span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">generate</span><span class="p">(</span><span class="kt">number</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
@@ -10225,24 +10225,24 @@
 </ul>
 <h2 id="24-5-buzz">2.4 5 の倍数 — Buzz<a class="headerlink" href="#24-5-buzz" title="Permanent link">&para;</a></h2>
 <h3 id="red">Red<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;5を渡したらBuzzを返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">5</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Buzz&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"5を渡したらBuzzを返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">5</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Buzz"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code> FAIL  test/fizzbuzz.test.ts &gt; FizzBuzz
   ✕ 5を渡したらBuzzを返す
-    Expected: &quot;Buzz&quot;
-    Received: &quot;5&quot;
+    Expected: "Buzz"
+    Received: "5"
 </code></pre></div>
 <h3 id="green_2">Green<a class="headerlink" href="#green_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// src/fizzbuzz.ts</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">generate</span><span class="p">(</span><span class="kt">number</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Buzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
@@ -10264,14 +10264,14 @@
 </ul>
 <h2 id="25-3-5-fizzbuzz">2.5 3 と 5 の倍数 — FizzBuzz<a class="headerlink" href="#25-3-5-fizzbuzz" title="Permanent link">&para;</a></h2>
 <h3 id="red_1">Red<a class="headerlink" href="#red_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;15を渡したらFizzBuzzを返す&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">15</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"15を渡したらFizzBuzzを返す"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="mf">15</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"FizzBuzz"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code> FAIL  test/fizzbuzz.test.ts &gt; FizzBuzz
   ✕ 15を渡したらFizzBuzzを返す
-    Expected: &quot;FizzBuzz&quot;
-    Received: &quot;Fizz&quot;
+    Expected: "FizzBuzz"
+    Received: "Fizz"
 </code></pre></div>
 <p>現在の実装では 3 の倍数の条件が先に評価されるため、15 を渡すと "Fizz" が返ってきています。</p>
 <h3 id="green_3">Green<a class="headerlink" href="#green_3" title="Permanent link">&para;</a></h3>
@@ -10280,13 +10280,13 @@
 <span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">generate</span><span class="p">(</span><span class="kt">number</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"FizzBuzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Buzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
@@ -10381,7 +10381,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

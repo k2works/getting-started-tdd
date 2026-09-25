@@ -10282,13 +10282,13 @@
 <span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">generateAndGetValue</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="n">generate</span><span class="p">.</span><span class="na">andThen</span><span class="p">(</span><span class="n">getValue</span><span class="p">);</span>
 
-<span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateAndGetValue</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;FizzBuzz&quot;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateAndGetValue</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"> </span><span class="c1">// "FizzBuzz"</span>
 </code></pre></div>
 <h3 id="predicate">Predicate の合成<a class="headerlink" href="#predicate" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">isFizz</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">);</span>
 <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">isBuzz</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">);</span>
 
 <span class="c1">// or: Fizz または Buzz</span>
 <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">isFizzOrBuzz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isFizz</span><span class="p">.</span><span class="na">or</span><span class="p">(</span><span class="n">isBuzz</span><span class="p">);</span>
@@ -10312,14 +10312,14 @@
 
 <span class="c1">// Fizz だけを抽出</span>
 <span class="n">FizzBuzzList</span><span class="w"> </span><span class="n">fizzOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">filter</span><span class="p">(</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">)</span>
 <span class="p">);</span>
 
 <span class="c1">// 数値だけを抽出（Fizz でも Buzz でも FizzBuzz でもない）</span>
 <span class="n">FizzBuzzList</span><span class="w"> </span><span class="n">numbersOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">filter</span><span class="p">(</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">)</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
 <h2 id="107">10.7 まとめ<a class="headerlink" href="#107" title="Permanent link">&para;</a></h2>
@@ -10426,7 +10426,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

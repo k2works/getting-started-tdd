@@ -10111,12 +10111,12 @@
 <h3 id="_2">開発環境のセットアップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>Bundler でプロジェクトを初期化し、テスト環境をセットアップします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Gemfile</span>
-<span class="n">source</span><span class="w"> </span><span class="s1">&#39;https://rubygems.org&#39;</span>
+<span class="n">source</span><span class="w"> </span><span class="s1">'https://rubygems.org'</span>
 
 <span class="n">group</span><span class="w"> </span><span class="ss">:development</span><span class="p">,</span><span class="w"> </span><span class="ss">:test</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;minitest&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 5.25&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;minitest-reporters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.7&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;rake&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 13.2&#39;</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'minitest'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 5.25'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'minitest-reporters'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 1.7'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'rake'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 13.2'</span>
 <span class="k">end</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Gem のインストール</span>
@@ -10124,23 +10124,23 @@ $<span class="w"> </span>bundle<span class="w"> </span>install
 </code></pre></div>
 <p>テストヘルパーを作成します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># test/test_helper.rb</span>
-<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;minitest/autorun&#39;</span>
-<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;minitest/reporters&#39;</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">'minitest/autorun'</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">'minitest/reporters'</span>
 <span class="no">Minitest</span><span class="o">::</span><span class="no">Reporters</span><span class="o">.</span><span class="n">use!</span>
 </code></pre></div>
 <h3 id="_3">環境確認テスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>環境が正しく設定されていることを確認するため、簡単なテストを書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># test/fizz_buzz_test.rb</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;test_helper&#39;</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'test_helper'</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">HelloTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_greeting</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;hello world&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'hello world'</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">greeting</span>
-<span class="w">  </span><span class="s1">&#39;hello world&#39;</span>
+<span class="w">  </span><span class="s1">'hello world'</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>テストを実行します。</p>
@@ -10174,8 +10174,8 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <h3 id="red">Red: 最初のテスト<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <p>セットアップ用のテストを削除して、FizzBuzz のテストを書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># test/fizz_buzz_test.rb</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;test_helper&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;../lib/fizz_buzz&#39;</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'test_helper'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'../lib/fizz_buzz'</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span>
@@ -10183,13 +10183,13 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>bundle<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>rake<span class="w"> </span><span class="nb">test</span>
-ERROR<span class="o">[</span><span class="s2">&quot;test_1を渡したら文字列1を返す&quot;</span>,<span class="w"> </span>FizzBuzzTest<span class="o">]</span>
+ERROR<span class="o">[</span><span class="s2">"test_1を渡したら文字列1を返す"</span>,<span class="w"> </span>FizzBuzzTest<span class="o">]</span>
 <span class="w"> </span>NameError:<span class="w"> </span>uninitialized<span class="w"> </span>constant<span class="w"> </span>FizzBuzzTest::FizzBuzz
 </code></pre></div>
 <p><code>FizzBuzz</code> が定義されていないためエラーになりました。まだ作っていないのですから当然です。</p>
@@ -10204,7 +10204,7 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1を渡したら文字�
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizz_buzz.rb</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="s1">&#39;1&#39;</span>
+<span class="w">    </span><span class="s1">'1'</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -10230,7 +10230,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10309,7 +10309,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

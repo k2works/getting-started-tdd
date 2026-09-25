@@ -10003,13 +10003,13 @@
 <span class="kd">defmodule</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">ExUnit.Case</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">&quot;generate/1&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;5 の倍数を渡すと Buzz を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">"generate/1"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">"5 の倍数を渡すと Buzz を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Buzz"</span>
 <span class="w">    </span><span class="k">end</span>
 
-<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;15 の倍数を渡すと FizzBuzz を返す&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
+<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">"15 の倍数を渡すと FizzBuzz を返す"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"FizzBuzz"</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
@@ -10020,9 +10020,9 @@
 <span class="kd">defmodule</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">cond</span><span class="w"> </span><span class="k">do</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"Buzz"</span>
 <span class="w">      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Integer</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10036,15 +10036,15 @@
 <span class="kd">defmodule</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">ExUnit.Case</span>
 
-<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">&quot;generate_list/0&quot;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">&quot;1 から 100 までの FizzBuzz リストを返す&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">describe</span><span class="w"> </span><span class="s2">"generate_list/0"</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">test</span><span class="w"> </span><span class="s2">"1 から 100 までの FizzBuzz リストを返す"</span><span class="w"> </span><span class="k">do</span>
 <span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="o">.</span><span class="n">generate_list</span><span class="p">()</span>
 
 <span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
-<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"1"</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Buzz"</span>
+<span class="w">      </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"FizzBuzz"</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
@@ -10055,9 +10055,9 @@
 <span class="kd">defmodule</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">cond</span><span class="w"> </span><span class="k">do</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">      </span><span class="n">rem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"Buzz"</span>
 <span class="w">      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Integer</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10147,7 +10147,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

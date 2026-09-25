@@ -10122,16 +10122,16 @@ $<span class="w"> </span>go<span class="w"> </span>mod<span class="w"> </span>in
 <span class="kn">package</span><span class="w"> </span><span class="nx">fizzbuzz</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="s">&quot;strconv&quot;</span>
-<span class="w">    </span><span class="s">&quot;testing&quot;</span>
+<span class="w">    </span><span class="s">"strconv"</span>
+<span class="w">    </span><span class="s">"testing"</span>
 <span class="p">)</span>
 
 <span class="c1">// 学習用テスト: strconv.Itoa の使い方確認。</span>
 <span class="kd">func</span><span class="w"> </span><span class="nx">TestLearning_strconvItoa_整数を文字列へ変換できる</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">got</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">want</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;42&quot;</span>
+<span class="w">    </span><span class="nx">want</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"42"</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">got</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">want</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;strconv.Itoa(42) = %q, want %q&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">want</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"strconv.Itoa(42) = %q, want %q"</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">want</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10163,13 +10163,13 @@ ok<span class="w">      </span>github.com/k2works/getting-started-tdd/apps/go/fi
 <div class="highlight"><pre><span></span><code><span class="c1">// fizzbuzz/fizzbuzz_test.go</span>
 <span class="kn">package</span><span class="w"> </span><span class="nx">fizzbuzz</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="s">&quot;testing&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="s">"testing"</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">TestGenerate_1を渡したら文字列1を返す</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">got</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">want</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">    </span><span class="nx">want</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"1"</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">got</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">want</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Generate(1) = %q, want %q&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">want</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">t</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"Generate(1) = %q, want %q"</span><span class="p">,</span><span class="w"> </span><span class="nx">got</span><span class="p">,</span><span class="w"> </span><span class="nx">want</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10193,7 +10193,7 @@ FAIL
 
 <span class="c1">// Generate は FizzBuzz の文字列を返します。</span>
 <span class="kd">func</span><span class="w"> </span><span class="nx">Generate</span><span class="p">(</span><span class="nx">number</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"1"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>テストを実行します。</p>
@@ -10214,7 +10214,7 @@ ok<span class="w">      </span>github.com/k2works/getting-started-tdd/apps/go/fi
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10294,7 +10294,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10471,7 +10471,7 @@
 
 <span class="c1">-- 使用例</span>
 <span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span>
-<span class="c1">-- =&gt; Just &quot;Fizz&quot;</span>
+<span class="c1">-- =&gt; Just "Fizz"</span>
 
 <span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span>
 <span class="c1">-- =&gt; Nothing</span>
@@ -10479,14 +10479,14 @@
 <p>通常の <code>(!!)</code> はインデックスが範囲外のとき実行時エラーになりますが、<code>safeIndex</code> は <code>Nothing</code> を返すため、呼び出し側が安全に処理できます。</p>
 <h3 id="maybe_1">Maybe のパターンマッチ<a class="headerlink" href="#maybe_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nf">displayResult</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Maybe</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
-<span class="nf">displayResult</span><span class="w"> </span><span class="kt">Nothing</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;結果がありません&quot;</span>
-<span class="nf">displayResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Just</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;結果: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">s</span>
+<span class="nf">displayResult</span><span class="w"> </span><span class="kt">Nothing</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">"結果がありません"</span>
+<span class="nf">displayResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Just</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"結果: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">s</span>
 
 <span class="nf">displayResult</span><span class="w"> </span><span class="p">(</span><span class="n">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="c1">-- =&gt; &quot;結果: Fizz&quot;</span>
+<span class="c1">-- =&gt; "結果: Fizz"</span>
 
 <span class="nf">displayResult</span><span class="w"> </span><span class="p">(</span><span class="n">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="c1">-- =&gt; &quot;結果がありません&quot;</span>
+<span class="c1">-- =&gt; "結果がありません"</span>
 </code></pre></div>
 <h3 id="maybe_2">Maybe はモナドである<a class="headerlink" href="#maybe_2" title="Permanent link">&para;</a></h3>
 <p><code>Maybe</code> はモナドの一種です。モナドであるとは、<code>&gt;&gt;=</code>（バインド演算子）が定義されていることを意味します。</p>
@@ -10496,10 +10496,10 @@
 </code></pre></div>
 <p><code>&gt;&gt;=</code> は「<code>Maybe a</code> の値が <code>Just x</code> なら関数 <code>f</code> に <code>x</code> を渡し、<code>Nothing</code> なら <code>Nothing</code> をそのまま返す」という動作をします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Maybe の連鎖</span>
-<span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span>
-<span class="c1">-- =&gt; Just &quot;Fizz!&quot;</span>
+<span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">"!"</span><span class="p">)</span>
+<span class="c1">-- =&gt; Just "Fizz!"</span>
 
-<span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+<span class="nf">safeIndex</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">s</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">"!"</span><span class="p">)</span>
 <span class="c1">-- =&gt; Nothing  (途中で Nothing なので後続の処理はスキップ)</span>
 </code></pre></div>
 <p><code>Nothing</code> が途中で発生すると、以降の処理は自動的にスキップされます。これが「失敗するかもしれない計算の連鎖」です。</p>
@@ -10539,21 +10539,21 @@
 <h2 id="124-safegenerate-either">12.4 safeGenerate — Either によるエラーハンドリング<a class="headerlink" href="#124-safegenerate-either" title="Permanent link">&para;</a></h2>
 <h3 id="red-safegenerate">Red: safeGenerate のテスト<a class="headerlink" href="#red-safegenerate" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;safeGenerate&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;正の整数で成功する&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"safeGenerate"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"正の整数で成功する"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="s">"Fizz"</span>
 
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;0 以下でエラーを返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"0 以下でエラーを返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;負数でエラーを返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"負数でエラーを返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">safeGenerate</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 </code></pre></div>
 <h3 id="green-safegenerate">Green: safeGenerate の実装<a class="headerlink" href="#green-safegenerate" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </code></pre></div>
 <p>型シグネチャを分解しましょう。</p>
@@ -10575,30 +10575,30 @@ FizzBuzz.FizzBuzzSpec
 <h3 id="either_2">Either の活用: パターンマッチ<a class="headerlink" href="#either_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Either の結果をパターンマッチで処理する</span>
 <span class="nf">handleResult</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
-<span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Left</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;エラー: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">err</span>
-<span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Right</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;成功: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">value</span>
+<span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Left</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="s">"エラー: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">err</span>
+<span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="kt">Right</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"成功: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">value</span>
 
 <span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="c1">-- =&gt; &quot;成功: Fizz&quot;</span>
+<span class="c1">-- =&gt; "成功: Fizz"</span>
 
 <span class="nf">handleResult</span><span class="w"> </span><span class="p">(</span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="c1">-- =&gt; &quot;エラー: 正の整数を指定してください&quot;</span>
+<span class="c1">-- =&gt; "エラー: 正の整数を指定してください"</span>
 </code></pre></div>
 <h2 id="125-safegeneratelist-either">12.5 safeGenerateList — Either のリスト版<a class="headerlink" href="#125-safegeneratelist-either" title="Permanent link">&para;</a></h2>
 <h3 id="red-safegeneratelist">Red: safeGenerateList のテスト<a class="headerlink" href="#red-safegeneratelist" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;safeGenerateList&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;正の整数で成功する&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">safeGenerateList</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">]</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"safeGenerateList"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"正の整数で成功する"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">safeGenerateList</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">[</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">]</span>
 
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;0 以下でエラーを返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">safeGenerateList</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"0 以下でエラーを返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">safeGenerateList</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 </code></pre></div>
 <h3 id="green-safegeneratelist">Green: safeGenerateList の実装<a class="headerlink" href="#green-safegeneratelist" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
 <span class="nf">safeGenerateList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">[</span><span class="kt">String</span><span class="p">]</span>
 <span class="nf">safeGenerateList</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </code></pre></div>
 <p><code>Either String [String]</code> は「エラーメッセージか、FizzBuzz 文字列のリストのどちらか」を表します。</p>
@@ -10608,15 +10608,15 @@ FizzBuzz.FizzBuzzSpec
 <div class="highlight"><pre><span></span><code><span class="c1">-- &gt;&gt;= を使った連鎖</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">result1</span><span class="w"> </span><span class="ow">-&gt;</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">result2</span><span class="w"> </span><span class="ow">-&gt;</span>
-<span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">result1</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">result2</span><span class="p">)</span>
-<span class="c1">-- =&gt; Right &quot;Fizz and Buzz&quot;</span>
+<span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">result1</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">" and "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">result2</span><span class="p">)</span>
+<span class="c1">-- =&gt; Right "Fizz and Buzz"</span>
 
 <span class="c1">-- do 記法で書き直す（等価）</span>
 <span class="kr">do</span>
 <span class="w">  </span><span class="n">result1</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span>
 <span class="w">  </span><span class="n">result2</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">result1</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot; and &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">result2</span><span class="p">)</span>
-<span class="c1">-- =&gt; Right &quot;Fizz and Buzz&quot;</span>
+<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">result1</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">" and "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">result2</span><span class="p">)</span>
+<span class="c1">-- =&gt; Right "Fizz and Buzz"</span>
 </code></pre></div>
 <p><code>&lt;-</code> は「モナドから値を取り出す」操作です。<code>result1 &lt;- safeGenerate 3</code> は「<code>safeGenerate 3</code> が <code>Right value</code> なら <code>value</code> を <code>result1</code> に束縛し、<code>Left err</code> ならそのまま <code>Left err</code> を返して以降の処理をスキップする」という意味です。</p>
 <h3 id="do_1">do 記法の脱糖衣<a class="headerlink" href="#do_1" title="Permanent link">&para;</a></h3>
@@ -10626,27 +10626,27 @@ FizzBuzz.FizzBuzzSpec
 <span class="nf">safeFizzBuzzPair</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">a</span>
 <span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">b</span>
-<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1">-- コンパイラが変換する形（等価）</span>
-<span class="nf">safeFizzBuzzPair&#39;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
-<span class="nf">safeFizzBuzzPair&#39;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span>
+<span class="nf">safeFizzBuzzPair'</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
+<span class="nf">safeFizzBuzzPair'</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span>
 <span class="w">  </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="nf">\</span><span class="n">y</span><span class="w"> </span><span class="ow">-&gt;</span>
-<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <p><code>return</code> はモナドの文脈に値を包む関数です。<code>Either</code> の場合、<code>return x = Right x</code> です。</p>
 <h3 id="_3">エラーの自動伝播<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><code>do</code> 記法の強力な点は、途中でエラー（<code>Left</code>）が発生すると自動的に後続の処理がスキップされることです。</p>
 <div class="highlight"><pre><span></span><code><span class="nf">safeFizzBuzzPair</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span>
-<span class="c1">-- =&gt; Right &quot;Fizz, Buzz&quot;</span>
+<span class="c1">-- =&gt; Right "Fizz, Buzz"</span>
 
 <span class="nf">safeFizzBuzzPair</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">5</span>
-<span class="c1">-- =&gt; Left &quot;正の整数を指定してください&quot;</span>
+<span class="c1">-- =&gt; Left "正の整数を指定してください"</span>
 <span class="c1">-- (safeGenerate 0 が Left を返した時点で終了)</span>
 
 <span class="nf">safeFizzBuzzPair</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1">-- =&gt; Left &quot;正の整数を指定してください&quot;</span>
+<span class="c1">-- =&gt; Left "正の整数を指定してください"</span>
 <span class="c1">-- (safeGenerate (-1) が Left を返した時点で終了)</span>
 </code></pre></div>
 <p>この「エラーの自動伝播」は、Java の例外機構に似ていますが、型レベルで表現されるためコンパイラがエラーハンドリングの漏れを検出できます。</p>
@@ -10656,10 +10656,10 @@ FizzBuzz.FizzBuzzSpec
 <span class="nf">safeGenerateMultiple</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">mapM</span><span class="w"> </span><span class="n">safeGenerate</span>
 
 <span class="nf">safeGenerateMultiple</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">]</span>
-<span class="c1">-- =&gt; Right [&quot;1&quot;, &quot;Fizz&quot;, &quot;Buzz&quot;, &quot;FizzBuzz&quot;]</span>
+<span class="c1">-- =&gt; Right ["1", "Fizz", "Buzz", "FizzBuzz"]</span>
 
 <span class="nf">safeGenerateMultiple</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span>
-<span class="c1">-- =&gt; Left &quot;正の整数を指定してください&quot;</span>
+<span class="c1">-- =&gt; Left "正の整数を指定してください"</span>
 <span class="c1">-- (0 の時点でエラー)</span>
 </code></pre></div>
 <p><code>mapM</code> は「モナドの文脈で <code>map</code> を行う」関数です。リストの各要素に <code>safeGenerate</code> を適用し、1 つでも <code>Left</code> があれば全体が <code>Left</code> になります。</p>
@@ -10677,12 +10677,12 @@ FizzBuzz.FizzBuzzSpec
 <p><code>[1..]</code> は 1 から始まる無限リストですが、<code>take 5</code> で先頭 5 要素しか必要とされないため、5 要素分しか計算されません。</p>
 <h3 id="red-lazystream">Red: lazyStream のテスト<a class="headerlink" href="#red-lazystream" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- test/FizzBuzz/FizzBuzzSpec.hs（抜粋）</span>
-<span class="nf">describe</span><span class="w"> </span><span class="s">&quot;lazyStream&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;遅延ストリームから要素を取得できる&quot;</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
-<span class="w">    </span><span class="n">take</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">lazyStream</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">]</span>
+<span class="nf">describe</span><span class="w"> </span><span class="s">"lazyStream"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"遅延ストリームから要素を取得できる"</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="n">take</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">lazyStream</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="p">[</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">]</span>
 
-<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;15 番目の要素は &#39;FizzBuzz&#39;&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">    </span><span class="n">lazyStream</span><span class="w"> </span><span class="o">!!</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
+<span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="s">"15 番目の要素は 'FizzBuzz'"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">lazyStream</span><span class="w"> </span><span class="o">!!</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 </code></pre></div>
 <h3 id="green-lazystream">Green: lazyStream の実装<a class="headerlink" href="#green-lazystream" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- src/FizzBuzz.hs</span>
@@ -10695,23 +10695,23 @@ FizzBuzz.FizzBuzzSpec
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>lazyStream
 <span class="w">    </span>遅延ストリームから要素を取得できる
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span>
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'FizzBuzz'</span>
 
 <span class="m">2</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
 </code></pre></div>
 <h3 id="_5">遅延評価の活用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>無限リストと高階関数を組み合わせると、宣言的なデータ処理が可能になります。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 最初の 10 個の &quot;Fizz&quot; を取得する</span>
-<span class="nf">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;,&quot;Fizz&quot;]</span>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 最初の 10 個の "Fizz" を取得する</span>
+<span class="nf">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["Fizz","Fizz","Fizz","Fizz","Fizz","Fizz","Fizz","Fizz","Fizz","Fizz"]</span>
 
-<span class="c1">-- 最初の 5 個の &quot;FizzBuzz&quot; を取得する</span>
-<span class="nf">take</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;FizzBuzz&quot;,&quot;FizzBuzz&quot;,&quot;FizzBuzz&quot;,&quot;FizzBuzz&quot;,&quot;FizzBuzz&quot;]</span>
+<span class="c1">-- 最初の 5 個の "FizzBuzz" を取得する</span>
+<span class="nf">take</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">)</span>
+<span class="c1">-- =&gt; ["FizzBuzz","FizzBuzz","FizzBuzz","FizzBuzz","FizzBuzz"]</span>
 
 <span class="c1">-- 100 番目から 105 番目までの FizzBuzz</span>
 <span class="nf">take</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="n">drop</span><span class="w"> </span><span class="mi">99</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">)</span>
-<span class="c1">-- =&gt; [&quot;Buzz&quot;,&quot;101&quot;,&quot;Fizz&quot;,&quot;103&quot;,&quot;104&quot;]</span>
+<span class="c1">-- =&gt; ["Buzz","101","Fizz","103","104"]</span>
 </code></pre></div>
 <p><code>filter</code> も遅延的に動作するため、無限リストに対して <code>filter</code> を適用しても問題ありません。<code>take</code> で必要な数だけ取り出せば、その分だけ計算が進みます。</p>
 <h3 id="_6">遅延評価の注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -10743,18 +10743,18 @@ FizzBuzz.FizzBuzzSpec
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">30</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">30</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
 <span class="w">  </span>generateList
 <span class="w">    </span><span class="m">100</span><span class="w"> </span>件のリストを生成する
-<span class="w">    </span>最初の要素は<span class="w"> </span><span class="s1">&#39;1&#39;</span>
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span>
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span>
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span>
+<span class="w">    </span>最初の要素は<span class="w"> </span><span class="s1">'1'</span>
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'Fizz'</span>
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'Buzz'</span>
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'FizzBuzz'</span>
 <span class="w">  </span>generateWith
 <span class="w">    </span>カスタムルールで生成できる
 <span class="w">  </span>transform
@@ -10769,7 +10769,7 @@ FizzBuzz.FizzBuzzSpec
 <span class="w">    </span>負数でエラーを返す
 <span class="w">  </span>lazyStream
 <span class="w">    </span>遅延ストリームから要素を取得できる
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span>
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>番目の要素は<span class="w"> </span><span class="s1">'FizzBuzz'</span>
 <span class="w">  </span>safeGenerateList
 <span class="w">    </span>正の整数で成功する
 <span class="w">    </span><span class="m">0</span><span class="w"> </span>以下でエラーを返す
@@ -10789,20 +10789,20 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 
 <span class="c1"># パターンマッチで処理</span>
 <span class="k">case</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;成功: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">&quot;エラー: </span><span class="si">#{</span><span class="n">reason</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"成功: </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">  </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s2">"エラー: </span><span class="si">#{</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 
 <span class="c1">-- パターンマッチで処理</span>
 <span class="kr">case</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="kr">of</span>
-<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">&quot;成功: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">value</span>
-<span class="w">  </span><span class="kt">Left</span><span class="w"> </span><span class="n">err</span><span class="w">    </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">&quot;エラー: &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">err</span>
+<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">"成功: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">value</span>
+<span class="w">  </span><span class="kt">Left</span><span class="w"> </span><span class="n">err</span><span class="w">    </span><span class="ow">-&gt;</span><span class="w"> </span><span class="s">"エラー: "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">err</span>
 </code></pre></div>
 <table>
 <thead>
@@ -10839,21 +10839,21 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <div class="highlight"><pre><span></span><code><span class="c1"># Elixir: with 構文</span>
 <span class="n">with</span><span class="w"> </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
 <span class="w">     </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell: do 記法</span>
 <span class="kr">do</span>
 <span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">3</span>
 <span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="rust-result-option">Rust の Result / Option<a class="headerlink" href="#rust-result-option" title="Permanent link">&para;</a></h3>
 <p>Rust の <code>Result&lt;T, E&gt;</code> と <code>Option&lt;T&gt;</code> は Haskell の <code>Either</code> と <code>Maybe</code> に直接対応します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Rust</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">safe_generate</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="s">&quot;正の整数を指定してください&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="s">"正の整数を指定してください"</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="w">    </span><span class="p">}</span>
@@ -10863,13 +10863,13 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="k">fn</span><span class="w"> </span><span class="nf">safe_fizzbuzz_pair</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safe_generate</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
-<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{}, {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="fm">format!</span><span class="p">(</span><span class="s">"{}, {}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 
 <span class="c1">-- do 記法でエラー伝播</span>
@@ -10877,7 +10877,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="nf">safeFizzBuzzPair</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">a</span>
 <span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerate</span><span class="w"> </span><span class="n">b</span>
-<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <table>
 <thead>
@@ -10927,7 +10927,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="c1">// flatMap でチェーン</span>
 <span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">safeGenerate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">safeGenerate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">));</span>
+<span class="w">        </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">));</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Haskell（Maybe 版）</span>
 <span class="nf">safeGenerateMaybe</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Maybe</span><span class="w"> </span><span class="kt">String</span>
@@ -10939,7 +10939,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="nf">result</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span>
 <span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerateMaybe</span><span class="w"> </span><span class="mi">3</span>
 <span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">safeGenerateMaybe</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">  </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">  </span><span class="kt">Just</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <p>Java の <code>Optional.flatMap</code> は Haskell の <code>&gt;&gt;=</code> に対応し、<code>Optional.map</code> は <code>fmap</code> に対応します。ただし Java の <code>Optional</code> は <code>null</code> の代替であり、Haskell の <code>Maybe</code> のような一般的なモナドの仕組みは持ちません。</p>
 <h2 id="1210-haskell">12.10 まとめ: Haskell の純粋関数型プログラミング<a class="headerlink" href="#1210-haskell" title="Permanent link">&para;</a></h2>
@@ -10989,9 +10989,9 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="c1">-- 基本の FizzBuzz 生成</span>
 <span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">generate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">        </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">n</span>
 
 <span class="c1">-- リスト生成（map の活用）</span>
@@ -11016,7 +11016,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="c1">-- Either によるエラーハンドリング</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">safeGenerate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generate</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 
 <span class="c1">-- 遅延評価による無限ストリーム</span>
@@ -11026,7 +11026,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <span class="c1">-- Either によるリスト版エラーハンドリング</span>
 <span class="nf">safeGenerateList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Either</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">[</span><span class="kt">String</span><span class="p">]</span>
 <span class="nf">safeGenerateList</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">&quot;正の整数を指定してください&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">Left</span><span class="w"> </span><span class="s">"正の整数を指定してください"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Right</span><span class="w"> </span><span class="p">(</span><span class="n">generateList</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 </code></pre></div>
 <p>この最終形は、TDD のサイクル（Red → Green → Refactor）を繰り返しながら、関数型プログラミングのテクニックを段階的に積み上げた結果です。各関数は小さく、型シグネチャが仕様を語り、テストが振る舞いを保証しています。</p>
@@ -11098,7 +11098,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

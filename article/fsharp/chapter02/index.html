@@ -10146,13 +10146,13 @@
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
 <span class="k">let</span><span class="w"> </span><span class="n">``数を文字列にして返す_2を渡したら文字列2を返す``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">&quot;2&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span>
+<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"2"</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>Assert.Equal<span class="o">()</span><span class="w"> </span>Failure
-<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">&quot;2&quot;</span>
-<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">&quot;1&quot;</span>
+<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">"2"</span>
+<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">"1"</span>
 </code></pre></div>
 <p>テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。</p>
 <h3 id="green">Green: 一般化する<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10187,17 +10187,17 @@
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
 <span class="k">let</span><span class="w"> </span><span class="n">``三の倍数のときはFizzを返す``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">&quot;Fizz&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span>
+<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"Fizz"</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="o">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>Assert.Equal<span class="o">()</span><span class="w"> </span>Failure
-<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">&quot;3&quot;</span>
+<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">"3"</span>
 </code></pre></div>
 <h3 id="green_1">Green: 明白な実装<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <p>3 の倍数のときは "Fizz" を返すように実装します。F# では <code>%</code> 演算子で剰余を求め、<code>= 0</code> でゼロかどうかを判定します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"Fizz"</span>
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
@@ -10207,7 +10207,7 @@
 <p>三角測量として 6 のテストも追加して確認します。</p>
 <div class="highlight"><pre><span></span><code><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
 <span class="k">let</span><span class="w"> </span><span class="n">``三の倍数のときはFizzを返す_6``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">&quot;Fizz&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">6</span><span class="o">)</span>
+<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"Fizz"</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">6</span><span class="o">)</span>
 </code></pre></div>
 <p><strong>TODO リスト</strong>:</p>
 <ul class="task-list">
@@ -10222,18 +10222,18 @@
 <h3 id="red-5">Red: 5 の倍数のテスト<a class="headerlink" href="#red-5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
 <span class="k">let</span><span class="w"> </span><span class="n">``五の倍数のときはBuzzを返す``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">&quot;Buzz&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">5</span><span class="o">)</span>
+<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"Buzz"</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">5</span><span class="o">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>Assert.Equal<span class="o">()</span><span class="w"> </span>Failure
-<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
-<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">&quot;5&quot;</span>
+<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">"Buzz"</span>
+<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">"5"</span>
 </code></pre></div>
 <h3 id="green-buzz">Green: Buzz の実装<a class="headerlink" href="#green-buzz" title="Permanent link">&para;</a></h3>
 <p>F# の <code>elif</code> キーワードで条件を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
@@ -10253,19 +10253,19 @@
 <h3 id="red-15">Red: 15 の倍数のテスト<a class="headerlink" href="#red-15" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
 <span class="k">let</span><span class="w"> </span><span class="n">``三と五の倍数のときはFizzBuzzを返す``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">15</span><span class="o">)</span>
+<span class="w">    </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"FizzBuzz"</span><span class="o">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="mi">15</span><span class="o">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>Assert.Equal<span class="o">()</span><span class="w"> </span>Failure
-<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">&quot;Fizz&quot;</span>
+<span class="w">  </span>Expected:<span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w">  </span>Actual:<span class="w">   </span><span class="s2">"Fizz"</span>
 </code></pre></div>
 <p>15 は 3 の倍数でもあるため、"Fizz" が返されてしまいました。3 と 5 の両方の倍数の判定を先に行う必要があります。</p>
 <h3 id="green-fizzbuzz">Green: FizzBuzz の実装<a class="headerlink" href="#green-fizzbuzz" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">number</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
@@ -10369,7 +10369,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10112,32 +10112,32 @@
 <p>Composer でプロジェクトを初期化し、PHPUnit をインストールします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># プロジェクトの初期化</span>
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>apps/php
-$<span class="w"> </span>composer<span class="w"> </span>init<span class="w"> </span>--name<span class="o">=</span><span class="s2">&quot;fizzbuzz/php-tdd&quot;</span><span class="w"> </span>--type<span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="w"> </span>--require<span class="o">=</span><span class="s2">&quot;php:^8.1&quot;</span><span class="w"> </span>--no-interaction
+$<span class="w"> </span>composer<span class="w"> </span>init<span class="w"> </span>--name<span class="o">=</span><span class="s2">"fizzbuzz/php-tdd"</span><span class="w"> </span>--type<span class="o">=</span><span class="s2">"project"</span><span class="w"> </span>--require<span class="o">=</span><span class="s2">"php:^8.1"</span><span class="w"> </span>--no-interaction
 $<span class="w"> </span>composer<span class="w"> </span>require<span class="w"> </span>--dev<span class="w"> </span>phpunit/phpunit
 </code></pre></div>
 <p>PSR-4 オートロードを設定した <code>composer.json</code> を用意します。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;App\\&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span>
+<span class="w">    </span><span class="nt">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"App\\"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;autoload-dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;App\\Tests\\&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tests/&quot;</span>
+<span class="w">    </span><span class="nt">"autoload-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"App\\Tests\\"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tests/"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>PHPUnit の設定ファイル <code>phpunit.xml</code> を作成します。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;phpunit</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="w">         </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;vendor/phpunit/phpunit/phpunit.xsd&quot;</span>
-<span class="w">         </span><span class="na">bootstrap=</span><span class="s">&quot;vendor/autoload.php&quot;</span>
-<span class="w">         </span><span class="na">colors=</span><span class="s">&quot;true&quot;</span>
-<span class="w">         </span><span class="na">testdox=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;phpunit</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="w">         </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"vendor/phpunit/phpunit/phpunit.xsd"</span>
+<span class="w">         </span><span class="na">bootstrap=</span><span class="s">"vendor/autoload.php"</span>
+<span class="w">         </span><span class="na">colors=</span><span class="s">"true"</span>
+<span class="w">         </span><span class="na">testdox=</span><span class="s">"true"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;testsuites&gt;</span>
-<span class="w">        </span><span class="nt">&lt;testsuite</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FizzBuzz Tests&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;testsuite</span><span class="w"> </span><span class="na">name=</span><span class="s">"FizzBuzz Tests"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;directory&gt;</span>tests<span class="nt">&lt;/directory&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/testsuite&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/testsuites&gt;</span>
@@ -10156,12 +10156,12 @@ $<span class="w"> </span>composer<span class="w"> </span>require<span class="w">
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">test_PHPの文字列キャストを確認する</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="s1">&#39;42&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="mi">42</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="s1">'42'</span><span class="p">,</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="mi">42</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">test_PHPのintval関数を確認する</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">intval</span><span class="p">(</span><span class="s1">&#39;42&#39;</span><span class="p">));</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="nb">intval</span><span class="p">(</span><span class="s1">'42'</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10203,13 +10203,13 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">2</span><span 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">test_1を渡したら文字列1を返す</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
     <span class="p">{</span>
         <span class="nv">$fizzbuzz</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FizzBuzz</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="nv">$fizzbuzz</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="s1">'1'</span><span class="p">,</span> <span class="nv">$fizzbuzz</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>vendor/bin/phpunit
-Error:<span class="w"> </span>Class<span class="w"> </span><span class="s2">&quot;App\FizzBuzz&quot;</span><span class="w"> </span>not<span class="w"> </span>found
+Error:<span class="w"> </span>Class<span class="w"> </span><span class="s2">"App\FizzBuzz"</span><span class="w"> </span>not<span class="w"> </span>found
 </code></pre></div>
 <p><code>FizzBuzz</code> クラスが定義されていないためエラーになりました。PHP は実行時にクラスを解決するため、Go のようなコンパイルエラーではなく実行時エラーになります。</p>
 <h3 id="green">Green: 仮実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10229,7 +10229,7 @@ Error:<span class="w"> </span>Class<span class="w"> </span><span class="s2">&quo
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">generate</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$number</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;1&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s1">'1'</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10254,7 +10254,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">1</span><span 
 </ul>
 <p>ここまでの作業をバージョン管理システムにコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;test: 数を文字列にして返す&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'test: 数を文字列にして返す'</span>
 </code></pre></div>
 <h2 id="16">1.6 まとめ<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10335,7 +10335,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

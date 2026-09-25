@@ -10152,13 +10152,13 @@
 <h2 id="22">2.2 三角測量<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
 <p>1 を渡したら文字列 "1" を返すようにできました。前章の実装は引数を無視して <code>"1"</code> を返すだけの仮実装です。では、2 を渡したらどうなるでしょうか？</p>
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`2 を渡したら文字列 2 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`2 を渡したら文字列 2 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
 </code></pre></div>
 <p>テストを実行します。仮実装は常に <code>"1"</code> を返すため、期待値 <code>"2"</code> と一致せず失敗します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gradle<span class="w"> </span><span class="nb">test</span>
 &gt;<span class="w"> </span>Task<span class="w"> </span>:test<span class="w"> </span>FAILED
 <span class="sb">`</span><span class="m">2</span><span class="w"> </span>を渡したら文字列<span class="w"> </span><span class="m">2</span><span class="w"> </span>を返す<span class="sb">`</span><span class="w"> </span>FAILED
-<span class="w">    </span>expected:&lt;<span class="s2">&quot;2&quot;</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">&quot;1&quot;</span>&gt;
+<span class="w">    </span>expected:&lt;<span class="s2">"2"</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">"1"</span>&gt;
 </code></pre></div>
 <p>テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。</p>
 <h3 id="green">Green: 一般化する<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10196,12 +10196,12 @@ BUILD<span class="w"> </span>SUCCESSFUL
 <h2 id="23-3-fizz">2.3 3 の倍数 — Fizz<a class="headerlink" href="#23-3-fizz" title="Permanent link">&para;</a></h2>
 <p>次は「3 の倍数のときは数の代わりに Fizz と返す」に取り掛かります。</p>
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`3 の倍数は </span><span class="nf">Fizz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`3 の倍数は </span><span class="nf">Fizz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gradle<span class="w"> </span><span class="nb">test</span>
 &gt;<span class="w"> </span>Task<span class="w"> </span>:test<span class="w"> </span>FAILED
 <span class="sb">`</span><span class="m">3</span><span class="w"> </span>の倍数は<span class="w"> </span>Fizz<span class="sb">`</span><span class="w"> </span>FAILED
-<span class="w">    </span>expected:&lt;<span class="s2">&quot;Fizz&quot;</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">&quot;3&quot;</span>&gt;
+<span class="w">    </span>expected:&lt;<span class="s2">"Fizz"</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">"3"</span>&gt;
 </code></pre></div>
 <h3 id="green-when">Green: when 式による条件分岐<a class="headerlink" href="#green-when" title="Permanent link">&para;</a></h3>
 <p>3 の倍数のときは "Fizz" を返すように実装します。Kotlin では <strong><code>when</code> 式</strong> を使って条件分岐を記述します。剰余は <code>%</code> 演算子で求めます。</p>
@@ -10209,7 +10209,7 @@ BUILD<span class="w"> </span>SUCCESSFUL
 
 <span class="kd">object</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10230,12 +10230,12 @@ BUILD<span class="w"> </span>SUCCESSFUL
 </ul>
 <h2 id="24-5-buzz">2.4 5 の倍数 — Buzz<a class="headerlink" href="#24-5-buzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-5">Red: 5 の倍数のテスト<a class="headerlink" href="#red-5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`5 の倍数は </span><span class="nf">Buzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`5 の倍数は </span><span class="nf">Buzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gradle<span class="w"> </span><span class="nb">test</span>
 &gt;<span class="w"> </span>Task<span class="w"> </span>:test<span class="w"> </span>FAILED
 <span class="sb">`</span><span class="m">5</span><span class="w"> </span>の倍数は<span class="w"> </span>Buzz<span class="sb">`</span><span class="w"> </span>FAILED
-<span class="w">    </span>expected:&lt;<span class="s2">&quot;Buzz&quot;</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">&quot;5&quot;</span>&gt;
+<span class="w">    </span>expected:&lt;<span class="s2">"Buzz"</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">"5"</span>&gt;
 </code></pre></div>
 <h3 id="green-buzz">Green: Buzz の実装<a class="headerlink" href="#green-buzz" title="Permanent link">&para;</a></h3>
 <p><code>when</code> 式に 5 の倍数の分岐を追加します。</p>
@@ -10243,8 +10243,8 @@ BUILD<span class="w"> </span>SUCCESSFUL
 
 <span class="kd">object</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10263,12 +10263,12 @@ BUILD<span class="w"> </span>SUCCESSFUL
 </ul>
 <h2 id="25-15-fizzbuzz">2.5 15 の倍数 — FizzBuzz<a class="headerlink" href="#25-15-fizzbuzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-15">Red: 15 の倍数のテスト<a class="headerlink" href="#red-15" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`15 の倍数は </span><span class="nf">FizzBuzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">15</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`15 の倍数は </span><span class="nf">FizzBuzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">15</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gradle<span class="w"> </span><span class="nb">test</span>
 &gt;<span class="w"> </span>Task<span class="w"> </span>:test<span class="w"> </span>FAILED
 <span class="sb">`</span><span class="m">15</span><span class="w"> </span>の倍数は<span class="w"> </span>FizzBuzz<span class="sb">`</span><span class="w"> </span>FAILED
-<span class="w">    </span>expected:&lt;<span class="s2">&quot;FizzBuzz&quot;</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">&quot;Fizz&quot;</span>&gt;
+<span class="w">    </span>expected:&lt;<span class="s2">"FizzBuzz"</span>&gt;<span class="w"> </span>but<span class="w"> </span>was:&lt;<span class="s2">"Fizz"</span>&gt;
 </code></pre></div>
 <p>15 は 3 の倍数でもあるため、"Fizz" が返されてしまいました。<code>when</code> 式は上から順番に評価されるので、3 の倍数の分岐に先にマッチしてしまいます。3 と 5 の両方の倍数（つまり 15 の倍数）の判定を <strong>先に</strong> 行う必要があります。</p>
 <h3 id="green_1">Green: 分岐の順序を修正<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
@@ -10276,9 +10276,9 @@ BUILD<span class="w"> </span>SUCCESSFUL
 
 <span class="kd">object</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10299,7 +10299,7 @@ BUILD<span class="w"> </span>SUCCESSFUL
 </ul>
 <p>ここまでの作業をコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat(kotlin): FizzBuzz のコアロジックを実装&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat(kotlin): FizzBuzz のコアロジックを実装'</span>
 </code></pre></div>
 <h2 id="26">2.6 まとめ<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10321,9 +10321,9 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
 
 <span class="kd">object</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10340,11 +10340,11 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
 <span class="k">import</span><span class="w"> </span><span class="nn">kotlin.test.assertEquals</span>
 
 <span class="kd">class</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`1 を渡したら文字列 1 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
-<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`2 を渡したら文字列 2 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
-<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`3 の倍数は </span><span class="nf">Fizz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
-<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`5 の倍数は </span><span class="nf">Buzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
-<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`15 の倍数は </span><span class="nf">FizzBuzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">15</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`1 を渡したら文字列 1 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`2 を渡したら文字列 2 を返す`() = </span><span class="nf">assertEquals</span><span class="p">(</span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`3 の倍数は </span><span class="nf">Fizz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`5 の倍数は </span><span class="nf">Buzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@Test</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="err">`15 の倍数は </span><span class="nf">FizzBuzz</span><span class="err">`</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="m">15</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -10416,7 +10416,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10097,10 +10097,10 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">GenerateList</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">14</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">[</span><span class="mi">14</span><span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
@@ -10147,8 +10147,8 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">();</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">SetOut</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">SetOut</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StreamWriter</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">OpenStandardOutput</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">AutoFlush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10169,10 +10169,10 @@
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">();</span>
 <span class="w">    </span><span class="n">FizzBuzzRunner</span><span class="p">.</span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writer</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>TODO リスト</strong>:</p>
@@ -10204,9 +10204,9 @@
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Generate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsFizzBuzz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsFizz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsBuzz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsFizzBuzz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsFizz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsBuzz</span><span class="p">(</span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -10359,7 +10359,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

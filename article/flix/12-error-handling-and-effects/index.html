@@ -10150,7 +10150,7 @@
     /// 正の数は Ok を返す。
     @Test
     def safeConvert_positive_ok(): Unit \ Assert =
-        Assert.assertEq(expected = Ok(&quot;Fizz&quot;), FizzBuzzEff.safeConvert(3))
+        Assert.assertEq(expected = Ok("Fizz"), FizzBuzzEff.safeConvert(3))
 
     /// ゼロ以下は Err を返す。
     @Test
@@ -10165,7 +10165,7 @@
     ///
     pub def safeConvert(n: Int32): Result[String, String] =
         if (n &lt;= 0)
-            Err(&quot;正の数を指定してください: ${n}&quot;)
+            Err("正の数を指定してください: ${n}")
         else
             Ok(FizzBuzzPipeline.convert(n))
 }
@@ -10223,7 +10223,7 @@ eff Emit {
     @Test
     def collect_gathers_results(): Unit \ Assert =
         let result = FizzBuzzEff.collect(5);
-        Assert.assertEq(expected = Some(&quot;Buzz&quot;), List.nth(4, result))
+        Assert.assertEq(expected = Some("Buzz"), List.nth(4, result))
 </code></pre></div>
 <h3 id="_5">標準出力に書くハンドラ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>同じ <code>emitAll</code> を、今度は標準出力へ流します。</p>
@@ -10381,7 +10381,7 @@ Passed:<span class="w"> </span><span class="m">45</span>,<span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

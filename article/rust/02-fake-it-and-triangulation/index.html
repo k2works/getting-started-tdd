@@ -10135,7 +10135,7 @@
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_2を渡したら文字列2を返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>テストを実行します。</p>
@@ -10144,8 +10144,8 @@
 <span class="nb">test</span><span class="w"> </span>tests::test_2を渡したら文字列2を返す<span class="w"> </span>...<span class="w"> </span>FAILED
 
 assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>right<span class="sb">`</span><span class="w"> </span>failed
-<span class="w">  </span>left:<span class="w"> </span><span class="s2">&quot;2&quot;</span>
-<span class="w"> </span>right:<span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">  </span>left:<span class="w"> </span><span class="s2">"2"</span>
+<span class="w"> </span>right:<span class="w"> </span><span class="s2">"1"</span>
 </code></pre></div>
 <p>テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。</p>
 <h3 id="green">Green: 一般化する<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10184,21 +10184,21 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_3を渡したらfizzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span>
 <span class="nb">test</span><span class="w"> </span>tests::test_3を渡したらfizzを返す<span class="w"> </span>...<span class="w"> </span>FAILED
 
 assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>right<span class="sb">`</span><span class="w"> </span>failed
-<span class="w">  </span>left:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w"> </span>right:<span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">  </span>left:<span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w"> </span>right:<span class="w"> </span><span class="s2">"3"</span>
 </code></pre></div>
 <h3 id="green_1">Green: 明白な実装<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <p>3 の倍数のときは "Fizz" を返すように実装します。Rust では <code>%</code> 演算子で剰余を求め、<code>== 0</code> でゼロかどうかを判定します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">number</span><span class="p">.</span><span class="n">to_string</span><span class="p">()</span>
 <span class="p">}</span>
@@ -10209,7 +10209,7 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
 <p>三角測量として 6 のテストも追加して確認します。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_6を渡したらfizzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>TODO リスト</strong>:</p>
@@ -10225,23 +10225,23 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
 <h3 id="red-5">Red: 5 の倍数のテスト<a class="headerlink" href="#red-5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_5を渡したらbuzzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span>
 <span class="nb">test</span><span class="w"> </span>tests::test_5を渡したらbuzzを返す<span class="w"> </span>...<span class="w"> </span>FAILED
 
 assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>right<span class="sb">`</span><span class="w"> </span>failed
-<span class="w">  </span>left:<span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
-<span class="w"> </span>right:<span class="w"> </span><span class="s2">&quot;5&quot;</span>
+<span class="w">  </span>left:<span class="w"> </span><span class="s2">"Buzz"</span>
+<span class="w"> </span>right:<span class="w"> </span><span class="s2">"5"</span>
 </code></pre></div>
 <h3 id="green-buzz">Green: Buzz の実装<a class="headerlink" href="#green-buzz" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">number</span><span class="p">.</span><span class="n">to_string</span><span class="p">()</span>
 <span class="p">}</span>
@@ -10252,7 +10252,7 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
 <p>三角測量として 10 のテストも追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_10を渡したらbuzzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;Buzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>TODO リスト</strong>:</p>
@@ -10268,24 +10268,24 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
 <h3 id="red-15">Red: 15 の倍数のテスト<a class="headerlink" href="#red-15" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#[test]</span>
 <span class="k">fn</span><span class="w"> </span><span class="nf">test_15を渡したらfizzbuzzを返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">));</span>
+<span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span>
 <span class="nb">test</span><span class="w"> </span>tests::test_15を渡したらfizzbuzzを返す<span class="w"> </span>...<span class="w"> </span>FAILED
 
 assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>right<span class="sb">`</span><span class="w"> </span>failed
-<span class="w">  </span>left:<span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w"> </span>right:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
+<span class="w">  </span>left:<span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w"> </span>right:<span class="w"> </span><span class="s2">"Fizz"</span>
 </code></pre></div>
 <p>15 は 3 の倍数でもあるため、"Fizz" が返されてしまいました。3 と 5 の両方の倍数の判定を先に行う必要があります。</p>
 <h3 id="green-fizzbuzz">Green: FizzBuzz の実装<a class="headerlink" href="#green-fizzbuzz" title="Permanent link">&para;</a></h3>
 <p>Rust の <code>match</code> 式を使って、条件分岐を整理します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
-<span class="w">        </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
-<span class="w">        </span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
 <span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">number</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10380,7 +10380,7 @@ assertion<span class="w"> </span><span class="sb">`</span><span class="nv">left<
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

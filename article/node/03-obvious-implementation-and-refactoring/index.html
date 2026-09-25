@@ -10109,17 +10109,17 @@
 <h2 id="32-1-100">3.2 1 から 100 までのリスト生成<a class="headerlink" href="#32-1-100" title="Permanent link">&para;</a></h2>
 <h3 id="red">Red: リスト生成のテスト<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <p>1 から 100 までの FizzBuzz の結果を配列として返すメソッドをテストします。</p>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;1から100までのFizzBuzzを生成する&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"1から100までのFizzBuzzを生成する"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">generateList</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
 
 <span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">1</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">2</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Fizz&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">3</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">4</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Buzz&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">14</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">99</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&quot;Buzz&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">0</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"1"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">1</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"2"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">2</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Fizz"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">3</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"4"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">4</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Buzz"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">14</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"FizzBuzz"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mf">99</span><span class="p">]).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"Buzz"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code> FAIL  test/fizzbuzz.test.ts &gt; FizzBuzz
@@ -10132,13 +10132,13 @@
 <span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">generate</span><span class="p">(</span><span class="kt">number</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"FizzBuzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Fizz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Buzz&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s2">"Buzz"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
@@ -10164,7 +10164,7 @@
 <p>外部のソフトウェアのテストを書くべきだろうか——そのソフトウェアに対して新しいことを初めて行おうとした段階で書いてみよう。</p>
 <p>— テスト駆動開発</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;プリントする&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">test</span><span class="p">(</span><span class="s2">"プリントする"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">fizzbuzz</span><span class="p">.</span><span class="nx">printFizzBuzz</span><span class="p">(</span><span class="mf">15</span><span class="p">);</span>
 <span class="w">  </span><span class="c1">// コンソール出力を確認（学習用テスト）</span>
 <span class="w">  </span><span class="c1">// 実際のアプリケーションではエントリポイントから呼び出す</span>
@@ -10324,7 +10324,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

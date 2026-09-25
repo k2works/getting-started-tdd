@@ -10123,18 +10123,18 @@
 <p>uv プロジェクトに pytest を追加して、テスト環境をセットアップします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pyproject.toml</span>
 <span class="k">[project]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fizzbuzz&quot;</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;FizzBuzz TDD project for Python&quot;</span>
-<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.11&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"fizzbuzz"</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FizzBuzz TDD project for Python"</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.11"</span>
 
 <span class="k">[tool.pytest.ini_options]</span>
-<span class="n">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span>
-<span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">]</span>
+<span class="n">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">]</span>
+<span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"."</span><span class="p">]</span>
 
 <span class="k">[dependency-groups]</span>
 <span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;pytest&gt;=8.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"pytest&gt;=8.0"</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
 <h3 id="_3">環境確認テスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -10142,11 +10142,11 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># test/test_hello.py</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_greeting</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">greeting</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;hello world&quot;</span>
+    <span class="k">assert</span> <span class="n">greeting</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"hello world"</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">&quot;hello world&quot;</span>
+    <span class="k">return</span> <span class="s2">"hello world"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-v
@@ -10174,7 +10174,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span> <span class="o">=</span> <span class="n">FizzBuzz</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1"</span>
 </code></pre></div>
 <h3 id="red">Red: テストを実行して失敗させる<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <p>テストを実行します。</p>
@@ -10182,7 +10182,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1を渡したら文字列1を返す FAILED
 
-E       ModuleNotFoundError: No module named &#39;lib.fizzbuzz&#39;
+E       ModuleNotFoundError: No module named 'lib.fizzbuzz'
 </code></pre></div>
 <p><code>FizzBuzz</code> クラスが定義されていないというエラーが出ました。まだ作っていないのですから当然です。</p>
 <h3 id="green">Green: 仮実装でテストを通す<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10196,7 +10196,7 @@ E       ModuleNotFoundError: No module named &#39;lib.fizzbuzz&#39;
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizzbuzz.py</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;1&quot;</span>
+        <span class="k">return</span> <span class="s2">"1"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-v
@@ -10292,7 +10292,7 @@ E       ModuleNotFoundError: No module named &#39;lib.fizzbuzz&#39;
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10080,29 +10080,29 @@
     def generateList_has_100_elements(): Unit \ Assert =
         Assert.assertEq(expected = 100, List.length(FizzBuzz.generateList(100)))
 
-    /// 最初の要素は &quot;1&quot;。
+    /// 最初の要素は "1"。
     @Test
     def generateList_first_is_1(): Unit \ Assert =
-        Assert.assertEq(expected = Some(&quot;1&quot;), List.nth(0, FizzBuzz.generateList(100)))
+        Assert.assertEq(expected = Some("1"), List.nth(0, FizzBuzz.generateList(100)))
 
-    /// 3 番目の要素は &quot;Fizz&quot;。
+    /// 3 番目の要素は "Fizz"。
     @Test
     def generateList_third_is_Fizz(): Unit \ Assert =
-        Assert.assertEq(expected = Some(&quot;Fizz&quot;), List.nth(2, FizzBuzz.generateList(100)))
+        Assert.assertEq(expected = Some("Fizz"), List.nth(2, FizzBuzz.generateList(100)))
 
-    /// 5 番目の要素は &quot;Buzz&quot;。
+    /// 5 番目の要素は "Buzz"。
     @Test
     def generateList_fifth_is_Buzz(): Unit \ Assert =
-        Assert.assertEq(expected = Some(&quot;Buzz&quot;), List.nth(4, FizzBuzz.generateList(100)))
+        Assert.assertEq(expected = Some("Buzz"), List.nth(4, FizzBuzz.generateList(100)))
 
-    /// 15 番目の要素は &quot;FizzBuzz&quot;。
+    /// 15 番目の要素は "FizzBuzz"。
     @Test
     def generateList_fifteenth_is_FizzBuzz(): Unit \ Assert =
-        Assert.assertEq(expected = Some(&quot;FizzBuzz&quot;), List.nth(14, FizzBuzz.generateList(100)))
+        Assert.assertEq(expected = Some("FizzBuzz"), List.nth(14, FizzBuzz.generateList(100)))
 </code></pre></div>
 <p><code>List.nth(index, list)</code> は 0 始まりのインデックスアクセスです。存在しない位置を指定しても例外にならず <code>None</code> を返すため、Flix では「配列外アクセスによる実行時クラッシュ」が型レベルで排除されています。Rust の <code>list.get(0)</code> が <code>Option</code> を返すのと同じ設計思想です。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
-&gt;&gt;<span class="w"> </span>Undefined<span class="w"> </span>name<span class="w"> </span><span class="s1">&#39;FizzBuzz.generateList&#39;</span>.
+&gt;&gt;<span class="w"> </span>Undefined<span class="w"> </span>name<span class="w"> </span><span class="s1">'FizzBuzz.generateList'</span>.
 </code></pre></div>
 <p><code>generateList</code> がまだ定義されていないため、コンパイルエラーになります。Flix は静的型付け言語なので、関数が存在しないとコンパイルの段階でエラーが報告されます。</p>
 <h3 id="green">Green: 明白な実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10115,9 +10115,9 @@
 <p><code>src/FizzBuzz.flix</code> に <code>generateList</code> 関数を追加します。</p>
 <div class="highlight"><pre><span></span><code>mod FizzBuzz {
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 
     ///
@@ -10209,9 +10209,9 @@ mod FizzBuzz {
     /// 数 `n` を FizzBuzz の規則に従って文字列に変換する。
     ///
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 
     ///
@@ -10381,7 +10381,7 @@ mod FizzBuzz {
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

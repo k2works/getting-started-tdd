@@ -10123,8 +10123,8 @@
 <p>Gradle プロジェクトに JUnit 5 を追加して、テスト環境をセットアップします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// build.gradle</span>
 <span class="n">plugins</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;java&#39;</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">&#39;jacoco&#39;</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'java'</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'jacoco'</span>
 <span class="o">}</span>
 
 <span class="n">java</span><span class="w"> </span><span class="o">{</span>
@@ -10138,15 +10138,15 @@
 <span class="o">}</span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">testImplementation</span><span class="w"> </span><span class="s1">&#39;org.junit.jupiter:junit-jupiter:5.10.2&#39;</span>
-<span class="w">    </span><span class="n">testRuntimeOnly</span><span class="w"> </span><span class="s1">&#39;org.junit.platform:junit-platform-launcher&#39;</span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="w"> </span><span class="s1">'org.junit.jupiter:junit-jupiter:5.10.2'</span>
+<span class="w">    </span><span class="n">testRuntimeOnly</span><span class="w"> </span><span class="s1">'org.junit.platform:junit-platform-launcher'</span>
 <span class="o">}</span>
 
 <span class="n">test</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">useJUnitPlatform</span><span class="o">()</span>
 
 <span class="w">    </span><span class="n">testLogging</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">events</span><span class="o">(</span><span class="s2">&quot;passed&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;skipped&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span><span class="o">)</span>
+<span class="w">        </span><span class="n">events</span><span class="o">(</span><span class="s2">"passed"</span><span class="o">,</span><span class="w"> </span><span class="s2">"skipped"</span><span class="o">,</span><span class="w"> </span><span class="s2">"failed"</span><span class="o">)</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -10160,11 +10160,11 @@
 <span class="kd">class</span> <span class="nc">HelloTest</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nd">@Test</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">test_greeting</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">());</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">greeting</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;hello world&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"hello world"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10202,7 +10202,7 @@ BUILD SUCCESSFUL
 
 <span class="w">    </span><span class="nd">@Test</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fizzbuzz</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">fizzbuzz</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10227,7 +10227,7 @@ BUILD SUCCESSFUL
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"1"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10325,7 +10325,7 @@ BUILD SUCCESSFUL
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

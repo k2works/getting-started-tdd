@@ -10133,22 +10133,22 @@
 <h2 id="22">2.2 三角測量<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
 <p>1 を渡したら文字列 "1" を返すようにできました。では、2 を渡したらどうなるでしょうか？</p>
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;2 を渡すと &#39;2&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"2 を渡すと '2' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"2"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
 
 Failures:
 
 <span class="w">  </span>test/FizzBuzz/FizzBuzzSpec.hs:12:7:
-<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">       </span>expected:<span class="w"> </span><span class="s2">&quot;2&quot;</span>
-<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">       </span>expected:<span class="w"> </span><span class="s2">"2"</span>
+<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">"1"</span>
 
 <span class="m">2</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">1</span><span class="w"> </span>failure
 </code></pre></div>
@@ -10162,8 +10162,8 @@ Failures:
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
 
 Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span>seconds
 <span class="m">2</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
@@ -10189,22 +10189,22 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <h2 id="23-3-fizz">2.3 3 の倍数 -- Fizz<a class="headerlink" href="#23-3-fizz" title="Permanent link">&para;</a></h2>
 <p>次は「3 の倍数のときは数の代わりに Fizz と返す」に取り掛かります。</p>
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;3 の倍数を渡すと &#39;Fizz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"3 の倍数を渡すと 'Fizz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Fizz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
 
 Failures:
 
 <span class="w">  </span>test/FizzBuzz/FizzBuzzSpec.hs:15:7:
-<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">       </span>expected:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">       </span>expected:<span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">"3"</span>
 
 <span class="m">3</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">1</span><span class="w"> </span>failure
 </code></pre></div>
@@ -10212,7 +10212,7 @@ Failures:
 <p>3 の倍数のときは "Fizz" を返すように実装します。Haskell では <strong>ガード式</strong> を使って条件分岐を記述します。</p>
 <div class="highlight"><pre><span></span><code><span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">generate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"Fizz"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">       </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">n</span>
 </code></pre></div>
 <p>ガード式は <code>|</code> の後に条件を書き、<code>=</code> の後に条件が真のときの返り値を記述します。<code>otherwise</code> は常に <code>True</code> を返す定数で、すべての条件に合致しなかった場合のデフォルトケースとして機能します。<code>mod</code> 関数はバッククォートで囲むことで中置演算子として使えます（<code>n</code>mod<code>3</code> は <code>mod n 3</code> と同じ意味です）。</p>
@@ -10220,16 +10220,16 @@ Failures:
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
 
 Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span>seconds
 <span class="m">3</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
 </code></pre></div>
 <p>テストが通りました。三角測量として 6 のテストも追加して確認します。</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;6 を渡すと &#39;Fizz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"6 を渡すと 'Fizz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Fizz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 <span class="m">4</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
@@ -10245,20 +10245,20 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ul>
 <h2 id="24-5-buzz">2.4 5 の倍数 -- Buzz<a class="headerlink" href="#24-5-buzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-5">Red: 5 の倍数のテスト<a class="headerlink" href="#red-5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;5 の倍数を渡すと &#39;Buzz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"5 の倍数を渡すと 'Buzz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Buzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
 
 Failures:
 
 <span class="w">  </span>test/FizzBuzz/FizzBuzzSpec.hs:21:7:
-<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">       </span>expected:<span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
-<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">&quot;5&quot;</span>
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">       </span>expected:<span class="w"> </span><span class="s2">"Buzz"</span>
+<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">"5"</span>
 
 <span class="m">5</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">1</span><span class="w"> </span>failure
 </code></pre></div>
@@ -10266,25 +10266,25 @@ Failures:
 <p>ガード式に 5 の倍数の条件を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">generate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">       </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">n</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">6</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">6</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
 
 Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span>seconds
 <span class="m">5</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
 </code></pre></div>
 <p>三角測量として 10 のテストも追加します。</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;10 を渡すと &#39;Buzz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"10 を渡すと 'Buzz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"Buzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 <span class="m">6</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
@@ -10300,20 +10300,20 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ul>
 <h2 id="25-15-fizzbuzz">2.5 15 の倍数 -- FizzBuzz<a class="headerlink" href="#25-15-fizzbuzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-15">Red: 15 の倍数のテスト<a class="headerlink" href="#red-15" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;15 の倍数を渡すと &#39;FizzBuzz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"15 の倍数を渡すと 'FizzBuzz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す<span class="w"> </span>FAILED<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
 
 Failures:
 
 <span class="w">  </span>test/FizzBuzz/FizzBuzzSpec.hs:27:7:
-<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
-<span class="w">       </span>expected:<span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>generate<span class="w"> </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
+<span class="w">       </span>expected:<span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w">        </span>but<span class="w"> </span>got:<span class="w"> </span><span class="s2">"Fizz"</span>
 
 <span class="m">7</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">1</span><span class="w"> </span>failure
 </code></pre></div>
@@ -10321,29 +10321,29 @@ Failures:
 <h3 id="green_2">Green: ガード式の順序を修正<a class="headerlink" href="#green_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nf">generate</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">generate</span><span class="w"> </span><span class="n">n</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span>
-<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="s">"Buzz"</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">        </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">n</span>
 </code></pre></div>
 <p>ガード式は上から順に評価されるため、最も限定的な条件（15 の倍数）を最初に配置します。これは Rust の <code>match</code> 式のパターンの並び順や、Go の <code>switch</code> 文の <code>case</code> の順序と同じ考え方です。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 FizzBuzz.FizzBuzzSpec
 <span class="w">  </span>generate
-<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">6</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">10</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span>を返す
-<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">1</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'1'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">2</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'2'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">3</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">5</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">6</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">10</span><span class="w"> </span>を渡すと<span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span>を返す
+<span class="w">    </span><span class="m">15</span><span class="w"> </span>の倍数を渡すと<span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span>を返す
 
 Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span>seconds
 <span class="m">7</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
 </code></pre></div>
 <p>三角測量として 30 のテストも追加しておきます。</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">&quot;30 を渡すと &#39;FizzBuzz&#39; を返す&quot;</span><span class="w"> </span><span class="o">$</span>
-<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="s">"30 を渡すと 'FizzBuzz' を返す"</span><span class="w"> </span><span class="o">$</span>
+<span class="w">      </span><span class="n">generate</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>stack<span class="w"> </span><span class="nb">test</span>
 <span class="m">8</span><span class="w"> </span>examples,<span class="w"> </span><span class="m">0</span><span class="w"> </span>failures
@@ -10359,7 +10359,7 @@ Finished<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ul>
 <p>ここまでの作業をコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat: FizzBuzz のコアロジックを実装&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat: FizzBuzz のコアロジックを実装'</span>
 </code></pre></div>
 <h2 id="26">2.6 まとめ<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10439,7 +10439,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

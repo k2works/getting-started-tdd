@@ -10149,14 +10149,14 @@
 <h2 id="52-leiningen">5.2 Leiningen によるパッケージ管理<a class="headerlink" href="#52-leiningen" title="Permanent link">&para;</a></h2>
 <h3 id="projectclj">project.clj<a class="headerlink" href="#projectclj" title="Permanent link">&para;</a></h3>
 <p>Leiningen のプロジェクト設定ファイル <code>project.clj</code> で依存関係やプラグインを管理します。</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defproject </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="s">&quot;0.1.0-SNAPSHOT&quot;</span>
-<span class="w">  </span><span class="ss">:description</span><span class="w"> </span><span class="s">&quot;FizzBuzz - TDD practice in Clojure&quot;</span>
-<span class="w">  </span><span class="ss">:dependencies</span><span class="w"> </span><span class="p">[[</span><span class="nv">org.clojure/clojure</span><span class="w"> </span><span class="s">&quot;1.11.1&quot;</span><span class="p">]]</span>
-<span class="w">  </span><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-cloverage</span><span class="w"> </span><span class="s">&quot;1.2.4&quot;</span><span class="p">]</span>
-<span class="w">            </span><span class="p">[</span><span class="nv">lein-kibit</span><span class="w"> </span><span class="s">&quot;0.1.8&quot;</span><span class="p">]</span>
-<span class="w">            </span><span class="p">[</span><span class="nv">jonase/eastwood</span><span class="w"> </span><span class="s">&quot;1.4.3&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defproject </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="s">"0.1.0-SNAPSHOT"</span>
+<span class="w">  </span><span class="ss">:description</span><span class="w"> </span><span class="s">"FizzBuzz - TDD practice in Clojure"</span>
+<span class="w">  </span><span class="ss">:dependencies</span><span class="w"> </span><span class="p">[[</span><span class="nv">org.clojure/clojure</span><span class="w"> </span><span class="s">"1.11.1"</span><span class="p">]]</span>
+<span class="w">  </span><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-cloverage</span><span class="w"> </span><span class="s">"1.2.4"</span><span class="p">]</span>
+<span class="w">            </span><span class="p">[</span><span class="nv">lein-kibit</span><span class="w"> </span><span class="s">"0.1.8"</span><span class="p">]</span>
+<span class="w">            </span><span class="p">[</span><span class="nv">jonase/eastwood</span><span class="w"> </span><span class="s">"1.4.3"</span><span class="p">]]</span>
 <span class="w">  </span><span class="ss">:main</span><span class="w"> </span><span class="o">^</span><span class="ss">:skip-aot</span><span class="w"> </span><span class="nv">fizzbuzz.core</span>
-<span class="w">  </span><span class="ss">:target-path</span><span class="w"> </span><span class="s">&quot;target/%s&quot;</span>
+<span class="w">  </span><span class="ss">:target-path</span><span class="w"> </span><span class="s">"target/%s"</span>
 <span class="w">  </span><span class="ss">:profiles</span><span class="w"> </span><span class="p">{</span><span class="ss">:uberjar</span><span class="w"> </span><span class="p">{</span><span class="ss">:aot</span><span class="w"> </span><span class="ss">:all</span><span class="p">}})</span>
 </code></pre></div>
 <h3 id="_1">依存関係の管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10214,7 +10214,7 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>lein<span class="w"> </span>cloverage
 </code></pre></div>
 <p><code>project.clj</code> にプラグインを追加済みです。</p>
-<div class="highlight"><pre><span></span><code><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-cloverage</span><span class="w"> </span><span class="s">&quot;1.2.4&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-cloverage</span><span class="w"> </span><span class="s">"1.2.4"</span><span class="p">]]</span>
 </code></pre></div>
 <p>テスト実行後に <code>target/coverage</code> フォルダが作成されます。その中の <code>index.html</code> を開くとカバレッジ状況を確認できます。</p>
 <h2 id="55">5.5 コード複雑度のチェック<a class="headerlink" href="#55" title="Permanent link">&para;</a></h2>
@@ -10292,9 +10292,9 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
 <span class="c1">;; 循環複雑度が中程度の例（複雑度: 5）</span>
 <span class="p">(</span><span class="kd">defn </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">[</span><span class="nv">n</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="w">  </span><span class="c1">; cond +1, and +1</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w">                               </span><span class="c1">; cond +1</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="w">                               </span><span class="c1">; cond +1</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="w">  </span><span class="c1">; cond +1, and +1</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w">                               </span><span class="c1">; cond +1</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w">                               </span><span class="c1">; cond +1</span>
 <span class="w">    </span><span class="ss">:else</span><span class="w"> </span><span class="p">(</span><span class="nb">str </span><span class="nv">n</span><span class="p">)))</span><span class="w">                                        </span><span class="c1">; :else は加算なし</span>
 <span class="c1">;; 基本 1 + cond 3 分岐 + and 1 = 5</span>
 </code></pre></div>
@@ -10311,7 +10311,7 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
 <li>docstring の記述率</li>
 </ul>
 <p><code>project.clj</code> での設定:</p>
-<div class="highlight"><pre><span></span><code><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-bikeshed</span><span class="w"> </span><span class="s">&quot;0.5.2&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="ss">:plugins</span><span class="w"> </span><span class="p">[[</span><span class="nv">lein-bikeshed</span><span class="w"> </span><span class="s">"0.5.2"</span><span class="p">]]</span>
 <span class="ss">:bikeshed</span><span class="w"> </span><span class="p">{</span><span class="ss">:verbose</span><span class="w"> </span><span class="nv">true</span>
 <span class="w">           </span><span class="ss">:max-line-length</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span>
 </code></pre></div>
@@ -10319,12 +10319,12 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
 <p>Clojure には PMD のような循環複雑度チェッカーが標準で提供されていないため、プロジェクト固有のチェッカーを <code>dev/complexity_checker.clj</code> に作成しています。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; dev/complexity_checker.clj（抜粋）</span>
 <span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span><span class="w"> </span><span class="nv">branching-forms</span>
-<span class="w">  </span><span class="o">#</span><span class="p">{</span><span class="ss">&#39;if</span><span class="w"> </span><span class="ss">&#39;if-let</span><span class="w"> </span><span class="ss">&#39;if-not</span><span class="w"> </span><span class="ss">&#39;if-some</span>
-<span class="w">    </span><span class="ss">&#39;when</span><span class="w"> </span><span class="ss">&#39;when-let</span><span class="w"> </span><span class="ss">&#39;when-not</span><span class="w"> </span><span class="ss">&#39;when-some</span><span class="w"> </span><span class="ss">&#39;when-first</span>
-<span class="w">    </span><span class="ss">&#39;and</span><span class="w"> </span><span class="ss">&#39;or</span><span class="w"> </span><span class="ss">&#39;loop</span><span class="w"> </span><span class="ss">&#39;try</span><span class="p">})</span>
+<span class="w">  </span><span class="o">#</span><span class="p">{</span><span class="ss">'if</span><span class="w"> </span><span class="ss">'if-let</span><span class="w"> </span><span class="ss">'if-not</span><span class="w"> </span><span class="ss">'if-some</span>
+<span class="w">    </span><span class="ss">'when</span><span class="w"> </span><span class="ss">'when-let</span><span class="w"> </span><span class="ss">'when-not</span><span class="w"> </span><span class="ss">'when-some</span><span class="w"> </span><span class="ss">'when-first</span>
+<span class="w">    </span><span class="ss">'and</span><span class="w"> </span><span class="ss">'or</span><span class="w"> </span><span class="ss">'loop</span><span class="w"> </span><span class="ss">'try</span><span class="p">})</span>
 
 <span class="p">(</span><span class="kd">defn- </span><span class="nv">complexity-of-form</span>
-<span class="w">  </span><span class="s">&quot;S 式を再帰的に走査して循環複雑度を計算する&quot;</span>
+<span class="w">  </span><span class="s">"S 式を再帰的に走査して循環複雑度を計算する"</span>
 <span class="w">  </span><span class="p">[</span><span class="nv">form</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">cond</span>
 <span class="w">    </span><span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nf">sequential?</span><span class="w"> </span><span class="nv">form</span><span class="p">))</span><span class="w"> </span><span class="mi">0</span>
@@ -10334,16 +10334,16 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
 <span class="w">          </span><span class="nv">children-complexity</span><span class="w"> </span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map </span><span class="nv">complexity-of-form</span><span class="w"> </span><span class="p">(</span><span class="nb">rest </span><span class="nv">form</span><span class="p">)))]</span>
 <span class="w">      </span><span class="p">(</span><span class="nb">+ </span><span class="nv">children-complexity</span>
 <span class="w">         </span><span class="p">(</span><span class="nf">cond</span>
-<span class="w">           </span><span class="p">(</span><span class="nb">= </span><span class="nv">head</span><span class="w"> </span><span class="ss">&#39;cond</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">count-cond-branches</span><span class="w"> </span><span class="nv">form</span><span class="p">)</span>
-<span class="w">           </span><span class="p">(</span><span class="nb">= </span><span class="nv">head</span><span class="w"> </span><span class="ss">&#39;case</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">count-case-branches</span><span class="w"> </span><span class="nv">form</span><span class="p">)</span>
+<span class="w">           </span><span class="p">(</span><span class="nb">= </span><span class="nv">head</span><span class="w"> </span><span class="ss">'cond</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">count-cond-branches</span><span class="w"> </span><span class="nv">form</span><span class="p">)</span>
+<span class="w">           </span><span class="p">(</span><span class="nb">= </span><span class="nv">head</span><span class="w"> </span><span class="ss">'case</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">count-case-branches</span><span class="w"> </span><span class="nv">form</span><span class="p">)</span>
 <span class="w">           </span><span class="p">(</span><span class="nb">contains? </span><span class="nv">branching-forms</span><span class="w"> </span><span class="nv">head</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">           </span><span class="ss">:else</span><span class="w"> </span><span class="mi">0</span><span class="p">)))))</span>
 </code></pre></div>
 <p>このチェッカーは S 式を再帰的に走査し、分岐フォームの数を数えて循環複雑度を計算します。Clojure のホモイコニシティ（コードがデータ構造である性質）を活かしたアプローチです。</p>
 <h3 id="_3">複雑度チェックの実行<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><code>project.clj</code> にエイリアスを定義して簡単に実行できるようにします。</p>
-<div class="highlight"><pre><span></span><code><span class="ss">:aliases</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;complexity&quot;</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;run&quot;</span><span class="w"> </span><span class="s">&quot;-m&quot;</span><span class="w"> </span><span class="s">&quot;complexity-checker&quot;</span><span class="p">]}</span>
-<span class="ss">:profiles</span><span class="w"> </span><span class="p">{</span><span class="ss">:dev</span><span class="w"> </span><span class="p">{</span><span class="ss">:source-paths</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;dev&quot;</span><span class="p">]}}</span>
+<div class="highlight"><pre><span></span><code><span class="ss">:aliases</span><span class="w"> </span><span class="p">{</span><span class="s">"complexity"</span><span class="w"> </span><span class="p">[</span><span class="s">"run"</span><span class="w"> </span><span class="s">"-m"</span><span class="w"> </span><span class="s">"complexity-checker"</span><span class="p">]}</span>
+<span class="ss">:profiles</span><span class="w"> </span><span class="p">{</span><span class="ss">:dev</span><span class="w"> </span><span class="p">{</span><span class="ss">:source-paths</span><span class="w"> </span><span class="p">[</span><span class="s">"dev"</span><span class="p">]}}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>lein<span class="w"> </span><span class="nv">complexity</span>
 
@@ -10538,7 +10538,7 @@ $<span class="w"> </span>lein<span class="w"> </span>cljfmt<span class="w"> </sp
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

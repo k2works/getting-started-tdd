@@ -10031,14 +10031,14 @@
 </ul>
 <p><code>Option</code> は <code>map</code>、<code>flatMap</code>、<code>getOrElse</code> と相性がよく、null チェックを置き換えられます。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">safeGenerate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">s&quot;結果: </span><span class="si">$</span><span class="n">v</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="s">&quot;入力が不正です&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">s"結果: </span><span class="si">$</span><span class="n">v</span><span class="s">"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="s">"入力が不正です"</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="123-either">12.3 Either 型<a class="headerlink" href="#123-either" title="Permanent link">&para;</a></h2>
 <p><code>Either</code> は成功と失敗のどちらかを保持します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateEither</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">Either</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nc">Right</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
-<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nc">Left</span><span class="p">(</span><span class="s">s&quot;正の整数が必要です: </span><span class="si">$</span><span class="n">number</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nc">Left</span><span class="p">(</span><span class="s">s"正の整数が必要です: </span><span class="si">$</span><span class="n">number</span><span class="s">"</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><code>Right</code>: 成功値</li>
@@ -10048,19 +10048,19 @@
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span>
 <span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generateEither</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generateEither</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">yield</span><span class="w"> </span><span class="s">s&quot;</span><span class="si">$</span><span class="n">a</span><span class="s">, </span><span class="si">$</span><span class="n">b</span><span class="s">&quot;</span>
+<span class="k">yield</span><span class="w"> </span><span class="s">s"</span><span class="si">$</span><span class="n">a</span><span class="s">, </span><span class="si">$</span><span class="n">b</span><span class="s">"</span>
 </code></pre></div>
 <h2 id="124-try">12.4 Try 型<a class="headerlink" href="#124-try" title="Permanent link">&para;</a></h2>
 <p><code>Try</code> は例外を値として扱う型です。例外が起きうる処理を安全に包めます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">util</span><span class="p">.</span><span class="nc">Try</span>
 
-<span class="kd">val</span><span class="w"> </span><span class="n">parsed</span><span class="p">:</span><span class="w"> </span><span class="nc">Try</span><span class="p">[</span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Try</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">.</span><span class="n">toInt</span><span class="p">)</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">parsed</span><span class="p">:</span><span class="w"> </span><span class="nc">Try</span><span class="p">[</span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Try</span><span class="p">(</span><span class="s">"42"</span><span class="p">.</span><span class="n">toInt</span><span class="p">)</span>
 </code></pre></div>
 <p><code>Try</code> は <code>Success</code> / <code>Failure</code> の 2 形です。<code>map</code> や <code>recover</code> と組み合わせると、例外処理を宣言的に記述できます。</p>
 <h2 id="125-require">12.5 require による事前条件<a class="headerlink" href="#125-require" title="Permanent link">&para;</a></h2>
 <p>ドメインモデルの入力検証には <code>require</code> が使えます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span>
-<span class="w">  </span><span class="n">require</span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">s&quot;数値は正の整数でなければなりません: </span><span class="si">$</span><span class="n">number</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">require</span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">s"数値は正の整数でなければなりません: </span><span class="si">$</span><span class="n">number</span><span class="s">"</span><span class="p">)</span>
 </code></pre></div>
 <p>不正な値でオブジェクトが作られることを防ぎ、ドメイン不変条件をコンストラクタ境界で守れます。</p>
 <h2 id="126">12.6 型安全な設計のまとめ<a class="headerlink" href="#126" title="Permanent link">&para;</a></h2>
@@ -10147,7 +10147,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

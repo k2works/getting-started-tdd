@@ -10068,18 +10068,18 @@
 <h3 id="map-filter-reduce">map / filter / reduce<a class="headerlink" href="#map-filter-reduce" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">;; map: 各要素に関数を適用</span>
 <span class="p">(</span><span class="nb">map </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span>
-<span class="c1">;=&gt; (&quot;1&quot; &quot;2&quot; &quot;Fizz&quot; &quot;4&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;7&quot; &quot;8&quot; &quot;Fizz&quot; &quot;Buzz&quot;</span>
-<span class="c1">;    &quot;11&quot; &quot;Fizz&quot; &quot;13&quot; &quot;14&quot; &quot;FizzBuzz&quot;)</span>
+<span class="c1">;=&gt; ("1" "2" "Fizz" "4" "Buzz" "Fizz" "7" "8" "Fizz" "Buzz"</span>
+<span class="c1">;    "11" "Fizz" "13" "14" "FizzBuzz")</span>
 
 <span class="c1">;; filter: 条件を満たす要素のみ抽出</span>
-<span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">not= </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nv">%</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzType03</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">not= </span><span class="s">""</span><span class="w"> </span><span class="nv">%</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">map </span><span class="o">#</span><span class="p">(</span><span class="nf">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzType03</span><span class="p">)</span>
 <span class="w">                                                  </span><span class="p">(</span><span class="nf">model/create-fizz-buzz-value</span><span class="w"> </span><span class="nv">%</span><span class="p">))</span>
 <span class="w">                          </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">16</span><span class="p">)))</span>
-<span class="c1">;=&gt; (&quot;Fizz&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;Fizz&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;FizzBuzz&quot;)</span>
+<span class="c1">;=&gt; ("Fizz" "Buzz" "Fizz" "Fizz" "Buzz" "Fizz" "FizzBuzz")</span>
 
 <span class="c1">;; reduce: 累積処理</span>
 <span class="p">(</span><span class="nb">reduce str </span><span class="p">(</span><span class="nb">map </span><span class="nv">fizzbuzz</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="p">)))</span>
-<span class="c1">;=&gt; &quot;12FizzBuzz4&quot;</span>
+<span class="c1">;=&gt; "12FizzBuzz4"</span>
 </code></pre></div>
 <h3 id="partial">部分適用（partial）<a class="headerlink" href="#partial" title="Permanent link">&para;</a></h3>
 <p><code>partial</code> は関数の一部の引数を固定して新しい関数を作ります。</p>
@@ -10087,7 +10087,7 @@
 <span class="w">  </span><span class="p">(</span><span class="nb">partial </span><span class="nv">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzType01</span><span class="p">)))</span>
 
 <span class="p">(</span><span class="nf">fizzbuzz-type1</span><span class="w"> </span><span class="p">(</span><span class="nf">model/create-fizz-buzz-value</span><span class="w"> </span><span class="mi">15</span><span class="p">))</span>
-<span class="c1">;=&gt; &quot;FizzBuzz&quot;</span>
+<span class="c1">;=&gt; "FizzBuzz"</span>
 </code></pre></div>
 <h3 id="_1">無名関数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">;; fn による無名関数</span>
@@ -10100,42 +10100,42 @@
 <h3 id="comp">comp による関数合成<a class="headerlink" href="#comp" title="Permanent link">&para;</a></h3>
 <p><code>comp</code> は複数の関数を合成して新しい関数を作ります。右から左へ適用されます。</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">def </span><span class="nv">fizzbuzz-with-prefix</span>
-<span class="w">  </span><span class="p">(</span><span class="nb">comp </span><span class="p">(</span><span class="nb">partial str </span><span class="s">&quot;=&gt; &quot;</span><span class="p">)</span><span class="w"> </span><span class="nv">fizzbuzz</span><span class="p">))</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">comp </span><span class="p">(</span><span class="nb">partial str </span><span class="s">"=&gt; "</span><span class="p">)</span><span class="w"> </span><span class="nv">fizzbuzz</span><span class="p">))</span>
 
 <span class="p">(</span><span class="nf">fizzbuzz-with-prefix</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="c1">;=&gt; &quot;=&gt; Fizz&quot;</span>
+<span class="c1">;=&gt; "=&gt; Fizz"</span>
 
 <span class="p">(</span><span class="nf">fizzbuzz-with-prefix</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
-<span class="c1">;=&gt; &quot;=&gt; FizzBuzz&quot;</span>
+<span class="c1">;=&gt; "=&gt; FizzBuzz"</span>
 </code></pre></div>
 <h3 id="_2">スレッディングマクロ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><code>-&gt;</code> と <code>-&gt;&gt;</code> はデータの変換パイプラインを記述します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; -&gt;&gt; マクロ（最後の引数に挿入）</span>
 <span class="p">(</span><span class="nf">-&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">1</span><span class="w"> </span><span class="mi">101</span><span class="p">)</span>
 <span class="w">     </span><span class="p">(</span><span class="nb">map </span><span class="nv">fizzbuzz</span><span class="p">)</span>
-<span class="w">     </span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">&quot;[A-Za-z]+&quot;</span><span class="w"> </span><span class="nv">%</span><span class="p">))</span>
+<span class="w">     </span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">re-matches </span><span class="o">#</span><span class="s">"[A-Za-z]+"</span><span class="w"> </span><span class="nv">%</span><span class="p">))</span>
 <span class="w">     </span><span class="p">(</span><span class="nb">take </span><span class="mi">5</span><span class="p">))</span>
-<span class="c1">;=&gt; (&quot;Fizz&quot; &quot;Buzz&quot; &quot;Fizz&quot; &quot;Fizz&quot; &quot;Buzz&quot;)</span>
+<span class="c1">;=&gt; ("Fizz" "Buzz" "Fizz" "Fizz" "Buzz")</span>
 
 <span class="c1">;; -&gt; マクロ（最初の引数に挿入）</span>
 <span class="p">(</span><span class="nb">-&gt; </span><span class="mi">15</span>
 <span class="w">    </span><span class="nv">fizzbuzz</span>
 <span class="w">    </span><span class="nv">clojure.string/upper-case</span><span class="p">)</span>
-<span class="c1">;=&gt; &quot;FIZZBUZZ&quot;</span>
+<span class="c1">;=&gt; "FIZZBUZZ"</span>
 </code></pre></div>
 <h2 id="104">10.4 関数ファクトリ<a class="headerlink" href="#104" title="Permanent link">&para;</a></h2>
 <p>関数を返す関数を使って、カスタマイズ可能な処理を作れます。</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">defn </span><span class="nv">create-fizzbuzz-filter</span>
-<span class="w">  </span><span class="s">&quot;指定パターンにマッチする FizzBuzz 結果をフィルタリングする関数を返す&quot;</span>
+<span class="w">  </span><span class="s">"指定パターンにマッチする FizzBuzz 結果をフィルタリングする関数を返す"</span>
 <span class="w">  </span><span class="p">[</span><span class="nv">pattern</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">results</span><span class="p">]</span>
 <span class="w">    </span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nf">clojure.string/includes?</span><span class="w"> </span><span class="nv">%</span><span class="w"> </span><span class="nv">pattern</span><span class="p">)</span><span class="w"> </span><span class="nv">results</span><span class="p">)))</span>
 
-<span class="p">(</span><span class="k">def </span><span class="nv">fizz-filter</span><span class="w"> </span><span class="p">(</span><span class="nf">create-fizzbuzz-filter</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">))</span>
-<span class="p">(</span><span class="k">def </span><span class="nv">buzz-filter</span><span class="w"> </span><span class="p">(</span><span class="nf">create-fizzbuzz-filter</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="k">def </span><span class="nv">fizz-filter</span><span class="w"> </span><span class="p">(</span><span class="nf">create-fizzbuzz-filter</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">))</span>
+<span class="p">(</span><span class="k">def </span><span class="nv">buzz-filter</span><span class="w"> </span><span class="p">(</span><span class="nf">create-fizzbuzz-filter</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">))</span>
 
-<span class="p">(</span><span class="nf">fizz-filter</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">])</span>
-<span class="c1">;=&gt; (&quot;Fizz&quot; &quot;FizzBuzz&quot;)</span>
+<span class="p">(</span><span class="nf">fizz-filter</span><span class="w"> </span><span class="p">[</span><span class="s">"1"</span><span class="w"> </span><span class="s">"Fizz"</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">])</span>
+<span class="c1">;=&gt; ("Fizz" "FizzBuzz")</span>
 </code></pre></div>
 <h2 id="105">10.5 まとめ<a class="headerlink" href="#105" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10213,7 +10213,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10095,26 +10095,26 @@
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_1から100までの数の配列を返す</span>
 <span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate_list</span>
 <span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">length</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
-<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">14</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'4'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="w">  </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">14</span><span class="o">]</span>
 <span class="k">end</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>bundle<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>rake<span class="w"> </span><span class="nb">test</span>
-ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数の配列を返す&quot;</span>,<span class="w"> </span>FizzBuzzTest<span class="o">]</span>
-<span class="w"> </span>NoMethodError:<span class="w"> </span>undefined<span class="w"> </span>method<span class="w"> </span><span class="s1">&#39;generate_list&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>FizzBuzz:Class
+ERROR<span class="o">[</span><span class="s2">"test_1から100までの数の配列を返す"</span>,<span class="w"> </span>FizzBuzzTest<span class="o">]</span>
+<span class="w"> </span>NoMethodError:<span class="w"> </span>undefined<span class="w"> </span>method<span class="w"> </span><span class="s1">'generate_list'</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>FizzBuzz:Class
 </code></pre></div>
 <h3 id="green">Green: 明白な実装<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
 <p>Ruby の <code>Range</code> と <code>map</code> メソッドを使って、1 から 100 までの数を FizzBuzz に変換したリストを返します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizz_buzz.rb</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
 
 <span class="w">    </span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10151,7 +10151,7 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
 <p>— テスト駆動開発</p>
 </blockquote>
 <p>Ruby では <code>StringIO</code> を使って標準出力をキャプチャできます。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;stringio&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">require</span><span class="w"> </span><span class="s1">'stringio'</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_プリントする</span>
 <span class="w">  </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">StringIO</span><span class="o">.</span><span class="n">new</span>
@@ -10159,10 +10159,10 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
 <span class="w">  </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate_list</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="vg">$stdout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">STDOUT</span>
 <span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out</span><span class="o">.</span><span class="n">string</span>
-<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span>
-<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span>
-<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span>
-<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span>
+<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">'1'</span>
+<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">'Fizz'</span>
+<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">'Buzz'</span>
+<span class="w">  </span><span class="n">assert_includes</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="s1">'FizzBuzz'</span>
 <span class="k">end</span>
 </code></pre></div>
 <p><strong>TODO リスト</strong>:</p>
@@ -10189,8 +10189,8 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
 <p>テストコードに重複はないでしょうか？<code>setup</code> メソッドで <code>FizzBuzz</code> クラスの参照を共有しているので、すでに一定のリファクタリングができています。</p>
 <p>現在のテストコード全体を確認します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># test/fizz_buzz_test.rb</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;test_helper&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;../lib/fizz_buzz&#39;</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'test_helper'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'../lib/fizz_buzz'</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span>
@@ -10198,34 +10198,34 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_1を渡したら文字列1を返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_2を渡したら文字列2を返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したらFizzを返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_5を渡したらBuzzを返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_15を渡したらFizzBuzzを返す</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">test_1から100までの数の配列を返す</span>
 <span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@fizzbuzz</span><span class="o">.</span><span class="n">generate_list</span>
 <span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">length</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
-<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">14</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'4'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="w">    </span><span class="n">assert_equal</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">[</span><span class="mi">14</span><span class="o">]</span>
 <span class="w">  </span><span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -10234,9 +10234,9 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizz_buzz.rb</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;FizzBuzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Fizz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Buzz&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'FizzBuzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'Fizz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">'Buzz'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">zero?</span>
 
 <span class="w">    </span><span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
 <span class="w">  </span><span class="k">end</span>
@@ -10380,7 +10380,7 @@ ERROR<span class="o">[</span><span class="s2">&quot;test_1から100までの数�
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

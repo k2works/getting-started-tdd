@@ -10115,18 +10115,18 @@
 </table>
 <div class="highlight"><pre><span></span><code><span class="x">// クロージャ（無名関数）</span>
 <span class="x">$isFizz = function (FizzBuzzValue $v): bool {</span>
-<span class="x">    return $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">    return $v-&gt;getValue() === 'Fizz';</span>
 <span class="x">};</span>
 
 <span class="x">// アロー関数（PHP 7.4+）</span>
-<span class="x">$isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">$isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz';</span>
 </code></pre></div>
 <h3 id="_2">テスト: 関数を変数に代入する<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="x">public function test_アロー関数でFizzを判定する(): void</span>
 <span class="x">{</span>
-<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz';</span>
 
-<span class="x">    $value = new FizzBuzzValue(3, &#39;Fizz&#39;);</span>
+<span class="x">    $value = new FizzBuzzValue(3, 'Fizz');</span>
 <span class="x">    $this-&gt;assertTrue($isFizz($value));</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10137,11 +10137,11 @@
 <span class="x">    $command = new FizzBuzzListCommand($type, 15);</span>
 <span class="x">    $list = $command-&gt;execute();</span>
 
-<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz';</span>
 <span class="x">    $filtered = $list-&gt;filter($isFizz);</span>
 
 <span class="x">    foreach ($filtered-&gt;getValue() as $v) {</span>
-<span class="x">        $this-&gt;assertSame(&#39;Fizz&#39;, $v-&gt;getValue());</span>
+<span class="x">        $this-&gt;assertSame('Fizz', $v-&gt;getValue());</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10165,15 +10165,15 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function test_Mapで値を変換する(): void</span>
 <span class="x">{</span>
 <span class="x">    $values = [</span>
-<span class="x">        new FizzBuzzValue(1, &#39;1&#39;),</span>
-<span class="x">        new FizzBuzzValue(3, &#39;Fizz&#39;),</span>
+<span class="x">        new FizzBuzzValue(1, '1'),</span>
+<span class="x">        new FizzBuzzValue(3, 'Fizz'),</span>
 <span class="x">    ];</span>
 <span class="x">    $list = new FizzBuzzList($values);</span>
 
 <span class="x">    $toUpper = fn(FizzBuzzValue $v): string =&gt; strtoupper($v-&gt;getValue());</span>
 <span class="x">    $result = $list-&gt;map($toUpper);</span>
 
-<span class="x">    $this-&gt;assertSame([&#39;1&#39;, &#39;FIZZ&#39;], $result);</span>
+<span class="x">    $this-&gt;assertSame(['1', 'FIZZ'], $result);</span>
 <span class="x">}</span>
 </code></pre></div>
 <details>
@@ -10200,17 +10200,17 @@
 <span class="x">    $makeValuePredicate = fn(string $target): \Closure =&gt;</span>
 <span class="x">        fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === $target;</span>
 
-<span class="x">    $isFizz = $makeValuePredicate(&#39;Fizz&#39;);</span>
-<span class="x">    $isBuzz = $makeValuePredicate(&#39;Buzz&#39;);</span>
+<span class="x">    $isFizz = $makeValuePredicate('Fizz');</span>
+<span class="x">    $isBuzz = $makeValuePredicate('Buzz');</span>
 
-<span class="x">    $value = new FizzBuzzValue(3, &#39;Fizz&#39;);</span>
+<span class="x">    $value = new FizzBuzzValue(3, 'Fizz');</span>
 <span class="x">    $this-&gt;assertTrue($isFizz($value));</span>
 <span class="x">    $this-&gt;assertFalse($isBuzz($value));</span>
 <span class="x">}</span>
 </code></pre></div>
 <h3 id="php-use">PHP のクロージャと <code>use</code> キーワード<a class="headerlink" href="#php-use" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="x">// アロー関数: 外部変数を自動キャプチャ</span>
-<span class="x">$target = &#39;Fizz&#39;;</span>
+<span class="x">$target = 'Fizz';</span>
 <span class="x">$predicate = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === $target;</span>
 
 <span class="x">// クロージャ: use で明示的にキャプチャ</span>
@@ -10227,13 +10227,13 @@
 <span class="x">    $command = new FizzBuzzListCommand($type, 15);</span>
 <span class="x">    $list = $command-&gt;execute();</span>
 
-<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === &#39;Fizz&#39;;</span>
+<span class="x">    $isFizz = fn(FizzBuzzValue $v): bool =&gt; $v-&gt;getValue() === 'Fizz';</span>
 <span class="x">    $getValue = fn(FizzBuzzValue $v): string =&gt; $v-&gt;getValue();</span>
 
 <span class="x">    $result = $list-&gt;filter($isFizz)-&gt;map($getValue);</span>
 
 <span class="x">    foreach ($result as $s) {</span>
-<span class="x">        $this-&gt;assertSame(&#39;Fizz&#39;, $s);</span>
+<span class="x">        $this-&gt;assertSame('Fizz', $s);</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10368,7 +10368,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

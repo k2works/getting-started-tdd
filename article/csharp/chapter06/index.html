@@ -10112,54 +10112,54 @@ $<span class="w"> </span>dotnet<span class="w"> </span>new<span class="w"> </spa
 $<span class="w"> </span>dotnet<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>Cake.Tool
 </code></pre></div>
 <h3 id="buildcake">build.cake の定義<a class="headerlink" href="#buildcake" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">&quot;target&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Default&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Argument</span><span class="p">(</span><span class="s">"target"</span><span class="p">,</span><span class="w"> </span><span class="s">"Default"</span><span class="p">);</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Clean&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Clean"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetClean</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DotNetClean</span><span class="p">(</span><span class="s">"."</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Restore&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Restore"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetRestore</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DotNetRestore</span><span class="p">(</span><span class="s">"."</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Restore&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Restore"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetBuild</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetBuildSettings</span>
+<span class="w">    </span><span class="n">DotNetBuild</span><span class="p">(</span><span class="s">"."</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetBuildSettings</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">NoRestore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetTest</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetTestSettings</span>
+<span class="w">    </span><span class="n">DotNetTest</span><span class="p">(</span><span class="s">"."</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DotNetTestSettings</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">NoRestore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
 <span class="w">        </span><span class="n">NoBuild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Format-Check&quot;</span><span class="p">)</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Format-Check"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">Does</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">DotNetTool</span><span class="p">(</span><span class="s">&quot;dotnet format --verify-no-changes&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">DotNetTool</span><span class="p">(</span><span class="s">"dotnet format --verify-no-changes"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Check&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Format-Check&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Build&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Check"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Format-Check"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Build"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Test"</span><span class="p">);</span>
 
-<span class="n">Task</span><span class="p">(</span><span class="s">&quot;Default&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">&quot;Check&quot;</span><span class="p">);</span>
+<span class="n">Task</span><span class="p">(</span><span class="s">"Default"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">IsDependentOn</span><span class="p">(</span><span class="s">"Check"</span><span class="p">);</span>
 
 <span class="n">RunTarget</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
 </code></pre></div>
@@ -10227,12 +10227,12 @@ Format-Check
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/dotnet-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/dotnet-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/dotnet/**&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/dotnet/**"</span>
 
 <span class="nt">permissions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -10248,7 +10248,7 @@ Format-Check
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup .NET</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-dotnet@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">dotnet-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;8.0.x&#39;</span>
+<span class="w">          </span><span class="nt">dotnet-version</span><span class="p">:</span><span class="w"> </span><span class="s">'8.0.x'</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore dependencies</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dotnet restore</span>
@@ -10428,7 +10428,7 @@ Format-Check
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

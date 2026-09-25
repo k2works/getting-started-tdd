@@ -10262,18 +10262,18 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Gemfile</span>
 <span class="c1"># frozen_string_literal: true</span>
 
-<span class="n">source</span><span class="w"> </span><span class="s1">&#39;https://rubygems.org&#39;</span>
+<span class="n">source</span><span class="w"> </span><span class="s1">'https://rubygems.org'</span>
 
 <span class="n">group</span><span class="w"> </span><span class="ss">:development</span><span class="p">,</span><span class="w"> </span><span class="ss">:test</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;guard&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 2.18&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;guard-minitest&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 2.4&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;guard-rubocop&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.5&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;guard-shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 0.7&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;minitest&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 5.25&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;minitest-reporters&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.7&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;rake&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 13.2&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;rubocop&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 1.68&#39;</span>
-<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">&#39;simplecov&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&gt; 0.22&#39;</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'guard'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 2.18'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'guard-minitest'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 2.4'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'guard-rubocop'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 1.5'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'guard-shell'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 0.7'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'minitest'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 5.25'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'minitest-reporters'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 1.7'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'rake'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 13.2'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'rubocop'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 1.68'</span>
+<span class="w">  </span><span class="n">gem</span><span class="w"> </span><span class="s1">'simplecov'</span><span class="p">,</span><span class="w"> </span><span class="s1">'~&gt; 0.22'</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>依存関係をインストールします。</p>
@@ -10357,15 +10357,15 @@
 
 <span class="nt">Metrics/BlockLength</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Exclude</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;test/**/*&#39;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;Rakefile&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'test/**/*'</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'Rakefile'</span>
 
 <span class="nt">Naming/MethodName</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="nt">Naming/AsciiIdentifiers</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Exclude</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;test/**/*&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'test/**/*'</span>
 </code></pre></div>
 <h3 id="_1">主要なルールの解説<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <table>
@@ -10453,14 +10453,14 @@ $<span class="w"> </span>bundle<span class="w"> </span><span class="nb">exec</sp
 <div class="highlight"><pre><span></span><code><span class="c1"># test/test_helper.rb</span>
 <span class="c1"># frozen_string_literal: true</span>
 
-<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;simplecov&#39;</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">'simplecov'</span>
 <span class="no">SimpleCov</span><span class="o">.</span><span class="n">start</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="n">add_filter</span><span class="w"> </span><span class="s1">&#39;/test/&#39;</span>
+<span class="w">  </span><span class="n">add_filter</span><span class="w"> </span><span class="s1">'/test/'</span>
 <span class="w">  </span><span class="n">enable_coverage</span><span class="w"> </span><span class="ss">:branch</span>
 <span class="k">end</span>
 
-<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;minitest/autorun&#39;</span>
-<span class="nb">require</span><span class="w"> </span><span class="s1">&#39;minitest/reporters&#39;</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">'minitest/autorun'</span>
+<span class="nb">require</span><span class="w"> </span><span class="s1">'minitest/reporters'</span>
 <span class="no">Minitest</span><span class="o">::</span><span class="no">Reporters</span><span class="o">.</span><span class="n">use!</span>
 </code></pre></div>
 <ul>
@@ -10681,7 +10681,7 @@ Inspecting<span class="w"> </span><span class="m">6</span><span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

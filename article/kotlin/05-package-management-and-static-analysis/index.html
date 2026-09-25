@@ -10109,7 +10109,7 @@
 </blockquote>
 <p>本プロジェクトのビルド定義は <code>apps/kotlin/build.gradle.kts</code> にあります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;jvm&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;2.1.0&quot;</span>
+<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">"jvm"</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">"2.2.20"</span>
 <span class="w">    </span><span class="n">application</span>
 <span class="p">}</span>
 
@@ -10118,7 +10118,7 @@
 <span class="p">}</span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">"test"</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="n">tasks</span><span class="p">.</span><span class="na">test</span><span class="w"> </span><span class="p">{</span>
@@ -10130,7 +10130,7 @@
 <span class="p">}</span>
 
 <span class="n">application</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">mainClass</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;fizzbuzz.MainKt&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">mainClass</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">"fizzbuzz.MainKt"</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="_1">設定の解説<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10143,7 +10143,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>kotlin("jvm") version "2.1.0"</code></td>
+<td><code>kotlin("jvm") version "2.2.20"</code></td>
 <td>Kotlin/JVM プラグイン（Kotlin 2.x）</td>
 </tr>
 <tr>
@@ -10175,9 +10175,9 @@
 <h3 id="_2">依存関係の追加と解決<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>依存パッケージは <code>dependencies</code> ブロックに宣言します。Kotlin は JVM 言語なので、Java の膨大な Maven エコシステムをそのまま利用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="n">kotlin</span><span class="p">(</span><span class="s">"test"</span><span class="p">))</span>
 <span class="w">    </span><span class="c1">// 例: 追加ライブラリ</span>
-<span class="w">    </span><span class="c1">// implementation(&quot;com.google.guava:guava:33.0.0-jre&quot;)</span>
+<span class="w">    </span><span class="c1">// implementation("com.google.guava:guava:33.0.0-jre")</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>宣言した依存は、<code>gradle build</code> や <code>gradle test</code> の初回実行時に自動的に取得・解決されます。取得した成果物は Gradle のローカルキャッシュ（<code>~/.gradle</code> および <code>.gradle/</code>）に保存されます。</p>
@@ -10194,9 +10194,9 @@
 <p>detekt は Kotlin 向けの静的解析ツールで、コードスメル・複雑度・命名規則などを検出します。Java の PMD、TypeScript の ESLint、Python の Ruff に相当します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// build.gradle.kts（導入例）</span>
 <span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;jvm&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;2.1.0&quot;</span>
+<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">"jvm"</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">"2.2.20"</span>
 <span class="w">    </span><span class="n">application</span>
-<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;io.gitlab.arturbosch.detekt&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;1.23.7&quot;</span>
+<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">"io.gitlab.arturbosch.detekt"</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">"1.23.7"</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># 解析の実行</span>
@@ -10207,7 +10207,7 @@ $<span class="w"> </span>gradle<span class="w"> </span>detekt
 <p>ktlint は Kotlin 公式のコーディング規約（Kotlin Coding Conventions）に基づくフォーマッタ兼リンターです。Java の Checkstyle + Spotless、TypeScript の Prettier に相当します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// build.gradle.kts（導入例）</span>
 <span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;org.jlleitschuh.gradle.ktlint&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;12.1.1&quot;</span>
+<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">"org.jlleitschuh.gradle.ktlint"</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">"12.1.1"</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># フォーマットチェック</span>
@@ -10231,7 +10231,7 @@ $<span class="w"> </span>gradle<span class="w"> </span>ktlintFormat
 <p>Kover は Kotlin 向けに設計されたカバレッジツールで、Gradle プラグインとして導入します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// build.gradle.kts（導入例）</span>
 <span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;org.jetbrains.kotlinx.kover&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;0.9.1&quot;</span>
+<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">"org.jetbrains.kotlinx.kover"</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">"0.9.1"</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># テスト実行 + カバレッジレポート生成</span>
@@ -10373,7 +10373,7 @@ $<span class="w"> </span>gradle<span class="w"> </span>koverHtmlReport
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

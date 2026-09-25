@@ -10089,13 +10089,13 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="after">After（非破壊的）<a class="headerlink" href="#after" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">FizzBuzzValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FizzBuzzList&quot;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">FizzBuzzValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"FizzBuzzList"</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">FizzBuzzList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">+</span> <span class="p">[</span><span class="n">value</span><span class="p">])</span>
 </code></pre></div>
 <h3 id="_1">テスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_addは新しいリストを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">lst1</span> <span class="o">=</span> <span class="n">FizzBuzzList</span><span class="p">()</span>
-    <span class="n">lst2</span> <span class="o">=</span> <span class="n">lst1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">))</span>
+    <span class="n">lst2</span> <span class="o">=</span> <span class="n">lst1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">))</span>
     <span class="k">assert</span> <span class="n">lst1</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c1"># 元のリストは変更されない</span>
     <span class="k">assert</span> <span class="n">lst2</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
 </code></pre></div>
@@ -10128,9 +10128,9 @@
     <span class="n">command</span> <span class="o">=</span> <span class="n">FizzBuzzListCommand</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
     <span class="n">stats</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;Fizz&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;Buzz&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">"Fizz"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">"Buzz"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">stats</span><span class="p">[</span><span class="s2">"FizzBuzz"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </code></pre></div>
 <h2 id="116-itertools">11.6 itertools によるパイプライン処理<a class="headerlink" href="#116-itertools" title="Permanent link">&para;</a></h2>
 <p>Python の <code>itertools</code> モジュールは関数型パイプライン処理に便利です。</p>
@@ -10250,7 +10250,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

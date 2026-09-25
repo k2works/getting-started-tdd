@@ -10099,15 +10099,15 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>apps/
 <span class="w">            </span><span class="p">[</span><span class="nv">fizzbuzz.core</span><span class="w"> </span><span class="ss">:refer</span><span class="w"> </span><span class="ss">:all</span><span class="p">]))</span>
 
 <span class="p">(</span><span class="nf">deftest</span><span class="w"> </span><span class="nv">greeting-test</span>
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;挨拶機能&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;hello world&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">greeting</span><span class="p">)))))</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"挨拶機能"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"hello world"</span><span class="w"> </span><span class="p">(</span><span class="nf">greeting</span><span class="p">)))))</span>
 </code></pre></div>
 <p>プロダクトコードを作成します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; src/fizzbuzz/core.clj</span>
 <span class="p">(</span><span class="kd">ns </span><span class="nv">fizzbuzz.core</span><span class="p">)</span>
 
 <span class="p">(</span><span class="kd">defn </span><span class="nv">greeting</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">  </span><span class="s">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="s">"hello world"</span><span class="p">)</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>lein<span class="w"> </span><span class="nb">test</span>
@@ -10126,9 +10126,9 @@ Ran<span class="w"> </span><span class="m">1</span><span class="w"> </span>tests
 <span class="w">            </span><span class="p">[</span><span class="nv">fizzbuzz.core</span><span class="w"> </span><span class="ss">:refer</span><span class="w"> </span><span class="ss">:all</span><span class="p">]))</span>
 
 <span class="p">(</span><span class="nf">deftest</span><span class="w"> </span><span class="nv">fizzbuzz-test</span>
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;数を文字列にして返す&quot;</span>
-<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;1 を渡したら文字列 \&quot;1\&quot; を返す&quot;</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">1</span><span class="p">))))))</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"数を文字列にして返す"</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"1 を渡したら文字列 \"1\" を返す"</span>
+<span class="w">      </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nb">= </span><span class="s">"1"</span><span class="w"> </span><span class="p">(</span><span class="nf">fizzbuzz</span><span class="w"> </span><span class="mi">1</span><span class="p">))))))</span>
 </code></pre></div>
 <p>プロダクトコードに空の実装を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; src/fizzbuzz/core.clj</span>
@@ -10141,9 +10141,9 @@ Ran<span class="w"> </span><span class="m">1</span><span class="w"> </span>tests
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>lein<span class="w"> </span><span class="nb">test</span>
 
 FAIL<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span>fizzbuzz-test<span class="o">)</span><span class="w"> </span><span class="o">(</span>core_test.clj:7<span class="o">)</span>
-数を文字列にして返す<span class="w"> </span><span class="m">1</span><span class="w"> </span>を渡したら文字列<span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span>を返す
-expected:<span class="w"> </span><span class="o">(=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">(</span>fizzbuzz<span class="w"> </span><span class="m">1</span><span class="o">))</span>
-<span class="w">  </span>actual:<span class="w"> </span><span class="o">(</span>not<span class="w"> </span><span class="o">(=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span>nil<span class="o">))</span>
+数を文字列にして返す<span class="w"> </span><span class="m">1</span><span class="w"> </span>を渡したら文字列<span class="w"> </span><span class="s2">"1"</span><span class="w"> </span>を返す
+expected:<span class="w"> </span><span class="o">(=</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span><span class="o">(</span>fizzbuzz<span class="w"> </span><span class="m">1</span><span class="o">))</span>
+<span class="w">  </span>actual:<span class="w"> </span><span class="o">(</span>not<span class="w"> </span><span class="o">(=</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span>nil<span class="o">))</span>
 
 Ran<span class="w"> </span><span class="m">1</span><span class="w"> </span>tests<span class="w"> </span>containing<span class="w"> </span><span class="m">1</span><span class="w"> </span>assertions.
 <span class="m">1</span><span class="w"> </span>failures,<span class="w"> </span><span class="m">0</span><span class="w"> </span>errors.
@@ -10236,7 +10236,7 @@ Ran<span class="w"> </span><span class="m">1</span><span class="w"> </span>tests
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

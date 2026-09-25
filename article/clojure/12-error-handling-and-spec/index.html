@@ -10131,15 +10131,15 @@
 <span class="w">  </span><span class="p">(</span><span class="nf">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzTypeNotDefined</span><span class="p">)</span>
 <span class="w">                        </span><span class="p">(</span><span class="nf">model/create-fizz-buzz-value</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">clojure.lang.ExceptionInfo</span><span class="w"> </span><span class="nv">e</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;エラー:&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-message</span><span class="w"> </span><span class="nv">e</span><span class="p">))</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;データ:&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-data</span><span class="w"> </span><span class="nv">e</span><span class="p">))))</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="s">"エラー:"</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-message</span><span class="w"> </span><span class="nv">e</span><span class="p">))</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="s">"データ:"</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-data</span><span class="w"> </span><span class="nv">e</span><span class="p">))))</span>
 <span class="c1">;; エラー: FizzBuzz タイプが未定義です</span>
 <span class="c1">;; データ: {:type :not-defined}</span>
 </code></pre></div>
 <h3 id="ex-info">ex-info による構造化エラー<a class="headerlink" href="#ex-info" title="Permanent link">&para;</a></h3>
 <p><code>ex-info</code> は例外にデータマップを付与できる Clojure 固有の関数です。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; 例外の生成</span>
-<span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-info</span><span class="w"> </span><span class="s">&quot;FizzBuzz タイプが未定義です&quot;</span>
+<span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-info</span><span class="w"> </span><span class="s">"FizzBuzz タイプが未定義です"</span>
 <span class="w">                </span><span class="p">{</span><span class="ss">:type</span><span class="w"> </span><span class="ss">:not-defined</span>
 <span class="w">                 </span><span class="ss">:requested-type</span><span class="w"> </span><span class="mi">99</span><span class="p">}))</span>
 
@@ -10149,7 +10149,7 @@
 <span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">clojure.lang.ExceptionInfo</span><span class="w"> </span><span class="nv">e</span>
 <span class="w">    </span><span class="p">{</span><span class="ss">:message</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-message</span><span class="w"> </span><span class="nv">e</span><span class="p">)</span>
 <span class="w">     </span><span class="ss">:data</span><span class="w"> </span><span class="p">(</span><span class="nf">ex-data</span><span class="w"> </span><span class="nv">e</span><span class="p">)}))</span>
-<span class="c1">;=&gt; {:message &quot;FizzBuzz タイプが未定義です&quot;</span>
+<span class="c1">;=&gt; {:message "FizzBuzz タイプが未定義です"</span>
 <span class="c1">;    :data {:type :not-defined}}</span>
 </code></pre></div>
 <h3 id="ex-info-vs-java">ex-info vs Java 例外<a class="headerlink" href="#ex-info-vs-java" title="Permanent link">&para;</a></h3>
@@ -10185,7 +10185,7 @@
 <span class="p">(</span><span class="nf">some-&gt;</span><span class="w"> </span><span class="mi">15</span>
 <span class="w">        </span><span class="nv">model/create-fizz-buzz-value</span>
 <span class="w">        </span><span class="p">(</span><span class="nf">-&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzType01</span><span class="p">))))</span>
-<span class="c1">;=&gt; &quot;FizzBuzz&quot;</span>
+<span class="c1">;=&gt; "FizzBuzz"</span>
 
 <span class="p">(</span><span class="nf">some-&gt;</span><span class="w"> </span><span class="nv">nil</span>
 <span class="w">        </span><span class="nv">model/create-fizz-buzz-value</span>
@@ -10197,21 +10197,21 @@
 <span class="w">  </span><span class="p">(</span><span class="nb">when-let </span><span class="p">[</span><span class="nv">value</span><span class="w"> </span><span class="p">(</span><span class="nb">and </span><span class="p">(</span><span class="nb">pos? </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">model/create-fizz-buzz-value</span><span class="w"> </span><span class="nv">n</span><span class="p">))]</span>
 <span class="w">    </span><span class="p">(</span><span class="nf">type/generate-string</span><span class="w"> </span><span class="p">(</span><span class="nf">type/-&gt;FizzBuzzType01</span><span class="p">)</span><span class="w"> </span><span class="nv">value</span><span class="p">)))</span>
 
-<span class="p">(</span><span class="nf">safe-fizzbuzz</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="c1">;=&gt; &quot;Fizz&quot;</span>
+<span class="p">(</span><span class="nf">safe-fizzbuzz</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="c1">;=&gt; "Fizz"</span>
 <span class="p">(</span><span class="nf">safe-fizzbuzz</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w">  </span><span class="c1">;=&gt; nil</span>
 </code></pre></div>
 <h2 id="124-clojurespec">12.4 clojure.spec によるバリデーション<a class="headerlink" href="#124-clojurespec" title="Permanent link">&para;</a></h2>
 <h3 id="spec">Spec の定義<a class="headerlink" href="#spec" title="Permanent link">&para;</a></h3>
 <p><code>clojure.spec.alpha</code> を使って、データの仕様を宣言的に定義します。</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.spec.alpha</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">s</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">'</span><span class="p">[</span><span class="nv">clojure.spec.alpha</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">s</span><span class="p">])</span>
 
 <span class="c1">;; 基本的な Spec 定義</span>
 <span class="p">(</span><span class="nf">s/def</span><span class="w"> </span><span class="ss">::number</span><span class="w"> </span><span class="nv">pos-int?</span><span class="p">)</span>
 <span class="p">(</span><span class="nf">s/def</span><span class="w"> </span><span class="ss">::type-num</span><span class="w"> </span><span class="o">#</span><span class="p">{</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">})</span>
 <span class="p">(</span><span class="nf">s/def</span><span class="w"> </span><span class="ss">::fizzbuzz-string</span><span class="w"> </span><span class="p">(</span><span class="nf">s/or</span><span class="w"> </span><span class="ss">:number</span><span class="w"> </span><span class="nv">string?</span>
-<span class="w">                               </span><span class="ss">:fizz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">)</span>
-<span class="w">                               </span><span class="ss">:buzz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">)</span>
-<span class="w">                               </span><span class="ss">:fizzbuzz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)))</span>
+<span class="w">                               </span><span class="ss">:fizz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">)</span>
+<span class="w">                               </span><span class="ss">:buzz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">)</span>
+<span class="w">                               </span><span class="ss">:fizzbuzz</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)))</span>
 </code></pre></div>
 <h3 id="_1">バリデーション<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">;; 値の検証</span>
@@ -10230,7 +10230,7 @@
 <span class="w">  </span><span class="ss">:ret</span><span class="w"> </span><span class="nv">string?</span><span class="p">)</span>
 
 <span class="c1">;; 仕様に基づくテスト生成</span>
-<span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.spec.test.alpha</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">stest</span><span class="p">])</span>
+<span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">'</span><span class="p">[</span><span class="nv">clojure.spec.test.alpha</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">stest</span><span class="p">])</span>
 <span class="p">(</span><span class="nf">stest/check</span><span class="w"> </span><span class="o">`</span><span class="nv">fizzbuzz</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="spec_1">コマンドの Spec<a class="headerlink" href="#spec_1" title="Permanent link">&para;</a></h3>
@@ -10243,11 +10243,11 @@
 </code></pre></div>
 <h2 id="125">12.5 テストでの活用<a class="headerlink" href="#125" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nf">deftest</span><span class="w"> </span><span class="nv">error-handling-test</span>
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;未定義タイプでコマンド実行すると例外が発生する&quot;</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"未定義タイプでコマンド実行すると例外が発生する"</span>
 <span class="w">    </span><span class="p">(</span><span class="nf">is</span><span class="w"> </span><span class="p">(</span><span class="nf">thrown?</span><span class="w"> </span><span class="nv">clojure.lang.ExceptionInfo</span>
 <span class="w">                 </span><span class="p">(</span><span class="nf">cmd/execute</span><span class="w"> </span><span class="p">(</span><span class="nf">cmd/-&gt;FizzBuzzValueCommand</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">99</span><span class="p">)))))</span>
 
-<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">&quot;例外のデータを検証する&quot;</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">testing</span><span class="w"> </span><span class="s">"例外のデータを検証する"</span>
 <span class="w">    </span><span class="p">(</span><span class="nf">try</span>
 <span class="w">      </span><span class="p">(</span><span class="nf">cmd/execute</span><span class="w"> </span><span class="p">(</span><span class="nf">cmd/-&gt;FizzBuzzValueCommand</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">99</span><span class="p">))</span>
 <span class="w">      </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">clojure.lang.ExceptionInfo</span><span class="w"> </span><span class="nv">e</span>
@@ -10331,7 +10331,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

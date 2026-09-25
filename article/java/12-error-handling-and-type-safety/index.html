@@ -10169,16 +10169,16 @@
 
 <span class="c1">// filter: 条件に合わなければ empty</span>
 <span class="n">Optional</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fizz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opt</span>
-<span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">()));</span>
 
 <span class="c1">// orElse: 値がなければデフォルト値</span>
 <span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opt</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">::</span><span class="n">getValue</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;unknown&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">"unknown"</span><span class="p">);</span>
 
 <span class="c1">// orElseThrow: 値がなければ例外</span>
 <span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opt</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">::</span><span class="n">getValue</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;値が存在しません&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"値が存在しません"</span><span class="p">));</span>
 </code></pre></div>
 <h2 id="123-fizzbuzztype">12.3 FizzBuzzType ファクトリの改善<a class="headerlink" href="#123-fizzbuzztype" title="Permanent link">&para;</a></h2>
 <h3 id="_1">現在の実装: 例外スロー<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10189,7 +10189,7 @@
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzType03</span><span class="p">();</span>
 <span class="w">        </span><span class="k">default</span><span class="p">:</span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span>
-<span class="w">                </span><span class="s">&quot;該当するタイプは存在しません&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="s">"該当するタイプは存在しません"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10229,13 +10229,13 @@
 
 <span class="c1">// 最初の FizzBuzz を検索</span>
 <span class="n">Optional</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">firstFizzBuzz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">findFirst</span><span class="p">(</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">())</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">getValue</span><span class="p">())</span>
 <span class="p">);</span>
 
-<span class="c1">// 値があれば表示、なければ &quot;none&quot;</span>
+<span class="c1">// 値があれば表示、なければ "none"</span>
 <span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstFizzBuzz</span>
 <span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">::</span><span class="n">toString</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;none&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">"none"</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="125">12.5 型安全な列挙型ファクトリ<a class="headerlink" href="#125" title="Permanent link">&para;</a></h2>
 <h3 id="enum">enum を使った型安全なタイプ指定<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
@@ -10407,7 +10407,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

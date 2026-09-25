@@ -10137,7 +10137,7 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzList</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">FizzBuzzValue</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">&quot;FizzBuzzList&quot;</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">FizzBuzzValue</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"FizzBuzzList"</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">FizzBuzzList</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="k">if</span> <span class="n">predicate</span><span class="p">(</span><span class="n">v</span><span class="p">)])</span>
 </code></pre></div>
 <h3 id="_1">テスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -10145,21 +10145,21 @@
     <span class="n">type_</span> <span class="o">=</span> <span class="n">FizzBuzzType</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">command</span> <span class="o">=</span> <span class="n">FizzBuzzListCommand</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-    <span class="n">fizzes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>
+    <span class="n">fizzes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">fizzes</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">fizzes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fizzes</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">fizzes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"Fizz"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fizzes</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
 </code></pre></div>
 <h2 id="107">10.7 関数合成<a class="headerlink" href="#107" title="Permanent link">&para;</a></h2>
 <p><code>functools</code> モジュールを使って関数を合成します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">compose</span><span class="p">(</span><span class="o">*</span><span class="n">funcs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;右から左に関数を合成する。&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""右から左に関数を合成する。"""</span>
     <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">funcs</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="fizzbuzzlist">FizzBuzzList での文字列変換<a class="headerlink" href="#fizzbuzzlist" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzList</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_formatted_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_formatted_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">separator</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="108">10.8 まとめ<a class="headerlink" href="#108" title="Permanent link">&para;</a></h2>
@@ -10267,7 +10267,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

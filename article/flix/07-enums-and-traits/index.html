@@ -10149,9 +10149,9 @@
 <p>第 1 部では手続き型の FizzBuzz プログラムを TDD で構築し、第 2 部では開発環境と自動化を整備しました。この章からは Flix の型システムを活用して、プログラムを構造化された設計に進化させます。</p>
 <p>第 1 部で作成した <code>convert</code> 関数を振り返りましょう。</p>
 <div class="highlight"><pre><span></span><code>pub def convert(n: Int32): String =
-    if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-    else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-    else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+    if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+    else if (Int32.remainder(n, 3) == 0) "Fizz"
+    else if (Int32.remainder(n, 5) == 0) "Buzz"
     else                                 Int32.toString(n)
 </code></pre></div>
 <p>この関数は正しく動作しますが、新しい FizzBuzz のバリエーション（数値のみ返す、Fizz のみ返す等）を追加するには、既存の関数を直接修正するか、別の関数を作る必要があります。Flix の <strong>列挙型（enum）</strong> と <strong>トレイト（trait）</strong> を使えば、この問題をエレガントに解決できます。</p>
@@ -10211,10 +10211,10 @@
 <div class="highlight"><pre><span></span><code>mod TestFizzBuzzType {
     use Generatable.generate
 
-    /// Type01: 1 を渡すと &quot;1&quot;。
+    /// Type01: 1 を渡すと "1"。
     @Test
     def type01_1_returns_1(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;1&quot;, generate(FizzBuzzType.Type01, 1))
+        Assert.assertEq(expected = "1", generate(FizzBuzzType.Type01, 1))
 }
 </code></pre></div>
 <p><code>use Generatable.generate</code> でトレイトのメソッドを名前で使えるようにします。この時点で <code>Generatable</code> の実装がないため、コンパイルエラー（Red）になります。</p>
@@ -10223,15 +10223,15 @@
 <div class="highlight"><pre><span></span><code>instance Generatable[FizzBuzzType] {
     pub def generate(x: FizzBuzzType, n: Int32): String = match x {
         case FizzBuzzType.Type01 =&gt;
-            if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-            else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-            else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+            if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+            else if (Int32.remainder(n, 3) == 0) "Fizz"
+            else if (Int32.remainder(n, 5) == 0) "Buzz"
             else                                 Int32.toString(n)
         case FizzBuzzType.Type02 =&gt;
             Int32.toString(n)
         case FizzBuzzType.Type03 =&gt;
-            if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-            else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
+            if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+            else if (Int32.remainder(n, 3) == 0) "Fizz"
             else                                 Int32.toString(n)
     }
 }
@@ -10510,7 +10510,7 @@ mod FizzBuzzList {
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10019,7 +10019,7 @@ git<span class="w"> </span>diff
 git<span class="w"> </span>add<span class="w"> </span>lib/fizz_buzz.ex<span class="w"> </span>test/fizz_buzz_test.exs
 
 <span class="c1"># コミット</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test: add test for fizzbuzz list generation&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"test: add test for fizzbuzz list generation"</span>
 
 <span class="c1"># 履歴確認</span>
 git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--decorate<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
@@ -10053,15 +10053,15 @@ chore: update ci cache key for nix flake
 <p><code>apps/elixir</code> の FizzBuzz 実装を例に、実際のコミット単位を示します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Red</span>
 git<span class="w"> </span>add<span class="w"> </span>test/fizz_buzz_test.exs
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test: add failing test for generate_list/0&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"test: add failing test for generate_list/0"</span>
 
 <span class="c1"># Green</span>
 git<span class="w"> </span>add<span class="w"> </span>lib/fizz_buzz.ex
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: implement generate_list/0 with enum map&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: implement generate_list/0 with enum map"</span>
 
 <span class="c1"># Refactor</span>
 git<span class="w"> </span>add<span class="w"> </span>lib/fizz_buzz.ex<span class="w"> </span>test/fizz_buzz_test.exs
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;refactor: improve readability of fizzbuzz conditions&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"refactor: improve readability of fizzbuzz conditions"</span>
 </code></pre></div>
 <p>ポイントは、1 コミット 1 意図です。<code>feat</code> と <code>refactor</code> を同一コミットに混ぜないことで、レビューしやすくなります。</p>
 <h2 id="45-gitignore">4.5 .gitignore の設定<a class="headerlink" href="#45-gitignore" title="Permanent link">&para;</a></h2>
@@ -10145,7 +10145,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

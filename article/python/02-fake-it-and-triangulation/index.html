@@ -10134,7 +10134,7 @@
 <p>1 を渡したら文字列 "1" を返すようにできました。では、2 を渡したらどうなるでしょうか？</p>
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_2を渡したら文字列2を返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"2"</span>
 </code></pre></div>
 <p>テストを実行します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>-v
@@ -10142,7 +10142,7 @@
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1を渡したら文字列1を返す PASSED
 test/test_fizzbuzz.py::TestFizzBuzz::test_2を渡したら文字列2を返す FAILED
 
-E       AssertionError: assert &#39;1&#39; == &#39;2&#39;
+E       AssertionError: assert '1' == '2'
 </code></pre></div>
 <p>テストが失敗しました。文字列 "1" しか返さないプログラムなのですから当然です。</p>
 <h3 id="green">Green: 一般化する<a class="headerlink" href="#green" title="Permanent link">&para;</a></h3>
@@ -10181,11 +10181,11 @@ test/test_fizzbuzz.py::TestFizzBuzz::test_2を渡したら文字列2を返す PA
 <p>次は「3 の倍数のときは数の代わりに Fizz と返す」に取り掛かります。</p>
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_3を渡したら文字列Fizzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_3を渡したら文字列Fizzを返す FAILED
 
-E       AssertionError: assert &#39;3&#39; == &#39;Fizz&#39;
+E       AssertionError: assert '3' == 'Fizz'
 </code></pre></div>
 <h3 id="green_1">Green: 明白な実装<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <p>3 の倍数の判定は明白なので、直接的に実装します。</p>
@@ -10198,7 +10198,7 @@ E       AssertionError: assert &#39;3&#39; == &#39;Fizz&#39;
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1を渡したら文字列1を返す PASSED
@@ -10219,20 +10219,20 @@ test/test_fizzbuzz.py::TestFizzBuzz::test_3を渡したら文字列Fizzを返す
 <h2 id="24-5-buzz">2.4 5 の倍数 — Buzz<a class="headerlink" href="#24-5-buzz" title="Permanent link">&para;</a></h2>
 <h3 id="red">Red<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_5を渡したら文字列Buzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_5を渡したら文字列Buzzを返す FAILED
 
-E       AssertionError: assert &#39;5&#39; == &#39;Buzz&#39;
+E       AssertionError: assert '5' == 'Buzz'
 </code></pre></div>
 <h3 id="green_2">Green<a class="headerlink" href="#green_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizzbuzz.py</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Buzz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1を渡したら文字列1を返す PASSED
@@ -10254,11 +10254,11 @@ test/test_fizzbuzz.py::TestFizzBuzz::test_5を渡したら文字列Buzzを返す
 <h2 id="25-3-5-fizzbuzz">2.5 3 と 5 の倍数 — FizzBuzz<a class="headerlink" href="#25-3-5-fizzbuzz" title="Permanent link">&para;</a></h2>
 <h3 id="red_1">Red<a class="headerlink" href="#red_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_15を渡したら文字列FizzBuzzを返す</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fizzbuzz</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"FizzBuzz"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_15を渡したら文字列FizzBuzzを返す FAILED
 
-E       AssertionError: assert &#39;Fizz&#39; == &#39;FizzBuzz&#39;
+E       AssertionError: assert 'Fizz' == 'FizzBuzz'
 </code></pre></div>
 <p>現在の実装では 3 の倍数の条件が先に評価されるため、15 を渡すと "Fizz" が返ってきています。</p>
 <h3 id="green_3">Green<a class="headerlink" href="#green_3" title="Permanent link">&para;</a></h3>
@@ -10267,11 +10267,11 @@ E       AssertionError: assert &#39;Fizz&#39; == &#39;FizzBuzz&#39;
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"FizzBuzz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Buzz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>test/test_fizzbuzz.py::TestFizzBuzz::test_1を渡したら文字列1を返す PASSED
@@ -10366,7 +10366,7 @@ test/test_fizzbuzz.py::TestFizzBuzz::test_15を渡したら文字列FizzBuzzを�
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

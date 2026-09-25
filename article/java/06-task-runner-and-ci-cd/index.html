@@ -10205,8 +10205,8 @@
 <div class="highlight"><pre><span></span><code><span class="n">task</span><span class="w"> </span><span class="nf">tdd</span><span class="o">(</span><span class="nl">type:</span><span class="w"> </span><span class="n">Test</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">useJUnitPlatform</span><span class="o">()</span>
 <span class="w">    </span><span class="n">testLogging</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="n">events</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;skipped&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;failed&quot;</span>
-<span class="w">        </span><span class="n">exceptionFormat</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
+<span class="w">        </span><span class="n">events</span><span class="w"> </span><span class="s2">"passed"</span><span class="o">,</span><span class="w"> </span><span class="s2">"skipped"</span><span class="o">,</span><span class="w"> </span><span class="s2">"failed"</span>
+<span class="w">        </span><span class="n">exceptionFormat</span><span class="w"> </span><span class="s2">"full"</span>
 <span class="w">    </span><span class="o">}</span>
 <span class="w">    </span><span class="n">outputs</span><span class="o">.</span><span class="na">upToDateWhen</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">}</span>
 <span class="o">}</span>
@@ -10214,16 +10214,16 @@
 <p><code>outputs.upToDateWhen { false }</code> により、コードに変更がなくても毎回テストを実行します。</p>
 <h4 id="_3">品質チェックタスク<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">task</span><span class="w"> </span><span class="n">qualityCheck</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="s1">&#39;checkstyleMain&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;checkstyleTest&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;pmdMain&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;pmdTest&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;spotbugsMain&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;spotbugsTest&#39;</span>
-<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="s1">&#39;Run all quality checks&#39;</span>
-<span class="w">    </span><span class="n">group</span><span class="w"> </span><span class="s1">&#39;verification&#39;</span>
+<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="s1">'checkstyleMain'</span><span class="o">,</span><span class="w"> </span><span class="s1">'checkstyleTest'</span><span class="o">,</span><span class="w"> </span><span class="s1">'pmdMain'</span><span class="o">,</span><span class="w"> </span><span class="s1">'pmdTest'</span><span class="o">,</span><span class="w"> </span><span class="s1">'spotbugsMain'</span><span class="o">,</span><span class="w"> </span><span class="s1">'spotbugsTest'</span>
+<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="s1">'Run all quality checks'</span>
+<span class="w">    </span><span class="n">group</span><span class="w"> </span><span class="s1">'verification'</span>
 <span class="o">}</span>
 </code></pre></div>
 <h4 id="_4">全チェックタスク<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">task</span><span class="w"> </span><span class="n">fullCheck</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="s1">&#39;test&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;qualityCheck&#39;</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;jacocoTestReport&#39;</span>
-<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="s1">&#39;Run all tests and quality checks&#39;</span>
-<span class="w">    </span><span class="n">group</span><span class="w"> </span><span class="s1">&#39;verification&#39;</span>
+<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="s1">'test'</span><span class="o">,</span><span class="w"> </span><span class="s1">'qualityCheck'</span><span class="o">,</span><span class="w"> </span><span class="s1">'jacocoTestReport'</span>
+<span class="w">    </span><span class="n">description</span><span class="w"> </span><span class="s1">'Run all tests and quality checks'</span>
+<span class="w">    </span><span class="n">group</span><span class="w"> </span><span class="s1">'verification'</span>
 <span class="o">}</span>
 </code></pre></div>
 <h3 id="_5">タスクの確認と実行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -10264,7 +10264,7 @@ $<span class="w"> </span>./gradlew<span class="w"> </span>fullCheck
 <p>自動テストの効果を確認するために、わざとコードを壊してみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// わざとテストを失敗させる変更</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">FIZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">BUZZ_NUMBER</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;FizzBuzzBuzz&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// わざと間違えてみる</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"FizzBuzzBuzz"</span><span class="p">;</span><span class="w">  </span><span class="c1">// わざと間違えてみる</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>変更を保存すると、即座にテストが実行されて失敗が検出されます。コードを元に戻すと、テストが再び通ります。</p>
@@ -10285,17 +10285,17 @@ $<span class="w"> </span>./gradlew<span class="w"> </span>fullCheck
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;apps/java/**&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ops/nix/environments/java/**&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;flake.nix&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;flake.lock&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'apps/java/**'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'ops/nix/environments/java/**'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'flake.nix'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'flake.lock'</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;apps/java/**&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;ops/nix/environments/java/**&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;flake.nix&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;flake.lock&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'apps/java/**'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'ops/nix/environments/java/**'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'flake.nix'</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'flake.lock'</span>
 
 <span class="nt">permissions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -10317,18 +10317,18 @@ $<span class="w"> </span>./gradlew<span class="w"> </span>fullCheck
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/nix-cache</span>
-<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-java-${{ hashFiles(&#39;flake.lock&#39;, &#39;ops/nix/environments/java/shell.nix&#39;) }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-java-${{ hashFiles('flake.lock', 'ops/nix/environments/java/shell.nix') }}</span>
 <span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">${{ runner.os }}-nix-java-</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c &quot;cd apps/java &amp;&amp; ./gradlew test&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c "cd apps/java &amp;&amp; ./gradlew test"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run quality checks</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c &quot;cd apps/java &amp;&amp; ./gradlew qualityCheck&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c "cd apps/java &amp;&amp; ./gradlew qualityCheck"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate coverage report</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c &quot;cd apps/java &amp;&amp; ./gradlew jacocoTestReport&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#java --command bash -c "cd apps/java &amp;&amp; ./gradlew jacocoTestReport"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload test results</span>
 <span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span>
@@ -10464,7 +10464,7 @@ $<span class="w"> </span>./gradlew<span class="w"> </span>fullCheck
 2. テストを書く（Red）
 3. 実装する（Green）
 4. リファクタリングする（Refactor）
-5. git commit -m &#39;feat: ...&#39;  ← Conventional Commits
+5. git commit -m 'feat: ...'  ← Conventional Commits
 6. 2 に戻る
 </code></pre></div>
 <p>次の第 3 部では、FizzBuzz に追加仕様を導入し、オブジェクト指向設計のテクニックを学びます。</p>
@@ -10535,7 +10535,7 @@ $<span class="w"> </span>./gradlew<span class="w"> </span>fullCheck
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10131,13 +10131,13 @@
     /// generateWith は渡したルールで変換する。
     @Test
     def generateWith_uses_rule(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Fizz&quot;, FizzBuzzHof.generateWith(FizzBuzzHof.defaultRule, 3))
+        Assert.assertEq(expected = "Fizz", FizzBuzzHof.generateWith(FizzBuzzHof.defaultRule, 3))
 
     /// generateWith にカスタムルールを渡せる。
     @Test
     def generateWith_custom_rule(): Unit \ Assert =
-        let rule = n -&gt; if (Int32.remainder(n, 2) == 0) &quot;Even&quot; else &quot;Odd&quot;;
-        Assert.assertEq(expected = &quot;Even&quot;, FizzBuzzHof.generateWith(rule, 4))
+        let rule = n -&gt; if (Int32.remainder(n, 2) == 0) "Even" else "Odd";
+        Assert.assertEq(expected = "Even", FizzBuzzHof.generateWith(rule, 4))
 }
 </code></pre></div>
 <h3 id="green-generatewith">Green: generateWith の実装<a class="headerlink" href="#green-generatewith" title="Permanent link">&para;</a></h3>
@@ -10152,9 +10152,9 @@
     /// 標準の FizzBuzz ルール。
     ///
     pub def defaultRule(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 }
 </code></pre></div>
@@ -10191,7 +10191,7 @@ scale(10)  // 30
     @Test
     def filterList_filters(): Unit \ Assert =
         let xs = FizzBuzzHof.transform(FizzBuzzHof.defaultRule, 15);
-        let fizzes = FizzBuzzHof.filterList(s -&gt; s == &quot;Fizz&quot;, xs);
+        let fizzes = FizzBuzzHof.filterList(s -&gt; s == "Fizz", xs);
         Assert.assertEq(expected = 4, List.length(fizzes))
 </code></pre></div>
 <p>1〜15 で純粋な "Fizz"（3・6・9・12。15 は "FizzBuzz"）は 4 件です。<code>transform</code> でルールを適用し、<code>filterList</code> で絞り込む——高階関数を組み合わせた <strong>加工パイプライン</strong> が構築できました。</p>
@@ -10325,7 +10325,7 @@ Passed:<span class="w"> </span><span class="m">37</span>,<span class="w"> </span
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

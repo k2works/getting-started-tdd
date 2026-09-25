@@ -10102,7 +10102,7 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function test_6を渡したら文字列Fizzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;Fizz&#39;, $fizzbuzz-&gt;generate(6));</span>
+<span class="x">    $this-&gt;assertSame('Fizz', $fizzbuzz-&gt;generate(6));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>テストを実行すると失敗します（期待値は "Fizz"、実際は "6"）。</p>
@@ -10111,13 +10111,13 @@
 <div class="highlight"><pre><span></span><code><span class="x">public function generate(int $number): string</span>
 <span class="x">{</span>
 <span class="x">    if ($number % 15 === 0) {</span>
-<span class="x">        return &#39;FizzBuzz&#39;;</span>
+<span class="x">        return 'FizzBuzz';</span>
 <span class="x">    }</span>
 <span class="x">    if ($number % 3 === 0) {</span>
-<span class="x">        return &#39;Fizz&#39;;</span>
+<span class="x">        return 'Fizz';</span>
 <span class="x">    }</span>
 <span class="x">    if ($number % 5 === 0) {</span>
-<span class="x">        return &#39;Buzz&#39;;</span>
+<span class="x">        return 'Buzz';</span>
 <span class="x">    }</span>
 <span class="x">    return (string) $number;</span>
 <span class="x">}</span>
@@ -10130,13 +10130,13 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">6</span><span 
 <div class="highlight"><pre><span></span><code><span class="x">public function test_10を渡したら文字列Buzzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;Buzz&#39;, $fizzbuzz-&gt;generate(10));</span>
+<span class="x">    $this-&gt;assertSame('Buzz', $fizzbuzz-&gt;generate(10));</span>
 <span class="x">}</span>
 
 <span class="x">public function test_30を渡したら文字列FizzBuzzを返す(): void</span>
 <span class="x">{</span>
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
-<span class="x">    $this-&gt;assertSame(&#39;FizzBuzz&#39;, $fizzbuzz-&gt;generate(30));</span>
+<span class="x">    $this-&gt;assertSame('FizzBuzz', $fizzbuzz-&gt;generate(30));</span>
 <span class="x">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>vendor/bin/phpunit
@@ -10159,11 +10159,11 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">8</span><span 
 <span class="x">    $fizzbuzz = new FizzBuzz();</span>
 <span class="x">    $result = $fizzbuzz-&gt;generateList();</span>
 
-<span class="x">    $this-&gt;assertSame(&#39;1&#39;, $result[0]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;Fizz&#39;, $result[2]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;Buzz&#39;, $result[4]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;FizzBuzz&#39;, $result[14]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;100&#39;, $result[99]);</span>
+<span class="x">    $this-&gt;assertSame('1', $result[0]);</span>
+<span class="x">    $this-&gt;assertSame('Fizz', $result[2]);</span>
+<span class="x">    $this-&gt;assertSame('Buzz', $result[4]);</span>
+<span class="x">    $this-&gt;assertSame('FizzBuzz', $result[14]);</span>
+<span class="x">    $this-&gt;assertSame('100', $result[99]);</span>
 <span class="x">    $this-&gt;assertCount(100, $result);</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10194,11 +10194,11 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">9</span><span 
 <span class="x">    $fizzbuzz-&gt;printFizzBuzz();</span>
 <span class="x">    $output = ob_get_clean();</span>
 
-<span class="x">    $lines = explode(&quot;\n&quot;, trim($output));</span>
-<span class="x">    $this-&gt;assertSame(&#39;1&#39;, $lines[0]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;Fizz&#39;, $lines[2]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;Buzz&#39;, $lines[4]);</span>
-<span class="x">    $this-&gt;assertSame(&#39;FizzBuzz&#39;, $lines[14]);</span>
+<span class="x">    $lines = explode("\n", trim($output));</span>
+<span class="x">    $this-&gt;assertSame('1', $lines[0]);</span>
+<span class="x">    $this-&gt;assertSame('Fizz', $lines[2]);</span>
+<span class="x">    $this-&gt;assertSame('Buzz', $lines[4]);</span>
+<span class="x">    $this-&gt;assertSame('FizzBuzz', $lines[14]);</span>
 <span class="x">    $this-&gt;assertCount(100, $lines);</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10208,7 +10208,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">9</span><span 
 <span class="x">{</span>
 <span class="x">    $list = $this-&gt;generateList();</span>
 <span class="x">    foreach ($list as $item) {</span>
-<span class="x">        echo $item . &quot;\n&quot;;</span>
+<span class="x">        echo $item . "\n";</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div>
@@ -10226,7 +10226,7 @@ OK<span class="w"> </span><span class="o">(</span><span class="m">10</span><span
 </ul>
 <p>すべての TODO が完了しました！</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat: FizzBuzz の基本実装を完了&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat: FizzBuzz の基本実装を完了'</span>
 </code></pre></div>
 <h2 id="35">3.5 完成したコード<a class="headerlink" href="#35" title="Permanent link">&para;</a></h2>
 <details>
@@ -10241,13 +10241,13 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     <span class="k">public</span> <span class="k">function</span> <span class="nf">generate</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$number</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="s1">&#39;FizzBuzz&#39;</span><span class="p">;</span>
+            <span class="k">return</span> <span class="s1">'FizzBuzz'</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="s1">&#39;Fizz&#39;</span><span class="p">;</span>
+            <span class="k">return</span> <span class="s1">'Fizz'</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="s1">&#39;Buzz&#39;</span><span class="p">;</span>
+            <span class="k">return</span> <span class="s1">'Buzz'</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$number</span><span class="p">;</span>
     <span class="p">}</span>
@@ -10268,7 +10268,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     <span class="p">{</span>
         <span class="nv">$list</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generateList</span><span class="p">();</span>
         <span class="k">foreach</span> <span class="p">(</span><span class="nv">$list</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">echo</span> <span class="nv">$item</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="nv">$item</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -10354,7 +10354,7 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10152,16 +10152,16 @@
 <h2 id="22">2.2 三角測量<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
 <p>1 を渡したら文字列 "1" を返すようにできました。前章の実装は引数を無視して <code>"1"</code> を返すだけの仮実装です。では、2 を渡したらどうなるでしょうか？</p>
 <h3 id="red-2">Red: 2 つ目のテストを書く<a class="headerlink" href="#red-2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>    /// 2 を渡したら文字列 &quot;2&quot; を返す。
+<div class="highlight"><pre><span></span><code>    /// 2 を渡したら文字列 "2" を返す。
     @Test
     def convert_2_returns_2(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;2&quot;, FizzBuzz.convert(2))
+        Assert.assertEq(expected = "2", FizzBuzz.convert(2))
 </code></pre></div>
 <p>テストを実行します。仮実装は常に <code>"1"</code> を返すため、期待値 <code>"2"</code> と一致せず失敗します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>TEST<span class="w"> </span>TestFizzBuzz.convert_2_returns_2<span class="w">  </span>FAIL
-<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">&quot;2&quot;</span>
-<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">&quot;1&quot;</span>
+<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">"2"</span>
+<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">"1"</span>
 
 Passed:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">1</span>.
 </code></pre></div>
@@ -10202,15 +10202,15 @@ Passed:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>
 <h2 id="23-3-fizz">2.3 3 の倍数 — Fizz<a class="headerlink" href="#23-3-fizz" title="Permanent link">&para;</a></h2>
 <p>次は「3 の倍数のときは数の代わりに Fizz と返す」に取り掛かります。</p>
 <h3 id="red-3">Red: 3 の倍数のテスト<a class="headerlink" href="#red-3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>    /// 3 の倍数を渡したら &quot;Fizz&quot; を返す。
+<div class="highlight"><pre><span></span><code>    /// 3 の倍数を渡したら "Fizz" を返す。
     @Test
     def convert_3_returns_Fizz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Fizz&quot;, FizzBuzz.convert(3))
+        Assert.assertEq(expected = "Fizz", FizzBuzz.convert(3))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>TEST<span class="w"> </span>TestFizzBuzz.convert_3_returns_Fizz<span class="w">  </span>FAIL
-<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">&quot;Fizz&quot;</span>
-<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">&quot;3&quot;</span>
+<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">"Fizz"</span>
+<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">"3"</span>
 
 Passed:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">1</span>.
 </code></pre></div>
@@ -10218,7 +10218,7 @@ Passed:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>
 <p>3 の倍数のときは "Fizz" を返すように実装します。Flix では <strong><code>if</code> 式</strong> を使って条件分岐を記述します。剰余は <code>Int32.remainder</code> で求めます。</p>
 <div class="highlight"><pre><span></span><code>mod FizzBuzz {
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
+        if (Int32.remainder(n, 3) == 0) "Fizz"
         else                            Int32.toString(n)
 }
 </code></pre></div>
@@ -10229,10 +10229,10 @@ Passed:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>
 Passed:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">0</span>.
 </code></pre></div>
 <p>テストが通りました。三角測量として 6 のテストも追加して確認します。</p>
-<div class="highlight"><pre><span></span><code>    /// 6 を渡したら &quot;Fizz&quot; を返す（三角測量）。
+<div class="highlight"><pre><span></span><code>    /// 6 を渡したら "Fizz" を返す（三角測量）。
     @Test
     def convert_6_returns_Fizz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Fizz&quot;, FizzBuzz.convert(6))
+        Assert.assertEq(expected = "Fizz", FizzBuzz.convert(6))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 Passed:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">0</span>.
@@ -10248,15 +10248,15 @@ Passed:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>
 </ul>
 <h2 id="24-5-buzz">2.4 5 の倍数 — Buzz<a class="headerlink" href="#24-5-buzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-5">Red: 5 の倍数のテスト<a class="headerlink" href="#red-5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>    /// 5 の倍数を渡したら &quot;Buzz&quot; を返す。
+<div class="highlight"><pre><span></span><code>    /// 5 の倍数を渡したら "Buzz" を返す。
     @Test
     def convert_5_returns_Buzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Buzz&quot;, FizzBuzz.convert(5))
+        Assert.assertEq(expected = "Buzz", FizzBuzz.convert(5))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>TEST<span class="w"> </span>TestFizzBuzz.convert_5_returns_Buzz<span class="w">  </span>FAIL
-<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">&quot;Buzz&quot;</span>
-<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">&quot;5&quot;</span>
+<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">"Buzz"</span>
+<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">"5"</span>
 
 Passed:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">1</span>.
 </code></pre></div>
@@ -10264,8 +10264,8 @@ Passed:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>
 <p><code>if</code> 式に 5 の倍数の条件を追加します。<code>else if</code> で分岐を連ねます。</p>
 <div class="highlight"><pre><span></span><code>mod FizzBuzz {
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 3) == 0)      &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 3) == 0)      "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 }
 </code></pre></div>
@@ -10273,10 +10273,10 @@ Passed:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>
 Passed:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">0</span>.
 </code></pre></div>
 <p>三角測量として 10 のテストも追加します。</p>
-<div class="highlight"><pre><span></span><code>    /// 10 を渡したら &quot;Buzz&quot; を返す（三角測量）。
+<div class="highlight"><pre><span></span><code>    /// 10 を渡したら "Buzz" を返す（三角測量）。
     @Test
     def convert_10_returns_Buzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Buzz&quot;, FizzBuzz.convert(10))
+        Assert.assertEq(expected = "Buzz", FizzBuzz.convert(10))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 Passed:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">0</span>.
@@ -10292,15 +10292,15 @@ Passed:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>
 </ul>
 <h2 id="25-15-fizzbuzz">2.5 15 の倍数 — FizzBuzz<a class="headerlink" href="#25-15-fizzbuzz" title="Permanent link">&para;</a></h2>
 <h3 id="red-15">Red: 15 の倍数のテスト<a class="headerlink" href="#red-15" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>    /// 15 の倍数を渡したら &quot;FizzBuzz&quot; を返す。
+<div class="highlight"><pre><span></span><code>    /// 15 の倍数を渡したら "FizzBuzz" を返す。
     @Test
     def convert_15_returns_FizzBuzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;FizzBuzz&quot;, FizzBuzz.convert(15))
+        Assert.assertEq(expected = "FizzBuzz", FizzBuzz.convert(15))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 <span class="w">  </span>TEST<span class="w"> </span>TestFizzBuzz.convert_15_returns_FizzBuzz<span class="w">  </span>FAIL
-<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">&quot;FizzBuzz&quot;</span>
-<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">&quot;Fizz&quot;</span>
+<span class="w">    </span>Expected:<span class="w"> </span><span class="s2">"FizzBuzz"</span>
+<span class="w">    </span>Actual:<span class="w">   </span><span class="s2">"Fizz"</span>
 
 Passed:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">1</span>.
 </code></pre></div>
@@ -10308,9 +10308,9 @@ Passed:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>
 <h3 id="green_1">Green: 条件の順序を修正<a class="headerlink" href="#green_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>mod FizzBuzz {
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 }
 </code></pre></div>
@@ -10319,10 +10319,10 @@ Passed:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>
 Passed:<span class="w"> </span><span class="m">7</span>,<span class="w"> </span>Failed:<span class="w"> </span><span class="m">0</span>.
 </code></pre></div>
 <p>三角測量として 30 のテストも追加しておきます。</p>
-<div class="highlight"><pre><span></span><code>    /// 30 を渡したら &quot;FizzBuzz&quot; を返す（三角測量）。
+<div class="highlight"><pre><span></span><code>    /// 30 を渡したら "FizzBuzz" を返す（三角測量）。
     @Test
     def convert_30_returns_FizzBuzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;FizzBuzz&quot;, FizzBuzz.convert(30))
+        Assert.assertEq(expected = "FizzBuzz", FizzBuzz.convert(30))
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>flix.jar<span class="w"> </span><span class="nb">test</span>
 Running<span class="w"> </span><span class="m">8</span><span class="w"> </span>tests...
@@ -10348,7 +10348,7 @@ Passed:<span class="w"> </span><span class="m">8</span>,<span class="w"> </span>
 </ul>
 <p>ここまでの作業をコミットしておきましょう。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;feat(flix): FizzBuzz のコアロジックを実装&#39;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'feat(flix): FizzBuzz のコアロジックを実装'</span>
 </code></pre></div>
 <h2 id="26">2.6 まとめ<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
 <p>この章では以下のことを学びました。</p>
@@ -10373,9 +10373,9 @@ mod FizzBuzz {
     /// 数 `n` を FizzBuzz の規則に従って文字列に変換する。
     ///
     pub def convert(n: Int32): String =
-        if (Int32.remainder(n, 15) == 0)     &quot;FizzBuzz&quot;
-        else if (Int32.remainder(n, 3) == 0) &quot;Fizz&quot;
-        else if (Int32.remainder(n, 5) == 0) &quot;Buzz&quot;
+        if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+        else if (Int32.remainder(n, 3) == 0) "Fizz"
+        else if (Int32.remainder(n, 5) == 0) "Buzz"
         else                                 Int32.toString(n)
 }
 </code></pre></div>
@@ -10386,45 +10386,45 @@ mod FizzBuzz {
 <summary>テストコード（test/TestFizzBuzz.flix）</summary>
 
 <div class="highlight"><pre><span></span><code>mod TestFizzBuzz {
-    /// 1 を渡したら文字列 &quot;1&quot; を返す。
+    /// 1 を渡したら文字列 "1" を返す。
     @Test
     def convert_1_returns_1(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;1&quot;, FizzBuzz.convert(1))
+        Assert.assertEq(expected = "1", FizzBuzz.convert(1))
 
-    /// 2 を渡したら文字列 &quot;2&quot; を返す。
+    /// 2 を渡したら文字列 "2" を返す。
     @Test
     def convert_2_returns_2(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;2&quot;, FizzBuzz.convert(2))
+        Assert.assertEq(expected = "2", FizzBuzz.convert(2))
 
-    /// 3 の倍数を渡したら &quot;Fizz&quot; を返す。
+    /// 3 の倍数を渡したら "Fizz" を返す。
     @Test
     def convert_3_returns_Fizz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Fizz&quot;, FizzBuzz.convert(3))
+        Assert.assertEq(expected = "Fizz", FizzBuzz.convert(3))
 
-    /// 6 を渡したら &quot;Fizz&quot; を返す（三角測量）。
+    /// 6 を渡したら "Fizz" を返す（三角測量）。
     @Test
     def convert_6_returns_Fizz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Fizz&quot;, FizzBuzz.convert(6))
+        Assert.assertEq(expected = "Fizz", FizzBuzz.convert(6))
 
-    /// 5 の倍数を渡したら &quot;Buzz&quot; を返す。
+    /// 5 の倍数を渡したら "Buzz" を返す。
     @Test
     def convert_5_returns_Buzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Buzz&quot;, FizzBuzz.convert(5))
+        Assert.assertEq(expected = "Buzz", FizzBuzz.convert(5))
 
-    /// 10 を渡したら &quot;Buzz&quot; を返す（三角測量）。
+    /// 10 を渡したら "Buzz" を返す（三角測量）。
     @Test
     def convert_10_returns_Buzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;Buzz&quot;, FizzBuzz.convert(10))
+        Assert.assertEq(expected = "Buzz", FizzBuzz.convert(10))
 
-    /// 15 の倍数を渡したら &quot;FizzBuzz&quot; を返す。
+    /// 15 の倍数を渡したら "FizzBuzz" を返す。
     @Test
     def convert_15_returns_FizzBuzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;FizzBuzz&quot;, FizzBuzz.convert(15))
+        Assert.assertEq(expected = "FizzBuzz", FizzBuzz.convert(15))
 
-    /// 30 を渡したら &quot;FizzBuzz&quot; を返す（三角測量）。
+    /// 30 を渡したら "FizzBuzz" を返す（三角測量）。
     @Test
     def convert_30_returns_FizzBuzz(): Unit \ Assert =
-        Assert.assertEq(expected = &quot;FizzBuzz&quot;, FizzBuzz.convert(30))
+        Assert.assertEq(expected = "FizzBuzz", FizzBuzz.convert(30))
 }
 </code></pre></div>
 
@@ -10496,7 +10496,7 @@ mod FizzBuzz {
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

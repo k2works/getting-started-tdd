@@ -10091,7 +10091,7 @@
 <li><code>src/test/scala/</code>: テストコード</li>
 </ul>
 <p><code>ScalaTest</code> を利用するため、<code>build.sbt</code> に test scope の依存関係を追加します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">libraryDependencies</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;org.scalatest&quot;</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">&quot;scalatest&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">&quot;3.2.19&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
+<div class="highlight"><pre><span></span><code><span class="n">libraryDependencies</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">"org.scalatest"</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="s">"scalatest"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="s">"3.2.19"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nc">Test</span>
 </code></pre></div>
 <h3 id="_2">最初のテストを書く<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>最初の失敗するテストを <code>FizzBuzzSpec.scala</code> に書きます。</p>
@@ -10100,8 +10100,8 @@
 <span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">scalatest</span><span class="p">.</span><span class="nn">funsuite</span><span class="p">.</span><span class="nc">AnyFunSuite</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzSpec</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">AnyFunSuite</span><span class="p">:</span>
-<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">&quot;1 を渡すと文字列 1 を返す&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">test</span><span class="p">(</span><span class="s">"1 を渡すと文字列 1 を返す"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s">"1"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 <h3 id="red">テストを実行して失敗を確認（Red）<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
@@ -10112,7 +10112,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="n">fizzbuzz</span>
 
 <span class="k">object</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">number</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"1"</span>
 </code></pre></div>
 <p>この時点では <code>1</code> を固定で返す仮実装で十分です。
 再度 <code>sbt test</code> を実行し、最初のテストが通ることを確認します。</p>
@@ -10199,7 +10199,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

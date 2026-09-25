@@ -7877,6 +7877,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#phase-4-kotlin-flix-prolog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4（追加言語: Kotlin / Flix / Prolog）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テスト実行環境
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10031,7 +10053,7 @@
 <h1 id="_1">開発ドキュメント<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">計画<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="release_plan/">リリース計画</a> - 3 フェーズ × 12 イテレーションのリリース計画</li>
+<li><a href="release_plan/">リリース計画</a> - 4 フェーズ × 15 イテレーションのリリース計画</li>
 </ul>
 <h2 id="1java">イテレーション 1（Java）<a class="headerlink" href="#1java" title="Permanent link">&para;</a></h2>
 <ul>
@@ -10105,6 +10127,26 @@
 <li><a href="retrospective-12/">ふりかえり 12</a> - IT12 KPT 分析（プロジェクト全体ふりかえり含む）</li>
 <li><a href="iteration_report-12/">完了報告書 12</a> - IT12 実績・品質メトリクス（最終報告書）</li>
 </ul>
+<h2 id="phase-4-kotlin-flix-prolog">Phase 4（追加言語: Kotlin / Flix / Prolog）<a class="headerlink" href="#phase-4-kotlin-flix-prolog" title="Permanent link">&para;</a></h2>
+<p>Phase 3 完了後に追加した 3 言語（イテレーション 13〜15、計 39 SP）。
+執筆計画は <a href="../article/outline/">記事アウトライン</a> の「追加執筆計画」、
+実績は <a href="release_plan/">リリース計画</a> の Phase 4 節に記載。</p>
+<ul>
+<li>IT13 Kotlin（13 SP） - <a href="../article/kotlin/">記事</a> / <code>apps/kotlin</code> / 39 テスト</li>
+<li>IT14 Flix（13 SP） - <a href="../article/flix/">記事</a> / <code>apps/flix</code> / 45 テスト</li>
+<li>IT15 Prolog（13 SP） - <a href="../article/prolog/">記事</a> / <code>apps/prolog</code> / 28 テスト</li>
+<li><a href="iteration_report-phase4/">Phase 4 完了報告書</a> - IT13〜15 の実績・KPT・残作業</li>
+</ul>
+<h2 id="_3">テスト実行環境<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>全 15 アプリのテストは 2026-09-25 時点でグリーン。実行環境には次の区分がある。</p>
+<ul>
+<li>ホスト環境で実行可 - go, rust, python, node, php, dotnet, elixir, java,
+  kotlin, scala, clojure</li>
+<li>Nix 環境が必要 - haskell, ruby, flix, prolog</li>
+</ul>
+<p>Nix 環境は <code>nix develop .#&lt;言語&gt;</code> で起動する。haskell はホストの GHC 9.8.4 と
+Apple <code>ar</code> の組み合わせでリンクに失敗し、ruby はホストの system Ruby 2.6 が
+<code>Gemfile.lock</code> の Bundler 2.7.2 を満たせないため、いずれも Nix 環境で実行する。</p>
 
 
 
@@ -10172,7 +10214,7 @@
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../docs/assets/js/extra.js"></script>
       

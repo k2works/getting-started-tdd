@@ -10180,39 +10180,39 @@
 <p>開発に必要なツールを追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pyproject.toml</span>
 <span class="k">[project]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fizzbuzz&quot;</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;FizzBuzz TDD project for Python&quot;</span>
-<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.11&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"fizzbuzz"</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FizzBuzz TDD project for Python"</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.11"</span>
 
 <span class="k">[tool.pytest.ini_options]</span>
-<span class="n">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span>
-<span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">]</span>
-<span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;--cov=lib --cov-report=term-missing&quot;</span>
+<span class="n">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"test"</span><span class="p">]</span>
+<span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"."</span><span class="p">]</span>
+<span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"--cov=lib --cov-report=term-missing"</span>
 
 <span class="k">[tool.coverage.run]</span>
-<span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lib&quot;</span><span class="p">]</span>
+<span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"lib"</span><span class="p">]</span>
 
 <span class="k">[tool.coverage.report]</span>
 <span class="n">exclude_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;pragma: no cover&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;def __repr__&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;raise NotImplementedError&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;if __name__ == .__main__.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"pragma: no cover"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"def __repr__"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"raise NotImplementedError"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"if __name__ == .__main__."</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="k">[tool.mypy]</span>
-<span class="n">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.11&quot;</span>
+<span class="n">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"3.11"</span>
 <span class="n">warn_return_any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">warn_unused_configs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">disallow_untyped_defs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 
 <span class="k">[dependency-groups]</span>
 <span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;pytest&gt;=8.0&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;pytest-cov&gt;=6.0&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;ruff&gt;=0.8&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;mypy&gt;=1.13&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"pytest&gt;=8.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"pytest-cov&gt;=6.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"ruff&gt;=0.8"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"mypy&gt;=1.13"</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>uv<span class="w"> </span>sync
@@ -10222,26 +10222,26 @@
 <h3 id="ruff">Ruff の設定<a class="headerlink" href="#ruff" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># .ruff.toml</span>
 <span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>
-<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;py311&quot;</span>
+<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"py311"</span>
 
 <span class="k">[lint]</span>
 <span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle errors</span>
-<span class="w">    </span><span class="s2">&quot;W&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle warnings</span>
-<span class="w">    </span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pyflakes</span>
-<span class="w">    </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># isort</span>
-<span class="w">    </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-bugbear</span>
-<span class="w">    </span><span class="s2">&quot;C4&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-comprehensions</span>
-<span class="w">    </span><span class="s2">&quot;UP&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># pyupgrade</span>
+<span class="w">    </span><span class="s2">"E"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle errors</span>
+<span class="w">    </span><span class="s2">"W"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle warnings</span>
+<span class="w">    </span><span class="s2">"F"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pyflakes</span>
+<span class="w">    </span><span class="s2">"I"</span><span class="p">,</span><span class="w">   </span><span class="c1"># isort</span>
+<span class="w">    </span><span class="s2">"B"</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-bugbear</span>
+<span class="w">    </span><span class="s2">"C4"</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-comprehensions</span>
+<span class="w">    </span><span class="s2">"UP"</span><span class="p">,</span><span class="w">  </span><span class="c1"># pyupgrade</span>
 <span class="p">]</span>
 <span class="n">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
 
 <span class="k">[format]</span>
-<span class="n">quote-style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;double&quot;</span>
-<span class="n">indent-style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;space&quot;</span>
+<span class="n">quote-style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"double"</span>
+<span class="n">indent-style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"space"</span>
 
 <span class="k">[lint.per-file-ignores]</span>
-<span class="s2">&quot;test/**/*.py&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;E501&quot;</span><span class="p">]</span>
+<span class="s2">"test/**/*.py"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"E501"</span><span class="p">]</span>
 
 <span class="k">[lint.mccabe]</span>
 <span class="n">max-complexity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
@@ -10324,14 +10324,14 @@ $<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>ru
 <div class="highlight"><pre><span></span><code><span class="c1"># .ruff.toml（抜粋）</span>
 <span class="k">[lint]</span>
 <span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle errors</span>
-<span class="w">    </span><span class="s2">&quot;W&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle warnings</span>
-<span class="w">    </span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pyflakes</span>
-<span class="w">    </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># isort</span>
-<span class="w">    </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-bugbear</span>
-<span class="w">    </span><span class="s2">&quot;C4&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-comprehensions</span>
-<span class="w">    </span><span class="s2">&quot;UP&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># pyupgrade</span>
-<span class="w">    </span><span class="s2">&quot;C90&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1"># mccabe（循環的複雑度）</span>
+<span class="w">    </span><span class="s2">"E"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle errors</span>
+<span class="w">    </span><span class="s2">"W"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pycodestyle warnings</span>
+<span class="w">    </span><span class="s2">"F"</span><span class="p">,</span><span class="w">   </span><span class="c1"># pyflakes</span>
+<span class="w">    </span><span class="s2">"I"</span><span class="p">,</span><span class="w">   </span><span class="c1"># isort</span>
+<span class="w">    </span><span class="s2">"B"</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-bugbear</span>
+<span class="w">    </span><span class="s2">"C4"</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-comprehensions</span>
+<span class="w">    </span><span class="s2">"UP"</span><span class="p">,</span><span class="w">  </span><span class="c1"># pyupgrade</span>
+<span class="w">    </span><span class="s2">"C90"</span><span class="p">,</span><span class="w"> </span><span class="c1"># mccabe（循環的複雑度）</span>
 <span class="p">]</span>
 
 <span class="k">[lint.mccabe]</span>
@@ -10356,11 +10356,11 @@ $<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>ru
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"FizzBuzz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Buzz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="_6">リファクタリング後<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -10371,21 +10371,21 @@ $<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>ru
     <span class="n">_FIZZ_BUZZ_NUMBER</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;数を FizzBuzz ルールに従って文字列に変換する。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""数を FizzBuzz ルールに従って文字列に変換する。"""</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FIZZ_BUZZ_NUMBER</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;FizzBuzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"FizzBuzz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_FIZZ_NUMBER</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Fizz"</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_BUZZ_NUMBER</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+            <span class="k">return</span> <span class="s2">"Buzz"</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">generate_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;1 から count までの FizzBuzz リストを生成する。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""1 から count までの FizzBuzz リストを生成する。"""</span>
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">print_fizzbuzz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;FizzBuzz の結果をプリントする。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""FizzBuzz の結果をプリントする。"""</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_list</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -10511,7 +10511,7 @@ TOTAL                    14      0   100%
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

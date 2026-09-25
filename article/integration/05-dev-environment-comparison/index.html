@@ -7913,6 +7913,56 @@
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
+        開発環境の充実度レーダー比較
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="開発環境の充実度レーダー比較">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        評価軸と基準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主流言語
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        追加言語・関数型言語
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         まとめ
       
     </span>
@@ -10802,10 +10852,10 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#prolog
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">nix develop .#${{ matrix.language }} --command bash -c &quot;</span>
+<span class="w">          </span><span class="no">nix develop .#${{ matrix.language }} --command bash -c "</span>
 <span class="w">            </span><span class="no">cd apps/${{ matrix.language }}</span>
 <span class="w">            </span><span class="no"># 言語共通: lint -&gt; test -&gt; coverage</span>
-<span class="w">          </span><span class="no">&quot;</span>
+<span class="w">          </span><span class="no">"</span>
 </code></pre></div>
 <h3 id="ci">言語別 CI コマンド<a class="headerlink" href="#ci" title="Permanent link">&para;</a></h3>
 <table>
@@ -11063,18 +11113,18 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#prolog
 <h2 id="taskfile">Taskfile による統一タスクランナー<a class="headerlink" href="#taskfile" title="Permanent link">&para;</a></h2>
 <p>各言語のビルド / テスト / リント コマンドを <code>Taskfile.yml</code> で統一的に管理できます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Taskfile.yml（共通タスク定義）</span>
-<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">'3'</span>
 
 <span class="nt">tasks</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;全言語の</span><span class="nv"> </span><span class="s">lint</span><span class="nv"> </span><span class="s">を実行&quot;</span>
+<span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="s">"全言語の</span><span class="nv"> </span><span class="s">lint</span><span class="nv"> </span><span class="s">を実行"</span>
 <span class="w">    </span><span class="nt">cmds</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lint:java</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lint:python</span>
 <span class="w">      </span><span class="c1"># ...</span>
 
 <span class="w">  </span><span class="nt">test</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;全言語のテストを実行&quot;</span>
+<span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="s">"全言語のテストを実行"</span>
 <span class="w">    </span><span class="nt">cmds</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test:java</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test:python</span>
@@ -11197,7 +11247,87 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#prolog
 </tr>
 </tbody>
 </table>
-<h2 id="_12">まとめ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_12">開発環境の充実度レーダー比較<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>ビルドツール・リンター・品質ゲートの対応状況を 6 軸で数値化します。</p>
+<h3 id="_13">評価軸と基準<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>0〜1</th>
+<th>2〜3</th>
+<th>4〜5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依存管理</td>
+<td>手動配置</td>
+<td>標準的なパッケージマネージャ</td>
+<td>ロックファイルと一体化した公式ツール</td>
+</tr>
+<tr>
+<td>Lint</td>
+<td>専用ツールなし</td>
+<td>コンパイラ警告で代替</td>
+<td>複数の専用リンターを併用</td>
+</tr>
+<tr>
+<td>フォーマッタ</td>
+<td>専用ツールなし</td>
+<td>外部ツールを追加</td>
+<td>公式フォーマッタを同梱</td>
+</tr>
+<tr>
+<td>複雑度チェック</td>
+<td>対応ツールなし</td>
+<td>間接的に検出</td>
+<td>リンターに複雑度メトリクスを内蔵</td>
+</tr>
+<tr>
+<td>カバレッジ</td>
+<td>取得手段なし</td>
+<td>外部ツールで取得可能</td>
+<td>標準的なツールが確立</td>
+</tr>
+<tr>
+<td>タスクランナー</td>
+<td>手動でコマンドを実行</td>
+<td>Makefile 等で補完</td>
+<td>ビルドツールがタスクを内蔵</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">主流言語<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 主流言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve java["Java"]{4, 5, 3, 5, 5, 5}
+  curve ts["TypeScript"]{5, 5, 5, 4, 5, 4}
+  curve python["Python"]{4, 5, 5, 4, 5, 3}
+  curve rust["Rust"]{5, 5, 5, 4, 3, 4}
+  max 5
+  min 0</code></pre>
+<p>Rust は Cargo・Clippy・rustfmt が公式ツールとして一体化しており、追加設定がほとんど
+不要です。Java は Checkstyle・PMD・JaCoCo と Gradle タスクにより品質ゲートが最も
+充実していますが、フォーマッタは外部ツールに依存します。</p>
+<h3 id="_15">追加言語・関数型言語<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 追加言語・関数型言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve kotlin["Kotlin"]{4, 5, 5, 5, 4, 5}
+  curve haskell["Haskell"]{4, 3, 3, 1, 3, 4}
+  curve flix["Flix"]{3, 3, 5, 1, 0, 3}
+  curve prolog["Prolog"]{2, 2, 1, 1, 0, 2}
+  max 5
+  min 0</code></pre>
+<p>Kotlin は Gradle に detekt・ktlint・Kover を組み合わせられるため、追加 3 言語の中で
+最も充実しています。Flix はフォーマッタと LSP を <code>flix.jar</code> に同梱する一方、
+カバレッジ取得の手段を持ちません。Prolog はコンパイラのロード時警告と <code>make</code> で
+最小限の品質ゲートを構成しており、専用の複雑度・カバレッジツールはありません。</p>
+<h2 id="_16">まとめ<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Nix</strong> により 16 言語の開発環境を <code>nix develop .#{lang}</code> の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し <code>flix.jar</code> と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供し、Prolog は Nix で SWI-Prolog 9.2 を提供します</li>
 <li><strong>ビルドツール</strong>は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます</li>
@@ -11273,7 +11403,7 @@ nix<span class="w"> </span>develop<span class="w"> </span>.#prolog
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

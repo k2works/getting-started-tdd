@@ -10026,7 +10026,7 @@
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">20</span><span class="p">).</span><span class="n">toList</span>
 <span class="kd">val</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span>
 <span class="w">  </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">generate</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">foldLeft</span><span class="p">(</span><span class="nc">List</span><span class="p">.</span><span class="n">empty</span><span class="p">[</span><span class="nc">String</span><span class="p">])((</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
 </code></pre></div>
 <p>for 内包表記も同じ考え方で使えます。</p>
@@ -10044,7 +10044,7 @@
 </code></pre></div>
 <p><code>LazyList.from(1)</code> は 1 から始まる無限列です。<code>map(generate)</code> を付けても、実際の計算は要素を取り出すまで実行されません。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">firstFive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">lazyList</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="n">toList</span>
-<span class="c1">// List(&quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;4&quot;, &quot;Buzz&quot;)</span>
+<span class="c1">// List("1", "2", "Fizz", "4", "Buzz")</span>
 </code></pre></div>
 <p>遅延評価の利点は次のとおりです。</p>
 <ul>
@@ -10054,13 +10054,13 @@
 </ul>
 <h2 id="115">11.5 テスト<a class="headerlink" href="#115" title="Permanent link">&para;</a></h2>
 <p><code>LazyList</code> は「必要なときだけ評価される」ことを確認するテストが重要です。</p>
-<div class="highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="s">&quot;lazyList: 遅延リストから最初の 5 要素を取得する&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="s">"lazyList: 遅延リストから最初の 5 要素を取得する"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">lazyList</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="n">toList</span>
-<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">))</span>
 <span class="p">}</span>
 
-<span class="n">test</span><span class="p">(</span><span class="s">&quot;lazyList: 遅延リストから 15 番目の要素を取得する&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">lazyList</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s">&quot;FizzBuzz&quot;</span><span class="p">)</span>
+<span class="n">test</span><span class="p">(</span><span class="s">"lazyList: 遅延リストから 15 番目の要素を取得する"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="nc">FizzBuzz</span><span class="p">.</span><span class="n">lazyList</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>先頭数件だけを取り出すテストと、任意の位置の要素を直接参照するテストを組み合わせると、遅延シーケンスの振る舞いを網羅できます。</p>
@@ -10139,7 +10139,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

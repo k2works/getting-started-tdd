@@ -10038,7 +10038,7 @@
 <p>プロジェクトでは Git を使ってソースコードを管理します。作業の区切りごとにコミットを行い、変更履歴を追跡できるようにします。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>init
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: FizzBuzz の基本実装を完了&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: FizzBuzz の基本実装を完了"</span>
 </code></pre></div>
 <h3 id="conventional-commits">Conventional Commits<a class="headerlink" href="#conventional-commits" title="Permanent link">&para;</a></h3>
 <p>コミットメッセージには <strong>Conventional Commits</strong> の規約を使います。</p>
@@ -10087,10 +10087,10 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
 <p>TDD のリズムに合わせてコミットします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># RED → GREEN → REFACTOR の 1 サイクルごとにコミット</span>
 $<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>-A
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat(clojure): 数を文字列にして返す fizzbuzz 関数を追加&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat(clojure): 数を文字列にして返す fizzbuzz 関数を追加"</span>
 
 <span class="c1"># リファクタリングは別コミット</span>
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;refactor(clojure): divisible-by? ヘルパー関数を抽出&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"refactor(clojure): divisible-by? ヘルパー関数を抽出"</span>
 </code></pre></div>
 <h2 id="43-gitignore">4.3 .gitignore の設定<a class="headerlink" href="#43-gitignore" title="Permanent link">&para;</a></h2>
 <p>Clojure プロジェクトでは以下のファイルをバージョン管理から除外します。</p>
@@ -10184,7 +10184,7 @@ pom.xml.asc
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

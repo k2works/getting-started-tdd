@@ -10268,18 +10268,18 @@ FizzBuzzListCommand  ──→ FizzBuzzType (基底クラス)
 <div class="highlight"><pre><span></span><code><span class="c1"># lib/fizz_buzz/fizz_buzz.rb</span>
 <span class="c1"># frozen_string_literal: true</span>
 
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/model/fizz_buzz_value&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/model/fizz_buzz_list&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/type/fizz_buzz_type&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/type/fizz_buzz_type_01&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/type/fizz_buzz_type_02&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;domain/type/fizz_buzz_type_03&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;application/fizz_buzz_command&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;application/fizz_buzz_value_command&#39;</span>
-<span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;application/fizz_buzz_list_command&#39;</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/model/fizz_buzz_value'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/model/fizz_buzz_list'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/type/fizz_buzz_type'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/type/fizz_buzz_type_01'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/type/fizz_buzz_type_02'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'domain/type/fizz_buzz_type_03'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'application/fizz_buzz_command'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'application/fizz_buzz_value_command'</span>
+<span class="n">require_relative</span><span class="w"> </span><span class="s1">'application/fizz_buzz_list_command'</span>
 </code></pre></div>
 <p>利用側は 1 つの require パスですべてのクラスにアクセスできます:</p>
-<div class="highlight"><pre><span></span><code><span class="n">require_relative</span><span class="w"> </span><span class="s1">&#39;../lib/fizz_buzz/fizz_buzz&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">require_relative</span><span class="w"> </span><span class="s1">'../lib/fizz_buzz/fizz_buzz'</span>
 </code></pre></div>
 <p><strong>require の順序が重要</strong>: <code>FizzBuzzValue</code> → <code>FizzBuzzList</code> → <code>FizzBuzzType</code> → サブクラス → <code>FizzBuzzCommand</code> → コマンド実装の順に読み込む必要があります。これは Ruby が定数を参照する時点でクラスが定義済みである必要があるためです。</p>
 <h2 id="94">9.4 テストの再編成<a class="headerlink" href="#94" title="Permanent link">&para;</a></h2>
@@ -10466,7 +10466,7 @@ test/fizz_buzz/
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

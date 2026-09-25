@@ -10205,7 +10205,7 @@
 <h3 id="_2">解決: 複合項による値オブジェクト<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>オブジェクト指向言語では、値オブジェクトをクラス（Kotlin の <code>data class</code>、Java の <code>record</code>）で表現します。Prolog では、番号と変換結果を <strong>複合項</strong> <code>fizzbuzz_value(Number, Value)</code> にまとめます。ファンクタ名 <code>fizzbuzz_value</code> が「これは FizzBuzz の値である」という意味を与え、2 つの引数が構造化されたデータを保持します。</p>
 <h3 id="red">Red: 値オブジェクトのテスト<a class="headerlink" href="#red" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_value</span><span class="p">).</span>
 
@@ -10214,11 +10214,11 @@
     <span class="nf">value_number</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">N</span><span class="p">),</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
     <span class="nf">assertion</span><span class="p">(</span><span class="nv">N</span> <span class="o">==</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">value_is_a_compound_term</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">value_create</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">V</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">V</span> <span class="o">==</span> <span class="nf">fizzbuzz_value</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">V</span> <span class="o">==</span> <span class="nf">fizzbuzz_value</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)).</span>
 
 <span class="p">:-</span> <span class="nf">end_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_value</span><span class="p">).</span>
 </code></pre></div>
@@ -10347,9 +10347,9 @@
 <h3 id="_6">解決: データとしての項 + 解釈述語<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>オブジェクト指向言語では、コマンドを <code>sealed class</code> やインターフェースの実装として表現します。Prolog では、コマンドそのものを <strong>複合項</strong> <code>value_command(Type)</code> / <code>list_command(Type)</code> で表し、それを解釈する述語 <code>execute/3</code> を <strong>複数節</strong> で定義します。「データとしての項」と「それを解釈する述語」という組み合わせが、宣言的なコマンドパターンになります。</p>
 <h3 id="red_1">Red: コマンドのテスト<a class="headerlink" href="#red_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_command&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_list&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_command'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_list'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_command</span><span class="p">).</span>
 
@@ -10359,7 +10359,7 @@
     <span class="nf">assertion</span><span class="p">(</span><span class="nv">Count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span>
     <span class="nv">Values</span> <span class="o">=</span> <span class="p">[</span><span class="nv">V</span><span class="p">],</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">list_command_returns_list</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">execute</span><span class="p">(</span><span class="nf">list_command</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">),</span> <span class="mi">15</span><span class="p">,</span> <span class="nv">Values</span><span class="p">),</span>
@@ -10415,7 +10415,7 @@
 <span class="nf">type_create</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s s-Atom">type_02</span><span class="p">))</span> <span class="p">:-</span> <span class="p">!.</span>
 <span class="nf">type_create</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nf">ok</span><span class="p">(</span><span class="s s-Atom">type_03</span><span class="p">))</span> <span class="p">:-</span> <span class="p">!.</span>
 <span class="nf">type_create</span><span class="p">(</span><span class="nv">No</span><span class="p">,</span> <span class="nf">error</span><span class="p">(</span><span class="nv">Message</span><span class="p">))</span> <span class="p">:-</span>
-    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">&quot;該当するタイプは存在しません: ~w&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">No</span><span class="p">]).</span>
+    <span class="nf">format</span><span class="p">(</span><span class="nf">string</span><span class="p">(</span><span class="nv">Message</span><span class="p">),</span> <span class="s2">"該当するタイプは存在しません: ~w"</span><span class="p">,</span> <span class="p">[</span><span class="nv">No</span><span class="p">]).</span>
 </code></pre></div>
 <ul>
 <li><code>ok(Type)</code> / <code>error(Message)</code> は、成功と失敗を <strong>区別された複合項</strong> で表します。Kotlin の <code>Result</code>、Flix の <code>Result</code> に相当し、「成功なら <code>ok</code>、失敗なら <code>error</code>」という結果を項の構造で表現します。</li>
@@ -10572,7 +10572,7 @@
 <details>
 <summary>test/fizzbuzz_value.plt</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_value</span><span class="p">).</span>
 
@@ -10581,11 +10581,11 @@
     <span class="nf">value_number</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">N</span><span class="p">),</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
     <span class="nf">assertion</span><span class="p">(</span><span class="nv">N</span> <span class="o">==</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">value_is_a_compound_term</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">value_create</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">V</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">V</span> <span class="o">==</span> <span class="nf">fizzbuzz_value</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">V</span> <span class="o">==</span> <span class="nf">fizzbuzz_value</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)).</span>
 
 <span class="p">:-</span> <span class="nf">end_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_value</span><span class="p">).</span>
 </code></pre></div>
@@ -10595,9 +10595,9 @@
 <details>
 <summary>test/fizzbuzz_command.plt</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_command&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_value&#39;</span><span class="p">).</span>
-<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">&#39;../src/fizzbuzz_list&#39;</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_command'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_value'</span><span class="p">).</span>
+<span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="s s-Atom">'../src/fizzbuzz_list'</span><span class="p">).</span>
 
 <span class="p">:-</span> <span class="nf">begin_tests</span><span class="p">(</span><span class="s s-Atom">fizzbuzz_command</span><span class="p">).</span>
 
@@ -10607,7 +10607,7 @@
     <span class="nf">assertion</span><span class="p">(</span><span class="nv">Count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span>
     <span class="nv">Values</span> <span class="o">=</span> <span class="p">[</span><span class="nv">V</span><span class="p">],</span>
     <span class="nf">value_value</span><span class="p">(</span><span class="nv">V</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span>
-    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">).</span>
+    <span class="nf">assertion</span><span class="p">(</span><span class="nv">S</span> <span class="o">==</span> <span class="s2">"Fizz"</span><span class="p">).</span>
 
 <span class="nf">test</span><span class="p">(</span><span class="s s-Atom">list_command_returns_list</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">execute</span><span class="p">(</span><span class="nf">list_command</span><span class="p">(</span><span class="s s-Atom">type_01</span><span class="p">),</span> <span class="mi">15</span><span class="p">,</span> <span class="nv">Values</span><span class="p">),</span>
@@ -10685,7 +10685,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10133,7 +10133,7 @@
 <span class="w">        </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$&quot;{Number}:{Value}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{Number}:{Value}"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Equals</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="o">?</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -10200,7 +10200,7 @@
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="err">値を追加できる</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">));</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">newList</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span><span class="w"> </span><span class="c1">// 元のリストは変更されない</span>
 <span class="w">    </span><span class="p">}</span>
@@ -10210,12 +10210,12 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FizzBuzzValue</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">),</span>
-<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">),</span>
-<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">FizzBuzzValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">)</span>
 <span class="w">        </span><span class="p">});</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">ToStringValues</span><span class="p">();</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Buzz&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">strings</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">strings</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10250,7 +10250,7 @@
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="w"> </span><span class="nf">ExecuteList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">NotSupportedException</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;FizzBuzzValueCommand does not support list execution.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="s">"FizzBuzzValueCommand does not support list execution."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10267,7 +10267,7 @@
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="nf">ExecuteValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">NotSupportedException</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;FizzBuzzListCommand does not support single value execution.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="s">"FizzBuzzListCommand does not support single value execution."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="w"> </span><span class="nf">ExecuteList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
@@ -10289,7 +10289,7 @@
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FizzBuzzValueCommand</span><span class="p">(</span>
 <span class="w">            </span><span class="n">FizzBuzzTypeFactory</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">FizzBuzzTypeName</span><span class="p">.</span><span class="n">Standard</span><span class="p">));</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">command</span><span class="p">.</span><span class="n">ExecuteValue</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Fizz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Fact]</span>
@@ -10418,7 +10418,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10169,17 +10169,17 @@
 <p><code>package.json</code> の <code>scripts</code> セクションでコマンドを定義し、<code>npm run &lt;script名&gt;</code> で実行できます。第 1 部から使ってきた <code>npm test</code> も npm scripts の機能です。</p>
 <h3 id="_1">品質チェックスクリプト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vitest run&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;test:watch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vitest&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;test:coverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vitest run --coverage&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eslint src/ test/&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;lint:fix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eslint src/ test/ --fix&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prettier --write \&quot;src/**/*.ts\&quot; \&quot;test/**/*.ts\&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;format:check&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prettier --check \&quot;src/**/*.ts\&quot; \&quot;test/**/*.ts\&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;typecheck&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc --noEmit&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;check&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npm run format:check &amp;&amp; npm run lint &amp;&amp; npm run typecheck &amp;&amp; npm test&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;fix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npm run format &amp;&amp; npm run lint:fix&quot;</span>
+<span class="w">  </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vitest run"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"test:watch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vitest"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"test:coverage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vitest run --coverage"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint src/ test/"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"lint:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint src/ test/ --fix"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write \"src/**/*.ts\" \"test/**/*.ts\""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check \"src/**/*.ts\" \"test/**/*.ts\""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"typecheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc --noEmit"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format:check &amp;&amp; npm run lint &amp;&amp; npm run typecheck &amp;&amp; npm test"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format &amp;&amp; npm run lint:fix"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10235,26 +10235,26 @@
 </code></pre></div>
 <h3 id="gulpfilejs">gulpfile.js の設定<a class="headerlink" href="#gulpfilejs" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// gulpfile.js</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">watch</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;gulp&quot;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">shell</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;gulp-shell&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">watch</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"gulp"</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">shell</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"gulp-shell"</span><span class="p">;</span>
 
 <span class="c1">// 基本タスク</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run test&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">coverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run test:coverage&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run lint&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">lintFix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run lint:fix&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run format&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">formatCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run format:check&quot;</span><span class="p">]);</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">typecheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">&quot;npm run typecheck&quot;</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run test"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">coverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run test:coverage"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run lint"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">lintFix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run lint:fix"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run format"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">formatCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run format:check"</span><span class="p">]);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">typecheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shell</span><span class="p">.</span><span class="nx">task</span><span class="p">([</span><span class="s2">"npm run typecheck"</span><span class="p">]);</span>
 
 <span class="c1">// 複合タスク：リント修正 → フォーマット → テスト</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkAndFix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">series</span><span class="p">(</span><span class="nx">lintFix</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="p">,</span><span class="w"> </span><span class="nx">test</span><span class="p">);</span>
 
 <span class="c1">// ファイル監視タスク（Guard 機能）</span>
 <span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">guard</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Guard is watching for file changes...&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">watch</span><span class="p">(</span><span class="s2">&quot;src/**/*.ts&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="p">(</span><span class="nx">lintFix</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="p">,</span><span class="w"> </span><span class="nx">test</span><span class="p">));</span>
-<span class="w">  </span><span class="nx">watch</span><span class="p">(</span><span class="s2">&quot;test/**/*.ts&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="p">(</span><span class="nx">test</span><span class="p">));</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Guard is watching for file changes..."</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">watch</span><span class="p">(</span><span class="s2">"src/**/*.ts"</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="p">(</span><span class="nx">lintFix</span><span class="p">,</span><span class="w"> </span><span class="nx">format</span><span class="p">,</span><span class="w"> </span><span class="nx">test</span><span class="p">));</span>
+<span class="w">  </span><span class="nx">watch</span><span class="p">(</span><span class="s2">"test/**/*.ts"</span><span class="p">,</span><span class="w"> </span><span class="nx">series</span><span class="p">(</span><span class="nx">test</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="c1">// デフォルトタスク</span>
@@ -10289,12 +10289,12 @@ $<span class="w"> </span>npx<span class="w"> </span>gulp<span class="w"> </span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/node/**&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;.github/workflows/node-ci.yml&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/node/**"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">".github/workflows/node-ci.yml"</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;apps/node/**&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"apps/node/**"</span>
 
 <span class="nt">permissions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
@@ -10316,27 +10316,27 @@ $<span class="w"> </span>npx<span class="w"> </span>gulp<span class="w"> </span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/nix-cache</span>
-<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-node-${{ hashFiles(&#39;flake.lock&#39;, &#39;ops/nix/environments/node/shell.nix&#39;) }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-nix-node-${{ hashFiles('flake.lock', 'ops/nix/environments/node/shell.nix') }}</span>
 <span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">            </span><span class="no">${{ runner.os }}-nix-node-</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm install&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm install"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run format check</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm run format:check&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm run format:check"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run lint</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm run lint&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm run lint"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run type check</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm run typecheck&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm run typecheck"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm test&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm test"</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run coverage</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c &quot;cd apps/node &amp;&amp; npm run test:coverage&quot;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nix develop .#node --command bash -c "cd apps/node &amp;&amp; npm run test:coverage"</span>
 </code></pre></div>
 <h3 id="_4">ワークフローのポイント<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
@@ -10557,7 +10557,7 @@ $<span class="w"> </span>npx<span class="w"> </span>gulp<span class="w"> </span>
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

@@ -10333,23 +10333,23 @@
 <h3 id="composerjson">composer.json の構成<a class="headerlink" href="#composerjson" title="Permanent link">&para;</a></h3>
 <p>本プロジェクトの <code>composer.json</code> は以下のようになっています。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fizzbuzz/php-tdd&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FizzBuzz implementation using TDD in PHP&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;php&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^8.1&quot;</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fizzbuzz/php-tdd"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FizzBuzz implementation using TDD in PHP"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"php"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.1"</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;require-dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;phpunit/phpunit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^10.0&quot;</span>
+<span class="w">    </span><span class="nt">"require-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"phpunit/phpunit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.0"</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;App\\&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span>
+<span class="w">    </span><span class="nt">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"App\\"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;autoload-dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;App\\Tests\\&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tests/&quot;</span>
+<span class="w">    </span><span class="nt">"autoload-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"App\\Tests\\"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tests/"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -10423,10 +10423,10 @@ $<span class="w"> </span>composer<span class="w"> </span>require<span class="w">
 </code></pre></div>
 <p>追加後の <code>composer.json</code> は以下のようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;require-dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;phpunit/phpunit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^10.0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;squizlabs/php_codesniffer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;phpstan/phpstan&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.0&quot;</span>
+<span class="w">    </span><span class="nt">"require-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"phpunit/phpunit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.0"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"squizlabs/php_codesniffer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"phpstan/phpstan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10445,8 +10445,8 @@ $<span class="w"> </span>composer<span class="w"> </span>require<span class="w">
 <p>Ruby の RuboCop、Java の Checkstyle、TypeScript の ESLint、Python の Ruff、Go の golangci-lint に相当するツールです。</p>
 <h3 id="phpcsxml">設定ファイル（phpcs.xml）<a class="headerlink" href="#phpcsxml" title="Permanent link">&para;</a></h3>
 <p>プロジェクトルートに <code>phpcs.xml</code> を作成します。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FizzBuzz PHP Coding Standard&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">"FizzBuzz PHP Coding Standard"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;description&gt;</span>PSR-12<span class="w"> </span>based<span class="w"> </span>coding<span class="w"> </span>standard<span class="w"> </span>for<span class="w"> </span>FizzBuzz<span class="w"> </span>project<span class="nt">&lt;/description&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- チェック対象 --&gt;</span>
@@ -10454,7 +10454,7 @@ $<span class="w"> </span>composer<span class="w"> </span>require<span class="w">
 <span class="w">    </span><span class="nt">&lt;file&gt;</span>tests<span class="nt">&lt;/file&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- PSR-12 コーディング規約をベースに --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;PSR12&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"PSR12"</span><span class="nt">/&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- 除外パターン --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;exclude-pattern&gt;</span>vendor/*<span class="nt">&lt;/exclude-pattern&gt;</span>
@@ -10480,7 +10480,7 @@ $<span class="w"> </span>vendor/bin/phpcbf
     <span class="k">public</span> <span class="k">function</span> <span class="nf">generate</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$number</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
     <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nv">$number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// インデントが崩れている</span>
-            <span class="k">return</span> <span class="s1">&#39;FizzBuzz&#39;</span><span class="p">;</span>
+            <span class="k">return</span> <span class="s1">'FizzBuzz'</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$number</span><span class="p">;</span>
     <span class="p">}</span>
@@ -10619,41 +10619,41 @@ src/FizzBuzz.php<span class="w">              </span><span class="m">1</span><sp
 </table>
 <h3 id="phpmdxml">設定ファイル（phpmd.xml）<a class="headerlink" href="#phpmdxml" title="Permanent link">&para;</a></h3>
 <p>プロジェクトルートに <code>phpmd.xml</code> を作成します。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FizzBuzz PHPMD Rules&quot;</span>
-<span class="w">         </span><span class="na">xmlns=</span><span class="s">&quot;http://pmd.sf.net/ruleset/1.0.0&quot;</span>
-<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://pmd.sf.net/ruleset/1.0.0</span>
-<span class="s">                             http://pmd.sf.net/ruleset_xml_schema.xsd&quot;</span>
-<span class="w">         </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;http://pmd.sf.net/ruleset_xml_schema.xsd&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;ruleset</span><span class="w"> </span><span class="na">name=</span><span class="s">"FizzBuzz PHPMD Rules"</span>
+<span class="w">         </span><span class="na">xmlns=</span><span class="s">"http://pmd.sf.net/ruleset/1.0.0"</span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">"http://pmd.sf.net/ruleset/1.0.0</span>
+<span class="s">                             http://pmd.sf.net/ruleset_xml_schema.xsd"</span>
+<span class="w">         </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"http://pmd.sf.net/ruleset_xml_schema.xsd"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;description&gt;</span>FizzBuzz<span class="w"> </span>project<span class="w"> </span>PHPMD<span class="w"> </span>rules<span class="nt">&lt;/description&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- 循環的複雑度: 7 以下に制限 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;rulesets/codesize.xml/CyclomaticComplexity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"rulesets/codesize.xml/CyclomaticComplexity"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;reportLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;7&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"reportLevel"</span><span class="w"> </span><span class="na">value=</span><span class="s">"7"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- NPath 複雑度 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;rulesets/codesize.xml/NPathComplexity&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"rulesets/codesize.xml/NPathComplexity"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- メソッドの行数: 30 行以下 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;rulesets/codesize.xml/ExcessiveMethodLength&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"rulesets/codesize.xml/ExcessiveMethodLength"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maximum&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;30&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"maximum"</span><span class="w"> </span><span class="na">value=</span><span class="s">"30"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- パラメータ数: 5 以下 --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;rulesets/codesize.xml/ExcessiveParameterList&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"rulesets/codesize.xml/ExcessiveParameterList"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;properties&gt;</span>
-<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maximum&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"maximum"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- 未使用のプライベートフィールド --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;rulesets/unusedcode.xml&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"rulesets/unusedcode.xml"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/ruleset&gt;</span>
 </code></pre></div>
 <p><code>reportLevel: 7</code> は他言語（Python の <code>max-complexity = 7</code>、TypeScript の <code>complexity: ["error", { max: 7 }]</code>）と同じ基準です。</p>
@@ -10694,9 +10694,9 @@ src/FizzBuzz.php<span class="w">              </span><span class="m">1</span><sp
 <p>エラーが報告されなければ、すべてのメソッドの複雑度が基準値以下です。現在の <code>FizzBuzzType01::generate()</code> メソッドの循環的複雑度は <strong>4</strong> で、基準値 7 を十分に下回っています。</p>
 <h3 id="composer-scripts">Composer scripts への追加<a class="headerlink" href="#composer-scripts" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;complexity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vendor/bin/phpmd src text phpmd.xml&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;check&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;@lint&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@analyse&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@complexity&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;@test&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"complexity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendor/bin/phpmd src text phpmd.xml"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"check"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"@lint"</span><span class="p">,</span><span class="w"> </span><span class="s2">"@analyse"</span><span class="p">,</span><span class="w"> </span><span class="s2">"@complexity"</span><span class="p">,</span><span class="w"> </span><span class="s2">"@test"</span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -10879,7 +10879,7 @@ $<span class="w"> </span>vendor/bin/phpunit<span class="w"> </span>--coverage-ht
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       

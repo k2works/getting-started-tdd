@@ -10066,31 +10066,31 @@
         <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_number</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_number</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_number</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 <h3 id="_1">テスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TestFizzBuzzValue</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test_値を保持する</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">value</span><span class="o">.</span><span class="n">number</span> <span class="o">==</span> <span class="mi">1</span>
-        <span class="k">assert</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
+        <span class="k">assert</span> <span class="n">value</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">"1"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test_同じ値は等しい</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">)</span> <span class="o">==</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test_文字列表現</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">repr</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;3:Fizz&quot;</span>
+        <span class="k">assert</span> <span class="nb">repr</span><span class="p">(</span><span class="n">FizzBuzzValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"3:Fizz"</span>
 </code></pre></div>
 <h3 id="fizzbuzztype">FizzBuzzType の更新<a class="headerlink" href="#fizzbuzztype" title="Permanent link">&para;</a></h3>
 <p><code>generate</code> の戻り値を <code>str</code> から <code>FizzBuzzValue</code> に変更します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzType01</span><span class="p">(</span><span class="n">FizzBuzzType</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FizzBuzzValue</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_fizz_buzz</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">"FizzBuzz"</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_fizz</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot;Fizz&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">"Fizz"</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_buzz</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">"Buzz"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="83-first-class-collection">8.3 First-Class Collection<a class="headerlink" href="#83-first-class-collection" title="Permanent link">&para;</a></h2>
@@ -10117,7 +10117,7 @@
         <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
+        <span class="k">return</span> <span class="s2">"["</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"]"</span>
 </code></pre></div>
 <h2 id="84-command">8.4 Command パターン<a class="headerlink" href="#84-command" title="Permanent link">&para;</a></h2>
 <p>操作をオブジェクトとしてカプセル化します。</p>
@@ -10152,11 +10152,11 @@
 <p>未定義のタイプに対して例外ではなくデフォルト動作を返します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzTypeNotDefined</span><span class="p">(</span><span class="n">FizzBuzzType</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FizzBuzzValue</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">FizzBuzzValue</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 </code></pre></div>
 <p>ファクトリメソッドを更新します。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">type_</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FizzBuzzType&quot;</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">type_</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"FizzBuzzType"</span><span class="p">:</span>
     <span class="n">types</span> <span class="o">=</span> <span class="p">{</span>
         <span class="mi">1</span><span class="p">:</span> <span class="n">FizzBuzzType01</span><span class="p">,</span>
         <span class="mi">2</span><span class="p">:</span> <span class="n">FizzBuzzType02</span><span class="p">,</span>
@@ -10269,7 +10269,7 @@
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
         <script src="../../../docs/assets/js/extra.js"></script>
       
