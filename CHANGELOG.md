@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [4.2.0] - 2026-09-25
+
+学習ロードマップに、16 言語の性格を『Fate/stay night』の登場人物で例えるコラムを追加。作品を知らない読者向けの前提解説と公式サイトへのリンクを併記。
+
+### Documentation
+
+- docs(integration): 言語の性格を掴むコラムを追加 (dee28ce)
+- docs(integration): コラムに作品の前提解説と公式サイトへのリンクを追加 (9d21fc4)
+
 ## [4.1.0] - 2026-09-25
 
 多言語統合解説に mermaid レーダーチャートによる比較を追加。パラダイム特性・テストフレームワーク・型安全性・開発環境の 4 領域と、それらを集約したトータルスコア比較を可視化。mermaid を 11.17.2 へ更新。
