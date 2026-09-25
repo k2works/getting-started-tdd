@@ -44,6 +44,8 @@
 | 4 | [型システムとエラーハンドリング比較](04-type-system-comparison.md) | 静的/動的型付け、Option/Result パターン、型安全性 |
 | 5 | [開発環境と CI/CD 比較](05-dev-environment-comparison.md) | Nix 統一環境、ビルド/リンター比較、CI/CD パターン |
 | 6 | [学習ロードマップ](06-learning-roadmap.md) | 推奨学習順序、概念マップ、次のステップ |
+| 7 | [トータルスコアによる総合比較](07-total-score-comparison.md) | 4 領域に集約した 16 言語のトータルスコアと読み方 |
+| 8 | [コラム: 言語の性格を比喩で掴む](08-language-personality-column.md) | 16 言語の性格を比喩で整理（参考コラム） |
 
 ## 読み方のガイド
 
