@@ -82,9 +82,10 @@ Phase 3 完了後に追加した 3 言語（イテレーション 13〜15、計 
 執筆計画は [記事アウトライン](../article/outline.md) の「追加執筆計画」、
 実績は [リリース計画](./release_plan.md) の Phase 4 節に記載。
 
-- IT13 Kotlin（13 SP） - [記事](../article/kotlin/index.md) / `apps/kotlin` / 16 テスト
+- IT13 Kotlin（13 SP） - [記事](../article/kotlin/index.md) / `apps/kotlin` / 39 テスト
 - IT14 Flix（13 SP） - [記事](../article/flix/index.md) / `apps/flix` / 45 テスト
 - IT15 Prolog（13 SP） - [記事](../article/prolog/index.md) / `apps/prolog` / 28 テスト
+- [Phase 4 完了報告書](./iteration_report-phase4.md) - IT13〜15 の実績・KPT・残作業
 
 ## テスト実行環境
 

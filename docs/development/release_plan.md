@@ -267,7 +267,7 @@ gantt
 **リリース条件**:
 
 - [x] 全記事のレビュー完了
-- [x] 全言語のテストがパス（Kotlin 16 + Flix 45 + Prolog 28）
+- [x] 全言語のテストがパス（Kotlin 39 + Flix 45 + Prolog 28）
 - [x] 統合解説・`docs/article/index.md` に 3 言語を反映
 - [ ] Release 4.0 のタグ付け
 
