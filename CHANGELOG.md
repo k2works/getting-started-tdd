@@ -4,6 +4,77 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [4.0.0] - 2026-09-25
+
+Phase 4 完了 — Kotlin / Flix / Prolog の 3 言語 × 12 章 = 36 章の TDD 入門記事と実装。全 15 言語 + 統合解説となり、全アプリのテストがグリーン。
+
+### Features
+
+- feat(flix): FizzBuzz の TDD 実装（第 1〜2 章） (ecbffda)
+- feat(flix): リスト生成と出力を実装 (1747330)
+- feat(flix): 列挙型・トレイト・コマンドで FizzBuzz を構造化 (53c774c)
+- feat(flix): 高階関数・パイプライン・代数的効果を実装 (18e8c39)
+- feat(kotlin): FizzBuzz を全 4 部の題材で TDD 実装 (3101518)
+- feat(prolog): SWI-Prolog 環境と FizzBuzz 実装一式を追加 (df7a4b6)
+
+### Bug Fixes
+
+- fix(docs): mermaid 10.6.1 非対応の xychart-beta をテーブルに置換 (c1ca3da)
+- fix(kotlin): Kotlin プラグインを 2.2.20 に更新 (0c32505)
+
+### Documentation
+
+- docs: リリース計画に実績ガントチャートを追加 (3840e0f)
+- docs: 言語数の表記を 12 言語から 14 言語に統一 (368135a)
+- docs: 多言語記事と設計資料テンプレートを追加 (90b7cee)
+- docs: 記事タイトルと関連ドキュメントを更新 (d0a78c1)
+- docs: README の記事タイトルを修正 (14cc557)
+- docs: README のクイックスタートを整理 (c876f08)
+- docs(flix): 対象言語に Flix を追加し記事の骨子と第 1 章を執筆 (2c9d039)
+- docs(flix): 第 2〜3 章を執筆し第 1 部を完成 (6038319)
+- docs(flix): 第 4〜6 章を執筆し第 2 部を完成 (cf77c41)
+- docs(flix): 第 7〜9 章を執筆し第 3 部を完成 (81782ac)
+- docs(flix): 第 10〜12 章を執筆し全 12 章を完成 (5d0bec8)
+- docs(integration): 多言語統合解説に Flix を反映 (2ffa430)
+- docs(flix): Nix 環境の整備状況を反映 (245f3b6)
+- docs(skill): creating-article スキルを追加 (e08ebec)
+- docs(skill): creating-article の description を最適化 (d5eac36)
+- docs(kotlin): 対象言語に Kotlin を追加し記事の骨子を作成 (d22f938)
+- docs(kotlin): 全 12 章を執筆し第 1〜4 部を完成 (0883ef2)
+- docs(integration): 多言語統合解説に Kotlin を反映 (d409b3d)
+- docs(prolog): シリーズ骨子に Prolog を追加 (1736f46)
+- docs(prolog): 全 12 章を執筆し第 1〜4 部を完成 (f360be6)
+- docs(integration): 多言語統合解説に Prolog を反映 (de9d798)
+- docs(prolog): 追加執筆計画と進捗表を完了に更新 (0a94d3b)
+- docs: elixir 目次のリンク切れ修正と重複ツリー docs/docs を削除 (f92c2d3)
+- docs(elixir): 目次の第 10・12 章リンク切れを修正 (8ec3053)
+- docs: reference のリンク切れ修正と template を build から除外 (4180134)
+- docs(kotlin): 記事ディレクトリの状態を完了に更新 (ea6894e)
+- docs(plan): Phase 4（Kotlin・Flix・Prolog）をリリース計画に反映 (3cb6365)
+- docs(plan): 開発ドキュメント索引に Phase 4 とテスト実行環境を追記 (e41c9c9)
+- docs(plan): Phase 4 完了報告書を追加 (01a62cb)
+
+### Refactoring
+
+- refactor(kotlin): ドメインを 3 層パッケージへ再編成し ch9 を Ruby と同構成に (e4aadd9)
+
+### Build
+
+- build(kotlin): Gradle Wrapper を追加 (c124008)
+- build(java): Gradle デーモンの JVM を 21 に固定 (925f258)
+
+### CI
+
+- ci(flix): Nix 対応の GitHub Actions ワークフローを追加 (f65abb8)
+- ci(kotlin): Nix 対応の GitHub Actions ワークフローを追加 (35707d0)
+- ci(prolog): Nix 対応の GitHub Actions ワークフローを追加 (b084a5c)
+
+### Chores
+
+- chore(flix): 開発タスク用の Makefile を追加 (2dbb2ed)
+- chore(flix): Nix 開発環境を追加 (3fae093)
+- chore(kotlin): Nix 環境と Gradle プロジェクト雛形を追加 (3b14427)
+
 ## [3.0.0] - 2026-03-04
 
 Phase 3 完了 — Clojure / Scala / Elixir / Haskell の 4 言語 × 12 章 + 多言語統合解説 6 章 = 54 章の TDD 入門記事と実装。全 14 言語 + 統合解説でプロジェクト完了。
