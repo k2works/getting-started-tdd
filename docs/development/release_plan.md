@@ -269,7 +269,7 @@ gantt
 - [x] 全記事のレビュー完了
 - [x] 全言語のテストがパス（Kotlin 39 + Flix 45 + Prolog 28）
 - [x] 統合解説・`docs/article/index.md` に 3 言語を反映
-- [ ] Release 4.0 のタグ付け
+- [x] **v4.0.0 リリース済み（2026-09-25）**
 
 ---
 
@@ -600,7 +600,7 @@ gantt
 33. ~~Phase 4: Flix 第 1〜12 章の執筆・実装を完了~~ ✅
 34. ~~Phase 4: Prolog 第 1〜12 章の執筆・実装を完了~~ ✅
 35. ~~全 15 アプリのテスト実行によるグリーン確認~~ ✅
-36. Release 4.0 のタグ付けと CHANGELOG 生成
+36. ~~Release 4.0 のタグ付けと CHANGELOG 生成~~ ✅
 
 ---
 
@@ -630,3 +630,4 @@ gantt
 | 2026-03-04 | IT12 ふりかえり・完了報告書作成、IT12 チェックボックス更新 | AI |
 | 2026-03-04 | Release 3.0 リリース（v3.0.0 タグ、CHANGELOG 生成、Milestone クローズ）、プロジェクト完了 | AI |
 | 2026-09-25 | Phase 4（Kotlin・Flix・Prolog 各 13 SP = 39 SP）を計画へ反映、Release 4.0 を追記、全 15 アプリのテストグリーン確認 | AI |
+| 2026-09-25 | Release 4.0 リリース（v4.0.0 タグ、CHANGELOG 生成、package.json 4.0.0） | AI |

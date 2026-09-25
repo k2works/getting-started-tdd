@@ -122,7 +122,7 @@ Prolog では OOP のクラス階層が存在しないため、第 3 部を
 
 ## 残作業
 
-- Release 4.0 のタグ付け（v4.0.0）と CHANGELOG 生成
+- ~~Release 4.0 のタグ付け（v4.0.0）と CHANGELOG 生成~~ ✅（2026-09-25）
 - haskell のホスト環境ビルド（GHC 更新または `ar` 指定）の検討
 
 ---
