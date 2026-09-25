@@ -403,6 +403,58 @@ test(returns_fizz_for_multiple_of_3) :-
 | Kotlin | リスト反復 + `assertEquals` | `listOf(...).forEach { (n, e) -> ... }` |
 | Prolog | `forall` オプション | `test(name, [forall(member(N-E, Cases))])` |
 
+## テストフレームワーク特性のレーダー比較
+
+前節までの比較を 5 つの軸で数値化します。
+
+### 評価軸と基準
+
+| 軸 | 0〜1 | 2〜3 | 4〜5 |
+|----|------|------|------|
+| 標準搭載度 | 外部ライブラリの導入が必須 | 準標準として広く使われる | 言語/ランタイムに同梱 |
+| グルーピング | ブロック単位で固定 | クラス/モジュール単位 | 制限なくネスト可能 |
+| セットアップ機構 | 仕組みを持たない | 関数呼び出しやオプションで代替 | 専用の前後処理フックを持つ |
+| パラメータ化 | 手動ループのみ | マクロやループで表現 | 専用構文を持つ |
+| アサーション表現力 | 等値比較のみ | 主要なマッチャーを持つ | 豊富なマッチャーと差分表示 |
+
+### アノテーション / アトリビュートベース
+
+```mermaid
+radar-beta
+  title アノテーション系テストフレームワークの特性
+  axis std["標準搭載度"], gr["グルーピング"], su["セットアップ機構"]
+  axis pt["パラメータ化"], as["アサーション表現力"]
+  curve junit["Java / JUnit 5"]{2, 5, 5, 5, 4}
+  curve xunit["C# / xUnit"]{4, 3, 4, 5, 3}
+  curve ktest["Kotlin / kotlin.test"]{4, 5, 4, 2, 3}
+  curve flix["Flix / flix test"]{5, 2, 1, 2, 2}
+  max 5
+  min 0
+```
+
+JUnit 5 は `@Nested`・`@BeforeEach`・`@ParameterizedTest` を揃え、最も機能が充実して
+います。Flix は `flix.jar` に同梱されるため標準搭載度が最大ですが、セットアップ用の
+フックを持たず関数呼び出しで代替します。
+
+### describe/it・関数・述語ベース
+
+```mermaid
+radar-beta
+  title describe/it 系・関数系テストフレームワークの特性
+  axis std["標準搭載度"], gr["グルーピング"], su["セットアップ機構"]
+  axis pt["パラメータ化"], as["アサーション表現力"]
+  curve pytest["Python / pytest"]{3, 5, 5, 5, 4}
+  curve vitest["TypeScript / Vitest"]{2, 5, 5, 5, 5}
+  curve hspec["Haskell / HSpec"]{2, 5, 4, 3, 4}
+  curve plunit["Prolog / plunit"]{5, 2, 3, 4, 2}
+  max 5
+  min 0
+```
+
+pytest と Vitest はフィクスチャ/フックと専用のパラメータ化構文を備え、表現力が高く
+なります。plunit は SWI-Prolog 標準同梱で `forall` オプションによるパラメータ化も
+持ちますが、グルーピングは `begin_tests`/`end_tests` のブロック単位に限られます。
+
 ## まとめ
 
 テストフレームワークの選択は言語の設計思想と密接に関連しています。

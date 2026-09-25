@@ -362,6 +362,60 @@ tasks:
 | Kotlin | `gradle test --continuous` | 変更検知で自動テスト |
 | Prolog | `make test`（再ロード） | consult で即時再読み込み |
 
+## 開発環境の充実度レーダー比較
+
+ビルドツール・リンター・品質ゲートの対応状況を 6 軸で数値化します。
+
+### 評価軸と基準
+
+| 軸 | 0〜1 | 2〜3 | 4〜5 |
+|----|------|------|------|
+| 依存管理 | 手動配置 | 標準的なパッケージマネージャ | ロックファイルと一体化した公式ツール |
+| Lint | 専用ツールなし | コンパイラ警告で代替 | 複数の専用リンターを併用 |
+| フォーマッタ | 専用ツールなし | 外部ツールを追加 | 公式フォーマッタを同梱 |
+| 複雑度チェック | 対応ツールなし | 間接的に検出 | リンターに複雑度メトリクスを内蔵 |
+| カバレッジ | 取得手段なし | 外部ツールで取得可能 | 標準的なツールが確立 |
+| タスクランナー | 手動でコマンドを実行 | Makefile 等で補完 | ビルドツールがタスクを内蔵 |
+
+### 主流言語
+
+```mermaid
+radar-beta
+  title 主流言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve java["Java"]{4, 5, 3, 5, 5, 5}
+  curve ts["TypeScript"]{5, 5, 5, 4, 5, 4}
+  curve python["Python"]{4, 5, 5, 4, 5, 3}
+  curve rust["Rust"]{5, 5, 5, 4, 3, 4}
+  max 5
+  min 0
+```
+
+Rust は Cargo・Clippy・rustfmt が公式ツールとして一体化しており、追加設定がほとんど
+不要です。Java は Checkstyle・PMD・JaCoCo と Gradle タスクにより品質ゲートが最も
+充実していますが、フォーマッタは外部ツールに依存します。
+
+### 追加言語・関数型言語
+
+```mermaid
+radar-beta
+  title 追加言語・関数型言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve kotlin["Kotlin"]{4, 5, 5, 5, 4, 5}
+  curve haskell["Haskell"]{4, 3, 3, 1, 3, 4}
+  curve flix["Flix"]{3, 3, 5, 1, 0, 3}
+  curve prolog["Prolog"]{2, 2, 1, 1, 0, 2}
+  max 5
+  min 0
+```
+
+Kotlin は Gradle に detekt・ktlint・Kover を組み合わせられるため、追加 3 言語の中で
+最も充実しています。Flix はフォーマッタと LSP を `flix.jar` に同梱する一方、
+カバレッジ取得の手段を持ちません。Prolog はコンパイラのロード時警告と `make` で
+最小限の品質ゲートを構成しており、専用の複雑度・カバレッジツールはありません。
+
 ## まとめ
 
 1. **Nix** により 16 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供し、Prolog は Nix で SWI-Prolog 9.2 を提供します
