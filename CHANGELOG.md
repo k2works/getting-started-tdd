@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [4.1.0] - 2026-09-25
+
+多言語統合解説に mermaid レーダーチャートによる比較を追加。パラダイム特性・テストフレームワーク・型安全性・開発環境の 4 領域と、それらを集約したトータルスコア比較を可視化。mermaid を 11.17.2 へ更新。
+
+### Documentation
+
+- docs(plan): Release 4.0 のリリース実績を反映 (2980d0f)
+- docs(integration): 多言語統合解説にレーダーチャート比較を追加 (d11e76e)
+- docs(integration): トータルスコアによる総合比較を追加 (e81e727)
+
 ## [4.0.0] - 2026-09-25
 
 Phase 4 完了 — Kotlin / Flix / Prolog の 3 言語 × 12 章 = 36 章の TDD 入門記事と実装。全 15 言語 + 統合解説となり、全アプリのテストがグリーン。
