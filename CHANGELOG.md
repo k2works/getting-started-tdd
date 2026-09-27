@@ -4,6 +4,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [5.1.0] - 2026-09-27
+
+多言語統合解説に第 9 章コラム「なでしこ3 を 17 言語で日本語実装する」を追加。なでしこ3 の実装を他の 17 言語で日本語化した検証用コード（`apps/jp/`）と、日本語化スコアおよび mermaid のレーダーチャートによる総合評価を収録。あわせて、何も検査しないまま成功扱いになっていた Prolog と Java の lint を修正。
+
+### Features
+
+- feat(jp): 日本語実装比較の共通仕様と Flix 版の検証コードを追加 (43d4a50)
+- feat(jp): JavaScript・TypeScript・Python の日本語実装を追加 (1a63801)
+- feat(jp): Rust・Clojure・Prolog・Ruby・PHP・Go の日本語実装を追加 (ade15e0)
+- feat(jp): C#・F#・Elixir・Haskell の日本語実装を追加 (6994f7a)
+- feat(jp): Java・Kotlin・Scala の日本語実装を追加 (e420ed1)
+
+### Bug Fixes
+
+- fix(prolog): 警告があれば lint を失敗させる (4fc3a2a)
+- fix(java): PMD を 7.7.0 に固定し、検出された違反を修正 (185f8b6)
+
+### Documentation
+
+- docs: docs/index.md と mkdocs.yml を現在のドキュメント構成に同期 (62b02cd)
+- docs(fsharp): 第 9 章に member から関数へのリファクタリングを追加 (869b44c)
+- docs(outline): なでしこ3 実装を他 17 言語で日本語実装する比較コラムの執筆計画を追加 (01f18ff)
+- docs(outline): 日本語実装比較コラムの検証用コードの配置を apps/jp/{lang}/ に確定 (28d487e)
+- docs(integration): 第 9 章コラム「なでしこ3 を 17 言語で日本語実装する」を執筆 (f4a54b8)
+
+### Refactoring
+
+- refactor(fsharp): member によるメソッドをコンパニオンモジュールの関数へ置き換え (952ca9b)
+
 ## [5.0.0] - 2026-09-27
 
 Phase 5 完了 — 日本語プログラミング言語 なでしこ3（Go 実装 nadesiko3go / `gonako` 3.8.8）の 12 章の TDD 入門記事と実装を追加。全 16 言語環境 + 統合解説となり、`apps/nadesiko` は 7 テストファイル 48 件と doctest がグリーン。
