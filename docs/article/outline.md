@@ -6,7 +6,7 @@
 
 ## 対象言語
 
-`ops/nix/environments/` に定義された 16 言語環境（なでしこ3 は計画中）：
+`ops/nix/environments/` に定義された 16 言語環境：
 
 | 環境名 | 言語 | エピソード数 | 備考 |
 |--------|------|-------------|------|
@@ -25,7 +25,7 @@
 | flix | Flix | 4 | JVM + 関数型・代数的効果 |
 | kotlin | Kotlin | 4 | JVM + OOP・FP ハイブリッド |
 | prolog | Prolog | 4 | 論理型・宣言的（SWI-Prolog） |
-| nadesiko | なでしこ3 | 4 | 日本語プログラミング言語（Go 版 gonako）・計画中 |
+| nadesiko | なでしこ3 | 4 | 日本語プログラミング言語（Go 版 gonako） |
 
 ## 章構成
 
@@ -303,10 +303,10 @@ Prolog は単一化（unification）とバックトラッキングを基礎と�
 
 | 項目 | 内容 | 状態 |
 |------|------|------|
-| Nix 環境 | `ops/nix/environments/nadesiko/`（Go ツールチェーン + `gonako` ブートストラップ）を追加し flake に登録 | 未着手 |
-| アプリ雛形 | `apps/nadesiko/` に `src/`・`test/`・`Makefile`・test runner を作成 | 未着手 |
-| テスト基盤 | `ASSERT等` による表明と、`make test`（`test/*.nako3` を順に実行し終了コードで判定）を採用。記事コードは `gonako doctest` で検証 | 未着手 |
-| 記事ディレクトリ | `docs/article/nadesiko/`（`index.md` + 01〜12） | 未着手 |
+| Nix 環境 | `ops/nix/environments/nadesiko/`（Go ツールチェーン + `gonako` 3.8.8 を固定コミットから `go install`）を追加し flake に登録 | 完了 |
+| アプリ雛形 | `apps/nadesiko/` に `src/`・`test/`・`Makefile`・test runner を作成 | 完了 |
+| テスト基盤 | `ASSERT等` による表明と、`make test`（`test/*.nako3` を順に実行し終了コードで判定）を採用。記事コードは `gonako doctest` で検証 | 完了 |
+| 記事ディレクトリ | `docs/article/nadesiko/`（`index.md` + 01〜12） | 完了 |
 
 ### 章別執筆計画
 
@@ -318,7 +318,7 @@ Prolog は単一化（unification）とバックトラッキングを基礎と�
 | 4 | バージョン管理と Conventional Commits | Git フロー（言語共通） |
 | 5 | パッケージ管理と静的解析 | `gonako` の導入とバージョン固定、`gonako lint`・`gonako format`、`gonako doctest` |
 | 6 | タスクランナーと CI/CD | `Makefile`・test runner、GitHub Actions、Nix |
-| 7 | カプセル化とポリモーフィズム | 辞書によるデータ表現、関数を格納した辞書によるディスパッチ（クラス構文の読み替え） |
+| 7 | 辞書と関数によるポリモーフィズム | 辞書によるデータ表現、関数を格納した辞書によるディスパッチ（クラス構文の読み替え） |
 | 8 | デザインパターンの適用 | 生成関数による値オブジェクト、Command（関数の辞書）、ファーストクラスコレクション |
 | 9 | SOLID 原則とモジュール設計 | `!「./…」を取り込む` と名前空間（`ファイル名__関数名`）、責務別のファイル分割 |
 | 10 | 高階関数と関数合成 | 無名関数 `関数(x)…ここまで`、`配列マップ`・`配列フィルタ`、関数を値として渡す |

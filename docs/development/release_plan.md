@@ -295,10 +295,10 @@ gantt
 
 **リリース条件**:
 
-- [ ] 全記事のレビュー完了
-- [ ] `apps/nadesiko/` の `make test` がすべてパス
-- [ ] 記事のコード例が `gonako doctest` で検証済み
-- [ ] 統合解説・`docs/article/index.md` になでしこ3 を反映
+- [x] 全記事のレビュー完了
+- [x] `apps/nadesiko/` の `make test` がすべてパス（7 ファイル 48 件）
+- [x] 記事の最終コードが `apps/nadesiko/` と一致し、受け入れテストを `gonako doctest` で検証済み
+- [x] 統合解説・`docs/article/index.md` になでしこ3 を反映
 - [ ] v5.0.0 リリース
 
 ---
@@ -524,12 +524,12 @@ gantt
 
 **主なタスク**:
 
-- [ ] Nix 環境（`gonako` ブートストラップ）と apps/nadesiko/ の初期化（ASSERT等 + test runner）
-- [ ] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
-- [ ] 第 2 部（章 4-6）: 開発環境と自動化（lint / format / doctest / CI）の執筆
-- [ ] 第 3 部（章 7-9）: 辞書と関数によるディスパッチ、取り込みによるモジュール設計
-- [ ] 第 4 部（章 10-12）: 無名関数・配列マップ/フィルタ・エラー監視
-- [ ] 統合解説への反映と Release 5.0 準備
+- [x] Nix 環境（`gonako` ブートストラップ）と apps/nadesiko/ の初期化（ASSERT等 + test runner）
+- [x] 第 1 部（章 1-3）: TDD 基本サイクルの執筆と実装
+- [x] 第 2 部（章 4-6）: 開発環境と自動化（lint / format / doctest / CI）の執筆
+- [x] 第 3 部（章 7-9）: 辞書と関数によるディスパッチ、取り込みによるモジュール設計
+- [x] 第 4 部（章 10-12）: 無名関数・配列マップ/フィルタ・エラー監視
+- [x] 統合解説への反映（Release 5.0 のタグ付けは未実施）
 
 **目標 SP**: 13
 
@@ -586,7 +586,7 @@ gantt
 | 13 | Kotlin | 13 | 13 | 100% | ✅ 完了 |
 | 14 | Flix | 13 | 13 | 100% | ✅ 完了 |
 | 15 | Prolog | 13 | 13 | 100% | ✅ 完了 |
-| 16 | なでしこ3 | 13 | - | - | 計画済み |
+| 16 | なでしこ3 | 13 | 13 | 100% | ✅ 完了 |
 
 ### バーンダウンチャート
 
@@ -608,7 +608,7 @@ gantt
 | IT13（Phase 4 追加 39 SP） | - | 26 |
 | IT14 | - | 13 |
 | IT15 | - | 0 |
-| IT16（Phase 5 追加 13 SP） | 0 | -（未着手） |
+| IT16（Phase 5 追加 13 SP） | 0 | 0 |
 
 ---
 
@@ -651,8 +651,8 @@ gantt
 35. ~~全 15 アプリのテスト実行によるグリーン確認~~ ✅
 36. ~~Release 4.0 のタグ付けと CHANGELOG 生成~~ ✅
 37. ~~Phase 5: なでしこ3 の執筆計画（outline・リリース計画・IT16 計画）を作成~~ ✅
-38. Phase 5: Nix 環境（`gonako`）と apps/nadesiko/ を初期化
-39. Phase 5: なでしこ3 第 1〜12 章の執筆・実装を完了
+38. ~~Phase 5: Nix 環境（`gonako`）と apps/nadesiko/ を初期化~~ ✅
+39. ~~Phase 5: なでしこ3 第 1〜12 章の執筆・実装を完了~~ ✅
 40. Phase 5: GitHub Issue（US-017）と Milestone を作成して同期
 41. Release 5.0 のタグ付けと CHANGELOG 生成
 
@@ -686,3 +686,4 @@ gantt
 | 2026-09-25 | Phase 4（Kotlin・Flix・Prolog 各 13 SP = 39 SP）を計画へ反映、Release 4.0 を追記、全 15 アプリのテストグリーン確認 | AI |
 | 2026-09-25 | Release 4.0 リリース（v4.0.0 タグ、CHANGELOG 生成、package.json 4.0.0） | AI |
 | 2026-09-27 | Phase 5（なでしこ3、US-017 13 SP）を計画へ追加、Release 5.0 と IT16 計画を追記 | AI |
+| 2026-09-27 | IT16 完了（なでしこ3 13 SP：全 12 章の執筆と実装、統合解説への反映）、バーンダウン更新 | AI |
