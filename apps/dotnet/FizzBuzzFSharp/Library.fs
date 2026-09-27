@@ -6,9 +6,13 @@ module Domain =
         { Number: int
           Value: string }
 
-        override this.ToString() = sprintf "%d:%s" this.Number this.Value
-
     let createValue number value = { Number = number; Value = value }
+
+    [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
+    module FizzBuzzValue =
+
+        let toDisplayString (value: FizzBuzzValue) =
+            sprintf "%d:%s" value.Number value.Value
 
     type FizzBuzzType =
         | Standard
@@ -31,41 +35,47 @@ module Domain =
             if number % 15 = 0 then createValue number "FizzBuzz"
             else createValue number (string number)
 
-    type FizzBuzzList =
-        { Values: FizzBuzzValue list }
-
-        member this.Count = this.Values.Length
-        member this.Get(index) = this.Values.[index]
-
-        member this.Filter(predicate: FizzBuzzValue -> bool) =
-            { Values = this.Values |> List.filter predicate }
-
-        member this.FindFirst(predicate: FizzBuzzValue -> bool) =
-            this.Values |> List.tryFind predicate
-
-        member this.ToStringValues() =
-            this.Values |> List.map (fun v -> v.Value)
-
-        member this.CountByValue() =
-            this.Values
-            |> List.groupBy (fun v -> v.Value)
-            |> List.map (fun (key, group) -> (key, List.length group))
-            |> Map.ofList
-
-        member this.Add(value: FizzBuzzValue) =
-            { Values = this.Values @ [ value ] }
-
-        member this.AddRange(values: FizzBuzzValue list) =
-            { Values = this.Values @ values }
-
-        override this.ToString() =
-            this.Values
-            |> List.map (fun v -> v.ToString())
-            |> String.concat ", "
+    type FizzBuzzList = { Values: FizzBuzzValue list }
 
     let emptyList = { Values = [] }
 
     let createList (values: FizzBuzzValue list) = { Values = values }
+
+    [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
+    module FizzBuzzList =
+
+        let empty = emptyList
+
+        let create values = createList values
+
+        let count (list: FizzBuzzList) = List.length list.Values
+
+        let get index (list: FizzBuzzList) = list.Values.[index]
+
+        let filter (predicate: FizzBuzzValue -> bool) (list: FizzBuzzList) =
+            { Values = list.Values |> List.filter predicate }
+
+        let findFirst (predicate: FizzBuzzValue -> bool) (list: FizzBuzzList) =
+            list.Values |> List.tryFind predicate
+
+        let toStringValues (list: FizzBuzzList) =
+            list.Values |> List.map (fun v -> v.Value)
+
+        let countByValue (list: FizzBuzzList) =
+            list.Values
+            |> List.countBy (fun v -> v.Value)
+            |> Map.ofList
+
+        let add (value: FizzBuzzValue) (list: FizzBuzzList) =
+            { Values = list.Values @ [ value ] }
+
+        let addRange (values: FizzBuzzValue list) (list: FizzBuzzList) =
+            { Values = list.Values @ values }
+
+        let toDisplayString (list: FizzBuzzList) =
+            list.Values
+            |> List.map FizzBuzzValue.toDisplayString
+            |> String.concat ", "
 
 module Application =
     open Domain
@@ -87,5 +97,5 @@ module FizzBuzz =
         value.Value
 
     let generateList (count: int) : string list =
-        let list = executeList Standard count
-        list.ToStringValues()
+        executeList Standard count
+        |> FizzBuzzList.toStringValues

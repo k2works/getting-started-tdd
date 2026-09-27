@@ -65,21 +65,21 @@ module FizzBuzzValueTests =
     [<Fact>]
     let ``ToStringはNumber_Colon_Value形式`` () =
         let value = createValue 3 "Fizz"
-        Assert.Equal("3:Fizz", value.ToString())
+        Assert.Equal("3:Fizz", FizzBuzzValue.toDisplayString value)
 
 module FizzBuzzListTests =
 
     [<Fact>]
     let ``空のリストを作成できる`` () =
-        let list = emptyList
-        Assert.Equal(0, list.Count)
+        let list = FizzBuzzList.empty
+        Assert.Equal(0, FizzBuzzList.count list)
 
     [<Fact>]
     let ``値を追加できる`` () =
-        let list = emptyList
-        let newList = list.Add(createValue 1 "1")
-        Assert.Equal(1, newList.Count)
-        Assert.Equal(0, list.Count)
+        let list = FizzBuzzList.empty
+        let newList = list |> FizzBuzzList.add (createValue 1 "1")
+        Assert.Equal(1, FizzBuzzList.count newList)
+        Assert.Equal(0, FizzBuzzList.count list)
 
     [<Fact>]
     let ``インデックスで値を取得できる`` () =
@@ -89,8 +89,8 @@ module FizzBuzzListTests =
                   createValue 2 "2"
                   createValue 3 "Fizz" ]
 
-        Assert.Equal(createValue 1 "1", list.Get(0))
-        Assert.Equal(createValue 3 "Fizz", list.Get(2))
+        Assert.Equal(createValue 1 "1", list |> FizzBuzzList.get 0)
+        Assert.Equal(createValue 3 "Fizz", list |> FizzBuzzList.get 2)
 
     [<Fact>]
     let ``フィルタリングできる`` () =
@@ -101,9 +101,9 @@ module FizzBuzzListTests =
                   createValue 5 "Buzz"
                   createValue 15 "FizzBuzz" ]
 
-        let filtered = list.Filter(fun v -> v.Value = "Fizz")
-        Assert.Equal(1, filtered.Count)
-        Assert.Equal("Fizz", filtered.Get(0).Value)
+        let filtered = list |> FizzBuzzList.filter (fun v -> v.Value = "Fizz")
+        Assert.Equal(1, FizzBuzzList.count filtered)
+        Assert.Equal("Fizz", (filtered |> FizzBuzzList.get 0).Value)
 
     [<Fact>]
     let ``最初の一致する値を取得できる`` () =
@@ -113,7 +113,7 @@ module FizzBuzzListTests =
                   createValue 3 "Fizz"
                   createValue 6 "Fizz" ]
 
-        let found = list.FindFirst(fun v -> v.Value = "Fizz")
+        let found = list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
         Assert.True(found.IsSome)
         Assert.Equal(3, found.Value.Number)
 
@@ -122,7 +122,7 @@ module FizzBuzzListTests =
         let list =
             createList [ createValue 1 "1"; createValue 2 "2" ]
 
-        let found = list.FindFirst(fun v -> v.Value = "Fizz")
+        let found = list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
         Assert.True(found.IsNone)
 
     [<Fact>]
@@ -133,7 +133,7 @@ module FizzBuzzListTests =
                   createValue 3 "Fizz"
                   createValue 5 "Buzz" ]
 
-        let strings = list.ToStringValues()
+        let strings = list |> FizzBuzzList.toStringValues
         Assert.Equal<string list>([ "1"; "Fizz"; "Buzz" ], strings)
 
     [<Fact>]
@@ -146,7 +146,7 @@ module FizzBuzzListTests =
                   createValue 6 "Fizz"
                   createValue 5 "Buzz" ]
 
-        let counts = list.CountByValue()
+        let counts = list |> FizzBuzzList.countByValue
         Assert.Equal(1, counts.["1"])
         Assert.Equal(1, counts.["2"])
         Assert.Equal(2, counts.["Fizz"])
@@ -154,9 +154,9 @@ module FizzBuzzListTests =
 
     [<Fact>]
     let ``AddRangeで複数の値を追加できる`` () =
-        let list = emptyList
-        let newList = list.AddRange([ createValue 1 "1"; createValue 2 "2" ])
-        Assert.Equal(2, newList.Count)
+        let list = FizzBuzzList.empty
+        let newList = list |> FizzBuzzList.addRange [ createValue 1 "1"; createValue 2 "2" ]
+        Assert.Equal(2, FizzBuzzList.count newList)
 
 module FizzBuzzTypeTests =
 
@@ -208,4 +208,4 @@ module ApplicationTests =
     [<Fact>]
     let ``executeListでリストを生成できる`` () =
         let result = executeList Standard 100
-        Assert.Equal(100, result.Count)
+        Assert.Equal(100, FizzBuzzList.count result)
