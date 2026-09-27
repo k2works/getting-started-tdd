@@ -1,6 +1,6 @@
 # テストフレームワーク比較
 
-本章では、16 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
+本章では、17 言語のテストフレームワークを比較し、テスト構造、アサーション方法、テスト実行コマンドの違いを解説します。TDD を実践する上で、テストフレームワークの特性を理解することは重要です。
 
 ## テストフレームワーク一覧
 
@@ -22,6 +22,7 @@
 | Flix | flix test | 標準 | 標準同梱、`@Test` アノテーションベース |
 | Kotlin | kotlin.test | 標準 | JUnit Platform 上、`@Test` アノテーションベース |
 | Prolog | plunit | 標準 | SWI-Prolog 標準同梱、`test/1` 述語ベース |
+| なでしこ3 | ASSERT等 + 自作テスト補助 | 組み込み / 自作 | 組み込みの表明命令、集計は自作の `検証` / `テスト結果報告`、受け入れテストは `gonako doctest` |
 
 ## テスト構造の比較
 
@@ -294,6 +295,77 @@ test(returns_fizz_for_multiple_of_3) :-
 :- end_tests(fizzbuzz).
 ```
 
+#### なでしこ3（ASSERT等 + 自作テスト補助）
+
+なでしこ3 には xUnit 系のテストフレームワークがありません。組み込みの表明命令 `ASSERT等` を土台に、テスト結果を集計する補助命令 `検証` と `テスト結果報告` を自作し（`test/helper.nako3`）、テストファイルはそれを取り込んで 1 行 1 件の日本語の文としてテストを書きます。
+
+```nako3
+# テスト補助: 検証結果を集計し、失敗があれば最後にエラーで終了する
+成功数 = 0
+失敗数 = 0
+
+●(名前と実際と期待で)検証
+    エラー監視
+        (実際の変数型確認)と(期待の変数型確認)がASSERT等
+        実際と期待がASSERT等
+        「  ok: {名前}」を表示
+        成功数 = 成功数 + 1
+    エラーならば
+        「  NG: {名前}: {エラーメッセージ}」を表示
+        失敗数 = 失敗数 + 1
+    ここまで
+ここまで
+
+●テスト結果報告
+    「  {成功数}件成功、{失敗数}件失敗」を表示
+    もし、失敗数 > 0ならば
+        「{失敗数}件のテストが失敗しました」のエラー発生
+    ここまで
+ここまで
+```
+
+```nako3
+!「./helper.nako3」を取り込む
+!「../src/fizzbuzz.nako3」を取り込む
+
+「3を渡したらFizzを返す」と(3をFizzBuzz変換)と「Fizz」で検証
+「5を渡したらBuzzを返す」と(5をFizzBuzz変換)と「Buzz」で検証
+「15を渡したらFizzBuzzを返す」と(15をFizzBuzz変換)と「FizzBuzz」で検証
+```
+
+`ASSERT等` は数値 1 と文字列 "1" を等しいとみなす緩い比較のため、`検証` は `変数型確認` で型も比較しています。テストの実行は Makefile の `test` ターゲットが `test/*_test.nako3` を 1 ファイルずつ `gonako run` し、終了コードで合否を判定します。さらに、`doctest/fizzbuzz.txt` に書いたサンプルコードと表示結果を `gonako doctest` で照合する受け入れテストを備えています。
+
+```text
+FizzBuzz の受け入れテスト（gonako doctest で表示結果を照合する）
+
+{{{#nako3
+!「../src/list.nako3」を取り込む
+リスト = (1からタイプ生成)で15までFizzBuzzリスト作成
+文字列でリストの文字列一覧取得を反復
+    文字列を表示
+ここまで
+### 表示結果: 1
+### 2
+### Fizz
+### 4
+### Buzz
+### Fizz
+### 7
+### 8
+### Fizz
+### Buzz
+### 11
+### Fizz
+### 13
+### 14
+### FizzBuzz
+}}}
+```
+
+### なでしこ3 固有の強み: テストが日本語の文になる
+
+`「3を渡したらFizzを返す」と(3をFizzBuzz変換)と「Fizz」で検証` のように、テスト名・実際の値・期待値を助詞 `と` / `で` でつなぎ、テスト 1 件を 1 つの日本語の文として書けます。Java や Kotlin でもテスト名には日本語を使えますが、なでしこ3 ではテスト名だけでなく検証の呼び出しそのものが日本語の語順になる点が独自です。
+
 ## アサーション方法の比較
 
 | 言語 | 等値比較 | 真偽チェック | 例外検証 |
@@ -314,6 +386,7 @@ test(returns_fizz_for_multiple_of_3) :-
 | Flix | `Assert.assertEq(expected, actual)` | `Bool` を返す | `Result`/`Option` で表現 |
 | Kotlin | `assertEquals(expected, actual)` | `assertTrue(condition)` | `assertFailsWith<T> { ... }` |
 | Prolog | `assertion(Actual == Expected)` | `assertion(Cond)` | `catch/3` で捕捉 |
+| なでしこ3 | `実際と期待がASSERT等`（緩い比較） | `条件と(はい)がASSERT等` | `エラー監視 … エラーならば` で捕捉 |
 
 ## テスト実行コマンドの比較
 
@@ -335,6 +408,7 @@ test(returns_fizz_for_multiple_of_3) :-
 | Flix | `java -jar flix.jar test` | - | - |
 | Kotlin | `gradle test` | `gradle test --tests "*.testName"` | Kover / JaCoCo |
 | Prolog | `make test` | - | - |
+| なでしこ3 | `make test` | `gonako run test/file_test.nako3` | - |
 
 ## テスト構造の比較まとめ
 
@@ -358,6 +432,7 @@ test(returns_fizz_for_multiple_of_3) :-
 | Flix | テスト関数（モジュール単位） | モジュール単位 |
 | Kotlin | テストクラス / `@Nested` | 制限なし |
 | Prolog | `begin_tests`/`end_tests` ブロック | ブロック単位 |
+| なでしこ3 | テストファイル（`*_test.nako3`） | ファイル単位 |
 
 ### セットアップ / ティアダウン
 
@@ -379,6 +454,7 @@ test(returns_fizz_for_multiple_of_3) :-
 | Flix | なし（関数呼び出し） | なし |
 | Kotlin | `@BeforeTest` | `@AfterTest` |
 | Prolog | `setup(Goal)` オプション | `cleanup(Goal)` オプション |
+| なでしこ3 | なし（ファイル先頭の代入） | なし |
 
 ## パラメータ化テスト
 
@@ -402,6 +478,7 @@ test(returns_fizz_for_multiple_of_3) :-
 | Flix | リスト畳み込み + `Assert.assertEq` | `List.forEach` でケースを検証 |
 | Kotlin | リスト反復 + `assertEquals` | `listOf(...).forEach { (n, e) -> ... }` |
 | Prolog | `forall` オプション | `test(name, [forall(member(N-E, Cases))])` |
+| なでしこ3 | 手動ループ | `反復` の中で `検証` を呼ぶ |
 
 ## テストフレームワーク特性のレーダー比較
 
@@ -447,6 +524,7 @@ radar-beta
   curve vitest["TypeScript / Vitest"]{2, 5, 5, 5, 5}
   curve hspec["Haskell / HSpec"]{2, 5, 4, 3, 4}
   curve plunit["Prolog / plunit"]{5, 2, 3, 4, 2}
+  curve nako["なでしこ3 / ASSERT等"]{3, 1, 1, 1, 1}
   max 5
   min 0
 ```
@@ -454,6 +532,9 @@ radar-beta
 pytest と Vitest はフィクスチャ/フックと専用のパラメータ化構文を備え、表現力が高く
 なります。plunit は SWI-Prolog 標準同梱で `forall` オプションによるパラメータ化も
 持ちますが、グルーピングは `begin_tests`/`end_tests` のブロック単位に限られます。
+なでしこ3 は表明命令 `ASSERT等` と受け入れテスト用の `gonako doctest` が処理系に
+組み込まれている一方、集計・グルーピング・パラメータ化はすべて自作かファイル単位で
+代替するため、最も小さな形になります。
 
 ## まとめ
 
@@ -461,7 +542,7 @@ pytest と Vitest はフィクスチャ/フックと専用のパラメータ化�
 
 1. **アノテーション / アトリビュートベース**（Java, C#, PHP, Flix, Kotlin）はクラスベースまたは関数ベースの構造化が特徴です。Flix は FP 言語ながら標準同梱の `@Test` アノテーションを採用しています。Kotlin は `kotlin.test` の `@Test` を JUnit Platform 上で実行します
 2. **describe/it スタイル**（TypeScript, Ruby, Scala, Elixir, Haskell）は BDD の影響を受けており、テストの意図が読みやすくなります
-3. **関数ベース**（Python, Go, Rust, Clojure）はシンプルさを重視し、テストを通常の関数として扱います。Prolog は論理型言語ならではの述語ベースで、`test/1` 述語のゴール導出とアサーションによってテストを宣言します
+3. **関数ベース**（Python, Go, Rust, Clojure）はシンプルさを重視し、テストを通常の関数として扱います。Prolog は論理型言語ならではの述語ベースで、`test/1` 述語のゴール導出とアサーションによってテストを宣言します。なでしこ3 は組み込みの `ASSERT等` に自作の `検証` / `テスト結果報告` を組み合わせ、テストを日本語の文として 1 行ずつ書きます
 4. **パラメータ化テスト**はすべての言語で何らかの形で実現可能ですが、Go のテーブル駆動テストと Clojure の `are` マクロ、Prolog の `forall` オプションが特に洗練されています
 
 次章では、パラダイムの違いが TDD パターンにどう影響するかを比較します。

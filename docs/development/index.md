@@ -92,6 +92,7 @@ Phase 3 完了後に追加した 3 言語（イテレーション 13〜15、計 
 Release 4.x 公開後に追加した拡張スコープ（イテレーション 16、13 SP）。
 執筆計画は [記事アウトライン](../article/outline.md) の「なでしこ3 追加執筆計画」に記載。
 
+- IT16 なでしこ3（13 SP） - [記事](../article/nadesiko/index.md) / `apps/nadesiko` / 7 テストファイル 48 件 + doctest
 - [イテレーション 16 計画](./iteration_plan-16.md) - なでしこ3（nadesiko3go / `gonako`）の執筆・実装計画
 
 ## テスト実行環境
