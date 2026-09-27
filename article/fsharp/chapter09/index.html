@@ -4059,13 +4059,107 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#94" class="md-nav__link">
+  <a href="#94-member" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.4 依存関係
+        9.4 member から関数へのリファクタリング
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="9.4 member から関数へのリファクタリング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        何が問題か
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンパニオンモジュール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引数順序の規約
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ToString の扱い
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        呼び出し側の更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストを書き換える
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対応表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        member を残してよい場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4073,16 +4167,27 @@
   <a href="#95" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.5 型による設計の利点
+        9.5 依存関係
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="9.5 型による設計の利点">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 型による設計の利点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.6 型による設計の利点">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         不正な状態を表現できない
@@ -4109,10 +4214,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#96" class="md-nav__link">
+  <a href="#97" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.6 まとめ
+        9.7 まとめ
       
     </span>
   </a>
@@ -11062,7 +11167,187 @@
 <span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executeList</span><span class="w"> </span><span class="n">Standard</span><span class="w"> </span><span class="mi">100</span>
 <span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">Count</span><span class="o">)</span>
 </code></pre></div>
-<h2 id="94">9.4 依存関係<a class="headerlink" href="#94" title="Permanent link">&para;</a></h2>
+<h2 id="94-member">9.4 member から関数へのリファクタリング<a class="headerlink" href="#94-member" title="Permanent link">&para;</a></h2>
+<h3 id="_3">何が問題か<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>ここまでの <code>FizzBuzzValue</code> と <code>FizzBuzzList</code> は、<code>member</code> と <code>override</code> によるオブジェクト指向的な記述になっています。F# では <code>member</code> を書けるためつい C# と同じ設計をしてしまいますが、関数型スタイルから見ると次の点が引っかかります。</p>
+<ul>
+<li><strong>合成できない</strong>: <code>list.Filter(...)</code> はメソッド呼び出しなので、<code>|&gt;</code> や <code>&gt;&gt;</code> でつなげられない</li>
+<li><strong>部分適用できない</strong>: <code>FizzBuzzList.filter predicate</code> のように述語だけ束縛した関数を作れない</li>
+<li><strong>拡張が型の変更を要求する</strong>: 新しい操作を足すたびに型定義そのものを編集することになる</li>
+<li><strong>標準ライブラリと不揃い</strong>: <code>List</code> / <code>Option</code> / <code>Map</code> はすべて「モジュール + 関数」で提供されており、メンバーだけ流儀が違う</li>
+</ul>
+<p>F# の標準的な設計は、<strong>データ（レコード）と振る舞い（モジュール内の関数）を分離する</strong> ことです。<code>List.map</code> や <code>Option.bind</code> と同じ形に揃えます。</p>
+<h3 id="_4">コンパニオンモジュール<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>型と同じ名前のモジュールを定義するには <code>CompilationRepresentation</code> 属性を付けます。これにより <code>FizzBuzzList</code> という名前を型としてもモジュールとしても使えます。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="nc">FizzBuzzList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="kt">list</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">emptyList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">[]</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">createList</span><span class="w"> </span><span class="o">(</span><span class="n">values</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="kt">list</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="o">[&lt;</span><span class="n">CompilationRepresentation</span><span class="o">(</span><span class="nn">CompilationRepresentationFlags</span><span class="p">.</span><span class="n">ModuleSuffix</span><span class="o">)&gt;]</span>
+<span class="w">    </span><span class="k">module</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="w"> </span><span class="o">=</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emptyList</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">create</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createList</span><span class="w"> </span><span class="n">values</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">get</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="o">.[</span><span class="n">index</span><span class="o">]</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">filter</span><span class="w"> </span><span class="o">(</span><span class="n">predicate</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="n">predicate</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">findFirst</span><span class="w"> </span><span class="o">(</span><span class="n">predicate</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">tryFind</span><span class="w"> </span><span class="n">predicate</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">toStringValues</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">Value</span><span class="o">)</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">countByValue</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span>
+<span class="w">            </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">countBy</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">Value</span><span class="o">)</span>
+<span class="w">            </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">Map</span><span class="p">.</span><span class="n">ofList</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="o">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">addRange</span><span class="w"> </span><span class="o">(</span><span class="n">values</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="w"> </span><span class="kt">list</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="o">{</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">toDisplayString</span><span class="w"> </span><span class="o">(</span><span class="kt">list</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzList</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="kt">list</span><span class="o">.</span><span class="n">Values</span>
+<span class="w">            </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">List</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="nn">FizzBuzzValue</span><span class="p">.</span><span class="n">toDisplayString</span>
+<span class="w">            </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">String</span><span class="p">.</span><span class="n">concat</span><span class="w"> </span><span class="s">", "</span>
+</code></pre></div>
+<h3 id="_5">引数順序の規約<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>関数型スタイルでは <strong>操作対象のデータを最後の引数に置く</strong> のが規約です（data-last）。<code>List.filter predicate list</code> と同じ並びです。こうすると <code>|&gt;</code> で自然につながり、部分適用がそのまま「設定済みの関数」になります。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// パイプラインでつながる</span>
+<span class="k">let</span><span class="w"> </span><span class="nv">fizzCount</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="kt">list</span>
+<span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Fizz"</span><span class="o">)</span>
+<span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">count</span>
+
+<span class="c1">// 部分適用で再利用できる関数を作れる</span>
+<span class="k">let</span><span class="w"> </span><span class="nv">onlyFizz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Fizz"</span><span class="o">)</span>
+<span class="k">let</span><span class="w"> </span><span class="nv">fizzList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">onlyFizz</span><span class="w"> </span><span class="kt">list</span>
+</code></pre></div>
+<p>member 版ではこのどちらも書けませんでした。</p>
+<h3 id="tostring">ToString の扱い<a class="headerlink" href="#tostring" title="Permanent link">&para;</a></h3>
+<p><code>override this.ToString()</code> も .NET の仕組みに依存した記述です。表示は関心事の 1 つにすぎないため、<code>toDisplayString</code> という普通の関数に置き換えます。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="nc">FizzBuzzValue</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="o">{</span><span class="w"> </span><span class="n">Number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span>
+<span class="w">          </span><span class="n">Value</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">createValue</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">Number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="o">;</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="o">[&lt;</span><span class="n">CompilationRepresentation</span><span class="o">(</span><span class="nn">CompilationRepresentationFlags</span><span class="p">.</span><span class="n">ModuleSuffix</span><span class="o">)&gt;]</span>
+<span class="w">    </span><span class="k">module</span><span class="w"> </span><span class="nn">FizzBuzzValue</span><span class="w"> </span><span class="o">=</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">toDisplayString</span><span class="w"> </span><span class="o">(</span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">FizzBuzzValue</span><span class="o">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="w"> </span><span class="s">"%d:%s"</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="n">Number</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="n">Value</span>
+</code></pre></div>
+<p>レコードの等価比較や構造的な既定表示は F# が自動生成するため、<code>ToString</code> を自前で持たなくても困りません。</p>
+<h3 id="_6">呼び出し側の更新<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><code>FizzBuzz</code> モジュールもメソッド呼び出しをやめ、パイプラインで書けるようになります。</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="nn">FizzBuzz</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="nn">Domain</span>
+<span class="w">    </span><span class="k">open</span><span class="w"> </span><span class="nn">Application</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="o">(</span><span class="n">number</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executeValue</span><span class="w"> </span><span class="n">Standard</span><span class="w"> </span><span class="n">number</span>
+<span class="w">        </span><span class="n">value</span><span class="o">.</span><span class="n">Value</span>
+
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">generateList</span><span class="w"> </span><span class="o">(</span><span class="n">count</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="kt">list</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">executeList</span><span class="w"> </span><span class="n">Standard</span><span class="w"> </span><span class="n">count</span>
+<span class="w">        </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">toStringValues</span>
+</code></pre></div>
+<h3 id="_7">テストを書き換える<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="nn">FizzBuzzListTests</span><span class="w"> </span><span class="o">=</span>
+
+<span class="w">    </span><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">``空のリストを作成できる``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">empty</span>
+<span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="kt">list</span><span class="o">)</span>
+
+<span class="w">    </span><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">``値を追加できる``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">empty</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">newList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">add</span><span class="w"> </span><span class="o">(</span><span class="n">createValue</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s">"1"</span><span class="o">)</span>
+<span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="n">newList</span><span class="o">)</span>
+<span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="kt">list</span><span class="o">)</span><span class="w">  </span><span class="c1">// 元のリストは不変</span>
+
+<span class="w">    </span><span class="o">[&lt;</span><span class="n">Fact</span><span class="o">&gt;]</span>
+<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="n">``フィルタリングできる``</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">createList</span>
+<span class="w">                </span><span class="o">[</span><span class="w"> </span><span class="n">createValue</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s">"1"</span>
+<span class="w">                  </span><span class="n">createValue</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="s">"Fizz"</span>
+<span class="w">                  </span><span class="n">createValue</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="s">"Buzz"</span>
+<span class="w">                  </span><span class="n">createValue</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="s">"FizzBuzz"</span><span class="w"> </span><span class="o">]</span>
+
+<span class="w">        </span><span class="k">let</span><span class="w"> </span><span class="nv">filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">list</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">filter</span><span class="w"> </span><span class="o">(</span><span class="k">fun</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Fizz"</span><span class="o">)</span>
+<span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="n">filtered</span><span class="o">)</span>
+<span class="w">        </span><span class="nn">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="o">(</span><span class="s">"Fizz"</span><span class="o">,</span><span class="w"> </span><span class="o">(</span><span class="n">filtered</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nn">FizzBuzzList</span><span class="p">.</span><span class="n">get</span><span class="w"> </span><span class="mi">0</span><span class="o">).</span><span class="n">Value</span><span class="o">)</span>
+</code></pre></div>
+<p>テストは振る舞いを変えずに呼び出し方だけを書き換えています。テストが緑のままリファクタリングできることを確認してください。</p>
+<h3 id="_8">対応表<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>member（オブジェクト指向）</th>
+<th>関数（関数型）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list.Count</code></td>
+<td><code>FizzBuzzList.count list</code></td>
+</tr>
+<tr>
+<td><code>list.Get(i)</code></td>
+<td><code>list \|&gt; FizzBuzzList.get i</code></td>
+</tr>
+<tr>
+<td><code>list.Filter(f)</code></td>
+<td><code>list \|&gt; FizzBuzzList.filter f</code></td>
+</tr>
+<tr>
+<td><code>list.FindFirst(f)</code></td>
+<td><code>list \|&gt; FizzBuzzList.findFirst f</code></td>
+</tr>
+<tr>
+<td><code>list.ToStringValues()</code></td>
+<td><code>list \|&gt; FizzBuzzList.toStringValues</code></td>
+</tr>
+<tr>
+<td><code>list.CountByValue()</code></td>
+<td><code>list \|&gt; FizzBuzzList.countByValue</code></td>
+</tr>
+<tr>
+<td><code>list.Add(v)</code></td>
+<td><code>list \|&gt; FizzBuzzList.add v</code></td>
+</tr>
+<tr>
+<td><code>list.AddRange(vs)</code></td>
+<td><code>list \|&gt; FizzBuzzList.addRange vs</code></td>
+</tr>
+<tr>
+<td><code>value.ToString()</code></td>
+<td><code>FizzBuzzValue.toDisplayString value</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="member">member を残してよい場合<a class="headerlink" href="#member" title="Permanent link">&para;</a></h3>
+<p>すべての <code>member</code> が悪いわけではありません。次の場合はメンバーのままが妥当です。</p>
+<ul>
+<li>C# など他の .NET 言語から使われるライブラリの公開 API</li>
+<li><code>IDisposable</code> や <code>IComparable</code> などインターフェース実装</li>
+<li>演算子オーバーロード</li>
+</ul>
+<p>今回のように F# 内で完結するドメインモデルであれば、関数に寄せたほうが合成しやすく、標準ライブラリとも一貫します。</p>
+<h2 id="95">9.5 依存関係<a class="headerlink" href="#95" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>FizzBuzz (公開 API)
     ↓
 Application (ユースケース)
@@ -11075,8 +11360,8 @@ Domain (ドメインモデル)
 <li><code>Domain</code> モジュールは外部に依存しない（純粋なドメインロジック）</li>
 <li>逆方向の依存は存在しない（単方向依存）</li>
 </ul>
-<h2 id="95">9.5 型による設計の利点<a class="headerlink" href="#95" title="Permanent link">&para;</a></h2>
-<h3 id="_3">不正な状態を表現できない<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="96">9.6 型による設計の利点<a class="headerlink" href="#96" title="Permanent link">&para;</a></h2>
+<h3 id="_9">不正な状態を表現できない<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>判別共用体を使うことで、存在しないタイプを指定することがコンパイル時に防止されます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 型安全: コンパイルエラーになる</span>
 <span class="k">let</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">InvalidType</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">// FizzBuzzType に InvalidType は定義されていない</span>
@@ -11115,7 +11400,7 @@ Domain (ドメインモデル)
 </tr>
 </tbody>
 </table>
-<h2 id="96">9.6 まとめ<a class="headerlink" href="#96" title="Permanent link">&para;</a></h2>
+<h2 id="97">9.7 まとめ<a class="headerlink" href="#97" title="Permanent link">&para;</a></h2>
 <p>この章では以下を実現しました。</p>
 <table>
 <thead>
@@ -11143,6 +11428,7 @@ Domain (ドメインモデル)
 </tr>
 </tbody>
 </table>
+<p>あわせて、<code>member</code> によるオブジェクト指向的な記述をコンパニオンモジュールの関数に置き換え、data-last の引数順序でパイプライン合成と部分適用ができる形に整えました。</p>
 <p>第 3 部を通じて、F# のレコード型、判別共用体、モジュールシステムを使った関数型アプローチによる設計を学びました。次の第 4 部では、F# の高度な関数型プログラミング機能（高階関数、関数合成、エラーハンドリング）を活用します。</p>
 
 
