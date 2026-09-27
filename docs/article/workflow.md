@@ -452,6 +452,7 @@ nix develop .#haskell
 nix develop .#flix
 nix develop .#kotlin
 nix develop .#prolog
+nix develop .#nadesiko
 ```
 
 ### 実装の始め方
@@ -493,4 +494,5 @@ cd apps/java
 | Flix | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT9 完了 |
 | Kotlin | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT10 完了 |
 | Prolog | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT11 完了 |
+| なでしこ3 | ✅ 完了 | ✅ 完了 | ✅ 完了 | ✅ 完了 | IT16 完了 |
 | 統合解説 | 未着手 | 未着手 | 未着手 | 未着手 | - |

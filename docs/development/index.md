@@ -87,6 +87,14 @@ Phase 3 完了後に追加した 3 言語（イテレーション 13〜15、計 
 - IT15 Prolog（13 SP） - [記事](../article/prolog/index.md) / `apps/prolog` / 28 テスト
 - [Phase 4 完了報告書](./iteration_report-phase4.md) - IT13〜15 の実績・KPT・残作業
 
+## Phase 5（日本語プログラミング言語: なでしこ3）
+
+Release 4.x 公開後に追加した拡張スコープ（イテレーション 16、13 SP）。
+執筆計画は [記事アウトライン](../article/outline.md) の「なでしこ3 追加執筆計画」に記載。
+
+- IT16 なでしこ3（13 SP） - [記事](../article/nadesiko/index.md) / `apps/nadesiko` / 7 テストファイル 48 件 + doctest
+- [イテレーション 16 計画](./iteration_plan-16.md) - なでしこ3（nadesiko3go / `gonako`）の執筆・実装計画
+
 ## テスト実行環境
 
 全 15 アプリのテストは 2026-09-25 時点でグリーン。実行環境には次の区分がある。

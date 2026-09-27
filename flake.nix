@@ -29,6 +29,7 @@
           flix = import ./ops/nix/environments/flix/shell.nix { inherit packages; };
           kotlin = import ./ops/nix/environments/kotlin/shell.nix { inherit packages; };
           prolog = import ./ops/nix/environments/prolog/shell.nix { inherit packages; };
+          nadesiko = import ./ops/nix/environments/nadesiko/shell.nix { inherit packages; };
         };
       }
     );

@@ -1,0 +1,11 @@
+!「./helper.nako3」を取り込む
+!「../src/fizzbuzz.nako3」を取り込む
+
+「3を渡したらFizzを返す」と(3をFizzBuzz変換)と「Fizz」で検証
+「5を渡したらBuzzを返す」と(5をFizzBuzz変換)と「Buzz」で検証
+「15を渡したらFizzBuzzを返す」と(15をFizzBuzz変換)と「FizzBuzz」で検証
+「1を渡したら文字列1を返す」と(1をFizzBuzz変換)と「1」で検証
+「2を渡したら文字列2を返す」と(2をFizzBuzz変換)と「2」で検証
+「15まで作ると15件になる」と(15までFizzBuzz配列作成の配列要素数)と15で検証
+「15まで作った配列の並び」と(15までFizzBuzz配列作成を「,」で配列結合)と「1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz」で検証
+テスト結果報告
