@@ -1,0 +1,6 @@
+[package]
+name        = "fizzbuzz-jp"
+description = "FizzBuzz の日本語実装比較（Flix）"
+version     = "0.1.0"
+flix        = "0.75.1"
+authors     = ["k2works"]

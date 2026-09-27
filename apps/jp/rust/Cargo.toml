@@ -1,0 +1,8 @@
+[package]
+# パッケージ名（クレート名）は ASCII にする。日本語名にすると統合テストから
+# 参照したときに「crate name `日本語` passed to `--extern` is not a valid ASCII identifier」になる。
+name = "fizzbuzz_jp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

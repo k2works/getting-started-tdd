@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+    id 'com.github.spotbugs' version '6.0.7'
+}
+
+group = 'tdd.fizzbuzz.jp'
+version = '0.1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+}
+
+// 既存 apps/java は Gradle 既定の PMD 6.55.0・Checkstyle 9.3 を使うが、
+// PMD 6.55.0 は Java 21 のクラスファイルを読めず（Unsupported class file major version 65）
+// 全ファイルが解析エラーになるため、Java 21 に対応した版を明示する。
+checkstyle {
+    toolVersion = '10.18.2'
+}
+
+pmd {
+    toolVersion = '7.7.0'
+    ruleSetFiles = files('config/pmd/ruleset.xml')
+    ruleSets = []
+}
+
+spotbugs {
+    excludeFilter = file('config/spotbugs/exclude.xml')
+}
+
+// カスタムタスク：品質チェック全実行（既存 apps/java と同じ構成）
+task qualityCheck {
+    dependsOn 'checkstyleMain', 'checkstyleTest', 'pmdMain', 'pmdTest', 'spotbugsMain', 'spotbugsTest'
+    description 'Run all quality checks'
+    group 'verification'
+}

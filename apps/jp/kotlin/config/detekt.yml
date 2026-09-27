@@ -1,0 +1,20 @@
+# detekt 1.23.8 の既定設定に対する差分（--build-upon-default-config）。
+# 日本語（漢字・ひらがな・カタカナ）を含む名前は大文字・小文字の規則を適用しない。
+# 各パターンは detekt の既定値に「|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+」を足した形。
+naming:
+  ClassNaming:
+    classPattern: '[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  ConstructorParameterNaming:
+    parameterPattern: '[a-z][A-Za-z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  EnumNaming:
+    enumEntryPattern: '[A-Z][_a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  FunctionNaming:
+    functionPattern: '[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  FunctionParameterNaming:
+    parameterPattern: '[a-z][A-Za-z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  PackageNaming:
+    packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][_A-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
+  VariableNaming:
+    variablePattern: '[a-z][A-Za-z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+'
