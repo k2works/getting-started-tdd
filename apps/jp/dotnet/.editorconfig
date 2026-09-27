@@ -1,0 +1,28 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+dotnet_sort_using_directives = true
+csharp_prefer_braces = true:warning
+
+# Roslynator: コードスタイルチェック
+roslynator_max_line_length = 140
+
+# SonarAnalyzer: 認知的複雑度チェック（閾値 7）
+# S3776 - Cognitive Complexity of methods should not be too high
+dotnet_diagnostic.S3776.severity = warning
+
+# 日本語の例外クラス名（タイプ未定義例外）を使うため、
+# 「クラス名を Exception で終える」規則を抑止する（FINDINGS.md 参照）
+dotnet_diagnostic.S3376.severity = none
+# 例外の標準コンストラクタ群は題材の範囲外のため抑止する
+dotnet_diagnostic.RCS1194.severity = none
+
+[*.fs]
+indent_size = 4

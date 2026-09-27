@@ -1,0 +1,40 @@
+name:                fizzbuzz-jp
+version:             0.1.0.0
+synopsis:            FizzBuzz with Japanese identifiers
+description:         なでしこ3 実装を日本語の識別子で書き直した FizzBuzz
+license:             BSD-3-Clause
+author:              k2works
+maintainer:          k2works@example.com
+
+dependencies:
+  - base >= 4.7 && < 5
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Widentities
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wmissing-export-lists
+  - -Wmissing-home-modules
+  - -Wpartial-fields
+  - -Wredundant-constraints
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - FizzBuzz変換
+    - FizzBuzzタイプ
+    - FizzBuzzパイプライン
+    - FizzBuzz安全変換
+    - M助詞
+
+tests:
+  fizzbuzz-jp-test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+      - fizzbuzz-jp
+      - hspec
+    build-tools:
+      - hspec-discover
