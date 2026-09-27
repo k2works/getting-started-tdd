@@ -1,0 +1,6 @@
+target/
+.cpcache/
+.lsp/.cache/
+.clj-kondo/.cache/
+.nrepl-port
+.lein-failures

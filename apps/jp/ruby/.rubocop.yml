@@ -1,0 +1,44 @@
+# apps/ruby/.rubocop.yml を基に、日本語識別子のための変更を加えたもの（理由は FINDINGS.md）
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  SuggestExtensions: false
+  # 既定の parser gem は全角大文字始まりの Ｔタイプ を定数と認識せず、
+  # Lint/UselessAssignment の自動修正で定義を消してしまうため Prism を使う
+  ParserEngine: parser_prism
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*'
+    - 'Rakefile'
+
+Naming/MethodName:
+  Enabled: false
+
+# 以下は日本語識別子のために無効化・緩和
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Naming/VariableName:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  MinNameLength: 1

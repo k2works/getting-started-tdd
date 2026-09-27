@@ -1,0 +1,11 @@
+# 既存 apps/haskell の lts-23.20 は GHC 9.8.4 を downloads.haskell.org から取得しようとするが、
+# この環境ではそのホストに到達できない。Nix の GHC 9.10.3 をそのまま使うため、
+# 同じ GHC を採用している LTS を選び system-ghc で動かす（FINDINGS.md 参照）。
+snapshot: lts-24.20
+
+packages:
+- .
+
+system-ghc: true
+install-ghc: false
+notify-if-nix-on-path: false

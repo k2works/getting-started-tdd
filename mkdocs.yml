@@ -316,6 +316,7 @@ nav:
           - 学習ロードマップ: article/integration/06-learning-roadmap.md
           - トータルスコアによる総合比較: article/integration/07-total-score-comparison.md
           - 'コラム: 言語の性格を比喩で掴む': article/integration/08-language-personality-column.md
+          - 'コラム: なでしこ3 を 17 言語で日本語実装する': article/integration/09-japanese-implementation-column.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md

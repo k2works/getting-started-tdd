@@ -37,7 +37,10 @@ jacoco {
     toolVersion = '0.8.11'
 }
 
+// Gradle 既定の PMD 6.55.0 は Java 21 のクラスファイルを読めず（Unsupported class file major version 65）、
+// 全ファイルが解析エラーのまま成功扱いになるため、Java 21 に対応した版を明示する。
 pmd {
+    toolVersion = '7.7.0'
     ruleSetFiles = files('config/pmd/ruleset.xml')
     ruleSets = []
 }

@@ -1,0 +1,3 @@
+;; 語順マクロ `なでしこ` の中の助詞（を・して など）は展開時に取り除くため、
+;; clj-kondo の unresolved-symbol から除外する。
+{:linters {:unresolved-symbol {:exclude [(なでしこ.語順/なでしこ [を して に で])]}}}

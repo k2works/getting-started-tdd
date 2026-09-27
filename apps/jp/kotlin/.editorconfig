@@ -1,0 +1,9 @@
+# ktlint 1.8.0 の命名ルールは正規表現を設定できないため、日本語の名前に反応するルールを無効化する。
+# 代償: ASCII の名前に対する同じ検査も失われる。
+[*.{kt,kts}]
+ktlint_standard_class-naming = disabled
+ktlint_standard_enum-entry-name-case = disabled
+ktlint_standard_filename = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_package-name = disabled
+ktlint_standard_property-naming = disabled
