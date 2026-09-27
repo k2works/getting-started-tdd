@@ -19,7 +19,7 @@
 
 ```text
 -- Lexer Error [E4518] ------------------------------------------- src/Main.flix
->> Unexpected character '換'.
+>> Unexpected character '\u63DB'.
 ```
 
 `def fizzBuzz変換`（関数）、`let 値 = 1`（変数）、`enum タイプ { case 通常 }`（型と列挙子）のすべてで同じエラーになることを確認しました。文字列リテラル（`"該当するタイプは存在しません: ${bangou}"`）とコメント（`///` のドキュメントコメントを含む）には日本語を書けます。

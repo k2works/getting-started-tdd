@@ -1,7 +1,7 @@
 ///
 /// 題材 A: FizzBuzz 変換（なでしこ3 の `●(Nを)FizzBuzz変換`）。
 ///
-/// Flix の字句解析器は識別子に ASCII 以外を受け付けない（`Unexpected character '変'.`）。
+/// Flix の字句解析器は識別子に ASCII 以外を受け付けない（`Unexpected character '\u5909'.`）。
 /// そのため名前はローマ字で書き、なでしこ3 の元の名前をドキュメントコメントに残す。
 ///
 mod FizzBuzz {

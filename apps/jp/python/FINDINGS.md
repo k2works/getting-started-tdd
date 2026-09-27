@@ -97,7 +97,7 @@ ModuleNotFoundError: No module named 'タイプ'
 |--------|------|------|
 | テスト関数名に `test_` 接頭辞 | pytest の既定の収集規則（`python_functions = test_*`）と、数字始まりの識別子が不可のため | `test_3を渡したらFizzを返す` のように ASCII が混ざる |
 | 題材 A の 5 件を `pytest.param(..., id="3を渡したらFizzを返す")` で表現 | id は任意の文字列なので、なでしこ3 のテスト名をそのまま書ける | 既定では id の非 ASCII がエスケープされる（下記） |
-| `disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true` を pyproject に追加 | 既定の出力が `test_FizzBuzz変換[3を渡したらFizzを返す]` になり読めないため | オプション名のとおり「コミュニティサポートを受ける権利を放棄する」扱いになる |
+| `disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true` を pyproject に追加 | 既定の出力が `test_FizzBuzz変換[3\u3092\u6e21\u3057\u305f\u3089Fizz\u3092\u8fd4\u3059]` になり読めないため | オプション名のとおり「コミュニティサポートを受ける権利を放棄する」扱いになる |
 | Makefile で `unexport PYTHONPATH` | Nix の python 環境（MkDocs 用）の `PYTHONPATH` が古い pathspec を先に読ませ、mypy が `ModuleNotFoundError: No module named 'pathspec.patterns.gitignore'` で起動しない | 日本語とは無関係の環境問題 |
 | `安全変換(N: object)` | 題材 D の 3 件目（`安全変換("a")`）を mypy に通すため | `isinstance` による絞り込みが必要 |
 
@@ -168,6 +168,6 @@ test/test_タイプ.py:10:9: N806 Variable `通常` in function should be lowerc
 |----|----|------|
 | 関数・変数名 | 3 | 関数・変数・引数・フィールドすべて日本語で制約なし。ただし NFKC 正規化により半角カナと全角カナが同一視され、`getattr` の文字列とは食い違う |
 | 型・モジュール名 | 3 | クラス・`IntEnum` の列挙子・型エイリアス・`TypeVar`・パッケージ `実装`・モジュール `タイプ.py` すべて日本語で import できる（半角カナのファイル名だけは NFKC のため import 不可） |
-| テスト名 | 2 | 関数名は `test_` 接頭辞付きの日本語識別子。`pytest.param(id=...)` なら文章で書けるが、既定では `を` にエスケープされ、読める表示には「サポート放棄」オプションが必要 |
+| テスト名 | 2 | 関数名は `test_` 接頭辞付きの日本語識別子。`pytest.param(id=...)` なら文章で書けるが、既定では `\u3092` のようにエスケープされ、読める表示には「サポート放棄」オプションが必要 |
 | 語順の再現 | 3 | `3 \| を \| FizzBuzz変換` と助詞オブジェクトを置いた SOV 順を、mypy の型推論付きで書ける |
 | ツール許容 | 2 | 既存の Ruff・mypy 設定は `I001`（コードポイント順）と行幅の自動修正だけで通るが、pytest の id 表示に設定変更が必要。`PLC2401`・`N` を有効にすると日本語名はすべて指摘される |

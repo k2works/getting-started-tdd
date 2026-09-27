@@ -347,6 +347,16 @@ Prolog は単一化（unification）とバックトラッキングを基礎と�
 
 [第 8 章のコラム](integration/08-language-personality-column.md) が比喩で言語の性格を描いたのに対し、本コラムは実コードで「日本語化の許容度」を測る。なでしこ3 は[トータルスコア](integration/07-total-score-comparison.md)では最下位（6.1）だが、日本語で書くという一点では他言語が追いつけない基準点であり、その差を具体的なコードで示すことが本コラムの狙いである。
 
+### 状態
+
+| 項目 | 状態 |
+|------|------|
+| 共通仕様 | `apps/jp/SPEC.md`（完了） |
+| 検証用コード | `apps/jp/{lang}/` の 15 ディレクトリで 17 言語（完了。全言語の `make test` が Nix 環境で成功） |
+| 検証記録 | `apps/jp/{lang}/FINDINGS.md`（完了） |
+| コラム記事 | [第 9 章](integration/09-japanese-implementation-column.md)（完了。日本語化スコアと mermaid のレーダーチャートによる総合評価を含む） |
+| CI | `.github/workflows/jp-ci.yml`（言語ごとの行列ジョブ） |
+
 ### 問い
 
 1. 日本語の識別子（関数・変数・型・モジュール名）は各言語で書けるか。書けない場合、どの規則が阻むのか
