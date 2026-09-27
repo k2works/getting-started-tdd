@@ -166,8 +166,8 @@
 | # | タスク | 見積もり | 担当 | 状態 |
 |---|--------|---------|------|------|
 | 5.1 | docs/article/integration/ 全ファイルになでしこ3 を反映（言語数 15 → 16） | 2h | AI | [x] |
-| 5.2 | GitHub Issue（US-017）と Milestone を作成し、完了時にクローズ | 0.5h | AI | [ ] |
-| 5.3 | Release 5.0（v5.0.0 タグ、CHANGELOG 生成） | 0.5h | AI | [ ] |
+| 5.2 | GitHub Issue（US-017 = #25）を作成し、PR マージ時にクローズ（Milestone は未作成） | 0.5h | AI | [x] |
+| 5.3 | Release 5.0（CHANGELOG 生成・リリースコミット。v5.0.0 タグはマージ後） | 0.5h | AI | [x] |
 
 ---
 

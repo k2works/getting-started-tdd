@@ -299,7 +299,7 @@ gantt
 - [x] `apps/nadesiko/` の `make test` がすべてパス（7 ファイル 48 件）
 - [x] 記事の最終コードが `apps/nadesiko/` と一致し、受け入れテストを `gonako doctest` で検証済み
 - [x] 統合解説・`docs/article/index.md` になでしこ3 を反映
-- [ ] v5.0.0 リリース
+- [x] v5.0.0 リリースコミット作成（タグは develop へのマージ後に付与）
 
 ---
 
@@ -653,7 +653,7 @@ gantt
 37. ~~Phase 5: なでしこ3 の執筆計画（outline・リリース計画・IT16 計画）を作成~~ ✅
 38. ~~Phase 5: Nix 環境（`gonako`）と apps/nadesiko/ を初期化~~ ✅
 39. ~~Phase 5: なでしこ3 第 1〜12 章の執筆・実装を完了~~ ✅
-40. Phase 5: GitHub Issue（US-017）と Milestone を作成して同期
+40. ~~Phase 5: GitHub Issue（US-017 = #25）を作成して同期~~ ✅（Milestone は未作成）
 41. Release 5.0 のタグ付けと CHANGELOG 生成
 
 ---
@@ -687,3 +687,4 @@ gantt
 | 2026-09-25 | Release 4.0 リリース（v4.0.0 タグ、CHANGELOG 生成、package.json 4.0.0） | AI |
 | 2026-09-27 | Phase 5（なでしこ3、US-017 13 SP）を計画へ追加、Release 5.0 と IT16 計画を追記 | AI |
 | 2026-09-27 | IT16 完了（なでしこ3 13 SP：全 12 章の執筆と実装、統合解説への反映）、バーンダウン更新 | AI |
+| 2026-09-27 | Issue #25（US-017）作成、Release 5.0 リリースコミット（package.json 5.0.0、CHANGELOG 生成） | AI |
