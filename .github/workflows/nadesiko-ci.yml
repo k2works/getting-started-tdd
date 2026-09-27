@@ -1,0 +1,59 @@
+name: Nadesiko3 CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/nadesiko/**"
+      - ".github/workflows/nadesiko-ci.yml"
+      - "ops/nix/environments/nadesiko/shell.nix"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/nadesiko/**"
+      - ".github/workflows/nadesiko-ci.yml"
+      - "ops/nix/environments/nadesiko/shell.nix"
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: /tmp/nix-cache
+          key: ${{ runner.os }}-nix-nadesiko-${{ hashFiles('flake.lock', 'ops/nix/environments/nadesiko/shell.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-nadesiko-
+
+      - name: Cache gonako binary and Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/nadesiko/bin
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-gonako-${{ hashFiles('ops/nix/environments/nadesiko/shell.nix') }}
+
+      - name: Lint
+        run: nix develop .#nadesiko --command bash -c "cd apps/nadesiko && make lint"
+
+      - name: Format check
+        run: nix develop .#nadesiko --command bash -c "cd apps/nadesiko && make format-check"
+
+      - name: Test
+        run: nix develop .#nadesiko --command bash -c "cd apps/nadesiko && make test"
+
+      - name: Acceptance test (doctest)
+        run: nix develop .#nadesiko --command bash -c "cd apps/nadesiko && make doctest"

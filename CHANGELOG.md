@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [5.0.0] - 2026-09-27
+
+Phase 5 完了 — 日本語プログラミング言語 なでしこ3（Go 実装 nadesiko3go / `gonako` 3.8.8）の 12 章の TDD 入門記事と実装を追加。全 16 言語環境 + 統合解説となり、`apps/nadesiko` は 7 テストファイル 48 件と doctest がグリーン。
+
+### Features
+
+- feat(nadesiko): IT16 FizzBuzz の TDD 実装（第 1〜4 部） (ad6648c)
+
+### Bug Fixes
+
+- fix(nadesiko): 空許容変換が 0 を空とみなす不具合を修正 (d88bfd6)
+
+### Documentation
+
+- docs(plan): なでしこ3 の記事執筆計画と IT16 計画を追加 (41185b1)
+- docs(nadesiko): 第 1〜3 章を執筆し第 1 部を完成 (60738f7)
+- docs(nadesiko): 第 4〜6 章を執筆し第 2 部を完成 (b516b81)
+- docs(nadesiko): 第 7〜9 章を執筆し第 3 部を完成 (af46dae)
+- docs(nadesiko): 第 10〜12 章を執筆し第 4 部を完成 (c0a578a)
+- docs(plan): IT16（なでしこ3）の進捗を計画ドキュメントに反映 (4a39aa0)
+- docs(integration): 多言語統合解説になでしこ3 を反映 (51a1470)
+
+### Chores
+
+- chore(nadesiko): IT16 環境構築（gonako + ASSERT等 + test runner + Nix CI） (4e61c41)
+
 ## [4.3.0] - 2026-09-25
 
 トータルスコアによる総合比較と言語の性格コラムを、学習ロードマップから独立した章（第 7・8 章）に分離。コラムに『君のことが大大大大大好きな100人の彼女』版の比喩を追加。
