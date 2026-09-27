@@ -1,0 +1,35 @@
+{
+    "name": "fizzbuzz/php-tdd-jp",
+    "description": "なでしこ3 実装を日本語識別子で書き直した PHP 版（第 9 章コラム用）",
+    "type": "project",
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "phpmd/phpmd": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "アプリ\\": "src/"
+        },
+        "files": [
+            "src/FizzBuzz変換.php",
+            "src/パイプライン.php",
+            "src/安全変換.php",
+            "src/語順.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "アプリ\\テスト\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "lint": "vendor/bin/phpcs",
+        "analyse": "vendor/bin/phpstan analyse",
+        "complexity": "vendor/bin/phpmd src text phpmd.xml"
+    }
+}

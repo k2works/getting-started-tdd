@@ -1,0 +1,4 @@
+;; clojure-lsp は既定で `lein with-profile +test,+dev classpath` を実行し、
+;; base プロファイルの nREPL を Clojars から取得しようとして失敗するため、base を外す。
+{:project-specs [{:project-path "project.clj"
+                  :classpath-cmd ["lein" "with-profile" "-base,+test" "classpath"]}]}
