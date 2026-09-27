@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        プロジェクト用 PMD ルールセット
+    </description>
+
+    <!-- 基本ルール -->
+    <rule ref="category/java/bestpractices.xml">
+        <!-- apps/java の JUnitTestContainsTooManyAsserts は PMD 7 で改名されたため新しい名前で除外する -->
+        <exclude name="UnitTestContainsTooManyAsserts"/>
+        <!-- 日本語の @DisplayName でテストの意図を表すため、アサーションごとのメッセージは求めない -->
+        <exclude name="UnitTestAssertionsShouldIncludeMessage"/>
+    </rule>
+    <rule ref="category/java/errorprone.xml"/>
+    <rule ref="category/java/codestyle.xml">
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="LocalVariableCouldBeFinal"/>
+        <exclude name="MethodArgumentCouldBeFinal"/>
+        <exclude name="ShortVariable"/>
+        <exclude name="LongVariable"/>
+        <exclude name="ShortMethodName"/>
+        <exclude name="ShortClassName"/>
+        <exclude name="CommentDefaultAccessModifier"/>
+        <exclude name="ClassNamingConventions"/>
+        <exclude name="MethodNamingConventions"/>
+        <exclude name="FieldNamingConventions"/>
+        <exclude name="FormalParameterNamingConventions"/>
+        <exclude name="LocalVariableNamingConventions"/>
+    </rule>
+
+    <!--
+        apps/java の設定に対する変更: 命名規則の 5 ルールを除外して、日本語（漢字・ひらがな・カタカナ）を
+        含む名前を許す正規表現で再定義する。PMD 7.7.0 の既定値に「|JP」を足した形。
+    -->
+    <rule ref="category/java/codestyle.xml/ClassNamingConventions">
+        <properties>
+            <property name="classPattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="abstractClassPattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="interfacePattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="enumPattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="annotationPattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="utilityClassPattern" value="[A-Z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="testClassPattern" value="^Test.*$|^[A-Z][a-zA-Z0-9]*Test(s|Case)?$|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+テスト"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/MethodNamingConventions">
+        <properties>
+            <property name="methodPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="staticPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="junit5TestPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/FieldNamingConventions">
+        <properties>
+            <property name="constantPattern" value="[A-Z][A-Z_0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="enumConstantPattern" value="[A-Z][A-Z_0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="finalFieldPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/FormalParameterNamingConventions">
+        <properties>
+            <property name="methodParameterPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="lambdaParameterPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="explicitLambdaParameterPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/LocalVariableNamingConventions">
+        <properties>
+            <property name="localVarPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+            <property name="finalVarPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+        </properties>
+    </rule>
+
+    <!-- コード複雑度 -->
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <property name="classReportLevel" value="80"/>
+            <property name="methodReportLevel" value="7"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/design.xml/CognitiveComplexity">
+        <properties>
+            <property name="reportLevel" value="4"/>
+        </properties>
+    </rule>
+    <rule ref="category/java/design.xml/NPathComplexity">
+        <properties>
+            <property name="reportLevel" value="200"/>
+        </properties>
+    </rule>
+</ruleset>

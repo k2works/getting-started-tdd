@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    apps/java にはない追加設定: SpotBugs の Nm（命名規則）は Character.isUpperCase / isLowerCase で判定するため、
+    大文字・小文字の区別がない日本語で始まる名前はすべて報告される。日本語の名前を使う本ディレクトリでは除外する。
+-->
+<FindBugsFilter>
+    <Match>
+        <Bug pattern="NM_CLASS_NAMING_CONVENTION,NM_METHOD_NAMING_CONVENTION"/>
+    </Match>
+</FindBugsFilter>
