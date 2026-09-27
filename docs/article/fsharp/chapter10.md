@@ -136,13 +136,14 @@ let fizzBuzzRange = applyToRange (generate Standard >> (fun v -> v.Value)) 1 20
 // ["1"; "2"; "Fizz"; "4"; "Buzz"; ...]
 ```
 
-### FizzBuzzList への関数型メソッド追加
+### FizzBuzzList への関数型操作の追加
+
+コンパニオンモジュール `FizzBuzzList` に関数として追加します。
 
 ```fsharp
-member this.CountByValue() =
-    this.Values
-    |> List.groupBy (fun v -> v.Value)
-    |> List.map (fun (key, group) -> (key, List.length group))
+let countByValue (list: FizzBuzzList) =
+    list.Values
+    |> List.countBy (fun v -> v.Value)
     |> Map.ofList
 ```
 
@@ -158,7 +159,7 @@ let ``値ごとにカウントできる`` () =
               createValue 3 "Fizz"
               createValue 6 "Fizz"
               createValue 5 "Buzz" ]
-    let counts = list.CountByValue()
+    let counts = list |> FizzBuzzList.countByValue
     Assert.Equal(1, counts.["1"])
     Assert.Equal(2, counts.["Fizz"])
     Assert.Equal(1, counts.["Buzz"])

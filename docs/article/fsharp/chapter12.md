@@ -15,11 +15,11 @@ F# には `null` を直接扱う代わりに **Option 型** を使います。�
 
 ### FizzBuzzList での活用
 
-`FindFirst` メソッドは `Option<FizzBuzzValue>` を返します。
+`FizzBuzzList.findFirst` は `Option<FizzBuzzValue>` を返します。
 
 ```fsharp
-member this.FindFirst(predicate: FizzBuzzValue -> bool) =
-    this.Values |> List.tryFind predicate
+let findFirst (predicate: FizzBuzzValue -> bool) (list: FizzBuzzList) =
+    list.Values |> List.tryFind predicate
 ```
 
 ### パターンマッチによる処理
@@ -31,7 +31,7 @@ let list =
           createValue 3 "Fizz"
           createValue 5 "Buzz" ]
 
-match list.FindFirst(fun v -> v.Value = "Fizz") with
+match list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz") with
 | Some value -> printfn "Found: %d:%s" value.Number value.Value
 | None -> printfn "Not found"
 ```
@@ -41,20 +41,23 @@ match list.FindFirst(fun v -> v.Value = "Fizz") with
 ```fsharp
 // Option.map: Some の場合のみ変換
 let fizzNumber =
-    list.FindFirst(fun v -> v.Value = "Fizz")
+    list
+    |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
     |> Option.map (fun v -> v.Number)
 // Some 3
 
 // Option.defaultValue: None の場合のデフォルト値
 let numberOrDefault =
-    list.FindFirst(fun v -> v.Value = "Missing")
+    list
+    |> FizzBuzzList.findFirst (fun v -> v.Value = "Missing")
     |> Option.map (fun v -> v.Number)
     |> Option.defaultValue 0
 // 0
 
 // Option.bind: Some の場合のみ次の Option を返す関数を適用
 let findAndFilter =
-    list.FindFirst(fun v -> v.Value = "Fizz")
+    list
+    |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
     |> Option.bind (fun v ->
         if v.Number > 2 then Some v
         else None)
@@ -181,7 +184,7 @@ let ``計算式でエラーが伝播する`` () =
 
 ```fsharp
 // Option: 見つからないだけ（エラー情報不要）
-let found = list.FindFirst(fun v -> v.Value = "Fizz")
+let found = list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
 
 // Result: なぜ失敗したかの情報が必要
 let validated = validateNumber -1
