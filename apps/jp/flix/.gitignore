@@ -1,0 +1,5 @@
+flix.jar
+build/
+lib/
+packages.lock
+*.fpkg
