@@ -8498,6 +8498,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/09-japanese-implementation-column/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    コラム: なでしこ3 を 17 言語で日本語実装する
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -11100,6 +11128,7 @@
 <span class="o">}</span>
 
 <span class="n">pmd</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">toolVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'7.7.0'</span>
 <span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">'config/pmd/ruleset.xml'</span><span class="o">)</span>
 <span class="w">    </span><span class="n">ruleSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
 <span class="o">}</span>
@@ -11126,6 +11155,12 @@
 <p><a href="https://pmd.github.io/">PMD</a> は潜在的なバグやデッドコードを検出する静的解析ツールです。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./gradlew<span class="w"> </span>pmdMain
 </code></pre></div>
+<blockquote>
+<p><strong>Note</strong>: <code>pmd</code> ブロックでは <code>toolVersion</code> を必ず指定します。Gradle 8 系が既定で使う PMD 6.55.0 は
+Java 21 のクラスファイルを読めず（<code>Unsupported class file major version 65</code>）、全ファイルが解析エラーに
+なります。しかも、そのときタスクは違反 0 件として <strong>成功扱い</strong> になるため、検査が働いていないことに
+気づけません。本記事では Java 21 に対応した PMD 7.7.0 を指定しています。</p>
+</blockquote>
 <h3 id="spotbugs">SpotBugs<a class="headerlink" href="#spotbugs" title="Permanent link">&para;</a></h3>
 <p><a href="https://spotbugs.github.io/">SpotBugs</a> はバグパターンを検出するツールです。セキュリティ脆弱性の検出には FindSecBugs プラグインを使用します。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./gradlew<span class="w"> </span>spotbugsMain
@@ -11319,9 +11354,20 @@
 
 <span class="w">    </span><span class="cm">&lt;!-- 基本ルール --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/bestpractices.xml"</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"JUnitTestContainsTooManyAsserts"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- PMD 7 で JUnitTestContainsTooManyAsserts から改名された --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"UnitTestContainsTooManyAsserts"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- テストの意図はメソッド名で表すため、アサーションごとのメッセージは求めない --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"UnitTestAssertionsShouldIncludeMessage"</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
-<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/errorprone.xml"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/errorprone.xml"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"AvoidDuplicateLiterals"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- 期待値の文字列（"Fizz" など）を繰り返すのはテストでは自然なため、テストクラスでは検査しない --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/errorprone.xml/AvoidDuplicateLiterals"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;properties&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"violationSuppressXPath"</span><span class="w"> </span><span class="na">value=</span><span class="s">"//ClassDeclaration[ends-with(@SimpleName, 'Test')]"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 <span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/codestyle.xml"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"AtLeastOneConstructor"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"OnlyOneReturn"</span><span class="nt">/&gt;</span>
@@ -11332,6 +11378,13 @@
 <span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"ShortMethodName"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"ShortClassName"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"CommentDefaultAccessModifier"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">name=</span><span class="s">"MethodNamingConventions"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- 記事では JUnit 5 のテストメソッド名を日本語で書くため、日本語を含む名前も許可する --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">ref=</span><span class="s">"category/java/codestyle.xml/MethodNamingConventions"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;properties&gt;</span>
+<span class="w">            </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">"junit5TestPattern"</span><span class="w"> </span><span class="na">value=</span><span class="s">"[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/rule&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- コード複雑度 --&gt;</span>
@@ -11355,6 +11408,7 @@
 </code></pre></div>
 <p><code>build.gradle</code> に PMD のルールセットファイルを参照する設定を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">pmd</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">toolVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'7.7.0'</span>
 <span class="w">    </span><span class="n">ruleSetFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="o">(</span><span class="s1">'config/pmd/ruleset.xml'</span><span class="o">)</span>
 <span class="w">    </span><span class="n">ruleSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
 <span class="o">}</span>

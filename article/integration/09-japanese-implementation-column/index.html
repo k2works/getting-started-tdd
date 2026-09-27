@@ -13,24 +13,28 @@
       
       
       
+        <link rel="prev" href="../08-language-personality-column/">
+      
+      
+        <link rel="next" href="../../../development/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Getting Started TDD</title>
+        <title>コラム: なでしこ3 を 17 言語で日本語実装する - Getting Started TDD</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/docs/mkdocs/assets/css/extra.css">
+      <link rel="stylesheet" href="../../../docs/mkdocs/assets/css/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#3-17" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Getting Started TDD" class="md-header__button md-logo" aria-label="Getting Started TDD" data-md-component="logo">
+    <a href="../../.." title="Getting Started TDD" class="md-header__button md-logo" aria-label="Getting Started TDD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              コラム: なでしこ3 を 17 言語で日本語実装する
             
           </span>
         </div>
@@ -190,7 +199,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -207,11 +216,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/article/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -231,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../../development/" class="md-tabs__link">
           
   
   
@@ -251,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/analysis/" class="md-tabs__link">
+        <a href="../../../analysis/" class="md-tabs__link">
           
   
   
@@ -271,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/design/" class="md-tabs__link">
+        <a href="../../../design/" class="md-tabs__link">
           
   
   
@@ -291,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/adr/" class="md-tabs__link">
+        <a href="../../../adr/" class="md-tabs__link">
           
   
   
@@ -311,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/operation/" class="md-tabs__link">
+        <a href="../../../operation/" class="md-tabs__link">
           
   
   
@@ -331,7 +342,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-tabs__link">
+        <a href="../../../reference/%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-tabs__link">
           
   
   
@@ -351,7 +362,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/slide/" class="md-tabs__link">
+        <a href="../../../slide/" class="md-tabs__link">
           
   
   
@@ -387,7 +398,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Getting Started TDD" class="md-nav__button md-logo" aria-label="Getting Started TDD" data-md-component="logo">
+    <a href="../../.." title="Getting Started TDD" class="md-nav__button md-logo" aria-label="Getting Started TDD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -417,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -441,26 +452,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -478,7 +494,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -496,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -524,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/outline/" class="md-nav__link">
+      <a href="../../outline/" class="md-nav__link">
         
   
   
@@ -552,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/workflow/" class="md-nav__link">
+      <a href="../../workflow/" class="md-nav__link">
         
   
   
@@ -586,17 +602,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
             
   
   
@@ -632,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/" class="md-nav__link">
+      <a href="../../java/" class="md-nav__link">
         
   
   
@@ -660,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../java/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -688,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../java/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -716,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../java/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -744,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../java/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -772,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../java/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -800,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../java/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -828,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../java/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -856,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/08-design-patterns/" class="md-nav__link">
+      <a href="../../java/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -884,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../java/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -912,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../java/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -940,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../java/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -968,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/java/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../java/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -1010,17 +1029,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
             
   
   
@@ -1056,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -1084,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../python/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -1112,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../python/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -1140,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../python/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -1168,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../python/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -1196,7 +1218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../python/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -1224,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../python/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -1252,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../python/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -1280,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/08-design-patterns/" class="md-nav__link">
+      <a href="../../python/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -1308,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../python/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -1336,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../python/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -1364,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../python/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -1392,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/python/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../python/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -1434,17 +1456,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
             
   
   
@@ -1480,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/" class="md-nav__link">
+      <a href="../../node/" class="md-nav__link">
         
   
   
@@ -1508,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../node/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -1536,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../node/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -1564,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../node/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -1592,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../node/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -1620,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../node/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -1648,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../node/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -1676,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../node/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -1704,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/08-design-patterns/" class="md-nav__link">
+      <a href="../../node/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -1732,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../node/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -1760,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../node/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -1788,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../node/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -1816,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/node/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../node/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -1858,17 +1883,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
             
   
   
@@ -1904,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/" class="md-nav__link">
+      <a href="../../ruby/" class="md-nav__link">
         
   
   
@@ -1932,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../ruby/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -1960,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../ruby/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -1988,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../ruby/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -2016,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../ruby/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -2044,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../ruby/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -2072,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../ruby/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -2100,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../ruby/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -2128,7 +2156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/08-design-patterns/" class="md-nav__link">
+      <a href="../../ruby/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -2156,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../ruby/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -2184,7 +2212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../ruby/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -2212,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../ruby/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -2240,7 +2268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/ruby/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../ruby/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -2282,17 +2310,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
             
   
   
@@ -2328,7 +2359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/" class="md-nav__link">
+      <a href="../../php/" class="md-nav__link">
         
   
   
@@ -2356,7 +2387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../php/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -2384,7 +2415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../php/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -2412,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../php/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -2440,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../php/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -2468,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../php/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -2496,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../php/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -2524,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../php/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -2552,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/08-design-patterns/" class="md-nav__link">
+      <a href="../../php/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -2580,7 +2611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../php/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -2608,7 +2639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../php/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -2636,7 +2667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../php/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -2664,7 +2695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/php/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../php/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -2706,17 +2737,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
-          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="">
             
   
   
@@ -2752,7 +2786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/" class="md-nav__link">
+      <a href="../../rust/" class="md-nav__link">
         
   
   
@@ -2780,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../rust/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -2808,7 +2842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../rust/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -2836,7 +2870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../rust/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -2864,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../rust/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -2892,7 +2926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../rust/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -2920,7 +2954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../rust/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -2948,7 +2982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../rust/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -2976,7 +3010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/08-design-patterns/" class="md-nav__link">
+      <a href="../../rust/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -3004,7 +3038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../rust/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -3032,7 +3066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../rust/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -3060,7 +3094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../rust/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -3088,7 +3122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/rust/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../rust/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -3130,17 +3164,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
         
           
-          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="">
             
   
   
@@ -3176,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/" class="md-nav__link">
+      <a href="../../csharp/" class="md-nav__link">
         
   
   
@@ -3204,7 +3241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter01/" class="md-nav__link">
+      <a href="../../csharp/chapter01/" class="md-nav__link">
         
   
   
@@ -3232,7 +3269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter02/" class="md-nav__link">
+      <a href="../../csharp/chapter02/" class="md-nav__link">
         
   
   
@@ -3260,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter03/" class="md-nav__link">
+      <a href="../../csharp/chapter03/" class="md-nav__link">
         
   
   
@@ -3288,7 +3325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter04/" class="md-nav__link">
+      <a href="../../csharp/chapter04/" class="md-nav__link">
         
   
   
@@ -3316,7 +3353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter05/" class="md-nav__link">
+      <a href="../../csharp/chapter05/" class="md-nav__link">
         
   
   
@@ -3344,7 +3381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter06/" class="md-nav__link">
+      <a href="../../csharp/chapter06/" class="md-nav__link">
         
   
   
@@ -3372,7 +3409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter07/" class="md-nav__link">
+      <a href="../../csharp/chapter07/" class="md-nav__link">
         
   
   
@@ -3400,7 +3437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter08/" class="md-nav__link">
+      <a href="../../csharp/chapter08/" class="md-nav__link">
         
   
   
@@ -3428,7 +3465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter09/" class="md-nav__link">
+      <a href="../../csharp/chapter09/" class="md-nav__link">
         
   
   
@@ -3456,7 +3493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter10/" class="md-nav__link">
+      <a href="../../csharp/chapter10/" class="md-nav__link">
         
   
   
@@ -3484,7 +3521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter11/" class="md-nav__link">
+      <a href="../../csharp/chapter11/" class="md-nav__link">
         
   
   
@@ -3512,7 +3549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/csharp/chapter12/" class="md-nav__link">
+      <a href="../../csharp/chapter12/" class="md-nav__link">
         
   
   
@@ -3554,17 +3591,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
         
           
-          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
             
   
   
@@ -3600,7 +3640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/" class="md-nav__link">
+      <a href="../../fsharp/" class="md-nav__link">
         
   
   
@@ -3628,7 +3668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter01/" class="md-nav__link">
+      <a href="../../fsharp/chapter01/" class="md-nav__link">
         
   
   
@@ -3656,7 +3696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter02/" class="md-nav__link">
+      <a href="../../fsharp/chapter02/" class="md-nav__link">
         
   
   
@@ -3684,7 +3724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter03/" class="md-nav__link">
+      <a href="../../fsharp/chapter03/" class="md-nav__link">
         
   
   
@@ -3712,7 +3752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter04/" class="md-nav__link">
+      <a href="../../fsharp/chapter04/" class="md-nav__link">
         
   
   
@@ -3740,7 +3780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter05/" class="md-nav__link">
+      <a href="../../fsharp/chapter05/" class="md-nav__link">
         
   
   
@@ -3768,7 +3808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter06/" class="md-nav__link">
+      <a href="../../fsharp/chapter06/" class="md-nav__link">
         
   
   
@@ -3796,7 +3836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter07/" class="md-nav__link">
+      <a href="../../fsharp/chapter07/" class="md-nav__link">
         
   
   
@@ -3824,7 +3864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter08/" class="md-nav__link">
+      <a href="../../fsharp/chapter08/" class="md-nav__link">
         
   
   
@@ -3852,7 +3892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter09/" class="md-nav__link">
+      <a href="../../fsharp/chapter09/" class="md-nav__link">
         
   
   
@@ -3880,7 +3920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter10/" class="md-nav__link">
+      <a href="../../fsharp/chapter10/" class="md-nav__link">
         
   
   
@@ -3908,7 +3948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter11/" class="md-nav__link">
+      <a href="../../fsharp/chapter11/" class="md-nav__link">
         
   
   
@@ -3936,7 +3976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/fsharp/chapter12/" class="md-nav__link">
+      <a href="../../fsharp/chapter12/" class="md-nav__link">
         
   
   
@@ -3978,17 +4018,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="">
             
   
   
@@ -4024,7 +4067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/" class="md-nav__link">
+      <a href="../../go/" class="md-nav__link">
         
   
   
@@ -4052,7 +4095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../go/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -4080,7 +4123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../go/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -4108,7 +4151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../go/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -4136,7 +4179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../go/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -4164,7 +4207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../go/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -4192,7 +4235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../go/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -4220,7 +4263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../go/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -4248,7 +4291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/08-design-patterns/" class="md-nav__link">
+      <a href="../../go/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -4276,7 +4319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../go/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -4304,7 +4347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../go/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -4332,7 +4375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../go/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -4360,7 +4403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/go/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../go/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -4402,17 +4445,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
         
           
-          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="">
             
   
   
@@ -4448,7 +4494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/" class="md-nav__link">
+      <a href="../../clojure/" class="md-nav__link">
         
   
   
@@ -4476,7 +4522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../clojure/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -4504,7 +4550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../clojure/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -4532,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../clojure/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -4560,7 +4606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../clojure/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -4588,7 +4634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../clojure/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -4616,7 +4662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../clojure/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -4644,7 +4690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/07-protocols-and-records/" class="md-nav__link">
+      <a href="../../clojure/07-protocols-and-records/" class="md-nav__link">
         
   
   
@@ -4672,7 +4718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/08-multimethods-and-design-patterns/" class="md-nav__link">
+      <a href="../../clojure/08-multimethods-and-design-patterns/" class="md-nav__link">
         
   
   
@@ -4700,7 +4746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/09-namespaces-and-module-design/" class="md-nav__link">
+      <a href="../../clojure/09-namespaces-and-module-design/" class="md-nav__link">
         
   
   
@@ -4728,7 +4774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../clojure/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -4756,7 +4802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/11-persistent-data-and-pipeline/" class="md-nav__link">
+      <a href="../../clojure/11-persistent-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -4784,7 +4830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/clojure/12-error-handling-and-spec/" class="md-nav__link">
+      <a href="../../clojure/12-error-handling-and-spec/" class="md-nav__link">
         
   
   
@@ -4826,17 +4872,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
         
           
-          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="">
             
   
   
@@ -4872,7 +4921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/" class="md-nav__link">
+      <a href="../../scala/" class="md-nav__link">
         
   
   
@@ -4900,7 +4949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../scala/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -4928,7 +4977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../scala/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -4956,7 +5005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../scala/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -4984,7 +5033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../scala/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -5012,7 +5061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../scala/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -5040,7 +5089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../scala/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -5068,7 +5117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/07-case-classes-and-traits/" class="md-nav__link">
+      <a href="../../scala/07-case-classes-and-traits/" class="md-nav__link">
         
   
   
@@ -5096,7 +5145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/08-pattern-matching-and-sealed-traits/" class="md-nav__link">
+      <a href="../../scala/08-pattern-matching-and-sealed-traits/" class="md-nav__link">
         
   
   
@@ -5124,7 +5173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/09-packages-and-module-design/" class="md-nav__link">
+      <a href="../../scala/09-packages-and-module-design/" class="md-nav__link">
         
   
   
@@ -5152,7 +5201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../scala/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -5180,7 +5229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/11-collections-and-lazy-evaluation/" class="md-nav__link">
+      <a href="../../scala/11-collections-and-lazy-evaluation/" class="md-nav__link">
         
   
   
@@ -5208,7 +5257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/scala/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../scala/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -5250,17 +5299,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
         
           
-          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="">
             
   
   
@@ -5296,7 +5348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/" class="md-nav__link">
+      <a href="../../elixir/" class="md-nav__link">
         
   
   
@@ -5324,7 +5376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../elixir/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -5352,7 +5404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../elixir/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -5380,7 +5432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../elixir/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -5408,7 +5460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../elixir/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -5436,7 +5488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../elixir/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -5464,7 +5516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../elixir/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -5492,7 +5544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/07-structs-and-protocols/" class="md-nav__link">
+      <a href="../../elixir/07-structs-and-protocols/" class="md-nav__link">
         
   
   
@@ -5520,7 +5572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/08-pattern-matching-and-guards/" class="md-nav__link">
+      <a href="../../elixir/08-pattern-matching-and-guards/" class="md-nav__link">
         
   
   
@@ -5548,7 +5600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/09-module-design-and-behaviours/" class="md-nav__link">
+      <a href="../../elixir/09-module-design-and-behaviours/" class="md-nav__link">
         
   
   
@@ -5576,7 +5628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/10-higher-order-functions-and-pipeline/" class="md-nav__link">
+      <a href="../../elixir/10-higher-order-functions-and-pipeline/" class="md-nav__link">
         
   
   
@@ -5604,7 +5656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/11-stream-and-lazy-evaluation/" class="md-nav__link">
+      <a href="../../elixir/11-stream-and-lazy-evaluation/" class="md-nav__link">
         
   
   
@@ -5632,7 +5684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/elixir/12-error-handling-and-with/" class="md-nav__link">
+      <a href="../../elixir/12-error-handling-and-with/" class="md-nav__link">
         
   
   
@@ -5674,17 +5726,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
         
           
-          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="">
             
   
   
@@ -5720,7 +5775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/" class="md-nav__link">
+      <a href="../../haskell/" class="md-nav__link">
         
   
   
@@ -5748,7 +5803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../haskell/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -5776,7 +5831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../haskell/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -5804,7 +5859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../haskell/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -5832,7 +5887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../haskell/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -5860,7 +5915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../haskell/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -5888,7 +5943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../haskell/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -5916,7 +5971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/07-algebraic-data-types-and-type-classes/" class="md-nav__link">
+      <a href="../../haskell/07-algebraic-data-types-and-type-classes/" class="md-nav__link">
         
   
   
@@ -5944,7 +5999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/08-pattern-matching-and-guards/" class="md-nav__link">
+      <a href="../../haskell/08-pattern-matching-and-guards/" class="md-nav__link">
         
   
   
@@ -5972,7 +6027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/09-module-design-and-smart-constructors/" class="md-nav__link">
+      <a href="../../haskell/09-module-design-and-smart-constructors/" class="md-nav__link">
         
   
   
@@ -6000,7 +6055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/10-higher-order-functions-and-currying/" class="md-nav__link">
+      <a href="../../haskell/10-higher-order-functions-and-currying/" class="md-nav__link">
         
   
   
@@ -6028,7 +6083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/11-function-composition-and-point-free/" class="md-nav__link">
+      <a href="../../haskell/11-function-composition-and-point-free/" class="md-nav__link">
         
   
   
@@ -6056,7 +6111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/haskell/12-monad-and-error-handling/" class="md-nav__link">
+      <a href="../../haskell/12-monad-and-error-handling/" class="md-nav__link">
         
   
   
@@ -6098,17 +6153,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_17" >
         
           
-          <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="">
             
   
   
@@ -6144,7 +6202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/" class="md-nav__link">
+      <a href="../../flix/" class="md-nav__link">
         
   
   
@@ -6172,7 +6230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../flix/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -6200,7 +6258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../flix/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -6228,7 +6286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../flix/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -6256,7 +6314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../flix/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -6284,7 +6342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../flix/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -6312,7 +6370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../flix/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -6340,7 +6398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/07-enums-and-traits/" class="md-nav__link">
+      <a href="../../flix/07-enums-and-traits/" class="md-nav__link">
         
   
   
@@ -6368,7 +6426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/08-pattern-matching-and-adt/" class="md-nav__link">
+      <a href="../../flix/08-pattern-matching-and-adt/" class="md-nav__link">
         
   
   
@@ -6396,7 +6454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/09-modules-and-module-design/" class="md-nav__link">
+      <a href="../../flix/09-modules-and-module-design/" class="md-nav__link">
         
   
   
@@ -6424,7 +6482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../flix/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -6452,7 +6510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../flix/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -6480,7 +6538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/flix/12-error-handling-and-effects/" class="md-nav__link">
+      <a href="../../flix/12-error-handling-and-effects/" class="md-nav__link">
         
   
   
@@ -6522,17 +6580,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_18" >
         
           
-          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="">
             
   
   
@@ -6568,7 +6629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/" class="md-nav__link">
+      <a href="../../kotlin/" class="md-nav__link">
         
   
   
@@ -6596,7 +6657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../kotlin/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -6624,7 +6685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../kotlin/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -6652,7 +6713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../kotlin/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -6680,7 +6741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../kotlin/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -6708,7 +6769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../kotlin/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -6736,7 +6797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../kotlin/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -6764,7 +6825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/07-encapsulation-and-polymorphism/" class="md-nav__link">
+      <a href="../../kotlin/07-encapsulation-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -6792,7 +6853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/08-design-patterns/" class="md-nav__link">
+      <a href="../../kotlin/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -6820,7 +6881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../kotlin/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -6848,7 +6909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../kotlin/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -6876,7 +6937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../kotlin/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -6904,7 +6965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/kotlin/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../kotlin/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -6946,17 +7007,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_19" >
         
           
-          <label class="md-nav__link" for="__nav_2_19" id="__nav_2_19_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_19" id="__nav_2_19_label" tabindex="">
             
   
   
@@ -6992,7 +7056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/" class="md-nav__link">
+      <a href="../../prolog/" class="md-nav__link">
         
   
   
@@ -7020,7 +7084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../prolog/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -7048,7 +7112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../prolog/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -7076,7 +7140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../prolog/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -7104,7 +7168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../prolog/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -7132,7 +7196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../prolog/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -7160,7 +7224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../prolog/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -7188,7 +7252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/07-clause-dispatch-and-polymorphism/" class="md-nav__link">
+      <a href="../../prolog/07-clause-dispatch-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -7216,7 +7280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/08-terms-and-design-patterns/" class="md-nav__link">
+      <a href="../../prolog/08-terms-and-design-patterns/" class="md-nav__link">
         
   
   
@@ -7244,7 +7308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/09-modules-and-module-design/" class="md-nav__link">
+      <a href="../../prolog/09-modules-and-module-design/" class="md-nav__link">
         
   
   
@@ -7272,7 +7336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/10-higher-order-predicates-and-composition/" class="md-nav__link">
+      <a href="../../prolog/10-higher-order-predicates-and-composition/" class="md-nav__link">
         
   
   
@@ -7300,7 +7364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../prolog/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -7328,7 +7392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/prolog/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../prolog/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -7370,17 +7434,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_20" >
         
           
-          <label class="md-nav__link" for="__nav_2_20" id="__nav_2_20_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_20" id="__nav_2_20_label" tabindex="">
             
   
   
@@ -7416,7 +7483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/" class="md-nav__link">
+      <a href="../../nadesiko/" class="md-nav__link">
         
   
   
@@ -7444,7 +7511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/01-todo-list-and-first-test/" class="md-nav__link">
+      <a href="../../nadesiko/01-todo-list-and-first-test/" class="md-nav__link">
         
   
   
@@ -7472,7 +7539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/02-fake-it-and-triangulation/" class="md-nav__link">
+      <a href="../../nadesiko/02-fake-it-and-triangulation/" class="md-nav__link">
         
   
   
@@ -7500,7 +7567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/03-obvious-implementation-and-refactoring/" class="md-nav__link">
+      <a href="../../nadesiko/03-obvious-implementation-and-refactoring/" class="md-nav__link">
         
   
   
@@ -7528,7 +7595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/04-version-control-and-conventional-commits/" class="md-nav__link">
+      <a href="../../nadesiko/04-version-control-and-conventional-commits/" class="md-nav__link">
         
   
   
@@ -7556,7 +7623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/05-package-management-and-static-analysis/" class="md-nav__link">
+      <a href="../../nadesiko/05-package-management-and-static-analysis/" class="md-nav__link">
         
   
   
@@ -7584,7 +7651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/06-task-runner-and-ci-cd/" class="md-nav__link">
+      <a href="../../nadesiko/06-task-runner-and-ci-cd/" class="md-nav__link">
         
   
   
@@ -7612,7 +7679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/07-dictionary-dispatch-and-polymorphism/" class="md-nav__link">
+      <a href="../../nadesiko/07-dictionary-dispatch-and-polymorphism/" class="md-nav__link">
         
   
   
@@ -7640,7 +7707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/08-design-patterns/" class="md-nav__link">
+      <a href="../../nadesiko/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -7668,7 +7735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/09-solid-principles-and-module-design/" class="md-nav__link">
+      <a href="../../nadesiko/09-solid-principles-and-module-design/" class="md-nav__link">
         
   
   
@@ -7696,7 +7763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/10-higher-order-functions-and-composition/" class="md-nav__link">
+      <a href="../../nadesiko/10-higher-order-functions-and-composition/" class="md-nav__link">
         
   
   
@@ -7724,7 +7791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/11-immutable-data-and-pipeline/" class="md-nav__link">
+      <a href="../../nadesiko/11-immutable-data-and-pipeline/" class="md-nav__link">
         
   
   
@@ -7752,7 +7819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/nadesiko/12-error-handling-and-type-safety/" class="md-nav__link">
+      <a href="../../nadesiko/12-error-handling-and-type-safety/" class="md-nav__link">
         
   
   
@@ -7785,26 +7852,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_21" >
         
           
-          <label class="md-nav__link" for="__nav_2_21" id="__nav_2_21_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_21" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_21" id="__nav_2_21_label" tabindex="">
             
   
   
@@ -7822,7 +7894,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_21_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_21_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_21">
             <span class="md-nav__icon md-icon"></span>
             
@@ -7840,7 +7912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -7868,7 +7940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/01-language-overview/" class="md-nav__link">
+      <a href="../01-language-overview/" class="md-nav__link">
         
   
   
@@ -7896,7 +7968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/02-test-framework-comparison/" class="md-nav__link">
+      <a href="../02-test-framework-comparison/" class="md-nav__link">
         
   
   
@@ -7924,7 +7996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/03-tdd-pattern-comparison/" class="md-nav__link">
+      <a href="../03-tdd-pattern-comparison/" class="md-nav__link">
         
   
   
@@ -7952,7 +8024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/04-type-system-comparison/" class="md-nav__link">
+      <a href="../04-type-system-comparison/" class="md-nav__link">
         
   
   
@@ -7980,7 +8052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/05-dev-environment-comparison/" class="md-nav__link">
+      <a href="../05-dev-environment-comparison/" class="md-nav__link">
         
   
   
@@ -8008,7 +8080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/06-learning-roadmap/" class="md-nav__link">
+      <a href="../06-learning-roadmap/" class="md-nav__link">
         
   
   
@@ -8036,7 +8108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/07-total-score-comparison/" class="md-nav__link">
+      <a href="../07-total-score-comparison/" class="md-nav__link">
         
   
   
@@ -8064,7 +8136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/article/integration/08-language-personality-column/" class="md-nav__link">
+      <a href="../08-language-personality-column/" class="md-nav__link">
         
   
   
@@ -8089,10 +8161,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/article/integration/09-japanese-implementation-column/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    コラム: なでしこ3 を 17 言語で日本語実装する
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -8108,6 +8207,325 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問い
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        題材: なでしこ3 のコード
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日本語化スコア
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        総合評価
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="総合評価">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#17-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17 言語の平均となでしこ3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1415" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上位グループ（14〜15 点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中位グループ（13 点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        下位グループ（5〜11 点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トータルスコアとの対比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関数と変数を日本語にする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="関数と変数を日本語にする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大文字・小文字の区別がない文字
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        型とモジュールを日本語にする
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テスト名を日本語の文章にする
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        語順を日本語に寄せる
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="語順を日本語に寄せる">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        助詞を語として置く
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パイプラインで値を先に書く
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        後置のメソッド呼び出し
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        言語が助詞を知っているかどうか
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ツールと環境の反応
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ツールと環境の反応">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lint-formatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lint と formatter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロケール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unicode の正規化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静的型付けで消えるテスト
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        考察: 書けることと書くべきこと
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        検証環境
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -8187,7 +8605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../../development/" class="md-nav__link">
         
   
   
@@ -8215,7 +8633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/release_plan/" class="md-nav__link">
+      <a href="../../../development/release_plan/" class="md-nav__link">
         
   
   
@@ -8243,7 +8661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-1/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-1/" class="md-nav__link">
         
   
   
@@ -8271,7 +8689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-1/" class="md-nav__link">
+      <a href="../../../development/retrospective-1/" class="md-nav__link">
         
   
   
@@ -8299,7 +8717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-1/" class="md-nav__link">
+      <a href="../../../development/iteration_report-1/" class="md-nav__link">
         
   
   
@@ -8327,7 +8745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-2/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-2/" class="md-nav__link">
         
   
   
@@ -8355,7 +8773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-2/" class="md-nav__link">
+      <a href="../../../development/retrospective-2/" class="md-nav__link">
         
   
   
@@ -8383,7 +8801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-2/" class="md-nav__link">
+      <a href="../../../development/iteration_report-2/" class="md-nav__link">
         
   
   
@@ -8411,7 +8829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-3/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-3/" class="md-nav__link">
         
   
   
@@ -8439,7 +8857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-3/" class="md-nav__link">
+      <a href="../../../development/retrospective-3/" class="md-nav__link">
         
   
   
@@ -8467,7 +8885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-3/" class="md-nav__link">
+      <a href="../../../development/iteration_report-3/" class="md-nav__link">
         
   
   
@@ -8495,7 +8913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-4/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-4/" class="md-nav__link">
         
   
   
@@ -8523,7 +8941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-4/" class="md-nav__link">
+      <a href="../../../development/retrospective-4/" class="md-nav__link">
         
   
   
@@ -8551,7 +8969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-4/" class="md-nav__link">
+      <a href="../../../development/iteration_report-4/" class="md-nav__link">
         
   
   
@@ -8579,7 +8997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-5/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-5/" class="md-nav__link">
         
   
   
@@ -8607,7 +9025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-5/" class="md-nav__link">
+      <a href="../../../development/retrospective-5/" class="md-nav__link">
         
   
   
@@ -8635,7 +9053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-5/" class="md-nav__link">
+      <a href="../../../development/iteration_report-5/" class="md-nav__link">
         
   
   
@@ -8663,7 +9081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-6/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-6/" class="md-nav__link">
         
   
   
@@ -8691,7 +9109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-6/" class="md-nav__link">
+      <a href="../../../development/retrospective-6/" class="md-nav__link">
         
   
   
@@ -8719,7 +9137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-6/" class="md-nav__link">
+      <a href="../../../development/iteration_report-6/" class="md-nav__link">
         
   
   
@@ -8747,7 +9165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-7/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-7/" class="md-nav__link">
         
   
   
@@ -8775,7 +9193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-7/" class="md-nav__link">
+      <a href="../../../development/retrospective-7/" class="md-nav__link">
         
   
   
@@ -8803,7 +9221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-7/" class="md-nav__link">
+      <a href="../../../development/iteration_report-7/" class="md-nav__link">
         
   
   
@@ -8831,7 +9249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-8/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-8/" class="md-nav__link">
         
   
   
@@ -8859,7 +9277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-8/" class="md-nav__link">
+      <a href="../../../development/retrospective-8/" class="md-nav__link">
         
   
   
@@ -8887,7 +9305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-8/" class="md-nav__link">
+      <a href="../../../development/iteration_report-8/" class="md-nav__link">
         
   
   
@@ -8915,7 +9333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-9/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-9/" class="md-nav__link">
         
   
   
@@ -8943,7 +9361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-9/" class="md-nav__link">
+      <a href="../../../development/retrospective-9/" class="md-nav__link">
         
   
   
@@ -8971,7 +9389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-9/" class="md-nav__link">
+      <a href="../../../development/iteration_report-9/" class="md-nav__link">
         
   
   
@@ -8999,7 +9417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-10/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-10/" class="md-nav__link">
         
   
   
@@ -9027,7 +9445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-10/" class="md-nav__link">
+      <a href="../../../development/retrospective-10/" class="md-nav__link">
         
   
   
@@ -9055,7 +9473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-10/" class="md-nav__link">
+      <a href="../../../development/iteration_report-10/" class="md-nav__link">
         
   
   
@@ -9083,7 +9501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-11/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-11/" class="md-nav__link">
         
   
   
@@ -9111,7 +9529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-11/" class="md-nav__link">
+      <a href="../../../development/retrospective-11/" class="md-nav__link">
         
   
   
@@ -9139,7 +9557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-11/" class="md-nav__link">
+      <a href="../../../development/iteration_report-11/" class="md-nav__link">
         
   
   
@@ -9167,7 +9585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-12/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-12/" class="md-nav__link">
         
   
   
@@ -9195,7 +9613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/retrospective-12/" class="md-nav__link">
+      <a href="../../../development/retrospective-12/" class="md-nav__link">
         
   
   
@@ -9223,7 +9641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-12/" class="md-nav__link">
+      <a href="../../../development/iteration_report-12/" class="md-nav__link">
         
   
   
@@ -9251,7 +9669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_report-phase4/" class="md-nav__link">
+      <a href="../../../development/iteration_report-phase4/" class="md-nav__link">
         
   
   
@@ -9279,7 +9697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/iteration_plan-16/" class="md-nav__link">
+      <a href="../../../development/iteration_plan-16/" class="md-nav__link">
         
   
   
@@ -9366,7 +9784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/analysis/" class="md-nav__link">
+      <a href="../../../analysis/" class="md-nav__link">
         
   
   
@@ -9453,7 +9871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/design/" class="md-nav__link">
+      <a href="../../../design/" class="md-nav__link">
         
   
   
@@ -9540,7 +9958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../../../adr/" class="md-nav__link">
         
   
   
@@ -9627,7 +10045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/operation/" class="md-nav__link">
+      <a href="../../../operation/" class="md-nav__link">
         
   
   
@@ -9714,7 +10132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9742,7 +10160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A8%E3%83%86%E3%82%B9%E3%83%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%A8%E3%83%86%E3%82%B9%E3%83%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9770,7 +10188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/" class="md-nav__link">
+      <a href="../../../reference/%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/" class="md-nav__link">
         
   
   
@@ -9798,7 +10216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%82%88%E3%81%84%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%A8%E3%81%AF/" class="md-nav__link">
+      <a href="../../../reference/%E3%82%88%E3%81%84%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%A8%E3%81%AF/" class="md-nav__link">
         
   
   
@@ -9826,7 +10244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9854,7 +10272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%A2%E3%83%87%E3%83%AB%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%A2%E3%83%87%E3%83%AB%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9882,7 +10300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%A2%E3%83%87%E3%83%AB%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%A2%E3%83%87%E3%83%AB%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9910,7 +10328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/UI%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/UI%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9938,7 +10356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%86%E3%82%B9%E3%83%88%E6%88%A6%E7%95%A5%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%86%E3%82%B9%E3%83%88%E6%88%A6%E7%95%A5%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9966,7 +10384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E9%9D%9E%E6%A9%9F%E8%83%BD%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E9%9D%9E%E6%A9%9F%E8%83%BD%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -9994,7 +10412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E9%81%8B%E7%94%A8%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E9%81%8B%E7%94%A8%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10022,7 +10440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E8%A6%81%E4%BB%B6%E5%AE%9A%E7%BE%A9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10050,7 +10468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E4%BD%9C%E6%88%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E4%BD%9C%E6%88%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10078,7 +10496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%88%86%E6%9E%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%88%86%E6%9E%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10106,7 +10524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E8%A8%AD%E8%A8%88%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10134,7 +10552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%BB%E3%82%A4%E3%83%86%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%88%E7%94%BB%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%BB%E3%82%A4%E3%83%86%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%88%E7%94%BB%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10162,7 +10580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10190,7 +10608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E7%AE%A1%E7%90%86%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E7%AE%A1%E7%90%86%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10218,7 +10636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E8%A8%80%E8%AA%9E%E5%88%A5%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E8%A8%80%E8%AA%9E%E5%88%A5%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10246,7 +10664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/Java%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/Java%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10274,7 +10692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/TypeScript%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/TypeScript%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10302,7 +10720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/CodexCLIMCP%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86/" class="md-nav__link">
+      <a href="../../../reference/CodexCLIMCP%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86/" class="md-nav__link">
         
   
   
@@ -10330,7 +10748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/CodexCLIMCP%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%83%95%E3%83%AD%E3%83%BC/" class="md-nav__link">
+      <a href="../../../reference/CodexCLIMCP%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%83%95%E3%83%AD%E3%83%BC/" class="md-nav__link">
         
   
   
@@ -10358,7 +10776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/Vim%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/" class="md-nav__link">
+      <a href="../../../reference/Vim%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/" class="md-nav__link">
         
   
   
@@ -10386,7 +10804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E7%B5%8C%E5%96%B6%E6%88%A6%E7%95%A5%E5%88%86%E6%9E%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E7%B5%8C%E5%96%B6%E6%88%A6%E7%95%A5%E5%88%86%E6%9E%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10414,7 +10832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E9%81%8B%E7%94%A8%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E4%BD%9C%E6%88%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
+      <a href="../../../reference/%E9%81%8B%E7%94%A8%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E4%BD%9C%E6%88%90%E3%82%AC%E3%82%A4%E3%83%89/" class="md-nav__link">
         
   
   
@@ -10442,7 +10860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/SonarQube%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E7%92%B0%E5%A2%83%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E6%89%8B%E9%A0%86%E6%9B%B8/" class="md-nav__link">
+      <a href="../../../reference/SonarQube%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E7%92%B0%E5%A2%83%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E6%89%8B%E9%A0%86%E6%9B%B8/" class="md-nav__link">
         
   
   
@@ -10470,7 +10888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E3%83%AD%E3%82%B8%E3%82%AB%E3%83%AB%E3%82%B7%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0/" class="md-nav__link">
+      <a href="../../../reference/%E3%83%AD%E3%82%B8%E3%82%AB%E3%83%AB%E3%82%B7%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0/" class="md-nav__link">
         
   
   
@@ -10498,7 +10916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E4%BC%81%E6%A5%AD%E7%B5%8C%E5%96%B6%E8%AB%96/" class="md-nav__link">
+      <a href="../../../reference/%E4%BC%81%E6%A5%AD%E7%B5%8C%E5%96%B6%E8%AB%96/" class="md-nav__link">
         
   
   
@@ -10526,7 +10944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/%E9%81%8B%E5%96%B6%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../../reference/%E9%81%8B%E5%96%B6%E7%AE%A1%E7%90%86/" class="md-nav__link">
         
   
   
@@ -10613,7 +11031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/slide/" class="md-nav__link">
+      <a href="../../../slide/" class="md-nav__link">
         
   
   
@@ -10654,8 +11072,1161 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="3-17">コラム: なでしこ3 を 17 言語で日本語実装する<a class="headerlink" href="#3-17" title="Permanent link">&para;</a></h1>
+<p><a href="../07-total-score-comparison/">第 7 章</a>のトータルスコアで、なでしこ3 は 6.1 点の最下位でした。
+ただし、あの 4 領域には「日本語でコードとテストを書ける」という軸がありません。
+本章では、この一点についてなでしこ3 を基準に置き、残りの 17 言語で同じプログラムを
+<strong>識別子・テスト名・メッセージを日本語にして</strong> 書き直した結果を比べます。</p>
+<p><a href="../08-language-personality-column/">第 8 章</a>のコラムは比喩で言語の性格を描きました。本章は実際のコードで比べます。
+すべてのコードは <code>apps/jp/{lang}/</code> にあり、各言語の Nix 環境（<code>nix develop .#{lang}</code>）で
+テストが通ることを確認しています。</p>
+<blockquote>
+<p><strong>注意</strong>: 本章のスコアは「日本語でどこまで書けるか」という許容度の比較です。
+日本語の識別子を推奨するものでも、言語の優劣を示すものでもありません。
+書けることと書くべきことの区別は、最後の節で扱います。</p>
+</blockquote>
+<h2 id="_1">問い<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>日本語の識別子（関数・変数・型・モジュール名）は書けるか。書けないなら、どの規則が阻むのか</li>
+<li>テスト名を日本語の文章にできるか</li>
+<li>なでしこ3 の「助詞による引数」と「日本語の語順（SOV）」をどこまで再現できるか</li>
+<li>日本語化したとき、lint・formatter・テストランナー・ファイルシステムはどう反応するか</li>
+</ol>
+<h2 id="3">題材: なでしこ3 のコード<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="../../nadesiko/">なでしこ3 の実装</a>から、比較の観点が出る 4 つを題材に選びました。
+仕様の詳細は <code>apps/jp/SPEC.md</code> にあります。</p>
+<table>
+<thead>
+<tr>
+<th>題材</th>
+<th>移植元</th>
+<th>比較の観点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. FizzBuzz 変換</td>
+<td><code>src/fizzbuzz.nako3</code></td>
+<td>関数・変数名、テスト名</td>
+</tr>
+<tr>
+<td>B. タイプ生成</td>
+<td><code>src/type.nako3</code></td>
+<td>型・列挙子・コンストラクタ名</td>
+</tr>
+<tr>
+<td>C. パイプライン</td>
+<td><code>src/pipeline.nako3</code></td>
+<td>「〜して〜して」の語順</td>
+</tr>
+<tr>
+<td>D. 安全変換</td>
+<td><code>src/error.nako3</code></td>
+<td>日本語のエラーメッセージ、結果の型</td>
+</tr>
+</tbody>
+</table>
+<p>基準となるなでしこ3 のコードは次のとおりです。</p>
+<div class="highlight"><pre><span></span><code>●(Nを)FizzBuzz変換
+    もし、N % 15 = 0ならば,「FizzBuzz」を戻す
+    もし、N % 3 = 0ならば,「Fizz」を戻す
+    もし、N % 5 = 0ならば,「Buzz」を戻す
+    Nを文字列変換して戻す
+ここまで
+
+●(Nを)FizzBuzz装飾
+    NをFizzBuzz変換して装飾して戻す
+ここまで
+
+「3を渡したらFizzを返す」と(3をFizzBuzz変換)と「Fizz」で検証
+</code></pre></div>
+<p>関数名・引数・テスト名・語順のすべてが日本語です。
+助詞「を」が引数の役割を示し、「〜して」で命令をつなげます。
+これを、各言語の正攻法でどこまで再現できるかを試しました。</p>
+<h2 id="_2">日本語化スコア<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>評価軸は次の 5 つで、各 0〜3 点、満点は 15 点です。</p>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>3 点</th>
+<th>0 点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>関数・変数名</td>
+<td>制約なく日本語で書ける</td>
+<td>日本語を書けない</td>
+</tr>
+<tr>
+<td>型・モジュール名</td>
+<td>型・列挙子・モジュール・ファイル名すべて日本語可</td>
+<td>すべて ASCII 必須</td>
+</tr>
+<tr>
+<td>テスト名</td>
+<td>空白・記号込みの文章で書ける</td>
+<td>ASCII の関数名のみ</td>
+</tr>
+<tr>
+<td>語順の再現</td>
+<td>助詞に当たる語を置いて SOV 順で書ける</td>
+<td>前置の関数呼び出しのみ</td>
+</tr>
+<tr>
+<td>ツール許容</td>
+<td>lint・formatter・テストランナーが設定変更なしで通る</td>
+<td>動作しない</td>
+</tr>
+</tbody>
+</table>
+<p>なでしこ3 は全軸 3 点の基準点です。残りの 17 言語は、実装して実測した結果で採点しました。</p>
+<table>
+<thead>
+<tr>
+<th>順位</th>
+<th>言語</th>
+<th>関数・変数名</th>
+<th>型・モジュール名</th>
+<th>テスト名</th>
+<th>語順の再現</th>
+<th>ツール許容</th>
+<th>合計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>なでしこ3（基準）</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>15</td>
+</tr>
+<tr>
+<td>1</td>
+<td>JavaScript</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>15</td>
+</tr>
+<tr>
+<td>1</td>
+<td>TypeScript</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C#</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kotlin</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Scala</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Clojure</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>14</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Python</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PHP</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Java</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>F#</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Haskell</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Prolog</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>13</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ruby</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>11</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Rust</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>11</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Elixir</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Go</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Flix</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>17 言語のうち 16 言語は、程度の差はあっても日本語で書けました。
+識別子に日本語を 1 文字も書けなかったのは Flix だけです。
+以下では、まず総合評価をレーダーチャートで俯瞰し、そのあと点数の差が生まれた理由を軸ごとに見ていきます。</p>
+<h2 id="_3">総合評価<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="17-3">17 言語の平均となでしこ3<a class="headerlink" href="#17-3" title="Permanent link">&para;</a></h3>
+<p>17 言語の軸ごとの平均は、関数・変数名 2.29、型・モジュール名 2.29、テスト名 2.65、
+語順の再現 2.71、ツール許容 2.41 で、合計の平均は 12.35 点です。</p>
+<pre class="mermaid"><code>radar-beta
+  title 日本語化スコア: 17 言語の平均と基準
+  axis fn["関数・変数名"], ty["型・モジュール名"], te["テスト名"]
+  axis wo["語順の再現"], to["ツール許容"]
+  curve nadesiko["なでしこ3（基準）"]{3, 3, 3, 3, 3}
+  curve avg["17 言語の平均"]{2.29, 2.29, 2.65, 2.71, 2.41}
+  max 3
+  min 0</code></pre>
+<p>平均が最も低いのは <strong>名前の 2 軸</strong>（関数・変数名と型・モジュール名）です。
+語順とテスト名は、中置関数・マクロ・文字列のテスト名といった言語の機能で補えるため、平均が高くなります。
+名前の軸は言語仕様（字句規則・大文字の意味論）で決まるため、工夫では埋められません。</p>
+<h3 id="1415">上位グループ（14〜15 点）<a class="headerlink" href="#1415" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 上位グループ（14〜15 点）
+  axis fn["関数・変数名"], ty["型・モジュール名"], te["テスト名"]
+  axis wo["語順の再現"], to["ツール許容"]
+  curve ts["JavaScript・TypeScript"]{3, 3, 3, 3, 3}
+  curve cs["C#"]{3, 3, 3, 3, 2}
+  curve kotlin["Kotlin"]{3, 3, 3, 3, 2}
+  curve scala["Scala"]{2, 3, 3, 3, 3}
+  curve clojure["Clojure"]{3, 3, 3, 3, 2}
+  max 3
+  min 0</code></pre>
+<p>上位はいずれも、名前の 2 軸に制約がほとんどない言語です。
+C#・Kotlin・Clojure はツール許容だけが 2 点で、命名規則のルールや助詞の未解決シンボルの抑止が必要でした。
+Scala は逆に、ツールは設定変更なしで通る一方、パターンの中の日本語識別子が変数に束縛されない点で 1 点を失っています。</p>
+<h3 id="13">中位グループ（13 点）<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 中位グループ（13 点）
+  axis fn["関数・変数名"], ty["型・モジュール名"], te["テスト名"]
+  axis wo["語順の再現"], to["ツール許容"]
+  curve python["Python"]{3, 3, 2, 3, 2}
+  curve php["PHP"]{2, 3, 3, 3, 2}
+  curve java["Java"]{3, 3, 3, 2, 2}
+  curve fsharp["F#"]{3, 3, 3, 2, 2}
+  curve haskell["Haskell"]{3, 1, 3, 3, 3}
+  curve prolog["Prolog"]{1, 3, 3, 3, 3}
+  max 3
+  min 0</code></pre>
+<p>同じ 13 点でも形はまったく違います。Haskell は型の軸だけが大きくへこみ（型名は大文字始まりが必要）、
+Prolog は関数・変数名の軸だけがへこみます（変数は大文字か <code>_</code> 始まりが必要）。
+どちらも「大文字で始まるかどうか」に意味を持たせた言語で、その意味が型に付くか変数に付くかで、へこむ軸が入れ替わります。</p>
+<h3 id="511">下位グループ（5〜11 点）<a class="headerlink" href="#511" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>radar-beta
+  title 下位グループ（5〜11 点）
+  axis fn["関数・変数名"], ty["型・モジュール名"], te["テスト名"]
+  axis wo["語順の再現"], to["ツール許容"]
+  curve ruby["Ruby"]{2, 1, 3, 3, 2}
+  curve rust["Rust"]{2, 2, 2, 3, 2}
+  curve elixir["Elixir"]{2, 1, 3, 2, 2}
+  curve go["Go"]{1, 1, 2, 2, 3}
+  curve flix["Flix"]{0, 0, 0, 2, 3}
+  max 3
+  min 0</code></pre>
+<p>下位の言語は、名前の 2 軸がそろってへこみます。Ruby・Elixir・Go は大文字の意味論（定数・エイリアス・公開）、
+Rust はファイル名とクレート名、Flix は字句規則そのものが原因です。
+一方で Go と Flix のツール許容は満点です。日本語で書ける範囲が狭い分、ツールと衝突する場面も少ないためです。</p>
+<h3 id="_4">トータルスコアとの対比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><a href="../07-total-score-comparison/">第 7 章</a>のトータルスコア（満点 20）と日本語化スコア（満点 15）を、
+それぞれ満点に対する割合（%）に直して重ねました。JavaScript は第 7 章の対象外のため、TypeScript で代表させています。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>トータルスコア</th>
+<th>日本語化スコア</th>
+<th>割合（トータル / 日本語化）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scala</td>
+<td>17.2</td>
+<td>14</td>
+<td>86% / 93%</td>
+</tr>
+<tr>
+<td>F#</td>
+<td>17.1</td>
+<td>13</td>
+<td>86% / 87%</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>16.6</td>
+<td>13</td>
+<td>83% / 87%</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>16.3</td>
+<td>11</td>
+<td>82% / 73%</td>
+</tr>
+<tr>
+<td>Kotlin</td>
+<td>16.3</td>
+<td>14</td>
+<td>82% / 93%</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>14.9</td>
+<td>15</td>
+<td>74% / 100%</td>
+</tr>
+<tr>
+<td>Flix</td>
+<td>14.7</td>
+<td>5</td>
+<td>74% / 33%</td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td>13.9</td>
+<td>10</td>
+<td>70% / 67%</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>13.0</td>
+<td>11</td>
+<td>65% / 73%</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>12.8</td>
+<td>13</td>
+<td>64% / 87%</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>12.7</td>
+<td>13</td>
+<td>64% / 87%</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>12.7</td>
+<td>9</td>
+<td>64% / 60%</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>12.5</td>
+<td>14</td>
+<td>62% / 93%</td>
+</tr>
+<tr>
+<td>Clojure</td>
+<td>12.2</td>
+<td>14</td>
+<td>61% / 93%</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>10.8</td>
+<td>13</td>
+<td>54% / 87%</td>
+</tr>
+<tr>
+<td>Prolog</td>
+<td>10.1</td>
+<td>13</td>
+<td>50% / 87%</td>
+</tr>
+<tr>
+<td>なでしこ3</td>
+<td>6.1</td>
+<td>15</td>
+<td>30% / 100%</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>radar-beta
+  title トータルスコアと日本語化スコア（満点に対する %）
+  axis scala["Scala"], fsharp["F#"], haskell["Haskell"], rust["Rust"]
+  axis kotlin["Kotlin"], ts["TypeScript"], flix["Flix"], elixir["Elixir"]
+  axis ruby["Ruby"], java["Java"], python["Python"], go["Go"]
+  axis cs["C#"], clojure["Clojure"], php["PHP"], prolog["Prolog"], nadesiko["なでしこ3"]
+  curve total["トータルスコア"]{86, 86, 83, 82, 82, 74, 74, 70, 65, 64, 64, 64, 62, 61, 54, 50, 30}
+  curve jp["日本語化スコア"]{93, 87, 87, 73, 93, 100, 33, 67, 73, 87, 87, 60, 93, 93, 87, 87, 100}
+  max 100
+  min 0</code></pre>
+<p>2 つの曲線は、ほとんどの言語で日本語化スコアが外側に出ます。
+Unicode 識別子への対応は、トータルスコアの 4 領域とは独立に、ほとんどの言語で進んでいるということです。
+例外は Flix・Rust・Elixir・Go の 4 言語で、トータルスコアのほうが外側にあります。</p>
+<p>両端にあるのがなでしこ3 と Flix です。なでしこ3 はトータルスコアが最も低く（30%）、日本語化スコアが最も高い（100%）。
+Flix はトータルスコアで中位（74%）ですが、日本語化スコアは最も低い（33%）。
+第 7 章の 4 領域では測れない軸があり、その軸では順位がほぼ逆転する言語がある、というのが総合評価の結論です。</p>
+<h2 id="_5">関数と変数を日本語にする<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>関数名と変数名は、ほとんどの言語で問題なく日本語にできます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// TypeScript</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">FizzBuzz変換</span><span class="p">(</span><span class="nx">数</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">数</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"FizzBuzz"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">数</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"Fizz"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">数</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"Buzz"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">数</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>言語仕様で拒否されたのは、次の 4 言語です。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>拒否された書き方</th>
+<th>理由（エラー原文）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flix</td>
+<td>日本語を含むすべての識別子</td>
+<td><code>Lexer Error [E4518] &gt;&gt; Unexpected character '\u63DB'.</code></td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td><code>FizzBuzz変換</code> のようにラテン文字と日本語が混ざる名前</td>
+<td><code>invalid mixed-script identifier found: FizzBuzz変換</code> … <code>Characters in identifiers from different scripts must be separated by underscore (_).</code></td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>大文字で始まる <code>FizzBuzz変換</code></td>
+<td><code>[GHC-94426] Invalid data constructor ‘FizzBuzz変換’ in type signature</code></td>
+</tr>
+<tr>
+<td>Prolog</td>
+<td>日本語で始まる変数</td>
+<td>エラーにならず、アトムとして扱われて単に失敗する</td>
+</tr>
+</tbody>
+</table>
+<p>Flix は字句解析器が識別子に ASCII しか受け付けないため、<code>fizzBuzzHenkan</code> のようにローマ字で書きました。
+Elixir は、なりすまし攻撃を防ぐ Unicode の規則（UTS #39）により、文字種の境界に <code>_</code> が必要です
+（<code>fizzbuzz_変換</code> は通ります）。</p>
+<p>Prolog の例は、エラーにならない分だけ厄介です。Prolog では大文字か <code>_</code> で始まる名前が変数、
+それ以外がアトム（定数）です。日本語で始まる <code>結果</code> はアトムになるので、<code>結果 = 3</code> は
+「アトム <code>結果</code> と 3 は等しいか」という問いになり、黙って失敗します。
+日本語の変数には <code>_結果</code> のように <code>_</code> を付ける必要があります。</p>
+<h3 id="_6">大文字・小文字の区別がない文字<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>日本語の文字には、大文字と小文字の区別がありません。
+この性質が、言語やツールによって正反対の結果を生みました。</p>
+<table>
+<thead>
+<tr>
+<th>扱い</th>
+<th>言語・ツール</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「小文字ではない」とみなす</td>
+<td>TypeScript の <code>naming-convention</code>、C# の IDE1006</td>
+<td>camelCase にも PascalCase にも合格する</td>
+</tr>
+<tr>
+<td>「大文字ではない」とみなす</td>
+<td>Go の公開判定、Ruby の定数、Haskell・Elixir の型とモジュール</td>
+<td>公開・定数・型として使えない</td>
+</tr>
+<tr>
+<td>「どちらでもない」とみなす</td>
+<td>Ruff の pep8-naming、FSharpLint、detekt、ktlint、Checkstyle、SpotBugs</td>
+<td>命名規則違反として必ず指摘される</td>
+</tr>
+</tbody>
+</table>
+<p>Go では、大文字で始まる名前だけがパッケージの外に公開されます。
+<code>タイプ生成</code> は大文字で始まらないため、パッケージの外から呼ぶと <code>undefined: 変換.タイプ生成</code> になります。
+回避策として、全角のローマ字を頭に付けました（<code>Ｔタイプ生成</code>、構造体のフィールドは <code>Ｎ名前</code>）。</p>
+<p>Ruby では、クラス名は大文字で始まる定数でなければなりません。
+<code>class タイプ</code> は <code>class/module name must be CONSTANT</code> で拒否されます。
+全角大文字で始めた <code>class Ｔタイプ</code> なら通ります。</p>
+<h2 id="_7">型とモジュールを日本語にする<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>型・列挙子・モジュール名の軸は、言語ごとの差が最も大きく出ました。
+Java・Kotlin・C#・PHP・TypeScript・Python・Clojure・Scala・F#・Prolog では、パッケージからファイル名まで日本語にできます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Java: パッケージ名・ファイル名・列挙子まで日本語</span>
+<span class="kn">package</span><span class="w"> </span><span class="nn">フィズバズ</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">タイプ</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">通常</span><span class="p">(</span><span class="n">FizzBuzz</span><span class="p">::</span><span class="n">FizzBuzz変換</span><span class="p">),</span>
+<span class="w">    </span><span class="n">数字限定</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">valueOf</span><span class="p">),</span>
+<span class="w">    </span><span class="n">FizzBuzz限定</span><span class="p">(</span><span class="n">タイプ</span><span class="p">::</span><span class="n">FizzBuzz限定変換</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>壁に当たった言語と、採用した回避策は次のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>壁</th>
+<th>回避策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haskell</td>
+<td>型・データ構築子・モジュールは大文字始まりが必要（<code>[GHC-47568] Malformed head of type or class declaration: タイプ</code>）</td>
+<td><code>Tタイプ</code>・<code>T通常</code> と ASCII の接頭辞を付ける</td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td>モジュールのエイリアスは ASCII のみ（<code>invalid character "日" (code point U+65E5) in alias</code>）</td>
+<td>アトムをモジュール名にする（<code>defmodule :タイプ</code>）</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>クラス・定数は大文字始まりが必要</td>
+<td>全角大文字で始める（<code>Ｔタイプ</code>）</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>公開する型は大文字始まりが必要。import パスは ASCII のみ（<code>malformed import path … invalid char 'タ'</code>）</td>
+<td>全角大文字で始める。パッケージのディレクトリ名は ASCII にする</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>日本語名のモジュールをファイルから読めない（<code>error[E0754]: trying to load file for module `変換` with non-ascii identifier name</code>）。クレート名も ASCII のみ</td>
+<td><code>#[path = "基本変換.rs"] mod 基本変換;</code> と書く</td>
+</tr>
+</tbody>
+</table>
+<p>F# では予想と逆の結果になりました。判別共用体のケース名は大文字始まりが必要ですが（FS0053）、
+この規則は <strong>ASCII の小文字</strong> にだけ適用され、<code>| 通常 | 数字限定</code> は通ります。
+ただし、そのせいで安全網が 1 つ外れます。</p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">with</span>
+<span class="o">|</span><span class="w"> </span><span class="n">通常</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"通常"</span>
+<span class="o">|</span><span class="w"> </span><span class="n">数値限定</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">"数字限定"</span><span class="w">   </span><span class="c1">// 正しくは 数字限定。警告なしですべての値に一致する</span>
+</code></pre></div>
+<p>綴りを間違えたケース名は、新しい変数への束縛（変数パターン）とみなされ、すべての値に一致します。
+ASCII で同じ間違いをすると <code>warning FS0049: Uppercase variable identifiers should not generally be used in patterns</code> が出ますが、
+大文字のない日本語ではこの警告が出ません。
+<code>[&lt;RequireQualifiedAccess&gt;]</code> を付けて <code>タイプ番号.通常</code> と修飾すれば防げます。</p>
+<p>Scala でも、パターンの中の日本語は常に既存の定数への参照として扱われました。
+<code>case 変換結果.成功(値) =&gt;</code> は新しい変数 <code>値</code> を作らず、<code>Not found: 値</code> のエラーになります。
+<code>値 @ _</code> と書けば変数として束縛できます。</p>
+<h2 id="_8">テスト名を日本語の文章にする<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>なでしこ3 のテスト名「3を渡したらFizzを返す」を、各言語でどう書けたかを分類すると、次の 5 通りになります。</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>言語</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文字列</td>
+<td>JavaScript・TypeScript・Ruby（Minitest::Spec）・Clojure・Elixir・Haskell・Scala</td>
+<td><code>it("3を渡したらFizzを返す", …)</code></td>
+</tr>
+<tr>
+<td>属性の表示名</td>
+<td>Java・C#・PHP</td>
+<td><code>@DisplayName("3を渡したらFizzを返す")</code></td>
+</tr>
+<tr>
+<td>空白を含む識別子</td>
+<td>Kotlin・F#（バッククォート）、Prolog（引用符付きアトム）</td>
+<td><code>fun `3を渡したらFizzを返す`()</code></td>
+</tr>
+<tr>
+<td>空白を含まない識別子</td>
+<td>Go・Rust・Python</td>
+<td><code>func Test3を渡したらFizzを返す(t *testing.T)</code></td>
+</tr>
+<tr>
+<td>ASCII の識別子のみ</td>
+<td>Flix</td>
+<td><code>def sanWoWatashitaraFizzWoKaesu()</code></td>
+</tr>
+</tbody>
+</table>
+<p>どの方式にも共通する壁が、<strong>数字で始まる名前</strong> です。
+なでしこ3 のテスト名は「3を渡したら」のように数字で始まるものが多く、
+識別子として書く方式では、次のように各言語で拒否されました。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>エラー原文</th>
+<th>回避策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java</td>
+<td><code>error: &lt;identifier&gt; expected</code></td>
+<td>メソッド名は <code>三を渡したら…</code>、<code>@DisplayName</code> に原文</td>
+</tr>
+<tr>
+<td>C#</td>
+<td><code>error CS1519: Invalid token '3' in class, record, struct, or interface member declaration</code></td>
+<td>同上（<code>DisplayName</code>）</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td><code>error: expected identifier, found `3を渡したらFizzを返す`</code></td>
+<td><code>_3を渡したらFizzを返す</code></td>
+</tr>
+<tr>
+<td>Clojure</td>
+<td><code>Invalid number: 3を渡したらFizzを返す</code></td>
+<td><code>testing</code> の文字列に書く</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>SyntaxError: invalid syntax</code></td>
+<td><code>test_</code> 接頭辞（<code>test_3を渡したらFizzを返す</code>）</td>
+</tr>
+</tbody>
+</table>
+<p>Go は <code>Test</code> 接頭辞が必要なので、<code>Test3を渡したらFizzを返す</code> がそのまま書けます。
+一方で、<code>t.Run</code> のサブテスト名に入れた空白は、出力では <code>_</code> に置き換わります。</p>
+<p>Python の pytest は、<code>pytest.param(id="3を渡したらFizzを返す")</code> と書いても、
+既定では id の部分が <code>test_変換[3\u3092\u6e21\u3057\u305f\u3089Fizz…]</code> のようにエスケープされます（関数名はエスケープされません）。読める表示にするには、
+<code>disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true</code> という設定が必要でした。
+名前のとおり、この設定を使うとコミュニティのサポートを受けられなくなります。</p>
+<h2 id="_9">語順を日本語に寄せる<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>最も工夫の余地があったのが語順です。
+なでしこ3 の <code>NをFizzBuzz変換して装飾して戻す</code> に対して、各言語の再現方法は大きく 3 つに分かれました。</p>
+<h3 id="_10">助詞を語として置く<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>中置関数・演算子定義・マクロを使えば、助詞そのものをコードに置けます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Haskell: バッククォートで関数を中置にする</span>
+<span class="kr">infixl</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">`</span><span class="err">を</span><span class="p">`,</span><span class="w"> </span><span class="p">`</span><span class="err">して</span><span class="p">`</span>
+<span class="err">を</span><span class="w"> </span><span class="err">値</span><span class="w"> </span><span class="err">処理</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="err">処理</span><span class="w"> </span><span class="err">値</span>
+<span class="err">して</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="err">を</span>
+
+<span class="nf">fizzBuzz装飾</span><span class="w"> </span><span class="err">数</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="err">数</span><span class="w"> </span><span class="p">`</span><span class="err">を</span><span class="p">`</span><span class="w"> </span><span class="n">fizzBuzz変換</span><span class="w"> </span><span class="p">`</span><span class="err">して</span><span class="p">`</span><span class="w"> </span><span class="err">装飾</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Kotlin: infix 拡張関数</span>
+<span class="kd">infix</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">T</span><span class="p">.</span><span class="na">を</span><span class="p">(</span><span class="err">動詞</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">動詞</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="kd">infix</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">T</span><span class="p">.</span><span class="na">して</span><span class="p">(</span><span class="err">動詞</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">動詞</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">FizzBuzz</span><span class="err">装飾</span><span class="p">(</span><span class="err">数</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">数</span><span class="w"> </span><span class="err">を</span><span class="w"> </span><span class="o">::</span><span class="n">FizzBuzz</span><span class="err">変換</span><span class="w"> </span><span class="err">して</span><span class="w"> </span><span class="o">::</span><span class="err">装飾</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Scala: extension と infix</span>
+<span class="k">extension</span><span class="w"> </span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">目的語</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">)</span>
+<span class="w">  </span><span class="k">infix</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">を</span><span class="p">[</span><span class="nc">R</span><span class="p">](</span><span class="n">動詞</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">R</span><span class="p">):</span><span class="w"> </span><span class="nc">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">動詞</span><span class="p">(</span><span class="n">目的語</span><span class="p">)</span>
+<span class="w">  </span><span class="k">infix</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">して</span><span class="p">[</span><span class="nc">R</span><span class="p">](</span><span class="n">動詞</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">R</span><span class="p">):</span><span class="w"> </span><span class="nc">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">動詞</span><span class="p">(</span><span class="n">目的語</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">FizzBuzz装飾</span><span class="p">(</span><span class="n">数</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">数</span><span class="w"> </span><span class="n">を</span><span class="w"> </span><span class="nc">FizzBuzz変換</span><span class="w"> </span><span class="n">して</span><span class="w"> </span><span class="n">装飾</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">% Prolog: 助詞を演算子として定義する</span>
+<span class="p">:-</span> <span class="nf">op</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="s s-Atom">xfx</span><span class="p">,</span> <span class="s s-Atom">は</span><span class="p">),</span> <span class="nf">op</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s s-Atom">xfx</span><span class="p">,</span> <span class="s s-Atom">を</span><span class="p">),</span> <span class="nf">op</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s s-Atom">xfy</span><span class="p">,</span> <span class="s s-Atom">して</span><span class="p">).</span>
+
+<span class="s s-Atom">'FizzBuzz装飾'</span><span class="p">(</span><span class="k">_</span><span class="s s-Atom">数</span><span class="p">,</span> <span class="k">_</span><span class="s s-Atom">結果</span><span class="p">)</span> <span class="p">:-</span> <span class="k">_</span><span class="s s-Atom">結果</span> <span class="s s-Atom">は</span> <span class="k">_</span><span class="s s-Atom">数</span> <span class="s s-Atom">を</span> <span class="s s-Atom">'FizzBuzz変換'</span> <span class="s s-Atom">して</span> <span class="s s-Atom">装飾</span><span class="p">.</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Rust: 宣言的マクロで助詞をトークンとして照合する</span>
+<span class="fm">macro_rules!</span><span class="w"> </span><span class="err">なでしこ</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="cp">$</span><span class="err">値</span><span class="p">:</span><span class="nc">tt</span><span class="w"> </span><span class="err">を</span><span class="w"> </span><span class="cp">$($</span><span class="err">関数</span><span class="p">:</span><span class="nc">ident</span><span class="p">)</span><span class="w"> </span><span class="err">して</span><span class="w"> </span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="err">値</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cp">$</span><span class="err">値</span><span class="p">;</span>
+<span class="w">        </span><span class="cp">$(</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="err">値</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cp">$</span><span class="err">関数</span><span class="p">(</span><span class="err">値</span><span class="p">);</span><span class="w"> </span><span class="p">)</span><span class="o">+</span>
+<span class="w">        </span><span class="err">値</span>
+<span class="w">    </span><span class="p">}};</span>
+<span class="p">}</span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">FizzBuzz装飾</span><span class="p">(</span><span class="err">数</span><span class="p">:</span><span class="w"> </span><span class="kt">i64</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">なでしこ</span><span class="o">!</span><span class="p">(</span><span class="err">数</span><span class="w"> </span><span class="err">を</span><span class="w"> </span><span class="n">FizzBuzz変換</span><span class="w"> </span><span class="err">して</span><span class="w"> </span><span class="err">装飾</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">;; Clojure: 助詞を取り除いてスレッディングマクロに渡す</span>
+<span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:private</span><span class="w"> </span><span class="nv">助詞</span><span class="w"> </span><span class="o">'#</span><span class="p">{</span><span class="nv">を</span><span class="w"> </span><span class="nv">して</span><span class="w"> </span><span class="nv">に</span><span class="w"> </span><span class="nv">で</span><span class="p">})</span>
+<span class="p">(</span><span class="kd">defmacro </span><span class="nv">なでしこ</span><span class="w"> </span><span class="p">[</span><span class="nv">値</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">語</span><span class="p">]</span><span class="w"> </span><span class="o">`</span><span class="p">(</span><span class="nb">-&gt; </span><span class="o">~</span><span class="nv">値</span><span class="w"> </span><span class="o">~@</span><span class="p">(</span><span class="nb">remove </span><span class="nv">助詞</span><span class="w"> </span><span class="nv">語</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="kd">defn </span><span class="nv">FizzBuzz装飾</span><span class="w"> </span><span class="p">[</span><span class="nv">数</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nf">なでしこ</span><span class="w"> </span><span class="nv">数</span><span class="w"> </span><span class="nv">を</span><span class="w"> </span><span class="nv">FizzBuzz変換</span><span class="w"> </span><span class="nv">して</span><span class="w"> </span><span class="nv">装飾</span><span class="p">))</span>
+</code></pre></div>
+<p>中置の仕組みを持たない言語でも、メソッドチェーンや演算子の多重定義で助詞を置けます。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>書き方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td><code>N \| を \| FizzBuzz変換 \| して \| 装飾</code>（助詞オブジェクトの <code>__ror__</code>）</td>
+</tr>
+<tr>
+<td>JavaScript・TypeScript</td>
+<td><code>それ(15).を(FizzBuzz変換).して(装飾).戻す()</code></td>
+</tr>
+<tr>
+<td>C#</td>
+<td><code>数.を(FizzBuzz変換).して(装飾)</code>（ジェネリック拡張メソッド）</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><code>3.を.FizzBuzz変換</code>（refinement で <code>Integer</code> に <code>を</code> を足す）</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td><code>数(15)-&gt;を-&gt;FizzBuzz変換()-&gt;して-&gt;装飾()</code>（自分自身を指すプロパティ <code>を</code>）</td>
+</tr>
+</tbody>
+</table>
+<p>Prolog の版が、なでしこ3 に最も近い見た目になります。演算子の優先順位と結合性を
+宣言できるので、<code>3を</code> のように数値の直後に助詞を空白なしで置くことさえできます。</p>
+<h3 id="_11">パイプラインで値を先に書く<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>F#・Elixir・Flix は、パイプライン演算子 <code>|&gt;</code> で値を先に書けます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// F#</span>
+<span class="k">let</span><span class="w"> </span><span class="nv">FizzBuzz装飾</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz変換</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">装飾</span>
+<span class="mi">3</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">FizzBuzz変換</span><span class="w">   </span><span class="c1">// "Fizz"</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Elixir</span>
+<span class="err">数</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">fizzbuzz_変換</span><span class="p">()</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="err">装飾</span><span class="p">()</span>
+</code></pre></div>
+<p>語順は SOV になりますが、ユーザー定義の演算子は記号でしか作れないため、<code>を</code> を置くことはできません。
+Flix はバッククォートの中置で <code>3 `wo` fizzBuzzHenkan</code> と書けますが、助詞もローマ字になります。</p>
+<h3 id="_12">後置のメソッド呼び出し<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Go は名前付き型にメソッドを定義して、<code>変換.Ｓ数(15).FizzBuzz変換().Ｓ装飾()</code> と後置で書きました。
+助詞 <code>を</code> に当たるメソッドも定義できますが、日本語で始まるメソッドは公開できないため、パッケージの外では使えません。</p>
+<h3 id="_13">言語が助詞を知っているかどうか<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>スコア表では、JavaScript と TypeScript がなでしこ3 と同じ 15 点に並びました。
+ただし、中身は同じではありません。JavaScript の <code>それ(3).を(FizzBuzz変換)</code> は、
+<code>主題</code> クラスを自作して初めて書けるものです。一方、なでしこ3 では
+<code>3をFizzBuzz変換</code> が <strong>言語の文法そのもの</strong> です。
+助詞が引数の役割を示すので、<code>●(Nを)FizzBuzz変換</code> と定義すれば、語順は日本語の文として自然に決まります。</p>
+<p>他の言語でできるのは、助詞を「何もしない関数」や「演算子」として置くところまでです。
+<code>を</code> と <code>に</code> を区別して引数の役割を決める、といったことはできません。
+スコアは許容度を測りますが、日本語の文法で書けることは、なでしこ3 にしかない性質です。</p>
+<h2 id="_14">ツールと環境の反応<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="lint-formatter">lint と formatter<a class="headerlink" href="#lint-formatter" title="Permanent link">&para;</a></h3>
+<p>日本語の識別子に対する lint の反応は、「大文字・小文字の区別がない文字」の扱いで決まります（前述の表）。
+設定変更なしで通ったのは、JavaScript・TypeScript（既存の ESLint 設定）、Scala（scalafmt・WartRemover）、
+Haskell（HLint）、Go（golangci-lint）、Prolog です。</p>
+<p>それ以外の言語では、命名規則のルールを抑止する必要がありました。</p>
+<table>
+<thead>
+<tr>
+<th>ツール</th>
+<th>反応</th>
+<th>抑止方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RuboCop</td>
+<td><code>Naming/AsciiIdentifiers</code> など 143 件</td>
+<td><code>.rubocop.yml</code> でルールを無効化</td>
+</tr>
+<tr>
+<td>Credo</td>
+<td><code>Function/macro/guard names should be written in snake_case.</code> 9 件</td>
+<td><code>FunctionNames</code> チェックを無効化</td>
+</tr>
+<tr>
+<td>FSharpLint</td>
+<td><code>Consider changing `タイプ番号` to PascalCase.</code> など 44 件（既定設定）</td>
+<td>命名規則を無効化した設定を使う</td>
+</tr>
+<tr>
+<td>detekt / ktlint</td>
+<td>52 件 / 43 件</td>
+<td>detekt は正規表現を変更、ktlint はルールごと無効化</td>
+</tr>
+<tr>
+<td>Checkstyle / SpotBugs</td>
+<td><code>Name 'タイプ' must match pattern '^[A-Z][a-zA-Z0-9]*$'.</code> / <code>The class name フィズバズ.タイプ doesn't start with an upper case letter</code></td>
+<td>正規表現の変更、<code>Nm</code> の除外</td>
+</tr>
+<tr>
+<td>Clippy（rustc）</td>
+<td><code>function `FizzBuzz変換` should have a snake case name</code></td>
+<td><code>#![allow(non_snake_case)]</code></td>
+</tr>
+<tr>
+<td>clj-kondo</td>
+<td>助詞を <code>Unresolved symbol: を</code> と指摘</td>
+<td>マクロ内の助詞を除外</td>
+</tr>
+</tbody>
+</table>
+<p>RuboCop には、見落とすと危険な挙動がありました。
+既定のパーサーは全角大文字で始まる <code>Ｔタイプ = Data.define(…)</code> を定数ではなくローカル変数への代入と解釈し、
+<code>Lint/UselessAssignment</code> として自動修正で <strong>定義ごと削除</strong> しました。
+<code>ParserEngine: parser_prism</code> にすると正しく定数として扱われます。</p>
+<p>formatter は、多くが桁を <strong>文字数</strong> で数えます（scalafmt・gofmt・SWI-Prolog のテスト出力）。
+全角文字は画面上で 2 桁を占めるため、整列が崩れて見えます。
+逆に Prettier と Ruff は全角を幅 2 と数えるため、日本語の行が早めに折り返されます。</p>
+<h3 id="_15">ロケール<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>今回の検証で最も実務的な教訓は、<strong>ロケールが UTF-8 でないと日本語のファイル名が壊れる</strong> ことです。
+Nix の開発環境では <code>LANG</code> が空だったため、ほぼすべての言語で次の現象が起きました。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>LANG=C での現象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java・Kotlin（Gradle）</td>
+<td><code>Failed to create MD5 hash for file '…/���������������/������������.java' as it does not exist.</code></td>
+</tr>
+<tr>
+<td>Scala（sbt）</td>
+<td><code>java.nio.file.InvalidPathException: Malformed input or input contains unmappable characters</code></td>
+</tr>
+<tr>
+<td>Clojure（Leiningen）</td>
+<td><code>Ran 0 tests containing 0 assertions. 0 failures, 0 errors.</code>（テスト 0 件で <strong>成功扱い</strong>）</td>
+</tr>
+<tr>
+<td>Haskell（GHC）</td>
+<td><code>recoverEncode: invalid argument (cannot encode character '\56549')</code></td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td><code>the VM is running with native name encoding of latin1 …</code>、コンパイルが <code>{:error, :enoent}</code></td>
+</tr>
+<tr>
+<td>Prolog（SWI-Prolog）</td>
+<td><code>Illegal multibyte Sequence</code> のあと <code>Assertion failed</code> で異常終了</td>
+</tr>
+</tbody>
+</table>
+<p>中でも Clojure の挙動は危険です。テストが 1 件も実行されないのに終了コード 0 で成功するため、
+CI が緑のまま何も検証していない状態になり得ます。
+<code>apps/jp/</code> のすべての Makefile と CI では、<code>LANG=C.UTF-8</code> を明示しています。</p>
+<h3 id="unicode">Unicode の正規化<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h3>
+<p>見た目が同じ文字の扱いも言語によって異なります。</p>
+<ul>
+<li>Python は識別子を NFKC で正規化するため、半角の <code>ｶﾀｶﾅ</code> と全角の <code>カタカナ</code> が <strong>同じ変数</strong> になる</li>
+<li>JavaScript は正規化しないため、両者は <strong>別の変数</strong> になる</li>
+<li>TypeScript の import パスを NFD（濁点を分けた形）で書くと、Linux では <code>Cannot find module './パイプ'</code> になる</li>
+<li>Rust は <code>confusable_idents</code> lint で、<code>口</code>（くち）と <code>ロ</code>（カタカナ）のように紛らわしい識別子の併用を警告する</li>
+</ul>
+<h2 id="_16">静的型付けで消えるテスト<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>題材 D の「数値でなければ失敗になる」（<code>安全変換("a")</code>）は、静的型付けの言語では書けませんでした。
+引数が数値型なので、文字列を渡すとコンパイルエラーになるためです。</p>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>エラー原文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C#</td>
+<td><code>error CS1503: Argument 1: cannot convert from 'string' to 'int'</code></td>
+</tr>
+<tr>
+<td>F#</td>
+<td><code>error FS0001: This expression was expected to have type 'int' but here has type 'string'</code></td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td><code>[GHC-83865] Couldn't match type ‘[Char]’ with ‘Int’</code></td>
+</tr>
+<tr>
+<td>Rust</td>
+<td><code>error[E0308]: mismatched types</code></td>
+</tr>
+<tr>
+<td>Go</td>
+<td><code>cannot use "a" (untyped string constant) as int value in argument to Ａ安全変換</code></td>
+</tr>
+</tbody>
+</table>
+<p>なでしこ3・Python・Ruby・JavaScript・PHP・Clojure・Elixir・Prolog では、このテストを実行時の検査として書く必要があります。
+<a href="../04-type-system-comparison/">型システム比較</a>で述べた「型がテストの一部を肩代わりする」関係が、
+日本語で書いても同じように現れます。</p>
+<h2 id="_17">考察: 書けることと書くべきこと<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>17 言語のうち 16 言語が日本語で書けたという結果は、Unicode 識別子が
+ほとんどの言語で当たり前になったことを示しています。
+一方で、チームで日本語の識別子を採用するなら、次の点を考慮する必要があります。</p>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大文字・小文字の規則</td>
+<td>Go の公開、Ruby の定数、Haskell の型など、言語の意味論が大文字に依存している部分で回避策が要る</td>
+</tr>
+<tr>
+<td>ツールの前提</td>
+<td>命名規則のルールは ASCII を前提にしている。抑止すると ASCII の名前の検査も一緒に失われる場合がある（ktlint）</td>
+</tr>
+<tr>
+<td>環境の前提</td>
+<td>ロケール・ファイルシステム・正規化の違いで、手元では動くが CI で壊れる</td>
+</tr>
+<tr>
+<td>検索と入力</td>
+<td>IME の切り替え、全角・半角の揺れ、grep や IDE の補完のしやすさ</td>
+</tr>
+<tr>
+<td>読み手</td>
+<td>ドメインの用語が日本語で、読み手も日本語話者なら、日本語の名前はユビキタス言語をそのままコードに写せる</td>
+</tr>
+</tbody>
+</table>
+<p>ドメイン駆動設計の観点では、業務の用語をそのまま型や関数の名前にできることには価値があります。
+<code>タイプ生成</code> や <code>安全変換</code> は、英訳するよりも仕様書との対応が一目で分かります。
+一方で、その価値を得るには、上の表の代償をチームで引き受ける必要があります。</p>
+<p>なでしこ3 は、その代償を払わずに済む唯一の言語です。
+日本語の文法がそのまま言語の文法なので、回避策も抑止設定も要りません。
+トータルスコアでは最下位でしたが、この軸では他の 17 言語がなでしこ3 に近づこうとする側に回ります。
+TDD の最初の一歩を日本語で踏み出す入口として、なでしこ3 を位置づけた理由がここにあります。</p>
+<h2 id="_18">検証環境<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>言語</th>
+<th>処理系</th>
+<th>テスト</th>
+<th>件数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java</td>
+<td>OpenJDK 21.0.9、Gradle 8.14.3</td>
+<td>JUnit 5.10.2</td>
+<td>19</td>
+</tr>
+<tr>
+<td>JavaScript・TypeScript</td>
+<td>Node.js 22.21.1、TypeScript 5.9.3</td>
+<td>Vitest 3.2.7</td>
+<td>22 + 22</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python 3.13.11</td>
+<td>pytest 9.1.1</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>Ruby 3.3.10</td>
+<td>Minitest 5.20.0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>PHP 8.4.16</td>
+<td>PHPUnit 10.5.65</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Go 1.25.5</td>
+<td>testing</td>
+<td>11（+ サブテスト 11）</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>rustc 1.91.1</td>
+<td>cargo test</td>
+<td>19</td>
+</tr>
+<tr>
+<td>C#・F#</td>
+<td>.NET SDK 8.0.416（C# 12.0、F# 8.0）</td>
+<td>xUnit 2.5.3</td>
+<td>21 + 20</td>
+</tr>
+<tr>
+<td>Clojure</td>
+<td>Clojure 1.11.1、Leiningen 2.11.2</td>
+<td>clojure.test</td>
+<td>6（22 アサーション）</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>Scala 3.3.4、sbt 1.10.6</td>
+<td>ScalaTest 3.2.18</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td>Elixir 1.18.4</td>
+<td>ExUnit</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>GHC 9.10.3、Stack 3.7.1</td>
+<td>HSpec 2.11.14</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Flix</td>
+<td>Flix 0.76.2</td>
+<td>flix test</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Kotlin</td>
+<td>Kotlin 2.2.20、Gradle 8.14.3</td>
+<td>kotlin.test</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Prolog</td>
+<td>SWI-Prolog 9.2.9</td>
+<td>plunit</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+<p>各言語の詳しい記録（拒否されたときのエラー原文、回避策、スコアの根拠）は、
+<code>apps/jp/{lang}/FINDINGS.md</code> にあります。</p>
+<blockquote>
+<p><strong>Note</strong>: Flix は、本シリーズの Nix 環境が GitHub Releases から flix.jar を取得する設計ですが、
+検証環境から接続できなかったため、nixpkgs の Flix 0.76.2 で検証しました（<code>apps/flix/</code> は 0.75.1）。</p>
+</blockquote>
+<hr />
+<p>以上で多言語統合解説は終わりです。各言語の個別解説に戻る場合は
+<a href="../../">記事一覧</a>を参照してください。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -10705,14 +12276,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script>
       
-        <script src="/docs/assets/js/extra.js"></script>
+        <script src="../../../docs/assets/js/extra.js"></script>
       
     
   </body>
