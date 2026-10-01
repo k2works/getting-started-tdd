@@ -1081,6 +1081,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なでしこ3 Python 風記法コラム 執筆計画
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="なでしこ3 Python 風記法コラム 執筆計画">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        進捗状態
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        記事構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既知の制約
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8712,6 +8762,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration/10-nadesiko-python-style-column/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    コラム: なでしこ3 を Python 風に書く
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -12487,6 +12565,63 @@
 <td>「日本語で書けるべき」という主張に受け取られる</td>
 <td>記事の意図が誤解される</td>
 <td>第 7・8 章と同様に、スコアは許容度の比較であり推奨ではないと注記する</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-python">なでしこ3 Python 風記法コラム 執筆計画<a class="headerlink" href="#3-python" title="Permanent link">&para;</a></h2>
+<p>天清会の note 記事「<a href="https://note.com/alive_beetle8120/n/nb1fc5e640795">メモ：Python風に書ける「なでしこ3」の資料を整備、notebookLMに追加しました</a>」と、同記事で配布されている「なでしこ3をPython風に書くマニュアル」を参考に、なでしこ3 を <strong>Python 風インラインインデント構文</strong>（行末のコロンと字下げ、「ここまで」を使わない）で書き、Python の FizzBuzz とボウリングゲームを TDD で並べて育てるコラムを、多言語統合解説の第 10 章として追加する。</p>
+<p><a href="../integration/09-japanese-implementation-column/">第 9 章</a> が他言語をなでしこ3 に近づけたのに対し、本コラムは逆向きに、なでしこ3 を Python に近づけたときの対応と代償を示す。</p>
+<h3 id="_31">進捗状態<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>検証用コード</td>
+<td><code>apps/pystyle/nadesiko/</code>・<code>apps/pystyle/python/</code>（完了。両言語の <code>make check</code> が Nix 環境で成功）</td>
+</tr>
+<tr>
+<td>コラム記事</td>
+<td><a href="../integration/10-nadesiko-python-style-column/">第 10 章</a>（完了）</td>
+</tr>
+<tr>
+<td>CI</td>
+<td><code>.github/workflows/pystyle-ci.yml</code>（言語ごとの行列ジョブ）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_32">記事構成<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Python 風インラインインデント構文の規則と、本編・Python 風・Python の 3 通りの比較</li>
+<li>TDD で FizzBuzz を並べる（Red の失敗メッセージ、仮実装、三角測量、条件の順序、範囲の終了値、受け入れテスト）</li>
+<li>TDD でボウリングゲームを並べる（フレームの導入、範囲外の添字、関数版とオブジェクト指向版 -- クラスと辞書の対応）</li>
+<li>並べて分かった違いと落とし穴（コロン直後の記述、字下げ忘れ、処理系による範囲の向きの違い、命令名・助詞を含む変数名）</li>
+<li>考察 -- Python への橋渡しとして得られるものと、助詞・文としての読みやすさの喪失</li>
+</ol>
+<h3 id="_33">既知の制約<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>制約</th>
+<th>対策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>マニュアルはブラウザ版（<code>wnako</code> v3.7.24）で検証されている</td>
+<td>本シリーズの <code>gonako</code> v3.8.8 で再実行し、記事のコードとエラーメッセージは実測値のみを載せる</td>
+</tr>
+<tr>
+<td>「繰り返す」で開始が終了より大きいとき、cnako3 は逆向きに回り gonako は回らない</td>
+<td>ガードと 0 件のテストを置き、cnako3 v3.8.7 でも手元でテストを実行して確かめる</td>
+</tr>
+<tr>
+<td><code>gonako format</code> が全角の括弧・<code>＝</code> を半角に整形する</td>
+<td>本編と同じく <code>format-check</code> を通すため、整形後の表記で掲載し、その事実を記事に書く</td>
 </tr>
 </tbody>
 </table>
