@@ -13,5 +13,5 @@ LANGS := java node python ruby php go rust dotnet clojure scala elixir haskell f
 
 test: $(addprefix test-,$(LANGS))
 
-test-%:
+$(addprefix test-,$(LANGS)): test-%:
 	cd $(ROOT) && nix develop .#$* --command bash -c "make -C apps/jp/$* test"
