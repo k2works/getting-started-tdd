@@ -1,0 +1,21 @@
+FizzBuzz の受け入れテスト（gonako doctest で表示結果を照合する）
+
+{{{#nako3
+!「../src/fizzbuzz.nako3」を取り込む
+FizzBuzz表示処理(15)
+### 表示結果: 1
+### 2
+### Fizz
+### 4
+### Buzz
+### Fizz
+### 7
+### 8
+### Fizz
+### Buzz
+### 11
+### Fizz
+### 13
+### 14
+### FizzBuzz
+}}}

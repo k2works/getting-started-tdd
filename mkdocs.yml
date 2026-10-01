@@ -317,6 +317,7 @@ nav:
           - トータルスコアによる総合比較: article/integration/07-total-score-comparison.md
           - 'コラム: 言語の性格を比喩で掴む': article/integration/08-language-personality-column.md
           - 'コラム: なでしこ3 を 17 言語で日本語実装する': article/integration/09-japanese-implementation-column.md
+          - 'コラム: なでしこ3 を Python 風に書く': article/integration/10-nadesiko-python-style-column.md
   - 開発:
       - 概要: development/index.md
       - リリース計画: development/release_plan.md
