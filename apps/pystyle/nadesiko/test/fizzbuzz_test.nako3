@@ -1,0 +1,13 @@
+!「./helper.nako3」を取り込む
+!「../src/fizzbuzz.nako3」を取り込む
+
+検証処理(「1を渡したら文字列1を返す」,FizzBuzz変換処理(1),「1」)
+検証処理(「2を渡したら文字列2を返す」,FizzBuzz変換処理(2),「2」)
+検証処理(「3を渡したらFizzを返す」,FizzBuzz変換処理(3),「Fizz」)
+検証処理(「6を渡したらFizzを返す」,FizzBuzz変換処理(6),「Fizz」)
+検証処理(「5を渡したらBuzzを返す」,FizzBuzz変換処理(5),「Buzz」)
+検証処理(「10を渡したらBuzzを返す」,FizzBuzz変換処理(10),「Buzz」)
+検証処理(「15を渡したらFizzBuzzを返す」,FizzBuzz変換処理(15),「FizzBuzz」)
+検証処理(「15まで作ると15件になる」,要素数(FizzBuzzリスト作成処理(15)),15)
+検証処理(「15まで作ったリストの並び」,配列結合(FizzBuzzリスト作成処理(15),「,」),「1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz」)
+テスト結果報告処理
