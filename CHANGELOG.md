@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [5.2.1] - 2026-10-01
+
+第 10 章コラム「なでしこ3 を Python 風に書く」のボウリングの節を拡充。Kotlin 版 `BowlingGame.kt` を手本に、定数・判定関数・フレーム得点関数で意図を明確にするリファクタリングのステップを追加し、Kotlin 版を可変の変数を持たない再帰によるエレガントな関数型実装として参照紹介。
+
+### Documentation
+
+- docs(integration): 第 10 章にリファクタリングと Kotlin の関数型実装の紹介を追加 (e6e15a3)
+
+### Refactoring
+
+- refactor(pystyle): ボウリングの得点計算を定数・判定関数・フレーム得点関数で意図が読める形に整理 (86d9f79)
+
 ## [5.2.0] - 2026-10-01
 
 多言語統合解説に第 10 章コラム「なでしこ3 を Python 風に書く」を追加。天清会の Python 風マニュアルを参考に、なでしこ3 を行末のコロンと字下げで書き、FizzBuzz とボウリングゲーム（関数版とオブジェクト指向版）を Python と TDD で並べて解説。検証用コード（`apps/pystyle/`）と CI を収録し、処理系による範囲の向きの違い（cnako3 と gonako）や範囲外の添字が NaN になることなどの落とし穴を実測で示す。あわせて、`apps/jp` の `make test` が何も実行していなかった不具合を修正。
