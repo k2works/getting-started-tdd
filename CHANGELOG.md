@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [5.2.0] - 2026-10-01
+
+多言語統合解説に第 10 章コラム「なでしこ3 を Python 風に書く」を追加。天清会の Python 風マニュアルを参考に、なでしこ3 を行末のコロンと字下げで書き、FizzBuzz とボウリングゲーム（関数版とオブジェクト指向版）を Python と TDD で並べて解説。検証用コード（`apps/pystyle/`）と CI を収録し、処理系による範囲の向きの違い（cnako3 と gonako）や範囲外の添字が NaN になることなどの落とし穴を実測で示す。あわせて、`apps/jp` の `make test` が何も実行していなかった不具合を修正。
+
+### Features
+
+- feat(pystyle): なでしこ3 の Python 風構文と Python で FizzBuzz・ボウリングの検証コードを追加 (6dd4a7d)
+
+### Bug Fixes
+
+- fix(jp): make test が何も実行しない不具合を修正 (e952e53)
+
+### Documentation
+
+- docs(integration): 第 10 章コラム「なでしこ3 を Python 風に書く」を執筆 (c1cade7)
+
 ## [5.1.0] - 2026-09-27
 
 多言語統合解説に第 9 章コラム「なでしこ3 を 17 言語で日本語実装する」を追加。なでしこ3 の実装を他の 17 言語で日本語化した検証用コード（`apps/jp/`）と、日本語化スコアおよび mermaid のレーダーチャートによる総合評価を収録。あわせて、何も検査しないまま成功扱いになっていた Prolog と Java の lint を修正。
