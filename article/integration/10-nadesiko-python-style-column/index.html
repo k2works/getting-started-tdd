@@ -8485,6 +8485,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステップ 6: リファクタリングで意図を明確にする
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考: Kotlin によるエレガントな関数型実装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11483,7 +11505,7 @@ FizzBuzz のテストは、Python が 10 件、なでしこ3 が 9 件と doctes
 ボウリングゲームは、前の投球が後の得点に影響します。
 ループの中で投球の位置を進める手続きと、投球を貯めていくオブジェクトの両方が出てくるため、
 Python のクラスをなでしこ3 でどう書くかも比べられます。</p>
-<p>題材は、別の連載（なでしこ3 版のサンプル実装）にあるボウリングの 2 つのコードです。
+<p>題材は、演習リポジトリ <a href="https://github.com/k2works/from-objects-to-functions-excersice">k2works/from-objects-to-functions-excersice</a> のなでしこ3 版サンプルにある、ボウリングの 2 つのコードです。
 入力（投球の配列）から出力（得点）への関数として書いた版と、オブジェクト指向でよくある形の版を、
 Python 風の構文で書き直しました。</p>
 <table>
@@ -11515,6 +11537,7 @@ Python 風の構文で書き直しました。</p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> スペアは次の 1 投を加算する</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ストライクは次の 2 投を加算する</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> パーフェクトゲーム（12 投すべてストライク）は 300 点</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 2 つの <code>10</code> と分岐の意味を名前で表す（リファクタリング）</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> オブジェクト指向版でも同じ得点になる</li>
 </ul>
 <h3 id="_3">テストデータを作る関数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -11643,6 +11666,208 @@ Python は範囲外の添字で例外を投げて止まりますが、なでし�
 <p>最後の「パーフェクトゲームは 300 点」（10 を 12 投）は、コードを変えずに最初から通ります。
 10 フレーム目のボーナス投球を、11 投目と 12 投目として先読みしているためです。
 新しい振る舞いを足すテストではなく、境界の振る舞いを確かめるテストとして残します。</p>
+<h3 id="6">ステップ 6: リファクタリングで意図を明確にする<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>テストはすべて通りましたが、<code>得点計算処理</code> にはまだ読み手に推測を強いる箇所が残っています。</p>
+<ul>
+<li><code>10</code> が 2 つの意味（1 ゲームのフレーム数と、1 フレームのピン数）で使われている</li>
+<li><code>投球列[位置] = 10</code> が「ストライク」を、<code>投球列[位置] + 投球列[位置 + 1] = 10</code> が「スペア」を意味することが、名前ではなく式で表されている</li>
+<li>3 つの分岐が、それぞれ違う形の足し算をしていて、共通の構造が見えない</li>
+</ul>
+<p>同じ演習リポジトリの Kotlin 版サンプル（<code>BowlingGame.kt</code>）は、この 3 点を次のように解決しています（コード全体はこのあとの「参考」で紹介します）。</p>
+<ol>
+<li>2 つの <code>10</code> に、<code>FRAMES_PER_GAME</code> と <code>ALL_PINS</code> という別々の名前を付ける</li>
+<li>ストライクとスペアの判定を、<code>isStrike</code> と <code>isSpare</code> という名前の関数に切り出す</li>
+<li>3 つの分岐を「そのフレームで使う投球数」と「ボーナスとして加える投球数」の 2 つの数の違いとして捉え直し、<code>frameScore(rollsUsed, bonusRolls)</code> という 1 つの関数にまとめる</li>
+</ol>
+<p>3 つ目が要です。
+ストライクは「1 投使って 2 投ボーナス」、スペアは「2 投使って 1 投ボーナス」、それ以外は「2 投使ってボーナスなし」です。
+得点は、どの場合も <strong>使う投球数 + ボーナス投球数</strong> の分だけ先頭から足した値になります。
+分岐ごとに違っていた足し算が、2 つの数の違いだけになります。</p>
+<p>Kotlin 版はさらに、可変の変数を使わない再帰で書いています。ここでは、ここまでの添字と繰り返しの形を保ったまま、この 3 点だけを取り入れます。
+テストには手を入れません。
+テストを変えずに実装の構造だけを変え、テストが通り続けることを確かめるのがリファクタリングです。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+
+<span class="n">フレーム総数</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">全ピン数</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">得点計算処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">得点</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">位置</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">フレーム総数</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ストライク判定処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">,</span> <span class="n">位置</span><span class="p">):</span>
+            <span class="n">得点</span> <span class="o">=</span> <span class="n">得点</span> <span class="o">+</span> <span class="n">フレーム得点処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">,</span> <span class="n">位置</span><span class="p">,</span> <span class="n">投球数</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ボーナス数</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">位置</span> <span class="o">=</span> <span class="n">位置</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">スペア判定処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">,</span> <span class="n">位置</span><span class="p">):</span>
+            <span class="n">得点</span> <span class="o">=</span> <span class="n">得点</span> <span class="o">+</span> <span class="n">フレーム得点処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">,</span> <span class="n">位置</span><span class="p">,</span> <span class="n">投球数</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ボーナス数</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">位置</span> <span class="o">=</span> <span class="n">位置</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">得点</span> <span class="o">=</span> <span class="n">得点</span> <span class="o">+</span> <span class="n">フレーム得点処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">,</span> <span class="n">位置</span><span class="p">,</span> <span class="n">投球数</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ボーナス数</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">位置</span> <span class="o">=</span> <span class="n">位置</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">得点</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ストライク判定処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">位置</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">投球列</span><span class="p">[</span><span class="n">位置</span><span class="p">]</span> <span class="o">==</span> <span class="n">全ピン数</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">スペア判定処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">位置</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">投球列</span><span class="p">[</span><span class="n">位置</span><span class="p">]</span> <span class="o">+</span> <span class="n">投球列</span><span class="p">[</span><span class="n">位置</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">全ピン数</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">フレーム得点処理</span><span class="p">(</span><span class="n">投球列</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">位置</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">投球数</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ボーナス数</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""そのフレームで使う投球数と、ボーナスとして加算する投球数の合計を足す"""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">投球列</span><span class="p">[</span><span class="n">位置</span> <span class="p">:</span> <span class="n">位置</span> <span class="o">+</span> <span class="n">投球数</span> <span class="o">+</span> <span class="n">ボーナス数</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>定数のフレーム総数 = 10
+定数の全ピン数 = 10
+
+●(投球列の)得点計算処理とは:
+    変数のF得点 = 0
+    変数のF位置 = 0
+    (フレーム総数)回、繰り返す:
+        もし(ストライク判定処理(投球列,F位置))ならば:
+            F得点 = F得点 + フレーム得点処理(投球列,F位置,1,2)
+            F位置 = F位置 + 1
+        違えばもし(スペア判定処理(投球列,F位置))ならば:
+            F得点 = F得点 + フレーム得点処理(投球列,F位置,2,1)
+            F位置 = F位置 + 2
+        違えば:
+            F得点 = F得点 + フレーム得点処理(投球列,F位置,2,0)
+            F位置 = F位置 + 2
+    F得点を戻す
+
+●(投球列と位置の)ストライク判定処理とは:
+    (投球列[位置] = 全ピン数)を戻す
+
+●(投球列と位置の)スペア判定処理とは:
+    (投球列[位置] + 投球列[位置 + 1] = 全ピン数)を戻す
+
+# そのフレームで使う投球数と、ボーナスとして加算する投球数の合計を足す
+●(投球列と位置と投球数とボーナス数で)フレーム得点処理とは:
+    変数のF合計 = 0
+    番号を位置から(位置 + 投球数 + ボーナス数 - 1)まで繰り返す:
+        F合計 = F合計 + 投球列[番号]
+    F合計を戻す
+</code></pre></div>
+<p><code>得点計算処理</code> は、「ストライクなら 1 投使って 2 投ボーナス」と、規則の文章に近い形で読めるようになりました。
+両言語とも、関数を使う位置より後ろで定義しても動きます。
+そのため、全体の流れを上に、細部を下に置けます。
+リファクタリングの前後で、テストは両言語とも全件通ったままです。</p>
+<p>並べると、両言語の違いが 3 つ見えてきます。</p>
+<p><strong>定数</strong>: Python の <code>Final</code> は型の注釈で、守らせるのは mypy です。
+<code>フレーム総数 = 11</code> と再代入すると、mypy は <code>Cannot assign to final name "フレーム総数"</code> と指摘しますが、実行すると何事もなく 11 になります。
+なでしこ3 の <code>定数の</code> は処理系が守ります。
+再代入すると、実行時に <code>定数『…フレーム総数』は既に定義済みなので、値を代入することはできません。</code> という文法エラーで止まります（gonako・cnako3 とも同じ）。
+ただし <code>gonako lint</code> はこの誤りを報告しません。</p>
+<p><strong>引数の名前</strong>: Python はキーワード引数で <code>投球数=1, ボーナス数=2</code> と書けるので、Kotlin の <code>rollsUsed = 1, bonusRolls = 2</code> と同じく、呼び出し側で数の意味が読めます。
+本章のなでしこ3 の関数呼び出しは助詞の順に値を並べるだけなので、<code>フレーム得点処理(投球列,F位置,1,2)</code> の <code>1,2</code> が何の数かは、定義を見ないと分かりません。
+意図を名前で伝えるという点では、ここは Python 風の書き方の弱いところです。</p>
+<p><strong>部分列の合計</strong>: Python はスライスで <code>sum(投球列[位置 : 位置 + 投球数 + ボーナス数])</code> と 1 行で書けます。
+なでしこ3 では繰り返しで足しています（終了値を含むため <code>- 1</code> が要ります）。
+ここで繰り返しの開始が終了を超えることはありません。
+投球数とボーナス数の合計は、ストライクとスペアで 3、それ以外で 2 なので、範囲は常に 2 件以上になるためです。</p>
+<h3 id="kotlin">参考: Kotlin によるエレガントな関数型実装<a class="headerlink" href="#kotlin" title="Permanent link">&para;</a></h3>
+<p>ステップ 6 で手本にした Kotlin 版の全体を紹介します。
+演習リポジトリ <a href="https://github.com/k2works/from-objects-to-functions-excersice">k2works/from-objects-to-functions-excersice</a>（関数型ソフトウェア設計の理論と実践）にあるサンプルで、
+<a href="https://github.com/k2works/from-objects-to-functions-excersice/blob/main/apps/kotlin/zettai/zettai-step1-http/src/main/kotlin/zettai/BowlingGame.kt"><code>BowlingGame.kt</code></a> がそのファイルです。
+本シリーズの Kotlin の Nix 環境で、付属のテスト（関数版 5 件、オブジェクト指向版 1 件）が通ることを確認しました。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * ボウリング 1 ゲームの得点を返す。</span>
+<span class="cm"> *</span>
+<span class="cm"> * 投球の並びを受け取って点数を返すだけの純粋関数として書く。</span>
+<span class="cm"> * ゲームの途中経過を保持するオブジェクトを作らないので、</span>
+<span class="cm"> * テストは「入力を与えて出力を確かめる」形だけで済む。</span>
+<span class="cm"> */</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">scoreOf</span><span class="p">(</span><span class="n">rolls</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scoreFrames</span><span class="p">(</span><span class="n">rolls</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FRAMES_PER_GAME</span><span class="p">)</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">FRAMES_PER_GAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">ALL_PINS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">scoreFrames</span><span class="p">(</span><span class="n">rolls</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">remainingFrames</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">0</span>
+<span class="w">        </span><span class="n">rolls</span><span class="p">.</span><span class="na">isStrike</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">frameScore</span><span class="p">(</span><span class="n">rollsUsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">bonusRolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">nextFrames</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="p">)</span>
+<span class="w">        </span><span class="n">rolls</span><span class="p">.</span><span class="na">isSpare</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">frameScore</span><span class="p">(</span><span class="n">rollsUsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">bonusRolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">nextFrames</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="p">)</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">frameScore</span><span class="p">(</span><span class="n">rollsUsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">bonusRolls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rolls</span><span class="p">.</span><span class="na">nextFrames</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">.</span><span class="na">isStrike</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_PINS</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">.</span><span class="na">isSpare</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">take</span><span class="p">(</span><span class="m">2</span><span class="p">).</span><span class="na">sum</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ALL_PINS</span>
+
+<span class="cm">/** そのフレームで使う投球数と、ボーナスとして加算する投球数の合計を足す。 */</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">.</span><span class="na">frameScore</span><span class="p">(</span><span class="n">rollsUsed</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">bonusRolls</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">take</span><span class="p">(</span><span class="n">rollsUsed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bonusRolls</span><span class="p">).</span><span class="na">sum</span><span class="p">()</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">List</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">.</span><span class="na">nextFrames</span><span class="p">(</span><span class="n">rollsUsed</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">remainingFrames</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">scoreFrames</span><span class="p">(</span><span class="n">drop</span><span class="p">(</span><span class="n">rollsUsed</span><span class="p">),</span><span class="w"> </span><span class="n">remainingFrames</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</code></pre></div>
+<p>関数はどれも <code>=</code> の右に式を 1 つ書くだけで、<code>var</code> は 1 つもありません。
+ステップ 6 のリファクタリング後のコードと比べると、何がエレガントなのかが見えてきます。</p>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>ステップ 6（Python・なでしこ3）</th>
+<th>Kotlin 版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>得点の累積</td>
+<td>可変の変数 <code>得点</code>・<code>F得点</code> に足し込む</td>
+<td>「このフレームの得点 + 残りのフレームの得点」という式の値</td>
+</tr>
+<tr>
+<td>今どこを見ているか</td>
+<td>可変の添字 <code>位置</code>・<code>F位置</code> を進める</td>
+<td><code>drop(rollsUsed)</code> で使い終えた投球を除いたリストを次に渡す</td>
+</tr>
+<tr>
+<td>何フレーム目か</td>
+<td><code>range(フレーム総数)</code>・<code>(フレーム総数)回</code> の繰り返し</td>
+<td>引数 <code>remainingFrames</code> を 1 ずつ減らし、0 になったら 0 点</td>
+</tr>
+<tr>
+<td>分岐</td>
+<td><code>if</code> 文で変数を書き換える</td>
+<td><code>when</code> 式が値を返す</td>
+</tr>
+<tr>
+<td>判定の書き方</td>
+<td><code>ストライク判定処理(投球列, 位置)</code></td>
+<td>拡張関数 <code>rolls.isStrike()</code></td>
+</tr>
+<tr>
+<td>数の意味</td>
+<td>Python はキーワード引数、なでしこ3 は位置で渡す</td>
+<td>名前付き引数 <code>rollsUsed = 1, bonusRolls = 2</code></td>
+</tr>
+</tbody>
+</table>
+<p>読みどころは 4 つあります。</p>
+<p><strong>規則がそのまま定義になっている</strong>: <code>scoreFrames</code> は「残りが 0 フレームなら 0 点。そうでなければ、最初のフレームの得点に、残りのフレームの得点を足す」と読めます。
+ボウリングの得点の規則を、そのまま再帰の定義として書き下した形です。
+ループ版では、読み手が <code>位置</code> と <code>得点</code> の変化を頭の中で追う必要がありました。
+Kotlin 版では、各行が「このフレームの得点は何か」だけを述べています。</p>
+<p><strong>状態がリストそのものに入っている</strong>: ループ版の <code>位置</code> は、「投球列のどこまでを使い終えたか」という状態でした。
+Kotlin 版は、使い終えた投球を <code>drop</code> で取り除いたリストを次の呼び出しに渡します。
+そのため、どの関数も常に「リストの先頭」だけを見れば済みます。
+<code>isStrike</code> が <code>first()</code>、<code>isSpare</code> が <code>take(2)</code> と短く書けるのはこのためです。
+添字の計算（<code>位置 + 1</code>・<code>位置 + 2</code>）が、コードから消えています。</p>
+<p><strong>ボーナスは「消費しない先読み」</strong>: <code>frameScore</code> は <code>rollsUsed + bonusRolls</code> 投ぶんを <code>take</code> で読みますが、次に渡すリストからは <code>rollsUsed</code> 投しか <code>drop</code> しません。
+ボーナスの投球は、読んでも消費しない。
+この非対称が、ストライク・スペア・10 フレーム目のボーナス投球を、場合分けなしで正しく扱う仕掛けになっています。</p>
+<p><strong>主語が先に来る</strong>: <code>rolls.isStrike()</code> や <code>rolls.frameScore(…)</code> は拡張関数で、対象（投球列）が先、操作が後に来ます。
+なでしこ3 の <code>投球列の得点計算</code> と同じ語順です。
+<a href="../09-japanese-implementation-column/">第 9 章</a>で Kotlin が「語順の再現」で満点だったのも、同じ拡張関数（<code>infix</code> を付けた拡張関数）によるものでした。</p>
+<p>本章の Python 風の書き方がこの形を採らなかったのは、比べる相手の Python が添字と繰り返しで書くのが一般的だからです。
+なお、Python でも <code>sum(投球列[:使う投球数 + ボーナス投球数])</code> と <code>得点計算処理(投球列[使う投球数:], 残りフレーム数 - 1)</code> を組み合わせれば、同じ再帰の形で書けます（手元で 5 つのテストケースが同じ得点になることを確かめました）。
+一方、なでしこ3 では、Python のスライスや Kotlin の <code>drop</code> に当たる、処理系をまたいで使える書き方を本章では確かめられませんでした
+（gonako の <code>配列範囲コピー</code> は範囲を <code>{先頭, 末尾}</code> の辞書で受け取る作りで、cnako3 での互換性は未確認です）。
+<code>drop</code> に当たる処理を自分で書くことになるため、この形はなでしこ3 では Kotlin ほど簡潔になりません。
+ループ版から関数型の書き方へ進む次の一歩として、Kotlin 版を読んでみることをすすめます。</p>
 <h3 id="_4">オブジェクト指向版: クラスと辞書<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Python では、投球を貯める状態をインスタンスに持たせるクラスとして書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ゲーム</span><span class="p">:</span>
@@ -11780,6 +12005,18 @@ Python の <code>__init__</code> で <code>self.投球列 = []</code> と書く�
 <td><code>for _ in range(10):</code></td>
 <td><code>10回、繰り返す:</code></td>
 <td>単語だけ</td>
+</tr>
+<tr>
+<td>定数</td>
+<td><code>Final</code>（mypy が検査し、実行時は止めない）</td>
+<td><code>定数の</code>（実行時に処理系が止める）</td>
+<td>守らせる仕組み</td>
+</tr>
+<tr>
+<td>引数の名前</td>
+<td>キーワード引数 <code>投球数=1</code></td>
+<td>位置で渡す <code>1,2</code></td>
+<td>読みやすさ</td>
 </tr>
 <tr>
 <td>反復</td>
@@ -11922,6 +12159,7 @@ Python 風に書けば、その距離を保ったまま、プログラムと Pyt
 <li><strong>助詞による引数</strong>: <code>配列結合(リスト,「,」)</code> は、本編の <code>リストを「,」で配列結合</code> に比べて、どちらが区切り文字かが字面から読み取りにくくなります</li>
 <li><strong>文としての読みやすさ</strong>: 本編の <code>Nを文字列変換して戻す</code> は日本語の文として読めますが、<code>文字列変換(N)を戻す</code> は関数呼び出しに日本語の語尾が付いた形になります</li>
 <li><strong>誤りの検出</strong>: 見た目は Python と同じでも、字下げの誤りや範囲外の添字を処理系が検出してくれません</li>
+<li><strong>引数の名前</strong>: Python のキーワード引数のように呼び出し側で数の意味を示せないため、ボウリングの <code>フレーム得点処理(投球列,F位置,1,2)</code> は定義を見ないと読めません</li>
 <li><strong>クラス</strong>: クラス構文がないため、オブジェクト指向版は辞書と関数で組み立てることになります。ただし、得点の計算を状態のない関数に切り出しておけば、その差は薄い殻の部分に閉じ込められます</li>
 </ul>
 <p><a href="../09-japanese-implementation-column/">第 9 章</a>は、他の言語がなでしこ3 に近づこうとすると代償があることを示しました。
