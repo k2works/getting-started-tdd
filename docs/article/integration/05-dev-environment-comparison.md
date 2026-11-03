@@ -1,6 +1,6 @@
 # 開発環境と CI/CD 比較
 
-本章では、12 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
+本章では、17 言語の開発環境構築、ビルドツール、リンター / フォーマッタ、CI/CD パイプラインを比較します。本プロジェクトでは Nix によるすべての言語の開発環境統一を実現しています。
 
 ## Nix による統一開発環境アプローチ
 
@@ -55,6 +55,18 @@ nix develop .#elixir
 
 # Haskell 環境
 nix develop .#haskell
+
+# Flix 環境（Nix で JDK を管理し flix.jar と組み合わせる）
+nix develop .#flix
+
+# Kotlin 環境（Nix で JDK 21 + kotlin + gradle を管理）
+nix develop .#kotlin
+
+# Prolog 環境（Nix で SWI-Prolog 9.2 を管理）
+nix develop .#prolog
+
+# なでしこ3 環境（Nix で Go を管理し、gonako を固定コミットから go install）
+nix develop .#nadesiko
 ```
 
 ### Nix Flake の構造
@@ -75,7 +87,11 @@ ops/nix/
     ├── clojure.nix
     ├── scala.nix
     ├── elixir.nix
-    └── haskell.nix
+    ├── haskell.nix
+    ├── flix.nix
+    ├── kotlin.nix
+    ├── prolog.nix
+    └── nadesiko/shell.nix
 ```
 
 ## ビルドツール比較表
@@ -95,6 +111,14 @@ ops/nix/
 | Scala | sbt | `build.sbt` | Maven / Ivy | sbt tasks |
 | Elixir | Mix | `mix.exs` | Hex | mix tasks |
 | Haskell | Stack | `package.yaml` / `stack.yaml` | Stackage / Hackage | stack tasks |
+| Flix | Flix (flix.jar) | `flix.toml` | Flix パッケージ | flix.jar コマンド |
+| Kotlin | Gradle | `build.gradle.kts` | Maven Central | Gradle tasks |
+| Prolog | make（.pl 直接ロード） | `Makefile` | SWI-Prolog pack | make |
+| なでしこ3 | gonako（.nako3 直接実行） | `Makefile` | なし（`取り込む` で相対パス指定） | make |
+
+> **Note**: Flix はビルド・パッケージ管理・テスト・フォーマッタ・LSP がすべて単一の `flix.jar` に同梱されており、別途ツールを追加する必要がありません。
+
+> **Note**: なでしこ3 は Go で実装された互換処理系 nadesiko3go の CLI 版 `gonako` 3.8.8 を使います。Nix 環境では Go を提供し、`GOTOOLCHAIN=auto`（nadesiko3go の `go.mod` が要求する新しい Go ツールチェーンを自動取得）のもとで、3.8.8 タグのコミットに固定した `go install github.com/kujirahand/nadesiko3go/cmd/gonako@<コミット>` により `apps/nadesiko/bin` へ導入します。実行・lint・format・doctest はすべて `gonako` 1 つで行えます。
 
 ### ビルドコマンド比較
 
@@ -113,6 +137,10 @@ ops/nix/
 | Scala | `sbt compile` | `sbt clean` | `sbt run` |
 | Elixir | `mix compile` | `mix clean` | `mix run` |
 | Haskell | `stack build` | `stack clean` | `stack run` |
+| Flix | `java -jar flix.jar build` | - | `java -jar flix.jar run` |
+| Kotlin | `gradle build` | `gradle clean` | `gradle run` |
+| Prolog | - (インタプリタ) | - | `swipl -g main src/main.pl` |
+| なでしこ3 | - (インタプリタ) | `make clean`（`bin/` を削除） | `gonako run src/main.nako3` |
 
 ## リンター / フォーマッタ比較表
 
@@ -137,6 +165,12 @@ ops/nix/
 | Scala | WartRemover | バグパターン | `build.sbt` |
 | Elixir | Credo | スタイル + 複雑度 | `.credo.exs` |
 | Haskell | HLint | スタイル + イディオム | `.hlint.yaml` |
+| Flix | コンパイラ標準 | 型検査 + 効果検査 + 網羅性検査 | `flix.toml` |
+| Kotlin | detekt | バグパターン + 複雑度 | `detekt.yml` |
+| Kotlin | ktlint | コーディングスタイル | `.editorconfig` |
+| Kotlin | コンパイラ標準 | 型検査 + null 検査 + when 網羅性検査 | `build.gradle.kts` |
+| Prolog | コンパイラ標準（ロード時警告） | singleton 変数警告 + 未定義述語検出 + 構文検査 | `Makefile` |
+| なでしこ3 | `gonako lint` | 文法検査 | `Makefile` |
 
 ### フォーマッタ
 
@@ -155,6 +189,10 @@ ops/nix/
 | Scala | scalafmt | `.scalafmt.conf` |
 | Elixir | mix format | `.formatter.exs` |
 | Haskell | Ormolu / Fourmolu | 設定不要（標準） |
+| Flix | flix format（標準同梱） | 設定不要（標準） |
+| Kotlin | ktlint（自動修正） | `.editorconfig` |
+| Prolog | - (専用フォーマッタなし) | - |
+| なでしこ3 | `gonako format`（処理系に同梱） | 設定不要（標準） |
 
 ## CI/CD ワークフロー構成
 
@@ -177,7 +215,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell]
+        language: [java, python, node, ruby, go, php, rust, dotnet, clojure, scala, elixir, haskell, flix, kotlin, prolog, nadesiko]
     steps:
       - uses: actions/checkout@v4
 
@@ -211,6 +249,18 @@ jobs:
 | Scala | `sbt scalafmtCheck wartremoverCheck` | `sbt test` | `sbt coverage test coverageReport` |
 | Elixir | `mix credo` | `mix test` | `mix test --cover` |
 | Haskell | `stack exec -- hlint .` | `stack test` | HPC |
+| Flix | `java -jar flix.jar check` | `java -jar flix.jar test` | - |
+| Kotlin | `gradle detekt ktlintCheck` | `gradle test` | `gradle koverReport` |
+| Prolog | `make lint` | `make test` | - |
+| なでしこ3 | `make lint && make format-check` | `make test && make doctest` | - |
+
+> **Note**: Kotlin は `.github/workflows/kotlin-ci.yml` で Nix 環境上の `gradle build` と `gradle test` を実行します。
+
+> **Note**: Flix は `flix init` が GitHub Actions ワークフローを生成し、CI では `flix.jar` を都度ダウンロードして利用します。
+
+> **Note**: Prolog は `.github/workflows/prolog-ci.yml` で `nix develop .#prolog --command bash -c "cd apps/prolog && make lint / make test"` を実行します。`paths` は `apps/prolog/**`・当ワークフロー・`ops/nix/environments/prolog/shell.nix` に限定されます。
+
+> **Note**: なでしこ3 は `.github/workflows/nadesiko-ci.yml` で `nix develop .#nadesiko --command bash -c "cd apps/nadesiko && make lint / make format-check / make test / make doctest"` を順に実行します。`gonako` のバイナリ（`apps/nadesiko/bin`）と Go モジュールは `actions/cache` でキャッシュします。ローカルでは `make check` が同じ 4 段階（lint + format-check + test + doctest）をまとめて実行します。
 
 ## 品質ゲートの統一
 
@@ -247,6 +297,10 @@ jobs:
 | Scala | scalafmt + WartRemover | WartRemover | ScalaTest | scoverage |
 | Elixir | Credo | Credo (complexity) | ExUnit | cover |
 | Haskell | HLint | - | HSpec | HPC |
+| Flix | コンパイラ標準（型/効果/網羅性検査） | - | flix test | - |
+| Kotlin | detekt + ktlint | detekt | kotlin.test | Kover / JaCoCo |
+| Prolog | コンパイラ標準（ロード時警告） | - | plunit | - |
+| なでしこ3 | gonako lint + gonako format | - | ASSERT等 + 自作テスト補助 + gonako doctest | - |
 
 ## Taskfile による統一タスクランナー
 
@@ -318,10 +372,72 @@ tasks:
 | Scala | `sbt ~test` | チルダ前置で継続実行 |
 | Elixir | `mix test --stale` | 変更ファイルのみテスト |
 | Haskell | `stack test --file-watch` | ファイル変更で自動テスト |
+| Flix | LSP + エディタ連携 | flix.jar 同梱の LSP で即時フィードバック |
+| Kotlin | `gradle test --continuous` | 変更検知で自動テスト |
+| Prolog | `make test`（再ロード） | consult で即時再読み込み |
+| なでしこ3 | `make test`（手動実行） | コンパイル不要のため即時に再実行 |
+
+## 開発環境の充実度レーダー比較
+
+ビルドツール・リンター・品質ゲートの対応状況を 6 軸で数値化します。
+
+### 評価軸と基準
+
+| 軸 | 0〜1 | 2〜3 | 4〜5 |
+|----|------|------|------|
+| 依存管理 | 手動配置 | 標準的なパッケージマネージャ | ロックファイルと一体化した公式ツール |
+| Lint | 専用ツールなし | コンパイラ警告で代替 | 複数の専用リンターを併用 |
+| フォーマッタ | 専用ツールなし | 外部ツールを追加 | 公式フォーマッタを同梱 |
+| 複雑度チェック | 対応ツールなし | 間接的に検出 | リンターに複雑度メトリクスを内蔵 |
+| カバレッジ | 取得手段なし | 外部ツールで取得可能 | 標準的なツールが確立 |
+| タスクランナー | 手動でコマンドを実行 | Makefile 等で補完 | ビルドツールがタスクを内蔵 |
+
+### 主流言語
+
+```mermaid
+radar-beta
+  title 主流言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve java["Java"]{4, 5, 3, 5, 5, 5}
+  curve ts["TypeScript"]{5, 5, 5, 4, 5, 4}
+  curve python["Python"]{4, 5, 5, 4, 5, 3}
+  curve rust["Rust"]{5, 5, 5, 4, 3, 4}
+  max 5
+  min 0
+```
+
+Rust は Cargo・Clippy・rustfmt が公式ツールとして一体化しており、追加設定がほとんど
+不要です。Java は Checkstyle・PMD・JaCoCo と Gradle タスクにより品質ゲートが最も
+充実していますが、フォーマッタは外部ツールに依存します。
+
+### 追加言語・関数型言語
+
+```mermaid
+radar-beta
+  title 追加言語・関数型言語の開発環境充実度
+  axis dep["依存管理"], lint["Lint"], fmt["フォーマッタ"]
+  axis cx["複雑度チェック"], cov["カバレッジ"], task["タスクランナー"]
+  curve kotlin["Kotlin"]{4, 5, 5, 5, 4, 5}
+  curve haskell["Haskell"]{4, 3, 3, 1, 3, 4}
+  curve flix["Flix"]{3, 3, 5, 1, 0, 3}
+  curve prolog["Prolog"]{2, 2, 1, 1, 0, 2}
+  curve nadesiko["なでしこ3"]{1, 2, 4, 1, 0, 2}
+  max 5
+  min 0
+```
+
+Kotlin は Gradle に detekt・ktlint・Kover を組み合わせられるため、追加 3 言語の中で
+最も充実しています。Flix はフォーマッタと LSP を `flix.jar` に同梱する一方、
+カバレッジ取得の手段を持ちません。Prolog はコンパイラのロード時警告と `make` で
+最小限の品質ゲートを構成しており、専用の複雑度・カバレッジツールはありません。
+なでしこ3 は `gonako` 1 つに lint（文法検査）と公式フォーマッタ `gonako format` を
+同梱するためフォーマッタの軸が高い一方、パッケージマネージャを持たず `取り込む` で
+ファイルを相対パス指定するため依存管理の軸が低く、カバレッジ取得の手段もありません。
 
 ## まとめ
 
-1. **Nix** により 12 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています
+1. **Nix** により 17 言語の開発環境を `nix develop .#{lang}` の一コマンドで統一的に起動でき、環境構築の手間を大幅に削減しています。Flix は Nix で JDK を管理し `flix.jar` と組み合わせて起動し、Kotlin は Nix で JDK 21 + kotlin + gradle を提供し、Prolog は Nix で SWI-Prolog 9.2 を提供し、なでしこ3 は Nix で Go を提供して `gonako` を固定コミットから `go install` します
 2. **ビルドツール**は各言語のエコシステムに最適化されていますが、Taskfile で統一的なインターフェースを提供できます
 3. **リンター / フォーマッタ**はすべての言語で導入されており、「lint + complexity + test」の 3 段階品質ゲートを統一的に適用しています
 4. **CI/CD** は GitHub Actions + Nix の共通パターンで、matrix strategy により全言語のテストを並列実行できます

@@ -1,6 +1,6 @@
 # 型システムとエラーハンドリング比較
 
-本章では、12 言語の型システムとエラーハンドリングのアプローチを比較します。型システムの強さはコードの安全性に直結し、エラーハンドリングの方法はプログラムの堅牢性を左右します。
+本章では、17 言語の型システムとエラーハンドリングのアプローチを比較します。型システムの強さはコードの安全性に直結し、エラーハンドリングの方法はプログラムの堅牢性を左右します。
 
 ## 静的型付け vs 動的型付け
 
@@ -18,6 +18,8 @@
 | F# | オプション（推論優先） | HM 型推論 | あり |
 | Scala | オプション（推論優先） | 強い | あり |
 | Haskell | オプション（推論優先） | HM 型推論 | あり（型クラス） |
+| Flix | オプション（推論優先） | HM 型推論 | あり（トレイト） |
+| Kotlin | オプション（推論優先） | ローカル変数・戻り値 | あり（`reified` 対応） |
 
 **メリット**:
 - コンパイル時にバグを検出できる
@@ -37,6 +39,8 @@
 | PHP | 型宣言（PHP 7+） | PHPStan, Psalm |
 | Clojure | Spec | spec.alpha |
 | Elixir | Typespec | Dialyzer |
+| Prolog | 型検査述語（`integer/1` 等） | 単一化による型不一致検出 |
+| なでしこ3 | なし（`変数型確認` で実行時に型名を取得） | `gonako lint`（文法検査のみ） |
 
 **メリット**:
 - 素早いプロトタイピング
@@ -87,6 +91,49 @@ generate n
     (zero? (mod n 5)) "Buzz"
     :else (str n)))
 ```
+
+```prolog
+% Prolog: 動的型付け（値は項）
+% 単一化と型検査述語で実行時に型を確認する
+fizzbuzz(N, "FizzBuzz") :- integer(N), 0 is N mod 15, !.
+fizzbuzz(N, "Fizz")     :- integer(N), 0 is N mod 3, !.
+fizzbuzz(N, "Buzz")     :- integer(N), 0 is N mod 5, !.
+fizzbuzz(N, Value)      :- integer(N), format(string(Value), "~w", [N]).
+```
+
+```nako3
+# なでしこ3: 動的型付け（型宣言なし）
+# 変数型確認で実行時に型を確認する
+●(Nを)安全変換
+    もし、(Nの変数型確認) ≠ 「number」ならば
+        「数値を指定してください: {N}」の失敗結果を戻す
+    ここまで
+    もし、N ≦ 0ならば
+        「正の数を指定してください: {N}」の失敗結果を戻す
+    ここまで
+    (NをFizzBuzz変換)の成功結果を戻す
+ここまで
+```
+
+### なでしこ3: 緩い比較と型比較の工夫
+
+なでしこ3 は動的型付けで、比較や演算で暗黙の型変換を行います。表明命令 `ASSERT等` も緩い比較のため、数値 1 と文字列 "1" を等しいとみなします。FizzBuzz の仮実装 `Nを戻す`（数値を返す）が、文字列 "1" を期待するテストを通過してしまうのはこのためです。本シリーズでは、テスト補助 `検証` で値に加えて型も比較することで、この緩さを補っています。
+
+```nako3
+●(名前と実際と期待で)検証
+    エラー監視
+        (実際の変数型確認)と(期待の変数型確認)がASSERT等
+        実際と期待がASSERT等
+        「  ok: {名前}」を表示
+        成功数 = 成功数 + 1
+    エラーならば
+        「  NG: {名前}: {エラーメッセージ}」を表示
+        失敗数 = 失敗数 + 1
+    ここまで
+ここまで
+```
+
+型をコンパイラが検査しない言語では、「何を等しいとみなすか」をテストの側で決める必要がある、という点を示す例です。
 
 ## Option / Maybe / Result パターンの比較
 
@@ -237,6 +284,54 @@ func TryNewFizzBuzzType(typeNum int) (FizzBuzzType, error) {
 }
 ```
 
+### Flix: Result と Option
+
+Flix は null を持たず、`Result[e, t]`（Ok/Err）と `Option[t]` でエラーや値の不在を型安全に扱います。パターンマッチには網羅性検査があります。
+
+```flix
+// Result: エラー付きの失敗を型で表現
+pub def safeGenerate(n: Int32): Result[String, String] =
+    if (n > 0) Ok(convert(n))
+    else       Err("正の整数を指定してください")
+
+// テスト
+@Test
+def testSafeGenerate3(): Bool =
+    Assert.assertEq(expected = Ok("Fizz"), actual = safeGenerate(3))
+
+@Test
+def testSafeGenerate0(): Bool =
+    Assert.assertEq(expected = Err("正の整数を指定してください"), actual = safeGenerate(0))
+```
+
+さらに Flix は代数的効果（algebraic effects）と効果システムを備えており、副作用を型で追跡します。`eff` で効果を宣言し `run ... with handler` で解釈することで、「実行」と「解釈」を分離できます。これは他の対象言語にはない Flix 独自の副作用管理の仕組みです。
+
+### Kotlin: Result と null 安全
+
+Kotlin は標準ライブラリの `Result<T>` で成功 / 失敗を型で扱い、`String` と `String?` を型で区別する null 安全を備えます。
+
+```kotlin
+// Result: 成功と失敗を型で表現
+fun safeGenerate(number: Int): Result<String> =
+    if (number > 0) Result.success(FizzBuzz.convert(number))
+    else Result.failure(IllegalArgumentException("正の整数を指定してください"))
+
+// テスト
+@Test
+fun `正の整数で success を返す`() {
+    assertEquals("Fizz", safeGenerate(3).getOrNull())
+}
+
+@Test
+fun `0 以下で failure を返す`() {
+    assertTrue(safeGenerate(0).isFailure)
+}
+
+// null 安全: ?.（安全呼び出し）と ?:（エルビス演算子）
+fun label(value: FizzBuzzValue?): String =
+    value?.value ?: "未定義"
+```
+
 ### TypeScript: ユニオン型
 
 TypeScript はユニオン型でエラーを型安全に表現できます。
@@ -252,6 +347,63 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 }
 ```
 
+### Prolog: ok / error の直和項と nil
+
+Prolog は動的型付けですが、`ok(Value)` / `error(Message)` の直和項でエラーを「値」として表現し、呼び出し側は節（パターンマッチ）で網羅的に処理します。値の不在は `nil` アトムで表します。
+
+```prolog
+% Result 相当: ok(Value) / error(Message) の直和項
+safe_convert(N, error(Message)) :-
+    N =< 0, !,
+    format(string(Message), "正の数を指定してください: ~w", [N]).
+safe_convert(N, ok(Value)) :-
+    fizzbuzz(N, Value).
+
+% Option 相当: nil アトムで値の不在を表現
+convert_or_nil(nil, nil) :- !.
+convert_or_nil(N, Value) :-
+    integer(N),
+    fizzbuzz(N, Value).
+
+% テスト
+test(safe_convert_3) :-
+    safe_convert(3, ok("Fizz")).
+
+test(safe_convert_0) :-
+    safe_convert(0, error("正の数を指定してください: 0")).
+```
+
+なお Prolog は `throw/1` / `catch/3` による例外機構も備えており、値ベースの `ok` / `error` と対比して解説できます。
+
+### なでしこ3: 成功結果 / 失敗結果の辞書と空
+
+なでしこ3 には Result 型も Option 型もありません。本シリーズでは `成功` キーを持つ辞書を「成功結果」「失敗結果」として Result 相当に使い、値の不在は `空` で表します。例外は `エラー発生` で発生させ、`エラー監視 … エラーならば … ここまで` で捕捉します。
+
+```nako3
+●(値の)成功結果
+    {"成功": はい, "値": 値}を戻す
+ここまで
+
+●(メッセージの)失敗結果
+    {"成功": いいえ, "エラー": メッセージ}を戻す
+ここまで
+
+●(Nを)厳格変換
+    結果 = Nを安全変換
+    もし、結果["成功"]ならば、結果["値"]を戻す
+    結果["エラー"]のエラー発生
+ここまで
+
+●(Nを)空許容変換
+    もし、(Nの変数型確認) = 「string」 かつ N = 空ならば、空を戻す
+    NをFizzBuzz変換して戻す
+ここまで
+```
+
+`安全変換` は値としてのエラー（結果辞書）を返し、`厳格変換` はそれを例外に変換します。同じ失敗を「値」と「例外」の両方で扱い分けられる点は Prolog や Kotlin と共通ですが、辞書の形はあくまで慣習であり、呼び出し側が `成功` を確認し忘れても処理系は検出しません。
+
+また `空` は専用の null 型ではなく空文字列（`変数型確認` は string）であり、緩い比較では `0 = 空` も成り立ちます。そのため `空許容変換` は `N = 空` だけでなく型が string であることも確かめ、数値 0 を「値の不在」と取り違えないようにしています。ここでも、緩い比較の落とし穴を型の確認で補うという工夫が現れています。
+
 ### Option/Result パターン比較表
 
 | 言語 | 値の不在 | エラー付き失敗 | チェーン方法 |
@@ -260,6 +412,7 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | Haskell | `Maybe a` | `Either e a` | `do` 記法、`>>=` |
 | Scala | `Option[T]` | `Either[E, T]` | `for` 内包表記、`flatMap` |
 | F# | `Option<'T>` | `Result<'T, 'E>` | `|>` パイプライン |
+| Flix | `Option[t]` | `Result[e, t]` | パターンマッチ、効果システム |
 | Elixir | `:ok` / `:error` タプル | `:ok` / `:error` タプル | `with` 構文 |
 | Clojure | `nil` | `ex-info` / Map | スレッディングマクロ |
 | Java | `Optional<T>` | 例外 / `Optional` | `map` / `flatMap` |
@@ -269,6 +422,9 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | Ruby | `nil` | 例外 | `rescue` |
 | PHP | `null` | 例外 | `try/catch` |
 | C# | `null` / `T?` | 例外 | `?.` null 条件演算子 |
+| Kotlin | `T?`（null 安全） | `Result<T>` / 例外 | `?.` / `?:` / `getOrNull` |
+| Prolog | `nil` アトム | `ok` / `error` 直和項 | 節（パターンマッチ）、`catch/3` |
+| なでしこ3 | `空` | 成功結果 / 失敗結果の辞書 / 例外 | `もし` で `成功` を確認、`エラー監視` |
 
 ## エラーハンドリングの各言語アプローチ
 
@@ -287,6 +443,8 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | PHP | `try/catch/finally` | なし |
 | C# | `try/catch/finally` | なし |
 | Scala | `try/catch/finally` | なし |
+| Prolog | `catch/3` + `throw/1` | なし |
+| なでしこ3 | `エラー監視 … エラーならば` + `エラー発生` | なし |
 
 ### アプローチ 2: 値ベース（Result / Either）
 
@@ -298,6 +456,10 @@ static tryCreate(typeName: FizzBuzzTypeName): FizzBuzzType | undefined {
 | Haskell | `Either e a` | モナドとして合成可能 |
 | F# | `Result<'T, 'E>` | パイプラインで連鎖 |
 | Scala | `Either[E, T]` | `for` 内包表記で合成 |
+| Flix | `Result[e, t]` | パターンマッチ、代数的効果で副作用を追跡 |
+| Kotlin | `Result<T>` | `getOrNull` / `fold` / `map` で合成、例外も併用可 |
+| Prolog | `ok(Value)` / `error(Message)` 直和項 | 節（パターンマッチ）で網羅的に分岐 |
+| なでしこ3 | `{"成功": はい, "値": 値}` / `{"成功": いいえ, "エラー": メッセージ}` 辞書 | 慣習的な辞書、`もし` で分岐 |
 
 ### アプローチ 3: タプルベース
 
@@ -328,10 +490,10 @@ Clojure のように、動的に条件を判定するアプローチです。
 
 | レベル | 言語 | 特徴 |
 |--------|------|------|
-| null なし | Rust, Haskell | Option/Maybe で明示的に扱う |
-| null 安全機能あり | Kotlin, F#, Scala | Nullable アノテーション / Option |
+| null なし | Rust, Haskell, Flix | Option/Maybe で明示的に扱う |
+| null 安全機能あり | Kotlin, F#, Scala | `T` と `T?` を型で区別 / Option |
 | null 条件演算子あり | C#, TypeScript | `?.` で安全にアクセス |
-| null 可能 | Java, Go, Python, Ruby, PHP, Clojure, Elixir | 実行時に NullPointerException の可能性 |
+| null 可能 | Java, Go, Python, Ruby, PHP, Clojure, Elixir, Prolog, なでしこ3 | 実行時に NullPointerException の可能性（Prolog は `nil` アトムを値として扱う。なでしこ3 は空文字列である `空` で不在を表す） |
 
 ### 網羅性チェック（Exhaustiveness Checking）
 
@@ -339,9 +501,9 @@ Clojure のように、動的に条件を判定するアプローチです。
 
 | レベル | 言語 | 特徴 |
 |--------|------|------|
-| 厳密 | Rust, Haskell, F#, Scala | すべてのケースを網羅しないとコンパイルエラー |
+| 厳密 | Rust, Haskell, F#, Scala, Flix, Kotlin | すべてのケースを網羅しないとコンパイルエラー（Kotlin は sealed class / enum に対する式としての `when`） |
 | 警告 | TypeScript（narrowing） | 制御フロー分析で未処理ケースを警告 |
-| なし | Java, Go, Python, Ruby, PHP, Clojure, Elixir, C# | 実行時にデフォルトケースに到達 |
+| なし | Java, Go, Python, Ruby, PHP, Clojure, Elixir, C#, Prolog, なでしこ3 | 実行時にデフォルトケースに到達（Prolog は節の失敗で分岐。なでしこ3 は `もし` の最後で `エラー発生`） |
 
 ### FizzBuzz における型安全性の例
 
@@ -376,6 +538,64 @@ switch (type) {
 }
 ```
 
+## 型安全性のレーダー比較
+
+前節までの表（型の強さ・型推論・null 安全性・網羅性チェック）を 6 軸で数値化します。
+
+### 評価軸と基準
+
+| 軸 | 0〜1 | 2〜3 | 4〜5 |
+|----|------|------|------|
+| 静的型付け | 実行時のみ型を検査 | 型ヒント/漸進的型付け | コンパイル時に全式を検査 |
+| 型の強さ | 暗黙変換を広く許容 | 一部の暗黙変換を許容 | 暗黙変換がほぼない |
+| 型推論 | 型推論を持たない | ローカル変数のみ推論 | HM 型推論でほぼ全体を推論 |
+| null 安全 | null / nil が全型に入りうる | `?.` 等で緩和 | 型で null を区別または null なし |
+| 網羅性検査 | 検査なし | 制御フロー分析で警告 | 未網羅はコンパイルエラー |
+| Result 型 | 例外のみ | 慣習的なタプル/多値返却 | 標準の Option/Result を型で強制 |
+
+### 強い静的型付け言語
+
+```mermaid
+radar-beta
+  title 強い静的型付け言語の型安全性
+  axis st["静的型付け"], sg["型の強さ"], ti["型推論"]
+  axis ns["null 安全"], ex["網羅性検査"], rs["Result 型"]
+  curve haskell["Haskell"]{5, 5, 5, 5, 5, 5}
+  curve rust["Rust"]{5, 5, 4, 5, 5, 5}
+  curve flix["Flix"]{5, 5, 5, 5, 5, 5}
+  curve kotlin["Kotlin"]{5, 4, 4, 4, 4, 4}
+  max 5
+  min 0
+```
+
+Haskell・Rust・Flix は null を持たず Option/Maybe で不在を表現し、網羅性検査も厳密
+です。Flix はさらに代数的効果により副作用そのものを型で追跡します。Kotlin は `T` と
+`T?` を型で区別する null 安全と sealed class に対する `when` の網羅性検査を備え、
+JVM 言語としては最も高い水準にあります。
+
+### 中程度・動的型付け言語
+
+```mermaid
+radar-beta
+  title 中程度・動的型付け言語の型安全性
+  axis st["静的型付け"], sg["型の強さ"], ti["型推論"]
+  axis ns["null 安全"], ex["網羅性検査"], rs["Result 型"]
+  curve java["Java"]{5, 4, 3, 1, 1, 3}
+  curve ts["TypeScript"]{4, 3, 4, 3, 3, 3}
+  curve elixir["Elixir"]{1, 2, 0, 1, 1, 4}
+  curve prolog["Prolog"]{1, 2, 0, 1, 1, 3}
+  curve nadesiko["なでしこ3"]{1, 1, 0, 1, 1, 2}
+  max 5
+  min 0
+```
+
+Java は静的型付けでありながら null を型で区別できず、`switch` の網羅性も検査されない
+ため、null 安全と網羅性検査の軸が低くなります。Elixir は動的型付けですが
+`{:ok, value}` / `{:error, reason}` が言語文化として徹底しており、Result 型の軸では
+静的型付け言語に並びます。Prolog も `ok` / `error` の直和項で同様の表現を採ります。なでしこ3 は `1 = 「1」` を
+等しいとみなす暗黙変換があるため型の強さの軸が低く、Result 相当の結果辞書も言語の
+慣習ではなく本シリーズの設計であるため、最も小さな形になります。
+
 ## 型システムとテストの関係
 
 型の強さとテストの必要性は反比例の関係にあります。
@@ -384,22 +604,22 @@ switch (type) {
 テストの必要性: 高い ←──────────────────────→ 低い
 型の安全性:    低い ←──────────────────────→ 高い
 
-PHP  Ruby  Python  Clojure  Elixir  Java  Go  TS  C#  Scala  F#  Rust  Haskell
+なでしこ3  PHP  Ruby  Python  Prolog  Clojure  Elixir  Java  Go  TS  C#  Kotlin  Scala  F#  Rust  Haskell  Flix
 ```
 
 | 型安全性レベル | テスト戦略 | 言語例 |
 |-------------|----------|-------|
-| 非常に高い | 型で多くのバグを防止、プロパティベーステスト | Haskell, Rust |
-| 高い | 型 + 単体テストで十分 | F#, Scala, TypeScript |
+| 非常に高い | 型で多くのバグを防止、プロパティベーステスト | Haskell, Rust, Flix |
+| 高い | 型 + 単体テストで十分 | F#, Scala, TypeScript, Kotlin |
 | 中程度 | 単体テスト + 統合テスト | Java, C#, Go |
-| 低い | テストカバレッジが重要、TDD が特に有効 | Python, Ruby, PHP, Clojure, Elixir |
+| 低い | テストカバレッジが重要、TDD が特に有効 | Python, Ruby, PHP, Clojure, Elixir, Prolog, なでしこ3 |
 
 ## まとめ
 
 1. **静的型付け言語**はコンパイル時にバグを検出でき、IDE サポートが強力です。特に Rust, Haskell, F# の型システムは非常に強力です
 2. **Option/Result パターン**は例外に頼らない安全なエラーハンドリングを提供します。Rust と Haskell がこの分野のリーダーです
-3. **動的型付け言語**では TDD によるテストカバレッジが型安全性を補完する重要な役割を果たします
-4. **網羅性チェック**を持つ言語（Rust, Haskell, F#, Scala）では、新しいバリアントの追加時にすべての処理箇所を更新することが保証されます
+3. **動的型付け言語**では TDD によるテストカバレッジが型安全性を補完する重要な役割を果たします。Prolog は動的型ながら「単一化」「`integer/1` 等の型検査述語」「`ok` / `error` 直和項による値としてのエラー」で実行時の型安全性を確保します。なでしこ3 は `ASSERT等` の緩い比較を、`変数型確認` で型も比べるテスト補助で補い、成功結果 / 失敗結果の辞書と `空` で Result / Option 相当を表現します
+4. **網羅性チェック**を持つ言語（Rust, Haskell, F#, Scala, Flix, Kotlin）では、新しいバリアントの追加時にすべての処理箇所を更新することが保証されます。Kotlin は sealed class / enum に対する式としての `when` で網羅性を検査し、`String` と `String?` を型で区別する null 安全も備えます。特に Flix は代数的効果と効果システムにより、副作用そのものを型で追跡できる点が独自です
 5. **Go の多値返却**と **Elixir のタプルパターン**は、言語の哲学に合った独自のエラーハンドリングアプローチです
 
 次章では、開発環境と CI/CD の統一アプローチを比較します。

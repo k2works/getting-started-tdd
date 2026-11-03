@@ -1,6 +1,6 @@
-# 12 言語の概要と分類
+# 17 言語の概要と分類
 
-本章では、12 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
+本章では、17 言語を複数の軸で分類し、それぞれの設計思想と特徴を俯瞰します。最後に、各言語の FizzBuzz コア実装を比較することで、同一の仕様が言語ごとにどう表現されるかを確認します。
 
 ## パラダイム別分類
 
@@ -23,6 +23,7 @@
 | 言語 | 特徴 |
 |------|------|
 | Haskell | 純粋関数型、型クラス、モナド、遅延評価 |
+| Flix | JVM 上の関数型ファースト、ML 系型システム、代数的効果 |
 | Clojure | LISP 方言、動的型付け、不変データ構造、プロトコル |
 | Elixir | BEAM VM、パターンマッチング、パイプライン、OTP |
 | F# | .NET ランタイム、判別共用体、パイプライン演算子 |
@@ -38,7 +39,24 @@ OOP と FP の両方を自然にサポートする言語です。
 | Ruby | すべてがオブジェクト | ブロック/Proc/Lambda、Enumerable |
 | Rust | trait、構造体 | パターンマッチング、イテレータ、Option/Result |
 | Scala | クラス、trait | sealed trait/case class、for 内包表記 |
+| Kotlin | クラス、interface、data class | 高階関数、ラムダ、sealed class、Sequence |
 | Go | 構造体、インターフェース | ファーストクラス関数、クロージャ |
+
+### 論理型・宣言的（ロジックプログラミング）
+
+「何を求めるか」を関係（述語）として宣言し、単一化とバックトラッキングによって解を導出する、OOP・FP のいずれとも異なる第 4 のパラダイムです。
+
+| 言語 | 特徴 |
+|------|------|
+| Prolog | SWI-Prolog、論理型・宣言的、項（term）、単一化、バックトラッキング、複数節ディスパッチ |
+
+### 手続き型・日本語プログラミング
+
+英語のキーワードではなく、日本語の語順と **助詞** でプログラムを記述する言語です。手続き型を基本としながら、関数を値として扱えるため、無名関数とクロージャによる関数型のスタイルも取り入れられます。クラス構文は持たず、辞書と関数の組み合わせで設計します。
+
+| 言語 | 特徴 |
+|------|------|
+| なでしこ3 | 日本語の語順（「〜を〜する」）、助詞で引数の役割を表す関数定義、`〜して` による命令の連鎖、辞書・無名関数・クロージャ |
 
 ## 型システムによる分類
 
@@ -48,8 +66,8 @@ OOP と FP の両方を自然にサポートする言語です。
 
 | 分類 | 言語 | 型チェックのタイミング |
 |------|------|---------------------|
-| 静的型付け | Java, TypeScript, Go, Rust, C#, F#, Scala, Haskell | コンパイル時 |
-| 動的型付け | Python, Ruby, PHP, Clojure, Elixir | 実行時 |
+| 静的型付け | Java, TypeScript, Go, Rust, C#, F#, Scala, Haskell, Flix, Kotlin | コンパイル時 |
+| 動的型付け | Python, Ruby, PHP, Clojure, Elixir, Prolog, なでしこ3 | 実行時 |
 
 ### 型の強さのスペクトル
 
@@ -58,25 +76,25 @@ OOP と FP の両方を自然にサポートする言語です。
 ```
 弱い型付け ←────────────────────────────→ 強い型付け
 
-PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
+なでしこ3  PHP  JavaScript  Python  Ruby  Java  Go  C#  Kotlin  F#  Scala  Rust  Haskell  Flix
 ```
 
 | レベル | 言語例 | 特徴 |
 |--------|-------|------|
-| 非常に強い | Haskell, Rust | 暗黙の変換がほぼない、型推論が強力 |
-| 強い | Java, C#, F#, Scala, Go | 明示的なキャストが必要 |
+| 非常に強い | Haskell, Rust, Flix | 暗黙の変換がほぼない、型推論が強力 |
+| 強い | Java, C#, Kotlin, F#, Scala, Go | 明示的なキャストが必要 |
 | 中程度 | Python, Ruby, TypeScript | 一部の暗黙変換を許容 |
-| 比較的柔軟 | PHP, Clojure, Elixir | 動的だが実行時にチェック |
+| 比較的柔軟 | PHP, Clojure, Elixir, Prolog, なでしこ3 | 動的だが実行時にチェック（単一化と型検査述語、なでしこ3 は `1 = 「1」` を等しいとみなす暗黙変換あり） |
 
 ### 型推論の能力
 
 | レベル | 言語 | 例 |
 |--------|------|-----|
-| 完全推論（HM 型推論） | Haskell, F# | ほぼすべてのローカル型を推論 |
-| 高い推論能力 | Rust, Scala, TypeScript | ローカル変数・ジェネリクスの推論 |
+| 完全推論（HM 型推論） | Haskell, F#, Flix | ほぼすべてのローカル型を推論 |
+| 高い推論能力 | Rust, Scala, TypeScript, Kotlin | ローカル変数・ジェネリクスの推論 |
 | 中程度 | Java, C#, Go | `var` / `:=` によるローカル推論 |
 | 限定的 | Python, Ruby, PHP | 型ヒント/アノテーションで補完 |
-| 不要 | Clojure, Elixir | 動的型付けのため型推論が不要 |
+| 不要 | Clojure, Elixir, Prolog, なでしこ3 | 動的型付けのため型推論が不要 |
 
 ## ランタイム環境による分類
 
@@ -89,6 +107,8 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
 | Java | JVM のネイティブ言語、最大のエコシステム |
 | Scala | JVM + 独自の OOP/FP 融合 |
 | Clojure | JVM + LISP、Java ライブラリとの相互運用 |
+| Flix | JVM 上の関数型ファースト、代数的効果と効果システム |
+| Kotlin | JVM 上の OOP/FP ハイブリッド、Java 相互運用、null 安全 |
 
 ### BEAM（Erlang VM）
 
@@ -119,6 +139,13 @@ PHP  JavaScript  Python  Ruby  Java  Go  C#  F#  Scala  Rust  Haskell
 | Ruby | CRuby、DSL 構築に強い |
 | PHP | Zend Engine、Web に特化 |
 | TypeScript | Node.js (V8 JIT) 上で実行 |
+| なでしこ3 | Go で実装された互換処理系 nadesiko3go の CLI 版 `gonako` で実行（lint・format・doctest も同梱） |
+
+### 論理型 VM
+
+| 言語 | 特徴 |
+|------|------|
+| Prolog | WAM（Warren Abstract Machine）ベースの SWI-Prolog VM、単一化とバックトラッキングを実行 |
 
 ## FizzBuzz コア実装の比較
 
@@ -345,6 +372,55 @@ generate n
   | otherwise        = show n
 ```
 
+### Flix
+
+ML 系の型システムを持つ関数型ファースト言語による if 式ベースの定義です。
+
+```flix
+pub def convert(n: Int32): String =
+    if (Int32.remainder(n, 15) == 0)     "FizzBuzz"
+    else if (Int32.remainder(n, 3) == 0) "Fizz"
+    else if (Int32.remainder(n, 5) == 0) "Buzz"
+    else                                 Int32.toString(n)
+```
+
+### Kotlin
+
+`when` 式による網羅的な分岐です。JVM 上で動作し、式指向で簡潔に表現できます。
+
+```kotlin
+fun convert(n: Int): String = when {
+    n % 15 == 0 -> "FizzBuzz"
+    n % 3 == 0 -> "Fizz"
+    n % 5 == 0 -> "Buzz"
+    else -> n.toString()
+}
+```
+
+### Prolog
+
+複数節 + ガード + カットによる関係の定義です。関数の戻り値ではなく、第 2 引数を単一化で返します。
+
+```prolog
+fizzbuzz(N, "FizzBuzz") :- 0 is N mod 15, !.
+fizzbuzz(N, "Fizz")     :- 0 is N mod 3, !.
+fizzbuzz(N, "Buzz")     :- 0 is N mod 5, !.
+fizzbuzz(N, Result)     :- format(string(Result), "~w", [N]).
+```
+
+### なでしこ3
+
+日本語の語順で書く手続き型の定義です。`●(Nを)FizzBuzz変換` のように引数を助詞（`を`）付きで宣言し、呼び出し側も `3をFizzBuzz変換` と日本語の文として書きます。`Nを文字列変換して戻す` は `〜して` で命令をつなげ、前の命令の結果を次の命令に渡しています。
+
+```nako3
+●(Nを)FizzBuzz変換
+    もし、N % 15 = 0ならば,「FizzBuzz」を戻す
+    もし、N % 3 = 0ならば,「Fizz」を戻す
+    もし、N % 5 = 0ならば,「Buzz」を戻す
+    Nを文字列変換して戻す
+ここまで
+```
+
 ## 実装パターンの比較まとめ
 
 | 言語 | 分岐方法 | 型の安全性 | コード量 |
@@ -362,14 +438,99 @@ generate n
 | Scala | match + ガード節 | コンパイル時チェック | 少ない |
 | Elixir | cond + ガード節 | 実行時チェック | 少ない |
 | Haskell | ガード節 | コンパイル時 + 型クラス | 非常に少ない |
+| Flix | if 式 + パターンマッチ | コンパイル時 + 効果検査 | 少ない |
+| Kotlin | when 式 | コンパイル時 + null 安全 | 少ない |
+| Prolog | 複数節 + ガード + カット | 実行時（単一化） | 少ない |
+| なでしこ3 | もし + 早期リターン | 実行時チェック | 少ない |
+
+## パラダイム特性のレーダー比較
+
+前節までの分類を 6 つの軸で数値化し、レーダーチャートで俯瞰します。
+
+### 評価軸と基準
+
+| 軸 | 0〜1 | 2〜3 | 4〜5 |
+|----|------|------|------|
+| OOP 指向 | クラス/継承の概念を持たない | 構造体とインターフェースで代替 | クラス階層と継承が中心 |
+| FP 指向 | 関数が第一級でない | 高階関数を持つが可変性が既定 | 純粋関数・不変性が既定 |
+| 静的型付け | 実行時のみ型を検査 | 型ヒント/漸進的型付け | コンパイル時に全式を検査 |
+| パターンマッチ | 分岐は if/switch のみ | 限定的なマッチ構文 | 網羅性検査付きの構造的マッチ |
+| 簡潔性 | FizzBuzz 実装の記述量が多い | 中程度 | 非常に少ない |
+| 宣言性 | 手続きを逐次記述 | 一部を宣言的に記述 | 何を求めるかのみを記述 |
+
+評価は本シリーズの FizzBuzz 実装（`apps/` 配下）と各章の記述に基づく相対評価です。
+
+### OOP 系言語
+
+```mermaid
+radar-beta
+  title OOP 系言語のパラダイム特性
+  axis oop["OOP 指向"], fp["FP 指向"], st["静的型付け"]
+  axis pm["パターンマッチ"], cc["簡潔性"], dc["宣言性"]
+  curve java["Java"]{5, 2, 5, 1, 1, 1}
+  curve csharp["C#"]{5, 3, 5, 2, 2, 2}
+  curve php["PHP"]{5, 2, 2, 3, 2, 1}
+  curve kotlin["Kotlin"]{4, 4, 5, 4, 4, 3}
+  max 5
+  min 0
+```
+
+Java と C# はクラス階層とインターフェースで構造化する典型的な OOP 言語です。PHP は
+`match` 式を持つものの型検査は実行時です。Kotlin は同じ JVM 上で OOP を保ちながら
+data class・sealed class と高階関数により FP 指向と簡潔性を大きく高めています。
+
+### FP 系言語
+
+```mermaid
+radar-beta
+  title FP 系言語のパラダイム特性
+  axis oop["OOP 指向"], fp["FP 指向"], st["静的型付け"]
+  axis pm["パターンマッチ"], cc["簡潔性"], dc["宣言性"]
+  curve haskell["Haskell"]{1, 5, 5, 5, 5, 5}
+  curve flix["Flix"]{2, 5, 5, 5, 4, 5}
+  curve clojure["Clojure"]{2, 5, 1, 3, 4, 4}
+  curve elixir["Elixir"]{2, 5, 1, 4, 4, 4}
+  max 5
+  min 0
+```
+
+Haskell と Flix は純粋関数・不変性・網羅性検査付きパターンマッチを備え、宣言性と
+簡潔性がともに高くなります。Clojure と Elixir は動的型付けのため静的型付けの軸が
+低くなりますが、不変データと関数合成という FP の中核は共有しています。
+
+### マルチパラダイム言語・論理型言語・日本語プログラミング言語
+
+```mermaid
+radar-beta
+  title マルチパラダイム・論理型・日本語プログラミング言語のパラダイム特性
+  axis oop["OOP 指向"], fp["FP 指向"], st["静的型付け"]
+  axis pm["パターンマッチ"], cc["簡潔性"], dc["宣言性"]
+  curve rust["Rust"]{3, 4, 5, 5, 4, 3}
+  curve scala["Scala"]{4, 5, 5, 5, 4, 4}
+  curve ts["TypeScript"]{4, 3, 4, 2, 3, 2}
+  curve prolog["Prolog"]{1, 3, 1, 5, 4, 5}
+  curve nadesiko["なでしこ3"]{1, 2, 1, 1, 3, 2}
+  max 5
+  min 0
+```
+
+Rust と Scala は OOP と FP の双方を高い水準で備えます。Prolog は OOP 指向が最も低い
+一方で、複数節ディスパッチによる構造的マッチと宣言性が最大となり、他の 16 言語とは
+異なる形を描きます。宣言性という点では純粋 FP と近縁ですが、解を単一化と
+バックトラッキングで導出するという計算モデルの差がこの形に現れています。
+なでしこ3 はクラスもパターンマッチも持たない手続き型のため全体に小さな形になりますが、
+関数を値として扱えるため FP 指向は 0 になりません。この 6 軸には現れない「日本語の
+語順と助詞で書ける」という特性が、なでしこ3 の最大の個性です。
 
 ## まとめ
 
-12 言語の概要を俯瞰すると、以下の傾向が見えてきます。
+17 言語の概要を俯瞰すると、以下の傾向が見えてきます。
 
 1. **OOP 言語**（Java, C#, PHP）は、クラス階層とインターフェースにより構造化された FizzBuzz 実装となります
-2. **FP 言語**（Haskell, Clojure, Elixir, F#）は、パターンマッチングや条件式で簡潔に表現できます
-3. **マルチパラダイム言語**（Rust, Scala, TypeScript, Python, Ruby, Go）は、状況に応じて OOP と FP を使い分けることができます
+2. **FP 言語**（Haskell, Flix, Clojure, Elixir, F#）は、パターンマッチングや条件式で簡潔に表現できます。特に Flix は代数的効果と効果システムにより副作用を型で追跡できます
+3. **マルチパラダイム言語**（Rust, Scala, TypeScript, Python, Ruby, Go, Kotlin）は、状況に応じて OOP と FP を使い分けることができます。特に Kotlin は data class・sealed class と高階関数を備え、Java 相互運用しながら null 安全を型で保証します
 4. **パターンマッチング**を持つ言語（Rust, Scala, F#, Haskell, Elixir）は、FizzBuzz のような条件分岐を特に簡潔に書けます
+5. **論理型・宣言的言語**（Prolog）は、FizzBuzz を関数ではなく関係として定義し、複数節ディスパッチ・単一化・バックトラッキングという独自の計算モデルで表現します。宣言性という点では純粋 FP（Haskell, Flix）と近縁ですが、解の導出方法が根本的に異なります
+6. **日本語プログラミング言語**（なでしこ3）は、FizzBuzz を日本語の文として表現します。`●(Nを)FizzBuzz変換` の助詞で引数の役割を示し、`〜して` で命令を連鎖させる書き方は、他の 16 言語にはない独自の表現です。クラス構文を持たないため、多態性は辞書と関数の組み合わせで実現します
 
 次章では、これらの言語のテストフレームワークを詳しく比較します。

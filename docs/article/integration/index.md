@@ -1,6 +1,6 @@
 # 多言語統合解説
 
-本章では、12 言語（Java, Python, TypeScript, Ruby, Go, PHP, Rust, C#, F#, Clojure, Scala, Elixir, Haskell）による FizzBuzz TDD 実装を横断的に比較し、言語の設計思想、テストフレームワーク、TDD パターン、型システム、開発環境を統合的に解説します。
+本章では、17 言語（Java, Python, TypeScript, Ruby, Go, PHP, Rust, C#, F#, Clojure, Scala, Elixir, Haskell, Flix, Kotlin, Prolog, なでしこ3）による FizzBuzz TDD 実装を横断的に比較し、言語の設計思想、テストフレームワーク、TDD パターン、型システム、開発環境を統合的に解説します。
 
 ## 本章の目的
 
@@ -28,6 +28,10 @@
 | Scala | ScalaTest | sbt | scalafmt, WartRemover | OOP/FP |
 | Elixir | ExUnit | Mix | Credo | FP |
 | Haskell | HSpec | Stack | HLint | 純粋 FP |
+| Flix | flix test | Flix (flix.jar) | コンパイラ標準 | 純粋 FP |
+| Kotlin | kotlin.test | Gradle | detekt, ktlint | OOP/FP |
+| Prolog | plunit | make | ロード時検査（singleton 等） | 論理型・宣言的 |
+| なでしこ3 | ASSERT等 + 自作テスト補助 | make | gonako lint / format | 手続き型・日本語 |
 
 > **Note**: C# と F# は dotnet 環境として 1 つのイテレーションにまとめています。
 
@@ -35,12 +39,16 @@
 
 | 章 | タイトル | 内容 |
 |----|---------|------|
-| 1 | [12 言語の概要と分類](01-language-overview.md) | パラダイム分類、型システム、ランタイム、FizzBuzz コア実装比較 |
+| 1 | [17 言語の概要と分類](01-language-overview.md) | パラダイム分類、型システム、ランタイム、FizzBuzz コア実装比較 |
 | 2 | [テストフレームワーク比較](02-test-framework-comparison.md) | テスト構造、アサーション、実行コマンドの比較 |
 | 3 | [パラダイム別 TDD パターン比較](03-tdd-pattern-comparison.md) | OOP/FP の TDD、ポリモーフィズム、コマンドパターン比較 |
 | 4 | [型システムとエラーハンドリング比較](04-type-system-comparison.md) | 静的/動的型付け、Option/Result パターン、型安全性 |
 | 5 | [開発環境と CI/CD 比較](05-dev-environment-comparison.md) | Nix 統一環境、ビルド/リンター比較、CI/CD パターン |
 | 6 | [学習ロードマップ](06-learning-roadmap.md) | 推奨学習順序、概念マップ、次のステップ |
+| 7 | [トータルスコアによる総合比較](07-total-score-comparison.md) | 4 領域に集約した 17 言語のトータルスコアと読み方 |
+| 8 | [コラム: 言語の性格を比喩で掴む](08-language-personality-column.md) | 17 言語の性格を 2 通りの比喩で整理（参考コラム） |
+| 9 | [コラム: なでしこ3 を 17 言語で日本語実装する](09-japanese-implementation-column.md) | なでしこ3 の実装を他の 17 言語で日本語化し、日本語化スコアとレーダーチャートで比較（参考コラム） |
+| 10 | [コラム: なでしこ3 を Python 風に書く](10-nadesiko-python-style-column.md) | なでしこ3 を Python 風インラインインデント構文で書き、Python と TDD で並べて FizzBuzz とボウリングゲームを育てる（参考コラム） |
 
 ## 読み方のガイド
 
@@ -48,7 +56,7 @@
 
 ### 通読
 
-第 1 章から順に読み進めることで、12 言語の全体像を俯瞰できます。
+第 1 章から順に読み進めることで、17 言語の全体像を俯瞰できます。
 
 ### リファレンス
 
