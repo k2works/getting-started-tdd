@@ -54,12 +54,10 @@ public class FizzBuzzValue {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        FizzBuzzValue that = (FizzBuzzValue) obj;
-        return number == that.number
-            && Objects.equals(value, that.value);
+        return obj instanceof FizzBuzzValue that
+                && getClass() == that.getClass()
+                && number == that.number
+                && Objects.equals(value, that.value);
     }
 
     @Override

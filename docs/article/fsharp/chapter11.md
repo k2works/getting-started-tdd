@@ -31,15 +31,15 @@ Assert.Equal("Buzz", newValue.Value) // 新しい値が作成される
 
 ### FizzBuzzList の不変設計
 
-`Add` メソッドは元のリストを変更せず、新しいリストを返します。
+`FizzBuzzList.add` は元のリストを変更せず、新しいリストを返します。
 
 ```fsharp
 [<Fact>]
 let ``値を追加できる`` () =
-    let list = emptyList
-    let newList = list.Add(createValue 1 "1")
-    Assert.Equal(1, newList.Count)
-    Assert.Equal(0, list.Count)  // 元のリストは不変
+    let list = FizzBuzzList.empty
+    let newList = list |> FizzBuzzList.add (createValue 1 "1")
+    Assert.Equal(1, FizzBuzzList.count newList)
+    Assert.Equal(0, FizzBuzzList.count list)  // 元のリストは不変
 ```
 
 ## 11.3 List モジュール
@@ -134,26 +134,26 @@ Rust のイテレータも遅延評価ですが、F# では `List`（即時）�
 
 ### パイプラインによるコレクション操作
 
-FizzBuzzList にコレクション操作メソッドを追加します。
+コンパニオンモジュール `FizzBuzzList` にコレクション操作の関数を追加します。操作対象のリストは最後の引数（data-last）です。
 
 ```fsharp
-member this.Filter(predicate: FizzBuzzValue -> bool) =
-    { Values = this.Values |> List.filter predicate }
+let filter (predicate: FizzBuzzValue -> bool) (list: FizzBuzzList) =
+    { Values = list.Values |> List.filter predicate }
 
-member this.FindFirst(predicate: FizzBuzzValue -> bool) =
-    this.Values |> List.tryFind predicate
+let findFirst (predicate: FizzBuzzValue -> bool) (list: FizzBuzzList) =
+    list.Values |> List.tryFind predicate
 
-member this.ToStringValues() =
-    this.Values |> List.map (fun v -> v.Value)
+let toStringValues (list: FizzBuzzList) =
+    list.Values |> List.map (fun v -> v.Value)
 
-member this.Add(value: FizzBuzzValue) =
-    { Values = this.Values @ [ value ] }
+let add (value: FizzBuzzValue) (list: FizzBuzzList) =
+    { Values = list.Values @ [ value ] }
 
-member this.AddRange(values: FizzBuzzValue list) =
-    { Values = this.Values @ values }
+let addRange (values: FizzBuzzValue list) (list: FizzBuzzList) =
+    { Values = list.Values @ values }
 ```
 
-すべてのメソッドが **新しい値を返す** 設計です。元のリストは変更されません。
+すべての関数が **新しい値を返す** 設計です。元のリストは変更されません。
 
 ### テストで確認
 
@@ -165,7 +165,7 @@ let ``文字列リストに変換できる`` () =
             [ createValue 1 "1"
               createValue 3 "Fizz"
               createValue 5 "Buzz" ]
-    let strings = list.ToStringValues()
+    let strings = list |> FizzBuzzList.toStringValues
     Assert.Equal<string list>([ "1"; "Fizz"; "Buzz" ], strings)
 
 [<Fact>]
@@ -175,7 +175,7 @@ let ``最初の一致する値を取得できる`` () =
             [ createValue 1 "1"
               createValue 3 "Fizz"
               createValue 6 "Fizz" ]
-    let found = list.FindFirst(fun v -> v.Value = "Fizz")
+    let found = list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
     Assert.True(found.IsSome)
     Assert.Equal(3, found.Value.Number)
 
@@ -183,7 +183,7 @@ let ``最初の一致する値を取得できる`` () =
 let ``一致する値がない場合はNoneを返す`` () =
     let list =
         createList [ createValue 1 "1"; createValue 2 "2" ]
-    let found = list.FindFirst(fun v -> v.Value = "Fizz")
+    let found = list |> FizzBuzzList.findFirst (fun v -> v.Value = "Fizz")
     Assert.True(found.IsNone)
 ```
 

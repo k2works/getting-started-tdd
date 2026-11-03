@@ -173,6 +173,8 @@ import tdd.fizzbuzz.domain.type.FizzBuzzType;
 public class App {
     private static final int MAX_NUMBER = 100;
 
+    // コマンドラインの入口として標準出力へ結果を表示する
+    @SuppressWarnings("PMD.SystemPrintln")
     public static void main(String[] args) {
         FizzBuzzType type = FizzBuzzType.create(1);
 

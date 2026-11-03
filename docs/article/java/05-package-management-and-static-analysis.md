@@ -61,6 +61,7 @@ jacoco {
 }
 
 pmd {
+    toolVersion = '7.7.0'
     ruleSetFiles = files('config/pmd/ruleset.xml')
     ruleSets = []
 }
@@ -100,6 +101,11 @@ $ ./gradlew checkstyleMain
 ```bash
 $ ./gradlew pmdMain
 ```
+
+> **Note**: `pmd` ブロックでは `toolVersion` を必ず指定します。Gradle 8 系が既定で使う PMD 6.55.0 は
+> Java 21 のクラスファイルを読めず（`Unsupported class file major version 65`）、全ファイルが解析エラーに
+> なります。しかも、そのときタスクは違反 0 件として **成功扱い** になるため、検査が働いていないことに
+> 気づけません。本記事では Java 21 に対応した PMD 7.7.0 を指定しています。
 
 ### SpotBugs
 
@@ -306,9 +312,20 @@ $ ./gradlew jacocoTestReport
 
     <!-- 基本ルール -->
     <rule ref="category/java/bestpractices.xml">
-        <exclude name="JUnitTestContainsTooManyAsserts"/>
+        <!-- PMD 7 で JUnitTestContainsTooManyAsserts から改名された -->
+        <exclude name="UnitTestContainsTooManyAsserts"/>
+        <!-- テストの意図はメソッド名で表すため、アサーションごとのメッセージは求めない -->
+        <exclude name="UnitTestAssertionsShouldIncludeMessage"/>
     </rule>
-    <rule ref="category/java/errorprone.xml"/>
+    <rule ref="category/java/errorprone.xml">
+        <exclude name="AvoidDuplicateLiterals"/>
+    </rule>
+    <!-- 期待値の文字列（"Fizz" など）を繰り返すのはテストでは自然なため、テストクラスでは検査しない -->
+    <rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals">
+        <properties>
+            <property name="violationSuppressXPath" value="//ClassDeclaration[ends-with(@SimpleName, 'Test')]"/>
+        </properties>
+    </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AtLeastOneConstructor"/>
         <exclude name="OnlyOneReturn"/>
@@ -319,6 +336,13 @@ $ ./gradlew jacocoTestReport
         <exclude name="ShortMethodName"/>
         <exclude name="ShortClassName"/>
         <exclude name="CommentDefaultAccessModifier"/>
+        <exclude name="MethodNamingConventions"/>
+    </rule>
+    <!-- 記事では JUnit 5 のテストメソッド名を日本語で書くため、日本語を含む名前も許可する -->
+    <rule ref="category/java/codestyle.xml/MethodNamingConventions">
+        <properties>
+            <property name="junit5TestPattern" value="[a-z][a-zA-Z0-9]*|(?=.*[\p{IsHan}\p{IsHiragana}\p{IsKatakana}])[\p{L}\p{N}_]+"/>
+        </properties>
     </rule>
 
     <!-- コード複雑度 -->
@@ -345,6 +369,7 @@ $ ./gradlew jacocoTestReport
 
 ```groovy
 pmd {
+    toolVersion = '7.7.0'
     ruleSetFiles = files('config/pmd/ruleset.xml')
     ruleSets = []
 }
